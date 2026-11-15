@@ -1,0 +1,13 @@
+---
+// Decorative "vine" shape from Figma (Vector 441×1304). Purely visual, hidden from AT.
+// Position it with the `style` prop (top/left/right/rotate) inside a position:relative section.
+import raw from '../../assets/deco/vine.svg?raw';
+interface Props { class?: string; style?: string; opacity?: number; color?: string; width?: number }
+const { class: cls, style = '', opacity = 0.04, color = '#fff', width = 441 } = Astro.props;
+const svg = raw.replace('<svg', `<svg width="${width}" height="${Math.round(width * 1304 / 441)}" aria-hidden="true" focusable="false"`);
+---
+<span class:list={['deco', cls]} style={`color:${color};opacity:${opacity};${style}`} set:html={svg} />
+<style is:global>
+  .deco { position: absolute; pointer-events: none; z-index: 0; line-height: 0; }
+  .deco svg { display: block; max-width: none; }
+</style>

@@ -1,0 +1,384 @@
+{
+ "sections": [
+  {
+   "name": "Header – Chiropractic Care Through Pregnancy in A",
+   "title": "Chiropractic Care Through <span class=\"hl\">Pregnancy</span> in Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "West End Chiropractic has cared for pregnant patients in Austin since 1994. Comfortable positioning, adaptations for each trimester, and care that works alongside your OB or midwife."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In-network with major insurances"
+    },
+    {
+     "icon": "car-front",
+     "text": "Free parking off MoPac"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Serving Austin since 1994"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/pregnancy-adjustment",
+     "w": 390,
+     "h": 451
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What Makes West End Different for Pregnancy Patients",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Pregnancy changes what your spine and pelvis are asked to do. Weight shifts forward, ligaments loosen, and the same posture that felt fine three months ago starts to hurt. West End has cared for pregnant patients since 1994, and Casey Morgan D.C. adapts every visit to what your body needs at your stage."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Adapted for each trimester",
+     "text": "Positioning changes as pregnancy progresses. Most adjustments stay the same until about the last four weeks, then Dr. Morgan modifies them, with pregnancy pillows and side-lying positions so you're comfortable at every visit."
+    },
+    {
+     "title": "We work alongside your OB or midwife",
+     "text": "Chiropractic care during pregnancy works best as part of your full care team. We stay in our lane and let your OB or midwife lead your pregnancy care."
+    },
+    {
+     "title": "Fast, in and out",
+     "text": "Most adjustments take under 3 minutes. You don't have hours to spend in a chiropractor's office when you're 34 weeks pregnant."
+    },
+    {
+     "title": "Free parking off MoPac",
+     "text": "No walking three blocks from a parking garage. Just pull in and come inside."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-portrait-standing",
+     "w": 342,
+     "h": 402,
+     "pos": "100% 26%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What We Help Pregnant Patients With",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most pregnancy patients come to us for one of these:"
+    },
+    {
+     "w": 600,
+     "t": "Lower back pain that started or got worse during pregnancy"
+    },
+    {
+     "w": 600,
+     "t": "Sciatica or shooting pain down the leg"
+    },
+    {
+     "w": 600,
+     "t": "Hip pain, especially at night when you're trying to sleep"
+    },
+    {
+     "w": 600,
+     "t": "Round ligament pain in the abdomen"
+    },
+    {
+     "w": 600,
+     "t": "Tension between the shoulder blades from posture changes"
+    },
+    {
+     "w": 600,
+     "t": "Neck stiffness from side-sleeping"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "check",
+     "title": "Preparation for delivery (posture, pelvic alignment, comfort)",
+     "text": "Every pregnancy is different. What we can help with depends on where you are in your pregnancy and what your OB is comfortable with. Come in for an evaluation and we'll be honest about what we can and can't help with."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/spine-model-consult-woman-alt",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "Row – Your First Pregnancy Visit",
+   "title": "Your First Pregnancy Visit",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit takes about 30 minutes."
+    },
+    {
+     "w": 500,
+     "t": "No X-rays during pregnancy. We use physical exam and history only."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Talk through your history and symptoms.",
+     "text": "We ask about your pregnancy, any pain or discomfort, your OB or midwife's name, and anything they've asked you to avoid."
+    },
+    {
+     "title": "Full physical evaluation.",
+     "text": "We check your posture, pelvic alignment, range of motion, and any specific areas that hurt. No X-rays during pregnancy."
+    },
+    {
+     "title": "Care plan you'll actually understand.",
+     "text": "We talk through what we can help with, what we can't, and how often you'd come in during your remaining pregnancy."
+    },
+    {
+     "title": "Your first adjustment, if appropriate.",
+     "text": "Adapted to your trimester, using comfortable positioning."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-woman-table",
+     "w": 390,
+     "h": 1478,
+     "pos": "47% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Pregnancy Care \nWorks Best as a Team",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The best pregnancy care isn't one provider. It's your OB or midwife, your chiropractor, sometimes a massage therapist, sometimes a pelvic floor PT. We keep it that way."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Your OB or midwife stays in charge of your pregnancy.",
+     "text": "We work alongside them and stay in our lane. If they don't want us to do something, we don't do it."
+    },
+    {
+     "title": "Massage during pregnancy pairs well with chiropractic.",
+     "text": "For patients who want it, we know and trust Mari Diaz at LuaNova. She specializes in prenatal massage and works around Austin. (Not affiliated with us financially, just a good provider.)"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/shoulder-assessment-woman",
+     "w": 342,
+     "h": 499,
+     "pos": "41% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Insurance and Pricing",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Your first visit covers your history, exam, and evaluation. Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> West End is in-network with BCBS, UnitedHealthcare, UMR, Surest, Aetna, Meritain, Humana, Ambetter, Ascension SmartHealth, Curative, WebTPA, and Medicare. Send us your insurance info when you book and we’ll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in. We are not a Medicaid provider."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask about your pregnancy, what hurts, and anything your OB or midwife wants you to avoid."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "He checks your posture, pelvic alignment, and where it hurts, and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-tablet-patient",
+     "w": 342,
+     "h": 360,
+     "pos": "39% 49%"
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "What Pregnancy Patients Say",
+   "paras": [
+    {
+     "w": 400,
+     "t": "From patients who came to us during pregnancy."
+    },
+    {
+     "w": 400,
+     "t": "Dr. Morgan at West End Chiropractic does an amazing job. I have seen him pre and post pregnancy and his adjustment makes a world of difference."
+    },
+    {
+     "w": 600,
+     "t": "Caitlin Craver"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    },
+    {
+     "w": 400,
+     "t": "I was referred to West End Chiropractic by a friend and I love it! Dr. Morgan has amazing rapport and knowledge. I immediately felt very comfortable, which was very important to me since I'm pregnant and wanted to be sure I had a chiropractor who knew how to handle a pregnant gal! They are super efficient as well with check-in/out, which makes going in during the work day possible. Overall, amazing experience and I have enjoyed every person who works there."
+    },
+    {
+     "w": 600,
+     "t": "Jen H"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See all Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Is chiropractic care safe during pregnancy?",
+     "a": "Chiropractic care during pregnancy is common and many pregnant patients find it helpful. That said, every pregnancy is different. We always recommend you talk with your OB or midwife before starting care with us, especially if you have a high-risk pregnancy. We work alongside them throughout your care."
+    },
+    {
+     "q": "Do I need a referral from my OB?",
+     "a": "Not usually. Most insurance plans don't require a referral for chiropractic care. If you're on an HMO, check your plan (see our Insurance page for details). Even without a required referral, we like to know your OB or midwife is on the same page."
+    },
+    {
+     "q": "When in pregnancy should I start?",
+     "a": "Most patients come to us in the second or third trimester when weight shifts start causing back or hip pain. Some patients start in the first trimester for morning-related tension or headaches. There isn't a 'wrong' time to start. Come in when you have symptoms."
+    },
+    {
+     "q": "Will you use X-rays?",
+     "a": "No. We do not X-ray during pregnancy. Our evaluation is entirely history and physical exam."
+    },
+    {
+     "q": "What positioning do you use for adjustments?",
+     "a": "Most of the same adjustments work until about the last four weeks. After that, Dr. Morgan modifies them, using side-lying positions, pregnancy pillow support, or seated adjustments. Every pregnancy is different, so he adapts to yours. If something doesn't feel right, tell us and we'll adjust."
+    },
+    {
+     "q": "How often will I come in?",
+     "a": "Usually more often as your pregnancy goes on, not less. Your body keeps changing, so Dr. Morgan sets your schedule with you and adjusts it as you go."
+    },
+    {
+     "q": "Do you also treat kids?",
+     "a": "Yes, we see pediatric patients when a parent brings them in, but pediatric care isn't our focus. If you're specifically looking for a pediatric-focused chiropractor, we can recommend colleagues who specialize."
+    },
+    {
+     "q": "Do you see older patients?",
+     "a": "Yes. Many of our long-term patients are 50+. Our approach is the same at any age: real evaluation, real adjustment, care plan you understand."
+    },
+    {
+     "q": "Do you work with midwives?",
+     "a": "Yes. Dr. Morgan works alongside your midwife or OB, and they stay in charge of your pregnancy care. Give us your midwife's name at your first visit."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Book Your Pregnancy Visit",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day and next-day appointments often available. Please mention your due date when you book."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

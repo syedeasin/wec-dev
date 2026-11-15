@@ -1,0 +1,6 @@
+---
+import FormsPage from '../components/blocks/FormsPage.astro';
+import data from '../data/pages/forms.json';
+import { site } from '../data/site';
+---
+<FormsPage data={data} title="New Patient Forms | West End Chiropractic" description="Fill out your new patient intake forms before your first visit at West End Chiropractic in downtown Austin." url={site.forms.intakeUrl} pdf={site.forms.intakePdf} />

@@ -1,0 +1,35 @@
+---
+// FAQ accordion (native <details>, works without JS) + FAQPage structured data.
+import Icon from '../ui/Icon.astro';
+import SectionHead from '../ui/SectionHead.astro';
+interface Props { items: { q: string; a: string }[]; title?: string; openFirst?: boolean; bg?: 'sand' | 'white'; id?: string }
+const { items, title = 'Common <strong>Questions</strong>', openFirst = true, bg = 'sand', id = 'faq' } = Astro.props;
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a.replace(/<[^>]+>/g, '') } })) };
+---
+<section class:list={['section', 'faq', bg === 'sand' ? 'section--sand' : 'section--white']} id={id}>
+  <div class="container faq__inner">
+    <SectionHead title={title} />
+    <div class="faq__list" data-faq>
+      {items.map((item, i) => (
+        <details class="faq__item" open={openFirst && i === 0} name="faq">
+          <summary class="faq__q"><span>{item.q}</span><Icon name="chevron-down" size={20} class="faq__chev" /></summary>
+          <div class="faq__a" set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</section>
+<style is:global>
+  .faq__inner { display: flex; flex-direction: column; align-items: center; gap: 60px; }
+  .faq__list { width: 100%; max-width: 800px; display: flex; flex-direction: column; gap: 16px; }
+  .faq__item { background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); }
+  .faq__q { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 24px; cursor: pointer; list-style: none;
+    font-size: 16px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__chev { flex: none; margin-top: 1px; transition: transform var(--dur) var(--ease); }
+  .faq__item[open] .faq__chev { transform: rotate(180deg); }
+  .faq__a { padding: 0 24px 24px; margin-top: -16px; font-size: 14px; line-height: 22px; color: var(--navy-600); max-width: 640px; }
+  .faq__a p + p { margin-top: 8px; }
+  @media (max-width: 767.98px) { .faq__inner { gap: 40px; } }
+</style>

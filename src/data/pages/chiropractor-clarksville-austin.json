@@ -1,0 +1,276 @@
+{
+ "sections": [
+  {
+   "name": "Hero",
+   "title": "Chiropractor in <span class=\"hl\">Clarksville, Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "West End sits right on the edge of Clarksville, close enough to walk. Casey Morgan D.C. has been the neighborhood chiropractor since 2016, in a practice that's been here since 1994."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "footprints",
+     "text": "Walkable from Clarksville"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/shoulder-assessment-man",
+     "w": 390,
+     "h": 451,
+     "pos": "38% 21%",
+     "flip": true
+    }
+   ]
+  },
+  {
+   "name": "Section / Where We Are",
+   "title": "Right around the corner",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">WHERE WE ARE</span>"
+    },
+    {
+     "w": 400,
+     "t": "West End Chiropractic is at 1611 W. 5th St., on the ground floor of 5th Street Commons, just across from Clarksville and off MoPac."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Walkable from Clarksville",
+     "text": "For a lot of Clarksville patients, that means walking over. If you drive, the covered garage is free."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "map-pin",
+     "text": "1611 W. 5th St., STE 110, Austin, TX 78703"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "West End Chiropractic",
+     "text": "5th Street Commons, ground floor"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get directions"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 300
+    }
+   ]
+  },
+  {
+   "name": "Section / Why It Works",
+   "title": "Your neighborhood chiropractor",
+   "cards": [
+    {
+     "icon": "footprints",
+     "title": "Close enough to walk",
+     "text": "No traffic, no parking, no getting back behind the wheel after an adjustment."
+    },
+    {
+     "icon": "timer",
+     "title": "Quick visits",
+     "text": "After your first visit, most take a few minutes. Easy to fit in before work, at lunch, or on the way home."
+    },
+    {
+     "icon": "clock",
+     "title": "Here for the long haul",
+     "text": "West End has cared for this part of Austin since 1994. Casey Morgan D.C. has led it since 2016."
+    }
+   ]
+  },
+  {
+   "name": "Section / What We See",
+   "title": "What we see most from the neighborhood",
+   "cards": [
+    {
+     "icon": "spine",
+     "title": "Lower Back Pain",
+     "text": "Long days at a desk, then a weekend of running or yard work."
+    },
+    {
+     "icon": "laptop",
+     "title": "Neck Pain",
+     "text": "From screens, laptops, and phones."
+    },
+    {
+     "icon": "brain",
+     "title": "Headaches",
+     "text": "Often starting in the neck."
+    },
+    {
+     "icon": "baby",
+     "title": "Pregnancy Back Pain",
+     "text": "A lot of young families in the area."
+    }
+   ]
+  },
+  {
+   "name": "Section / Insurance",
+   "title": "In-network with most plans in the neighborhood",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">INSURANCE</span>"
+    },
+    {
+     "w": 400,
+     "t": "We're in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Ascension SmartHealth, Medicare, and more."
+    },
+    {
+     "w": 400,
+     "t": "Send us your insurance info when you book and we'll look into your coverage before your first visit."
+    },
+    {
+     "w": 700,
+     "t": "IN-NETWORK PLANS"
+    },
+    {
+     "w": 500,
+     "t": "BCBS"
+    },
+    {
+     "w": 500,
+     "t": "UnitedHealthcare"
+    },
+    {
+     "w": 500,
+     "t": "Aetna"
+    },
+    {
+     "w": 500,
+     "t": "Humana"
+    },
+    {
+     "w": 500,
+     "t": "Ambetter"
+    },
+    {
+     "w": 500,
+     "t": "Ascension SmartHealth"
+    },
+    {
+     "w": 500,
+     "t": "Medicare"
+    },
+    {
+     "w": 500,
+     "t": "And more"
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">See every plan we take</span>"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Verify My Insurance"
+    }
+   ]
+  },
+  {
+   "name": "Section / Reviews (sitewide widget)",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Section / FAQ",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Can I walk over from Clarksville?",
+     "a": "For most of the neighborhood, yes. We're at 1611 W. 5th St., just across from Clarksville."
+    },
+    {
+     "q": "Is there parking if I drive?",
+     "a": "Yes. Free covered garage parking at 5th Street Commons."
+    },
+    {
+     "q": "How soon can I get in?",
+     "a": "Often the same day. Book online or call (512) 472-1116."
+    },
+    {
+     "q": "What are your hours?",
+     "a": "Monday through Thursday, 8am to 1pm and 3pm to 5pm."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Your neighborhood chiropractor is around the corner",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. Follow-up visits take a few minutes."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

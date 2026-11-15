@@ -1,0 +1,63 @@
+---
+import Icon from './Icon.astro';
+type Variant = 'primary' | 'secondary' | 'secondary-light' | 'outline-light' | 'tertiary' | 'pill';
+interface Props {
+  href?: string;
+  variant?: Variant;
+  size?: 'default' | 'small';
+  icon?: string;          // icon before label
+  iconAfter?: string;     // icon after label (tertiary uses arrow-up-right)
+  block?: boolean;        // full width (mobile stacks)
+  blockMobile?: boolean;  // full width below 768 only
+  type?: 'button' | 'submit';
+  class?: string;
+  [key: string]: any;
+}
+const { href, variant = 'primary', size = 'default', icon, iconAfter, block, blockMobile, type = 'button', class: cls, ...rest } = Astro.props;
+const Tag = href ? 'a' : 'button';
+const iconSize = variant === 'tertiary' || size === 'small' ? 16 : 20;
+const after = iconAfter ?? (variant === 'tertiary' ? 'arrow-up-right' : undefined);
+const classes = ['btn', `btn--${variant}`, size === 'small' && 'btn--sm', block && 'btn--block', blockMobile && 'btn--block-mobile', cls].filter(Boolean).join(' ');
+---
+<Tag class={classes} href={href} type={href ? undefined : type} {...rest}>
+  {icon && <Icon name={icon} size={iconSize} />}
+  <span class="btn__label"><slot /></span>
+  {after && <Icon name={after} size={iconSize} />}
+</Tag>
+
+<style is:global>
+  .btn {
+    --btn-h: 61px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: var(--btn-h); padding: 0 32px;
+    border-radius: var(--radius-md);
+    font-size: 16px; font-weight: 600; line-height: 1; letter-spacing: 0;
+    white-space: nowrap; text-align: center; cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Montserrat sits optically centred at line-height:1; trim the text box where supported */
+  .btn__label { display: block; line-height: 1; padding-block: 1px 0; text-box: trim-both cap alphabetic; }
+  .btn .icon { flex: none; }
+  .btn--sm { --btn-h: 38px; padding: 0 16px; font-size: 14px; }
+  .btn--block { width: 100%; }
+  @media (max-width: 767.98px) { .btn--block-mobile { width: 100%; } }
+
+  .btn--primary { background: var(--gradient-primary); color: var(--white); box-shadow: var(--shadow-btn); }
+  .btn--primary:hover { background: var(--gradient-primary-hover); }
+  .btn--primary:active { background: var(--gradient-primary-press); }
+
+  .btn--secondary { padding-inline: 24px; color: var(--navy-900); box-shadow: inset 0 0 0 1.6px rgb(15 45 64 / 0.16); background: transparent; }
+  .btn--secondary:hover { background: rgb(15 45 64 / 0.06); box-shadow: inset 0 0 0 1.6px var(--navy-900); }
+  .btn--secondary:active { background: rgb(15 45 64 / 0.12); }
+
+  .btn--outline-light { color: var(--white); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.16); background: transparent; }
+  .btn--outline-light:hover { background: rgb(255 255 255 / 0.08); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4); }
+
+  .btn--tertiary { --btn-h: 22px; padding: 0; font-size: 14px; color: var(--orange-500); background: none; }
+  .btn--tertiary:hover { color: var(--orange-600); }
+  .btn--tertiary:hover .icon { transform: translate(2px, -2px); }
+  .btn--tertiary .icon { transition: transform var(--dur-fast) var(--ease); }
+
+  .btn--pill { --btn-h: 34px; padding: 0 12px; border-radius: var(--radius-md); font-size: 12px; background: rgb(114 166 200 / 0.08); color: var(--blue-300); }
+</style>

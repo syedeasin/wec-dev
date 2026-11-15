@@ -1,0 +1,255 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">Car Accident</span> Injury Symptoms to Watch For",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Some crash injuries show up right away. A lot of them don't. Here's what to watch for in the days after a wreck, and when to get checked."
+    },
+    {
+     "w": 500,
+     "t": "Auto injury care since 1994"
+    },
+    {
+     "w": 500,
+     "t": "Digital X-rays on site"
+    },
+    {
+     "w": 500,
+     "t": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-screen",
+     "w": 390,
+     "h": 343,
+     "pos": "100% 33%"
+    }
+   ]
+  },
+  {
+   "name": "Intro Section",
+   "title": "Feeling fine doesn't mean you're fine",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Adrenaline covers a lot in the first day or two. Neck and back injuries often surface two to four days after a crash, sometimes longer. By then the insurance adjuster may have already called to ask how you're feeling."
+    },
+    {
+     "w": 500,
+     "t": "Getting checked early tells you whether something's wrong and puts it on record from the start."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-consult-clipboard",
+     "w": 342,
+     "h": 413,
+     "pos": "66% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Symptoms Section",
+   "title": "Common symptoms after a crash",
+   "cards": [
+    {
+     "icon": "person-standing",
+     "title": "Neck pain or stiffness",
+     "text": "Trouble turning your head, a stiff neck the next morning, or pain that runs into your shoulders. These are the classic signs of whiplash."
+    },
+    {
+     "icon": "activity",
+     "title": "Back pain",
+     "text": "Anything from a sore, tight lower back to pain that runs into the buttock or down a leg, which can mean a nerve is involved."
+    },
+    {
+     "icon": "hand",
+     "title": "Numbness or tingling",
+     "text": "In your hands, arms, legs, or feet. Even without much pain, this can point to a pinched nerve or a disc injury."
+    },
+    {
+     "icon": "brain",
+     "title": "Headaches",
+     "text": "Headaches that start after a crash can come from the neck. They can also come from a concussion, which needs a medical doctor first (see below)."
+    },
+    {
+     "icon": "bone",
+     "title": "Shoulder pain",
+     "text": "Often comes from the neck after a crash, especially if you were wearing a seatbelt across that shoulder."
+    }
+   ]
+  },
+  {
+   "name": "Warning Section",
+   "title": "Don't wait on these",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Go to an emergency room, not a chiropractor, if you have:"
+    },
+    {
+     "w": 500,
+     "t": "These can be signs of a fracture, internal injury, or concussion. Get those ruled out first. We're here once they are."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "heart-pulse",
+     "title": "Pain in your ribs, chest, or belly, or trouble taking a full breath"
+    },
+    {
+     "icon": "brain",
+     "title": "A headache with confusion, dizziness, vomiting, or trouble remembering the crash"
+    },
+    {
+     "icon": "zap",
+     "title": "Numbness or weakness that's spreading or getting worse"
+    },
+    {
+     "icon": "circle-alert",
+     "title": "Loss of bladder or bowel control"
+    }
+   ]
+  },
+  {
+   "name": "Exam Section",
+   "title": "What Dr. Morgan checks after a crash",
+   "paras": [
+    {
+     "w": 500,
+     "t": "With a crash patient, Dr. Morgan is looking for more than a stiff neck. He checks how your neck moves in every direction, where it hurts and where it doesn't, and whether there's any numbness, tingling, or headaches that point to a nerve being involved. He also asks about the crash itself, because the direction of the hit tells him where to look."
+    },
+    {
+     "w": 500,
+     "t": "On the X-ray, a healthy neck has a gentle curve. After a crash, that curve often straightens out, the head shifts forward, and the joints stop moving together the way they should. Those findings turn \"my neck is sore\" into a documented injury."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Most car accident patients also get an MRI referral.",
+     "text": "Disc injuries are more likely after a crash, so Dr. Morgan refers most crash patients for one."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/office-interior",
+     "w": 342,
+     "h": 439,
+     "pos": "54% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "How long after a car accident can symptoms show up?",
+     "a": "Often two to four days, sometimes longer. That's why it's worth getting checked even if you feel fine."
+    },
+    {
+     "q": "Is it normal to feel worse a few days after the crash?",
+     "a": "It's common. Stiffness and pain often peak a few days later as the adrenaline wears off and inflammation sets in. Get checked if it's getting worse."
+    },
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim usually covers it. We'll confirm which applies to you before treatment starts."
+    },
+    {
+     "q": "How soon can I be seen?",
+     "a": "Often the same day. Call and tell us you were in an accident."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Keep reading",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The main car accident page, plus three more guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "stethoscope",
+     "title": "Car Accident Chiropractor",
+     "text": "the main page: how we treat crash injuries and how it gets paid for"
+    },
+    {
+     "icon": "spine",
+     "title": "Car accident insurance options",
+     "text": "PIP, LOP, and third-party explained"
+    },
+    {
+     "icon": "body",
+     "title": "What doctor to see after a  car accident",
+     "text": "who handles what, and in what order"
+    },
+    {
+     "icon": "workout",
+     "title": "Why see a chiropractor after an accident",
+     "text": "what we actually treat and what we don't"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Get checked before \nit becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments available. Bring your insurance information if you have it, and we’ll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

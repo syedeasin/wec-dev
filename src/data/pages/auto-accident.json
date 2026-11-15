@@ -1,0 +1,390 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">Car Accident</span> Chiropractor in Downtown Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments after a wreck. We handle PIP, letters of protection, and third-party claims, so most patients pay nothing out of pocket while treatment is happening."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "Auto injury care since 1994"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-screen",
+     "w": 390,
+     "h": 343,
+     "pos": "100% 33%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "You were in a wreck and you're not sure if you're hurt",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Maybe you walked away and felt fine. Maybe your neck got stiff the next morning. Maybe it's been four days and your headaches haven't stopped."
+    },
+    {
+     "w": 500,
+     "t": "Crash injuries are strange that way. Adrenaline covers a lot in the first 24 hours, and some of the worst ones show up days later, after the insurance adjuster has already called and asked how you're feeling."
+    },
+    {
+     "w": 600,
+     "t": "Getting checked early does two things. It tells you whether something's actually wrong, and it puts your injuries on record from the beginning."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "We treat auto accident injuries only",
+     "text": "No slip and fall, no workers comp. Auto is what we know and it's what we're set up for."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-consult-clipboard",
+     "w": 342,
+     "h": 413,
+     "pos": "66% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Whiplash is not a diagnosis. It's a description.",
+   "paras": [
+    {
+     "w": 500,
+     "t": "\"Whiplash\" just means your head moved faster than your neck was ready for. What that actually did to you varies enormously, which is why the exam matters more here than almost anywhere else."
+    },
+    {
+     "w": 500,
+     "t": "With a crash patient, Dr. Morgan is looking for more than a stiff neck. He checks how your neck moves in every direction, where it hurts and where it doesn’t, and whether there’s any numbness, tingling, or headaches that point to a nerve being involved. He also asks about the crash itself, because the direction of the hit tells him where to look.\n\nOn the X-ray, a healthy neck has a gentle curve. After a crash, that curve often straightens out, the head shifts forward, and the joints stop moving together the way they should. Those findings turn “my neck is sore” into a documented injury."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Imaging happens on site, the same day",
+     "text": "Dr. Morgan takes digital X-rays when the exam calls for them, reads them himself, and shows them to you right then. For a crash case that matters twice over: you find out what's wrong, and it's documented from day one."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/office-interior",
+     "w": 342,
+     "h": 439,
+     "pos": "54% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, document it properly",
+   "title": "Find it, fix it, document it properly",
+   "tag": "What we do about it",
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "Full history and exam, focused on how the crash actually happened. Which direction, were you braced, headrest position, where you felt it first. Any necessary digital X-rays, taken on site."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "Adjustments, and spinal decompression where imaging supports it. Auto injury plans typically run longer than a standard care plan because crash injuries involve soft tissue that heals on its own timeline."
+    },
+    {
+     "icon": "pencil-line",
+     "text": "Document it",
+     "body": "Every visit is recorded properly. If your case involves an insurer or an attorney, the paperwork holds up."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-patient-consult-alt",
+     "w": 342,
+     "h": 234
+    },
+    {
+     "src": "photos/adjustment-patient-blue",
+     "w": 342,
+     "h": 368
+    },
+    {
+     "src": "photos/xray-workstation",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The longer you wait, the harder this gets",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Two reasons, and only one of them is medical."
+    },
+    {
+     "w": 500,
+     "t": "Dr. Morgan sees crash patients same-day when he can. One recent patient wrecked his car in the evening, booked that night, and was in the office the next morning."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "Medically",
+     "text": "Soft tissue injuries that get treated early tend to resolve more cleanly than the ones that get ignored for six weeks. Scar tissue forms. Compensation patterns set in. You start moving differently without noticing."
+    },
+    {
+     "tag": "Practically",
+     "text": "A gap between your crash and your first medical visit is the first thing an insurance adjuster will point to. Not because you're lying, but because a delay is easy to use against you."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "You almost certainly aren't paying for this yourself",
+   "paras": [
+    {
+     "w": 400,
+     "t": "This is the part that stops most people from getting checked, and it usually shouldn't."
+    },
+    {
+     "w": 400,
+     "t": "We handle all three in house. Tell us what you have and we'll tell you what it covers before you're treated."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "PIP (Personal Injury Protection)",
+     "text": "is part of most Texas auto policies unless you specifically declined it in writing. It covers medical care after a crash regardless of who caused it. It's your own coverage."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Letter of Protection (LOP)",
+     "text": "means treatment now, payment later out of the settlement. No money up front."
+    },
+    {
+     "icon": "eye",
+     "title": "Third-party claims",
+     "text": "bill the at-fault driver's insurance directly."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 342,
+     "h": 360,
+     "pos": "81% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "More on car \naccident injuries",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Four guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "car-front",
+     "title": "Car accident injury symptoms",
+     "text": "what to watch for in the days after a crash"
+    },
+    {
+     "icon": "body",
+     "title": "What doctor to see after a  car accident",
+     "text": "who handles what, and in what order"
+    },
+    {
+     "icon": "spine",
+     "title": "Car accident insurance options",
+     "text": "PIP, LOP, and third-party explained"
+    },
+    {
+     "icon": "workout",
+     "title": "Why see a chiropractor after an accident",
+     "text": "what we actually treat and what we don't"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Nothing, \nin most cases",
+   "paras": [
+    {
+     "w": 500,
+     "t": "If you have PIP, a letter of protection, or a third-party claim, your treatment is covered and you pay nothing at the time of service."
+    },
+    {
+     "w": 500,
+     "t": "If none of those apply, we'll tell you that up front and walk you through what care would cost before anything starts."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/intake-form",
+     "w": 124,
+     "h": 165,
+     "pos": "73% 50%"
+    },
+    {
+     "src": "photos/assistant-intake-patient",
+     "w": 197,
+     "h": 309,
+     "pos": "73% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "I felt fine after the accident. Do I still need to get checked?",
+     "a": "Probably. Adrenaline masks a lot in the first day or two, and neck injuries in particular often surface two to four days later. An exam tells you whether something's actually wrong, and it puts you on record early if it is."
+    },
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim covers it. We'll confirm which applies to you before treatment starts."
+    },
+    {
+     "q": "Is PIP my own coverage or the other driver's?",
+     "a": "Your own. It pays for medical care after a crash no matter who caused it, so you don't have to wait on the other driver's insurance to get treated."
+    },
+    {
+     "q": "Do I need an attorney first?",
+     "a": "No. You can be seen without one. If you already have an attorney we'll coordinate documentation with their office. If you don't, that's your decision to make, not ours."
+    },
+    {
+     "q": "How soon can I be seen?",
+     "a": "Often the same day. Call and tell us you were in an accident."
+    },
+    {
+     "q": "How long will treatment take?",
+     "a": "It depends on the injury, and Dr. Morgan will give you a real number after your exam and imaging. Most crash patients come in two to three times a week at the start, and auto injury plans usually run somewhere between 24 and 48 visits, or roughly three to six months."
+    },
+    {
+     "q": "Will I need an MRI?",
+     "a": "Often, yes. Disc injuries are more likely after a crash, so Dr. Morgan refers most car accident patients for an MRI."
+    },
+    {
+     "q": "What if my accident was months ago?",
+     "a": "Still worth getting looked at. It's harder to connect an old injury to the crash for insurance purposes, but if something's still bothering you, that's worth addressing on its own."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Get checked before \nit becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments available. Bring your insurance information if you have it, and we’ll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

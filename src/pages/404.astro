@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import CompactHero from '../components/blocks/CompactHero.astro';
+import Button from '../components/ui/Button.astro';
+import { site } from '../data/site';
+---
+<SiteLayout title="Page Not Found | West End Chiropractic" description="That page doesn't exist." noindex>
+  <CompactHero title="We couldn’t find <span class='hl'>that page</span>" crumb="Page not found" sub="The link may be old, or the page may have moved. Here’s where most people are headed.">
+    <div class="btn-row" style="margin-top:16px">
+      <Button href="/" blockMobile>Go to the homepage</Button>
+      <Button href={site.bookHref} variant="outline-light" blockMobile>Book Your Visit</Button>
+    </div>
+  </CompactHero>
+</SiteLayout>

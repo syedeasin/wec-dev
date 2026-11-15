@@ -1,0 +1,317 @@
+{
+ "sections": [
+  {
+   "name": "Hero",
+   "title": "Chiropractor Near <span class=\"hl\">Rosedale, Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "A straight shot down MoPac from Rosedale, with free covered parking when you get here. Casey Morgan D.C. finds what's causing your pain before he treats it."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "route",
+     "text": "Straight down MoPac"
+    },
+    {
+     "icon": "square-parking",
+     "text": "Free covered parking"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-side-posture-alt",
+     "w": 390,
+     "h": 451,
+     "pos": "99% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Section / Where We Are",
+   "title": "Worth the short drive",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">WHERE WE ARE</span>"
+    },
+    {
+     "w": 400,
+     "t": "West End Chiropractic is at 1611 W. 5th St., on the ground floor of 5th Street Commons, just off MoPac. From Rosedale, it's a straight shot south."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Free covered garage parking",
+     "text": "The covered garage is free, so you're not circling the block when you get here."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "map-pin",
+     "text": "1611 W. 5th St., STE 110, Austin, TX 78703"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "West End Chiropractic",
+     "text": "5th Street Commons, ground floor"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get directions"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 300
+    }
+   ]
+  },
+  {
+   "name": "Section / Why It Works",
+   "title": "Why people come down from Rosedale",
+   "cards": [
+    {
+     "icon": "timer",
+     "title": "Quick visits",
+     "text": "After your first visit, most take a few minutes. The drive takes longer than the appointment."
+    },
+    {
+     "icon": "search",
+     "title": "They find it first",
+     "text": "A real exam and digital X-rays on site, and Dr. Morgan shows you what he sees the same visit."
+    },
+    {
+     "icon": "calendar-check",
+     "title": "Same-day when you need it",
+     "text": "Same-day appointments are often available."
+    }
+   ]
+  },
+  {
+   "name": "Section / What We See",
+   "title": "What we see most",
+   "cards": [
+    {
+     "icon": "spine",
+     "title": "Lower Back Pain",
+     "text": "Desk jobs, yard work, and picking up kids."
+    },
+    {
+     "icon": "baby",
+     "title": "Pregnancy Back Pain",
+     "text": "Care that works alongside your OB or midwife."
+    },
+    {
+     "icon": "laptop",
+     "title": "Neck Pain",
+     "text": "Screens and long days."
+    },
+    {
+     "icon": "brain",
+     "title": "Headaches",
+     "text": "Often starting in the neck."
+    }
+   ]
+  },
+  {
+   "name": "Section / Insurance",
+   "title": "Work at Ascension Seton? You're covered here.",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">INSURANCE</span>"
+    },
+    {
+     "w": 400,
+     "t": "If you work for Ascension or Seton, whether you're a nurse, doctor, or on staff, you're likely on <strong>Ascension SmartHealth</strong>, and West End is in-network."
+    },
+    {
+     "w": 400,
+     "t": "We're also in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. Send us your insurance info when you book and we'll look into your coverage before your first visit."
+    },
+    {
+     "w": 600,
+     "t": "Ascension Seton"
+    },
+    {
+     "w": 400,
+     "t": "Nurses, doctors, and staff"
+    },
+    {
+     "w": 600,
+     "t": "Ascension SmartHealth"
+    },
+    {
+     "w": 600,
+     "t": "IN-NETWORK"
+    },
+    {
+     "w": 700,
+     "t": "ALSO IN-NETWORK"
+    },
+    {
+     "w": 500,
+     "t": "BCBS"
+    },
+    {
+     "w": 500,
+     "t": "UnitedHealthcare"
+    },
+    {
+     "w": 500,
+     "t": "Aetna"
+    },
+    {
+     "w": 500,
+     "t": "Humana"
+    },
+    {
+     "w": 500,
+     "t": "Ambetter"
+    },
+    {
+     "w": 500,
+     "t": "Medicare"
+    },
+    {
+     "w": 500,
+     "t": "And more"
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">See every plan we take</span>"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Verify My Insurance"
+    }
+   ]
+  },
+  {
+   "name": "Section / Reviews (sitewide widget)",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "After seeing two other chiropractors for the same issue, I’m finally seeing some real results from Dr. Morgan, and very quickly!"
+    },
+    {
+     "w": 400,
+     "t": "Dr. Morgan is a rare combo of warm demeanor, insanely high competence and extensive experience. I can tell he loves his job. Who wouldn’t want to hire that person?\n\nFriendly staff all around, streamlined process, reasonable prices.\n\nThank you all for helping me keep amazing quality of movement to continue my fitness and strength training journey! 💛"
+    },
+    {
+     "w": 600,
+     "t": "Danielle Forward"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    },
+    {
+     "w": 400,
+     "t": "I always have a great experience @ West End. The staff is super friendly. It's never a long wait. Casey is knowledgable & efficient."
+    },
+    {
+     "w": 600,
+     "t": "Brad Gerald"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Section / FAQ",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "How long is the drive from Rosedale?",
+     "a": "It's a straight shot down MoPac to 5th Street."
+    },
+    {
+     "q": "Do you take Ascension SmartHealth?",
+     "a": "Yes, West End is in-network."
+    },
+    {
+     "q": "Do you see pregnant patients?",
+     "a": "Yes. Pregnancy care works alongside your OB or midwife, and we don't X-ray during pregnancy."
+    },
+    {
+     "q": "Is parking free?",
+     "a": "Yes. Free covered garage parking at 5th Street Commons."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "A short drive, a quick visit",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. Follow-up visits take a few minutes."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

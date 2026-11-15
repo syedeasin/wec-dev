@@ -1,0 +1,37 @@
+---
+// Centered heading + grid of feature cards on sand (symptoms, "Built around a workday", options…).
+import SectionHead from '../ui/SectionHead.astro';
+import FeatureCard from '../ui/FeatureCard.astro';
+import Buttons from './Buttons.astro';
+import { icon, type Section } from '../../lib/content';
+interface Props { s: Section; bg?: 'sand' | 'white' }
+const { s, bg = 'sand' } = Astro.props;
+const cards = s.cards ?? [];
+const cols = cards.length === 4 ? 4 : cards.length === 2 ? 2 : 3;
+---
+<section class:list={['section cards-b', `section--${bg}`]}>
+  <div class="container cards-b__inner">
+    <SectionHead title={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} maxWidth={760}>{s.paras?.[0] && <Fragment set:html={s.paras[0].t} />}</SectionHead>
+    <ul class:list={['cards-b__grid', `cards-b__grid--${cols}`]} role="list">
+      {cards.map((c) => <li class="cards-b__card"><FeatureCard icon={icon(c.icon)} title={c.title}><Fragment set:html={c.text ?? ''} /></FeatureCard></li>)}
+    </ul>
+    <Buttons buttons={s.buttons} center />
+  </div>
+</section>
+<style is:global>
+  .cards-b__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .cards-b__grid { width: 100%; list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .cards-b__card { flex: 1 1 100%; padding: 24px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-card-soft); }
+  .section--white .cards-b__card { border: 1px solid var(--border-light); box-shadow: none; }
+  .cards-b__card .icon-tile { --tile-bg: rgb(232 81 42 / 0.1); }
+  @media (min-width: 768px) { .cards-b__grid { gap: 24px; } .cards-b__card { flex: 0 1 calc(50% - 12px); } }
+  @media (min-width: 1280px) {
+    .cards-b__grid--3 .cards-b__card { flex-basis: calc(33.333% - 16px); }
+    .cards-b__grid--4 .cards-b__card { flex-basis: calc(25% - 18px); }
+  }
+  @media (max-width: 767.98px) {
+    .cards-b { padding-block: 60px; }
+    .cards-b__inner { gap: 32px; align-items: stretch; }
+    .cards-b .section-head--center { align-items: flex-start; text-align: left; }
+  }
+</style>

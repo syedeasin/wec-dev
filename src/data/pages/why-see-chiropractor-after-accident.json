@@ -1,0 +1,225 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">Why See a Chiropractor</span> After a Car Accident?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Even if you feel okay, a crash puts real force through your neck and back. Here's why getting checked early matters, medically and for your claim."
+    },
+    {
+     "w": 500,
+     "t": "Auto injury care since 1994"
+    },
+    {
+     "w": 500,
+     "t": "Digital X-rays on site"
+    },
+    {
+     "w": 500,
+     "t": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-screen",
+     "w": 390,
+     "h": 343,
+     "pos": "100% 33%"
+    }
+   ]
+  },
+  {
+   "name": "Intro Section",
+   "title": "Crash injuries are easy to miss",
+   "paras": [
+    {
+     "w": 500,
+     "t": "A car accident pushes a lot of force through your neck and back in a fraction of a second. Muscles, ligaments, joints, and discs can all take a hit, and a lot of those injuries don't hurt right away."
+    },
+    {
+     "w": 500,
+     "t": "Adrenaline masks a lot in the first day or two. By the time it wears off, you may be stiff, sore, or dealing with headaches you didn't have before."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/shoulder-assessment-man",
+     "w": 342,
+     "h": 413
+    }
+   ]
+  },
+  {
+   "name": "Why Early Section",
+   "title": "Two reasons not to wait",
+   "tags": [
+    {
+     "tag": "Medically",
+     "text": "Soft tissue injuries that get treated early tend to resolve more cleanly than the ones that get ignored for six weeks. Scar tissue forms. Compensation patterns set in. You start moving differently without noticing."
+    },
+    {
+     "tag": "Practically",
+     "text": "A gap between your crash and your first medical visit is the first thing an insurance adjuster will point to. Not because you're lying, but because a delay is easy to use against you."
+    }
+   ]
+  },
+  {
+   "name": "Find Fix Document Section",
+   "title": "Find it, fix it, document it properly",
+   "tag": "What we do about it",
+   "cards": [
+    {
+     "icon": "search",
+     "title": "Find it",
+     "text": "A crash-focused exam: how the crash happened, which direction, whether you were braced, where you felt it first. Digital X-rays on site, and an MRI referral when it's needed, which is most car accident cases."
+    },
+    {
+     "icon": "wrench",
+     "title": "Fix it",
+     "text": "Adjustments, and spinal decompression where imaging supports it. Crash injuries are usually acute, so care starts frequent to stabilize things."
+    },
+    {
+     "icon": "pencil-line",
+     "title": "Document it",
+     "text": "Every visit is recorded properly. If your case involves an insurer or an attorney, the paperwork holds up."
+    },
+    {
+     "icon": "triangle-alert",
+     "title": "Not a replacement for the ER.",
+     "text": "If you have chest, rib, or belly pain, a headache with confusion, or numbness that's getting worse, go to an emergency room first."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-patient-consult-alt",
+     "w": 342,
+     "h": 234
+    },
+    {
+     "src": "photos/adjustment-patient-blue",
+     "w": 342,
+     "h": 368
+    },
+    {
+     "src": "photos/xray-workstation",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "I feel fine. Do I still need to get checked?",
+     "a": "Probably. Neck and back injuries often show up two to four days after a crash. An exam tells you whether something's wrong and puts it on record early."
+    },
+    {
+     "q": "How long will treatment take?",
+     "a": "It depends on the injury. Most crash patients come in two to three times a week at the start, and plans usually run somewhere between 24 and 48 visits."
+    },
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim usually covers it."
+    },
+    {
+     "q": "What if my accident was months ago?",
+     "a": "Still worth getting looked at. It's harder to connect an old injury to the crash for insurance purposes, but if something's still bothering you, that's worth addressing on its own."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Keep reading",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The main car accident page, plus three more guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "stethoscope",
+     "title": "Car Accident Chiropractor",
+     "text": "the main page: how we treat crash injuries and how it gets paid for"
+    },
+    {
+     "icon": "car-front",
+     "title": "Car accident injury symptoms",
+     "text": "what to watch for in the days after a crash"
+    },
+    {
+     "icon": "spine",
+     "title": "Car accident insurance options",
+     "text": "PIP, LOP, and third-party explained"
+    },
+    {
+     "icon": "body",
+     "title": "What doctor to see after a car accident",
+     "text": "who handles what, and in what order"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Get checked before \nit becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments available. Bring your insurance information if you have it, and we’ll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+---
+// "Don't wait on these": navy card with the warning, red-flag cards beside it.
+import Icon from '../ui/Icon.astro';
+import { icon, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const [lead, note] = s.paras ?? [];
+---
+<section class="section section--white warn">
+  <div class="container">
+    <div class="warn__box">
+      <div class="warn__panel on-dark">
+        <span class="warn__icon"><Icon name="triangle-alert" size={24} /></span>
+        <h2 class="h3 warn__title" set:html={s.title ?? ''} />
+        {lead && <p class="warn__lead" set:html={lead.t} />}
+        {note && <p class="warn__note" set:html={note.t} />}
+      </div>
+      <ul class="warn__grid" role="list">
+        {s.cards?.map((c) => <li class="warn__card"><span class="warn__ci"><Icon name={icon(c.icon, 'circle-alert')} size={20} /></span><p set:html={c.title} /></li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+<style is:global>
+  .warn__box { display: grid; border-radius: var(--radius-xl); overflow: hidden; background: rgb(232 81 42 / 0.05); }
+  .warn__panel { display: flex; flex-direction: column; gap: 16px; padding: 40px 32px; background: var(--navy-900); }
+  .warn__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--orange-500); color: var(--white); }
+  .warn__title { font-weight: 600; }
+  .warn__lead { font-weight: 500; color: var(--sand-100); }
+  .warn__note { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--sand-100); opacity: 0.85; }
+  .warn__grid { list-style: none; margin: 0; padding: 24px; display: grid; gap: 16px; align-content: center; }
+  .warn__card { display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-card-soft); font-size: var(--fs-a1); line-height: var(--lh-a1); font-weight: 600; color: var(--navy-900); }
+  .warn__ci { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.1); color: var(--orange-500); }
+  @media (min-width: 768px) { .warn__grid { grid-template-columns: 1fr 1fr; padding: 32px; } }
+  @media (min-width: 1024px) { .warn__box { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); } .warn__panel { padding: 48px 40px; } }
+  @media (max-width: 767.98px) { .warn { padding-block: 60px; } .warn__panel { padding: 32px 20px; } .warn__grid { padding: 12px; gap: 12px; } .warn__card { flex-direction: row; align-items: center; padding: 16px; } .warn__ci { flex: none; } }
+</style>

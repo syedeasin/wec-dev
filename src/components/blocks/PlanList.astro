@@ -1,0 +1,45 @@
+---
+// Clarksville-style insurance section: copy left, list of in-network plans right.
+import Title from './Title.astro';
+import Buttons from './Buttons.astro';
+import Icon from '../ui/Icon.astro';
+import { isUpper, strip, textLink, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const paras = s.paras ?? [];
+const li = paras.findIndex((p) => p.t === 'IN-NETWORK PLANS');
+const eyebrow = paras.slice(0, li).find((p) => isUpper(p.t));
+const text = paras.slice(0, li).filter((p) => p !== eyebrow);
+const plans = paras.slice(li + 1).filter((p) => !textLink(p.t));
+const link = paras.map((p) => textLink(p.t)).find(Boolean);
+---
+<section class="section section--sand plans">
+  <div class="container plans__grid">
+    <div class="plans__copy">
+      {eyebrow && <p class="eyebrow plans__eyebrow">{strip(eyebrow.t)}</p>}
+      <Title title={s.title} mark={false} />
+      {text.map((p) => <p set:html={p.t} />)}
+      <div class="emp__actions">
+        <Buttons buttons={s.buttons} />
+        {link && <a class="text-link" href={link.href}>{link.label} →</a>}
+      </div>
+    </div>
+    <div class="plans__card">
+      <p class="eyebrow plans__label">In-network plans</p>
+      <ul class="plans__list" role="list">{plans.map((p) => <li><Icon name="check" size={16} /><span set:html={p.t} /></li>)}</ul>
+    </div>
+  </div>
+</section>
+<style is:global>
+  .plans__grid { display: grid; gap: 40px; align-items: center; }
+  .plans__copy { display: flex; flex-direction: column; gap: 24px; }
+  .plans__eyebrow { color: var(--orange-500); }
+  .plans__card { padding: 32px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); }
+  .plans__label { color: var(--navy-600); margin-bottom: 16px; }
+  .plans__list { list-style: none; padding: 0; display: grid; gap: 12px 24px; font-weight: 600; }
+  .plans__list li { display: flex; gap: 10px; align-items: center; padding-block: 8px; border-bottom: 1px solid var(--border-light); }
+  .plans__list .icon { color: var(--orange-500); flex: none; }
+  @media (min-width: 768px) { .plans__list { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .plans__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; } }
+  @media (max-width: 767.98px) { .plans { padding-block: 60px; } .plans__card { padding: 24px 16px; } }
+</style>

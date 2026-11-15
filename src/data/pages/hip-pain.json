@@ -1,0 +1,379 @@
+{
+ "sections": [
+  {
+   "name": "Header – Hip Pain Treatment in Downtown Austin",
+   "title": "<span class=\"hl\">Hip Pain\nTreatment</span> in Downtown Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "A lot of hip pain actually starts in the lower back. Casey Morgan D.C. figures out which one you're dealing with before he treats anything."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/pain-adjustment-lower-back",
+     "w": 390,
+     "h": 451,
+     "pos": "40% 98%",
+     "flip": true
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Point to where it hurts",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Patients come in saying their hip hurts, and then point to the back of their pelvis or the top of their buttock. That's one of the most common things Dr. Morgan sees."
+    },
+    {
+     "w": 500,
+     "t": "If your \"hip\" pain sits on the side or back of your hip, gets worse after sitting, or comes with stiffness in your lower back, there's a good chance it's starting in your spine."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-table-patient",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "photos/exam-patient-teal-shirt-small",
+     "w": 111,
+     "h": 148
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Hip pain or back pain? Often both.",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The joints and nerves of your lower back send pain into the hip and buttock. So does the sacroiliac joint, where your spine meets your pelvis. Sciatica can feel like hip pain too."
+    },
+    {
+     "w": 500,
+     "t": "Pain in the front of the hip or the groin is more likely the hip joint itself."
+    },
+    {
+     "w": 500,
+     "t": "The exam sorts it out. Where you feel it, what makes it worse, and how your back and hips move tell Dr. Morgan where the problem actually is."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "If it's the hip joint, he'll tell you.",
+     "text": "Some hip pain is the joint itself, and some of that needs a different kind of doctor. If that's what your exam shows, Dr. Morgan will say so and point you in the right direction."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-lower-back",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, keep it from coming bac",
+   "title": "Find it, fix it, keep it from coming back",
+   "tag": "What we do about it",
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "A full history and exam of your lower back, pelvis, and hips, with digital X-rays on site when the exam calls for them."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "When the pain is coming from your lower back or pelvis, that's where Dr. Morgan treats it: adjustments, and spinal decompression if your imaging shows a disc is involved."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Keep it from coming back",
+     "body": "Once it's corrected, most patients move to maintenance, about once every two weeks. Some stop entirely."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 342,
+     "h": 234,
+     "pos": "48% 0%"
+    },
+    {
+     "src": "photos/patient-smiling-blue-shirt",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/adjustment-lower-back",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "First Visit Section",
+   "title": "Your first visit, start to finish",
+   "paras": [
+    {
+     "w": 400,
+     "t": "First visit runs about 30 minutes. After that, most visits take a few minutes. Dr. Morgan built the practice around working people."
+    }
+   ],
+   "steps": [
+    {
+     "title": "We find out what is actually happening",
+     "text": "Full history and exam. What hurts, what you have already tried, what you want to get back to doing. Any necessary digital X-rays, taken on site."
+    },
+    {
+     "title": "Dr. Morgan shows you the imaging, same day",
+     "text": "He marks it up and walks you through it right there. You will see what he sees. Most patients get their first adjustment the same visit."
+    },
+    {
+     "title": "You come back for the full report",
+     "text": "Within a few days, Dr. Morgan lays out what he found and exactly what he recommends. What it will take, how long, and what it costs. Then you decide."
+    }
+   ],
+   "images": [
+    {
+     "src": "home/how-it-works-adjustment",
+     "w": 390,
+     "h": 1278,
+     "pos": "20% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "How long until this actually feels better",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most people want a number before they start. Dr. Morgan will give you one, just not before he has examined you and looked at your imaging. He will not guess."
+    },
+    {
+     "w": 500,
+     "t": "What he can tell you up front is how it usually goes, including the part most offices skip: the first two weeks are uneven."
+    },
+    {
+     "w": 500,
+     "t": "If you are only trying to get out of pain, a shorter plan can do that. If you want it to stay fixed, it takes about 90 days. Dr. Morgan will give you both options and let you pick."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "WEEKS 1 TO 2",
+     "text": "Inconsistent, and that's normal. You'll have a good day and think it's fixed, then a bad one and think it's not working. Dr. Morgan warns you about this on day one. Real change usually starts around the end of week two, and better sleep is often the first thing people notice."
+    },
+    {
+     "tag": "WEEKS 3 TO 12",
+     "text": "The bulk of the plan. A typical plan is about 24 visits over 90 days, two to three times a week at the start, then less often as you improve. Some people need fewer. Dr. Morgan checks your progress along the way."
+    },
+    {
+     "tag": "AFTER YOUR PLAN",
+     "text": "Most patients move to maintenance, about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you're there."
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Hip pain has company",
+   "cards": [
+    {
+     "icon": "body",
+     "title": "Lower Back Pain",
+     "text": "Where a lot of hip pain starts."
+    },
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "Nerve pain that often gets mistaken for a hip problem."
+    },
+    {
+     "icon": "spine",
+     "title": "Herniated or Bulging Disc",
+     "text": "A common source of pain that travels to the hip."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What this costs",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> West End is in-network with BCBS, UnitedHealthcare, UMR, Surest, Aetna, Meritain, Humana, Ambetter, Ascension SmartHealth, Curative, WebTPA, and Medicare. Send us your insurance info when you book and we’ll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in. We are not a Medicaid provider."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 360,
+     "pos": "70% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "How do I know if it's my hip or my back?",
+     "a": "Where it hurts is the first clue. Side, back, or buttock pain often starts in the lower back. Front of the hip or groin pain is more likely the hip joint. The exam tells Dr. Morgan for sure."
+    },
+    {
+     "q": "Can a chiropractor help hip pain?",
+     "a": "When it's coming from your lower back or pelvis, often yes. When it's the hip joint itself, Dr. Morgan will tell you and point you to the right place."
+    },
+    {
+     "q": "Why does sitting make it worse?",
+     "a": "Sitting loads the lower back and the joint where your spine meets your pelvis. If that's where your pain starts, long stretches at a desk tend to make it worse."
+    },
+    {
+     "q": "Do I need an X-ray?",
+     "a": "Only if your exam suggests it. If Dr. Morgan takes them, they happen on site at your first visit, with no separate appointment or bill."
+    },
+    {
+     "q": "How many visits will I need?",
+     "a": "Dr. Morgan won't know until he's examined you. A typical plan is about 24 visits over 90 days, two to three times a week at the start. He gives you a real recommendation on your second visit."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out where your hip pain is really coming from",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit and you'll leave knowing whether it's your hip, your back, or both."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+---
+// Reviews masonry with bottom fade, Book + "See More Google reviews", rating row.
+import ReviewCard from '../ui/ReviewCard.astro';
+import Button from '../ui/Button.astro';
+import RatingRow from '../ui/RatingRow.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import reviews from '../../data/reviews.json';
+import { site } from '../../data/site';
+type Key = keyof typeof reviews;
+interface Props { page: Key; title?: string; bg?: 'sand-warm' | 'white' | 'sand' }
+const { page, title = 'Patients who came in hurting.<br><strong>Now they don’t</strong>', bg = 'sand-warm' } = Astro.props;
+const list = reviews[page] ?? reviews.home;
+const cols = [0, 1, 2].map((c) => list.filter((_, i) => i % 3 === c));
+---
+<section class:list={['section', 'reviews', `section--${bg}`]}>
+  <div class="container reviews__inner">
+    <SectionHead title={title} />
+    <div class="reviews__wall" data-reviews>
+      {cols.map((col, c) => (
+        <div class:list={['reviews__col', `reviews__col--${c}`]}>{col.map((r) => <ReviewCard {...r} />)}</div>
+      ))}
+      <div class="reviews__fade" aria-hidden="true"></div>
+    </div>
+    <div class="reviews__actions">
+      <div class="reviews__buttons">
+        <Button href={site.bookHref} class="reviews__book" blockMobile>{site.bookLabel}</Button>
+        <Button href={site.googleReviewsHref} variant="secondary" icon="arrow-up-right" iconAfter="" target="_blank" rel="noopener" blockMobile>See More Google reviews</Button>
+      </div>
+      <RatingRow tone="light" layout="row" />
+    </div>
+  </div>
+</section>
+<style is:global>
+  .reviews { --fade: var(--sand-200); }
+  .reviews.section--white { --fade: var(--white); }
+  .reviews.section--sand { --fade: var(--sand-100); }
+  .reviews__inner { display: flex; flex-direction: column; gap: 60px; }
+  .reviews__wall { position: relative; display: grid; gap: 24px; max-height: 620px; overflow: hidden; }
+  .reviews__col { display: flex; flex-direction: column; gap: 24px; }
+  .reviews__col--1 { padding-top: 0; }
+  .reviews__fade { position: absolute; inset: auto 0 0 0; height: 265px; background: linear-gradient(180deg, transparent, var(--fade)); pointer-events: none; }
+  .reviews__actions { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .reviews__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; width: 100%; }
+  .reviews__book { min-width: 300px; }
+  .reviews .btn--secondary .icon { color: var(--orange-500); }
+  @media (max-width: 767.98px) {
+    .reviews__inner { gap: 40px; }
+    .reviews__wall { max-height: 820px; }
+    .reviews__col--1, .reviews__col--2 { display: none; }
+    .reviews__book { min-width: 0; }
+  }
+  @media (min-width: 768px) and (max-width: 1279.98px) {
+    .reviews__wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .reviews__col--2 { display: none; }
+  }
+  @media (min-width: 1280px) { .reviews__wall { grid-template-columns: repeat(3, minmax(0, 1fr)); max-height: 703px; } .reviews__col--1 { margin-top: 0; } }
+</style>

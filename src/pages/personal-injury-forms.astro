@@ -1,0 +1,6 @@
+---
+import FormsPage from '../components/blocks/FormsPage.astro';
+import data from '../data/pages/personal-injury-forms.json';
+import { site } from '../data/site';
+---
+<FormsPage data={data} title="Personal Injury Forms | West End Chiropractic" description="Personal injury and car accident intake forms for West End Chiropractic in downtown Austin." url={site.forms.piIntakeUrl} pdf={site.forms.piIntakePdf} />

@@ -1,0 +1,72 @@
+---
+// Thumbnail + play button that opens a YouTube or Vimeo video in a modal.
+// Pass a plain watch/share link: youtube.com/watch?v=…, youtu.be/…, vimeo.com/123…
+import { Picture } from 'astro:assets';
+interface Props {
+  url?: string;
+  image: ImageMetadata;
+  alt: string;
+  title?: string;
+  sizes?: string;
+  tint?: boolean;
+  class?: string;
+}
+const { url = '', image, alt, title = 'Play video', sizes = '(min-width: 1280px) 520px, (min-width: 768px) 60vw, 100vw', tint = true, class: cls } = Astro.props;
+
+function embed(u: string): string | null {
+  if (!u) return null;
+  const yt = u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&rel=0`;
+  const vm = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/);
+  if (vm) return `https://player.vimeo.com/video/${vm[1]}?autoplay=1${vm[2] ? `&h=${vm[2]}` : ''}`;
+  return null;
+}
+const src = embed(url);
+---
+<div class:list={['video', { 'video--tint': tint }, cls]}>
+  <Picture src={image} alt={alt} widths={[400, 640, 900, 1200]} sizes={sizes} formats={['webp']} fallbackFormat="webp" class="video__img" loading="lazy" />
+  <button type="button" class="video__play" data-video-open data-src={src ?? ''} aria-label={title}>
+    <svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="35" fill="#E8512A"/><path d="M28 23.8c0-1.5 1.7-2.5 3-1.7l16.6 10.2c1.3.8 1.3 2.6 0 3.4L31 45.9c-1.3.8-3-.2-3-1.7V23.8Z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<dialog class="video-modal" data-video-modal aria-label="Video">
+  <div class="video-modal__frame" data-video-frame></div>
+  <button type="button" class="video-modal__close" data-video-close aria-label="Close video">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-video-open]').forEach((btn) => {
+    const modal = btn.closest('.video')!.nextElementSibling as HTMLDialogElement;
+    const frame = modal.querySelector<HTMLElement>('[data-video-frame]')!;
+    const close = () => { modal.close(); };
+    modal.addEventListener('close', () => { frame.innerHTML = ''; });
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.querySelector('[data-video-close]')!.addEventListener('click', close);
+    btn.addEventListener('click', () => {
+      const src = btn.dataset.src;
+      frame.innerHTML = src
+        ? `<iframe src="${src}" title="Video" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>`
+        : '<p class="video-modal__empty">Video coming soon.</p>';
+      modal.showModal();
+    });
+  });
+</script>
+
+<style is:global>
+  .video { position: relative; overflow: hidden; border-radius: var(--radius-xl); box-shadow: var(--shadow-image); isolation: isolate; }
+  .video__img, .video picture { display: block; width: 100%; height: 100%; }
+  .video__img { object-fit: cover; }
+  .video--tint::after { content: ''; position: absolute; inset: 0; background: rgb(114 166 200 / 0.61); mix-blend-mode: normal; z-index: 1; pointer-events: none; }
+  .video__play { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; width: 100%; }
+  .video__play svg { width: 70px; height: 70px; transition: transform var(--dur) var(--ease); filter: drop-shadow(0 8px 16px rgb(232 81 42 / 0.32)); }
+  .video__play:hover svg { transform: scale(1.08); }
+  .video-modal { width: min(100% - 32px, 1080px); padding: 0; border: 0; border-radius: var(--radius-lg); background: #000; overflow: visible; }
+  .video-modal::backdrop { background: rgb(15 45 64 / 0.85); }
+  .video-modal__frame { aspect-ratio: 16 / 9; }
+  .video-modal__frame iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius-lg); }
+  .video-modal__empty { display: grid; place-items: center; height: 100%; color: #fff; font-weight: 600; }
+  .video-modal__close { position: absolute; top: -48px; right: 0; width: 40px; height: 40px; display: grid; place-items: center; color: #fff; }
+</style>

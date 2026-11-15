@@ -1,0 +1,336 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "Insurance and Billing at <span class=\"hl\">West End Chiropractic</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "We are in-network with twelve carriers. Send us your insurance info when you book, and we’ll have a good idea of your coverage by the time you walk in."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Verify My Insurance"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/team-group",
+     "w": 390,
+     "h": 451,
+     "pos": "41% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Plans we are in-network with",
+   "paras": [
+    {
+     "w": 500,
+     "t": "UMR and Surest are UnitedHealthcare plans. Meritain is an Aetna plan. If your card says one of those, you are covered here."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Do not see your plan?",
+     "text": "Call us anyway. Being out of network does not always mean it costs more, and we will tell you the real number before you commit to anything."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "logos": true
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Austin employers and the plans they usually run",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most of our patients work downtown, and a few employers account for a lot of them. If you work at one of these, here is what you are probably carrying."
+    },
+    {
+     "w": 600,
+     "t": "University of Texas"
+    },
+    {
+     "w": 400,
+     "t": "Faculty and staff"
+    },
+    {
+     "w": 400,
+     "t": "<strong>UT SELECT</strong>  Blue Cross Blue Shield PPO"
+    },
+    {
+     "w": 600,
+     "t": "In-network"
+    },
+    {
+     "w": 600,
+     "t": "No referral"
+    },
+    {
+     "w": 600,
+     "t": "Google"
+    },
+    {
+     "w": 400,
+     "t": "Blue Cross Blue Shield"
+    },
+    {
+     "w": 600,
+     "t": "State of Texas"
+    },
+    {
+     "w": 400,
+     "t": "Blue Cross Blue Shield"
+    },
+    {
+     "w": 600,
+     "t": "Meta"
+    },
+    {
+     "w": 400,
+     "t": "Aetna"
+    },
+    {
+     "w": 400,
+     "t": "Employer plans vary"
+    },
+    {
+     "w": 400,
+     "t": "We confirm yours when we verify"
+    },
+    {
+     "w": 400,
+     "t": "<strong>Buying your own plan through the marketplace?</strong> Ambetter and Curative are both common here and both in-network."
+    }
+   ]
+  },
+  {
+   "name": "Row – We look into your coverage before you co",
+   "title": "We look into your coverage before you come in",
+   "paras": [
+    {
+     "w": 400,
+     "t": "This is the part most offices skip."
+    }
+   ],
+   "steps": [
+    {
+     "title": "You send us your insurance info",
+     "text": "When you book, on the form or over the phone. Front and back, or just read us the numbers."
+    },
+    {
+     "title": "We look into your plan",
+     "text": "Some plans we can check in minutes, others take longer. Either way, we start as soon as we have your info."
+    },
+    {
+     "title": "You come in with fewer unknowns",
+     "text": "By the time you’re here, we’ll have a good idea of what your plan covers, and we’ll walk you through it at your visit."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/intake-clipboard",
+     "w": 390,
+     "h": 1174,
+     "pos": "64% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Paying yourself",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Your first visit covers your exam, your consultation with Casey Morgan D.C., and any necessary digital X-rays. Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 500,
+     "t": "Spinal decompression is a cash service at $75 per session, whether or not you have insurance."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 342,
+     "h": 314
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The fine print, up front",
+   "paras": [
+    {
+     "w": 600,
+     "t": "HMO plans need a referral."
+    },
+    {
+     "w": 400,
+     "t": "If you are on an HMO, your primary care doctor has to refer you before we can see you. We will flag it when we look at your coverage so you are not turned away at the door."
+    },
+    {
+     "w": 600,
+     "t": "We are not a Medicaid provider."
+    },
+    {
+     "w": 400,
+     "t": "We are not enrolled with Medicaid and cannot see Medicaid patients. We would rather say that here than on the phone after you have made plans."
+    },
+    {
+     "w": 600,
+     "t": "Spinal decompression is a cash service."
+    },
+    {
+     "w": 400,
+     "t": "It is not covered by insurance. Pricing is stated clearly before anything starts."
+    },
+    {
+     "w": 600,
+     "t": "Cigna is out of network."
+    },
+    {
+     "w": 400,
+     "t": "We are not in-network with Cigna, but you can still be seen using your out-of-network benefits. We will check what your plan pays before your first visit, so you know what to expect."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/office-sign",
+     "w": 342,
+     "h": 240,
+     "pos": "35% 1%"
+    }
+   ]
+  },
+  {
+   "name": "Row – In a wreck? Different rules apply",
+   "title": "In a wreck? \nDifferent rules apply",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Auto injury care usually does not run through your health insurance at all."
+    },
+    {
+     "w": 400,
+     "t": "<strong>PIP</strong> is part of most Texas auto policies unless you declined it in writing. It covers medical care after a crash no matter who was at fault, and using it does not raise your rates."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Letter of protection</strong> means treatment now, payment later out of the settlement."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Third-party claims</strong> bill the at-fault driver's insurance directly."
+    },
+    {
+     "w": 400,
+     "t": "We handle all three in house, and most crash patients pay nothing at the time of service."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "More on car accident care"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/how-it-works-adjustment",
+     "w": 390,
+     "h": 1049,
+     "pos": "6% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "How do I find out if you take my insurance?",
+     "a": "Check the list above, or call us. If you book, send us your insurance info and we’ll look into your coverage before your visit."
+    },
+    {
+     "q": "What if you are out of network with my plan?",
+     "a": "Out of network does not automatically mean expensive. Some plans have real out-of-network benefits. We will look into it before your visit."
+    },
+    {
+     "q": "Do you take Medicaid?",
+     "a": "No. We are not enrolled with Medicaid."
+    },
+    {
+     "q": "Do you take Medicare?",
+     "a": "Yes. Your care is billed through Medicare."
+    },
+    {
+     "q": "Will I know what my plan covers before I come in?",
+     "a": "We look into your coverage as soon as you send us your info, so by the time you’re here we’ll have a good idea, and we’ll walk you through it at your visit."
+    },
+    {
+     "q": "Do I need a referral?",
+     "a": "Only on HMO plans. Most PPO patients can book directly."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Not sure if you’re covered?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your visit and send us your insurance info. We’ll look into your coverage before you come in."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Verify My Insurance"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

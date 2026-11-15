@@ -1,0 +1,165 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Tag from '../components/ui/Tag.astro';
+import Icon from '../components/ui/Icon.astro';
+import Title from '../components/blocks/Title.astro';
+import Media from '../components/blocks/Media.astro';
+import Callout from '../components/blocks/Callout.astro';
+import Sections from '../components/blocks/Sections.astro';
+import data from '../data/pages/about-dr-morgan.json';
+import { icon, type PageData } from '../lib/content';
+const d = data as PageData;
+const [hero, sixteen, creds, ffk, three, home, goal] = d.sections;
+const sp = sixteen.paras!;
+const quote1 = sp.find((p) => p.w === 600)!;
+const stats = [[creds.paras![0].t, creds.paras![1].t], [creds.paras![2].t, creds.paras![3].t]];
+const fq = ffk.paras!.find((p) => p.w === 600)!;
+const fRest = ffk.paras!.filter((p) => p !== fq);
+const pairs = [0, 2, 4].map((i) => [three.paras![i].t, three.paras![i + 1].t]);
+const hp = home.paras!;
+const ld = { '@context': 'https://schema.org', '@type': 'Person', name: 'Casey Morgan', honorificSuffix: 'D.C.', jobTitle: 'Chiropractor', worksFor: { '@type': 'MedicalBusiness', name: 'West End Chiropractic' }, alumniOf: 'Parker University' };
+---
+<SiteLayout title="About Dr. Casey Morgan, D.C. | West End Chiropractic" description="Second-generation Austin chiropractor Casey Morgan, D.C. Practicing downtown since 2016 in a practice his family has run since 1994.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+  <section class="ahero on-dark">
+    <div class="container ahero__grid">
+      <div class="ahero__copy">
+        <Tag variant="soft-dark">{hero.tag}</Tag>
+        <h1 class="h1">{hero.title}</h1>
+        <p class="ahero__lead" set:html={hero.paras![0].t} />
+      </div>
+      <Media image={hero.images![0]} class="ahero__img" eager sizes="(min-width: 1024px) 420px, 100vw" alt="Dr. Casey Morgan, D.C." />
+    </div>
+  </section>
+
+  <section class="section section--sand sixteen">
+    <div class="container sixteen__inner">
+      <Title title={sixteen.title} center />
+      {sp.slice(0, 2).map((p) => <p class="sixteen__p" set:html={p.t} />)}
+      <figure class="qcard">
+        <Media image={sixteen.images![0]} class="qcard__img" shadow={false} sizes="200px" alt="Dr. Casey Morgan" />
+        <blockquote class="qcard__q" set:html={quote1.t} />
+      </figure>
+      <p class="sixteen__p fw-600" set:html={sp.at(-1)!.t} />
+    </div>
+  </section>
+
+  <section class="section section--white creds">
+    <div class="container creds__grid">
+      <div class="creds__left">
+        <Tag>{creds.tag}</Tag>
+        <h2 class="h2">{creds.title}</h2>
+        <Media image={creds.images![0]} class="creds__img" />
+      </div>
+      <ul class="creds__list" role="list">
+        {creds.cards!.map((c) => <li><span class="creds__icon"><Icon name={icon(c.icon)} size={20} /></span><div><h3 class="creds__t">{c.title}</h3><p class="a1 text-muted">{c.text}</p></div></li>)}
+      </ul>
+    </div>
+    <div class="container"><dl class="creds__stats">{stats.map(([n, l]) => <div><dt>{n}</dt><dd>{l}</dd></div>)}</dl></div>
+  </section>
+
+  <section class="section section--white about-ffk">
+    <div class="container about-ffk__grid">
+      <div class="about-ffk__copy">
+        <Title title={ffk.title} />
+        <p set:html={fRest[0].t} />
+        <figure class="mini-q"><Media image={ffk.images![0]} class="mini-q__img" shadow={false} sizes="64px" alt="Dr. Casey Morgan" /><blockquote set:html={fq.t} /></figure>
+        {fRest.slice(1).map((p) => <p set:html={p.t} />)}
+        {ffk.callouts!.map((c) => <Callout title={c.title} text={c.text} />)}
+      </div>
+      <Media image={ffk.images![1]} class="about-ffk__img" alt="Dr. Casey Morgan pointing to a spine chart" />
+    </div>
+  </section>
+
+  <section class="section section--white three">
+    <div class="container three__inner">
+      <h2 class="h2 text-center">{three.title}</h2>
+      <ul class="three__grid" role="list">{pairs.map(([t, x]) => <li><h3 class="three__t">{t}</h3><p class="a1 text-muted" set:html={x} /></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section--white home-life">
+    <div class="container home-life__grid">
+      <Media image={home.images![0]} class="home-life__img" alt="Dr. Casey Morgan with his wife Rachel and daughter Saylor" />
+      <div class="home-life__copy">
+        <Title title={home.title} />
+        {hp.slice(0, 3).map((p) => <p set:html={p.t} />)}
+        <figure class="note-card"><p class="note-card__hand">{hp[3].t}</p><figcaption>{hp[4].t} <span class="note-card__pill">{hp[5].t}</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand goal">
+    <div class="container goal__inner">
+      <h2 class="h2 text-center">{goal.title}</h2>
+      <figure class="qcard qcard--lg">
+        <Media image={goal.images![0]} class="qcard__img" shadow={false} sizes="200px" alt="Dr. Casey Morgan" />
+        <div><blockquote class="qcard__q" set:html={goal.paras![0].t} /><p class="a1 text-muted qcard__cap" set:html={goal.paras![1].t} /></div>
+      </figure>
+    </div>
+  </section>
+
+  <Sections data={d} skip={[0, 1, 2, 3, 4, 5, 6]} />
+</SiteLayout>
+<style>
+  .ahero { background: var(--gradient-navy); }
+  .ahero__grid { display: grid; gap: 40px; align-items: center; padding-top: calc(var(--masthead-h) + 48px); padding-bottom: 80px; }
+  .ahero__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .ahero__lead { color: var(--sand-100); font-weight: 500; max-width: 520px; }
+  .ahero :global(.ahero__img img) { aspect-ratio: 420 / 480; }
+  @media (min-width: 1024px) { .ahero__grid { grid-template-columns: minmax(0, 1fr) 420px; gap: 80px; padding-bottom: 60px; } }
+  @media (max-width: 1023.98px) { .ahero :global(.ahero__img) { max-width: 420px; width: 100%; } }
+  @media (max-width: 767.98px) { .ahero__grid { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } }
+
+  .sixteen__inner { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+  .sixteen__p { max-width: 640px; font-weight: 500; }
+  .qcard { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 0; max-width: 820px; width: 100%; background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-panel); text-align: left; }
+  .qcard :global(.qcard__img) { border-radius: 0; height: 100%; }
+  .qcard :global(.qcard__img img) { height: 100%; }
+  .qcard__q { padding: 32px; font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; color: var(--navy-900); align-self: center; }
+  .qcard--lg > div { padding: 32px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+  .qcard--lg .qcard__q { padding: 0; }
+  @media (max-width: 767.98px) { .qcard { grid-template-columns: 1fr; } .qcard :global(.qcard__img img) { aspect-ratio: 4 / 3; } .qcard__q, .qcard--lg > div { padding: 24px 16px; } }
+
+  .creds__grid { display: grid; gap: 40px; align-items: start; }
+  .creds__left { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .creds :global(.creds__img) { width: 100%; }
+  .creds :global(.creds__img img) { aspect-ratio: 488 / 300; }
+  .creds__list { list-style: none; padding: 0; display: flex; flex-direction: column; }
+  .creds__list li { display: flex; gap: 16px; padding-block: 24px; border-bottom: 1px solid var(--border-light); }
+  .creds__list li:first-child { padding-top: 0; }
+  .creds__icon { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.1); color: var(--orange-500); }
+  .creds__t { font-size: 16px; line-height: 24px; font-weight: 600; margin-bottom: 4px; }
+  .creds__stats { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; border-radius: var(--radius-xl); background: var(--sand-100); }
+  .creds__stats > div { padding: 24px; background: var(--white); border-radius: var(--radius-lg); }
+  .creds__stats dt { font-size: 32px; line-height: 1.1; font-weight: 700; }
+  .creds__stats dd { margin: 4px 0 0; font-size: 14px; color: var(--navy-600); }
+  @media (min-width: 1024px) { .creds__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 80px; } }
+  @media (max-width: 767.98px) { .creds__stats > div { padding: 16px; } .creds__stats dt { font-size: 24px; } }
+
+  .about-ffk__grid { display: grid; gap: 40px; align-items: center; }
+  .about-ffk__copy { display: flex; flex-direction: column; gap: 20px; }
+  .about-ffk :global(.about-ffk__img img) { aspect-ratio: 488 / 600; }
+  .mini-q { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border: 1px solid var(--border-light); border-radius: var(--radius-lg); font-weight: 600; font-size: var(--fs-a1); line-height: var(--lh-a1); }
+  .mini-q :global(.mini-q__img) { flex: none; width: 56px; height: 56px; border-radius: 50%; }
+  @media (min-width: 1024px) { .about-ffk__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 80px; } }
+
+  .three__inner { display: flex; flex-direction: column; gap: 48px; }
+  .three__grid { list-style: none; padding: 0; display: grid; border: 1px solid var(--border-light); border-radius: var(--radius-xl); }
+  .three__grid li { padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+  .three__grid li + li { border-top: 1px solid var(--border-light); }
+  .three__t { font-size: 18px; line-height: 26px; font-weight: 600; }
+  @media (min-width: 1024px) { .three__grid { grid-template-columns: repeat(3, 1fr); } .three__grid li + li { border-top: 0; border-left: 1px solid var(--border-light); } }
+  @media (max-width: 767.98px) { .three__grid li { padding: 24px 16px; } .three__inner { gap: 32px; } }
+
+  .home-life__grid { display: grid; gap: 40px; align-items: center; }
+  .home-life__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .home-life :global(.home-life__img img) { aspect-ratio: 488 / 520; }
+  .note-card { margin-top: 8px; padding: 16px 20px; border: 1px solid var(--border-light); border-radius: var(--radius-lg); background: var(--sand-100); }
+  .note-card__hand { font-family: 'Comic Sans MS', 'Bradley Hand', cursive; font-size: 22px; line-height: 1.2; }
+  .note-card figcaption { margin-top: 6px; font-size: 13px; color: var(--navy-600); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .note-card__pill { padding: 2px 8px; border: 1px solid var(--orange-500); border-radius: var(--radius-full); color: var(--orange-500); font-size: 11px; }
+  @media (min-width: 1024px) { .home-life__grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: 80px; } }
+
+  .goal__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+</style>

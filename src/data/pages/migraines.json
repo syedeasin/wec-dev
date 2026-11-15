@@ -1,0 +1,380 @@
+{
+ "sections": [
+  {
+   "name": "Header – Migraine Chiropractor in Downtown Austin",
+   "title": "<span class=\"hl\">Migraine Chiropractor</span> in Downtown Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Migraines have a lot of triggers. If your neck is one of yours, that's the part Casey Morgan D.C. can work on."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/head-adjustment-seated",
+     "w": 390,
+     "h": 451,
+     "pos": "47% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "If your migraines come with a tight neck",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Maybe your migraines tend to follow a stiff neck or a long week at the computer. Maybe the pain starts at the base of your skull before it settles behind one eye. Maybe you've noticed they hit harder when your shoulders are up around your ears."
+    },
+    {
+     "w": 500,
+     "t": "If any of that sounds familiar, it's worth finding out whether your neck is part of the picture."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-with-patient-smiling",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 111,
+     "h": 148
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The neck is one trigger, not the only one",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Migraines can be set off by sleep, stress, hormones, food, light, and a long list of other things. A doctor or neurologist is the right person to help you sort those out."
+    },
+    {
+     "w": 500,
+     "t": "What a chiropractor can look at is the neck. When the joints and muscles at the top of the neck are tight or not moving well, they can feed into headaches, and for some people they're part of what sets off a migraine."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Dr. Morgan won't promise to fix your migraines.",
+     "text": "He'll examine your neck, tell you whether it looks like part of the problem, and treat that part if it is."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-couple",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, keep it from coming bac",
+   "title": "Find it, fix it, keep it from coming back",
+   "tag": "What we do about it",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>Keep your doctor in the loop.</strong> Chiropractic care here works alongside whatever your doctor or neurologist is doing for your migraines, not instead of it."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "A full history of your migraines (how often, what sets them off, what you've tried) and an exam of your neck and upper back. Digital X-rays if your exam calls for them."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "Adjustments to the neck and upper back when the exam shows they're involved. Dr. Morgan starts gentle."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Keep it from coming back",
+     "body": "Once the neck is moving well, most patients move to maintenance, about once every two weeks."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 342,
+     "h": 234,
+     "pos": "48% 0%"
+    },
+    {
+     "src": "photos/patient-smiling-blue-shirt",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/adjustment-lower-back",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "First Visit Section",
+   "title": "Your first visit, start to finish",
+   "paras": [
+    {
+     "w": 400,
+     "t": "First visit runs about 30 minutes. After that, most visits take a few minutes. Dr. Morgan built the practice around working people."
+    }
+   ],
+   "steps": [
+    {
+     "title": "We find out what is actually happening",
+     "text": "Full history and exam. What hurts, what you have already tried, what you want to get back to doing. Any necessary digital X-rays, taken on site."
+    },
+    {
+     "title": "Dr. Morgan shows you the imaging, same day",
+     "text": "He marks it up and walks you through it right there. You will see what he sees. Most patients get their first adjustment the same visit."
+    },
+    {
+     "title": "You come back for the full report",
+     "text": "Within a few days, Dr. Morgan lays out what he found and exactly what he recommends. What it will take, how long, and what it costs. Then you decide."
+    }
+   ],
+   "images": [
+    {
+     "src": "home/how-it-works-adjustment",
+     "w": 390,
+     "h": 1278,
+     "pos": "20% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "How long until this actually feels better",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most people want a number before they start. Dr. Morgan will give you one, just not before he has examined you and looked at your imaging. He will not guess."
+    },
+    {
+     "w": 500,
+     "t": "What he can tell you up front is how it usually goes, including the part most offices skip: the first two weeks are uneven."
+    },
+    {
+     "w": 500,
+     "t": "If you are only trying to get out of pain, a shorter plan can do that. If you want it to stay fixed, it takes about 90 days. Dr. Morgan will give you both options and let you pick."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "WEEKS 1 TO 2",
+     "text": "Inconsistent, and that's normal. You'll have a good day and think it's fixed, then a bad one and think it's not working. Dr. Morgan warns you about this on day one. Real change usually starts around the end of week two, and better sleep is often the first thing people notice."
+    },
+    {
+     "tag": "WEEKS 3 TO 12",
+     "text": "The bulk of the plan. A typical plan is about 24 visits over 90 days, two to three times a week at the start, then less often as you improve. Some people need fewer. Dr. Morgan checks your progress along the way."
+    },
+    {
+     "tag": "AFTER YOUR PLAN",
+     "text": "Most patients move to maintenance, about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you're there."
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Migraines have company",
+   "cards": [
+    {
+     "icon": "brain",
+     "title": "Headaches",
+     "text": "Tension and neck-related headaches."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Neck Pain",
+     "text": "Where the neck part of migraines starts."
+    },
+    {
+     "icon": "laptop",
+     "title": "Tech Neck",
+     "text": "Screen posture is a common trigger."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What this costs",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> West End is in-network with BCBS, UnitedHealthcare, UMR, Surest, Aetna, Meritain, Humana, Ambetter, Ascension SmartHealth, Curative, WebTPA, and Medicare. Send us your insurance info when you book and we’ll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in. We are not a Medicaid provider."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 360,
+     "pos": "70% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Can a chiropractor help migraines?",
+     "a": "It depends on whether your neck is part of what's setting them off. Dr. Morgan examines your neck and tells you. If it is, he treats that part. He won't promise to stop your migraines."
+    },
+    {
+     "q": "Should I stop seeing my doctor?",
+     "a": "No. Chiropractic care works alongside your doctor or neurologist, not instead of them."
+    },
+    {
+     "q": "Do you adjust during a migraine?",
+     "a": "Tell the front desk when you book or when you arrive. Dr. Morgan will decide what makes sense that day, and gentle is always the starting point."
+    },
+    {
+     "q": "Do I need an X-ray?",
+     "a": "Only if your exam calls for it. If Dr. Morgan takes them, they happen on site at your first visit."
+    },
+    {
+     "q": "When should I go to the ER instead?",
+     "a": "If a headache is the worst of your life, comes on suddenly, or comes with weakness, confusion, trouble speaking, vision loss, or a stiff neck with fever, go to an emergency room. Those aren't a typical migraine."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out if your neck is part of it",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit and you'll leave knowing whether your neck is involved, and what Dr. Morgan would do about it."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

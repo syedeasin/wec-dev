@@ -1,0 +1,275 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "The people who make the visit easy",
+   "tag": "TEAM",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Three of us. You will know all of our names by your second visit."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-portrait-office",
+     "w": 125,
+     "h": 150,
+     "pos": "62% 16%"
+    },
+    {
+     "src": "photos/tai-le-portrait",
+     "w": 119,
+     "h": 150,
+     "pos": "41% 16%"
+    },
+    {
+     "src": "photos/gabby-menendez-portrait",
+     "w": 120,
+     "h": 150,
+     "pos": "41% 4%"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Casey Morgan, D.C."
+    },
+    {
+     "w": 400,
+     "t": "Owner and Chiropractor"
+    },
+    {
+     "w": 500,
+     "t": "Second-generation Austin chiropractor. Dr. Morgan decided on this at sixteen, watching his dad do it. Parker University graduate, Board Certified by the NBCE. He has led West End since 2016."
+    },
+    {
+     "w": 500,
+     "t": "He does the exam, the imaging, and the adjusting himself. Every patient, every visit."
+    },
+    {
+     "w": 600,
+     "t": "Tai Le"
+    },
+    {
+     "w": 400,
+     "t": "Chiropractic Assistant"
+    },
+    {
+     "w": 500,
+     "t": "Tai has been with West End since 2017, which makes him the person who has been here longest besides Dr. Morgan. He grew up in small-town Texas, moved to Austin in 2013, and graduated from UT Austin with a degree in Kinesiology and Health Education."
+    },
+    {
+     "w": 500,
+     "t": "He plays tennis and is genuinely interested in getting patients back to whatever they were doing before the pain started."
+    },
+    {
+     "w": 500,
+     "t": "If you call the office, there is a good chance you are talking to Tai."
+    },
+    {
+     "w": 600,
+     "t": "Gabriella “Gabby” Menendez"
+    },
+    {
+     "w": 400,
+     "t": "Chiropractic Assistant"
+    },
+    {
+     "w": 500,
+     "t": "Gabby is originally from Cuba and grew up in New Orleans, where she worked as a chiropractic assistant before moving to Austin at the end of 2025. She fell for the city fast."
+    },
+    {
+     "w": 500,
+     "t": "Her background in patient care shows up in how comfortable people are the moment they walk in. She says working here feels like being at home."
+    },
+    {
+     "w": 500,
+     "t": "Outside the office: reading, movies, and anything involving capybaras. Her favorite color is yellow."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Tertiary",
+     "label": "Read Dr. Morgan’s full story"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-casual-standing",
+     "w": 326,
+     "h": 340,
+     "pos": "100% 18%"
+    },
+    {
+     "src": "photos/casey-morgan-suit-standing",
+     "w": 357,
+     "h": 536
+    },
+    {
+     "src": "photos/tai-le-standing",
+     "w": 326,
+     "h": 340,
+     "pos": "50% 22%"
+    },
+    {
+     "src": "photos/team-woman-portrait",
+     "w": 326,
+     "h": 340,
+     "pos": "33% 32%"
+    },
+    {
+     "src": "photos/gabby-menendez-standing",
+     "w": 372,
+     "h": 558
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Casey Morgan, D.C."
+    },
+    {
+     "w": 400,
+     "t": "Owner and Chiropractor"
+    },
+    {
+     "w": 500,
+     "t": "Second-generation Austin chiropractor. Dr. Morgan decided on this at sixteen, watching his dad do it. Parker University graduate, Board Certified by the NBCE. He has led West End since 2016."
+    },
+    {
+     "w": 500,
+     "t": "He does the exam, the imaging, and the adjusting himself. Every patient, every visit."
+    },
+    {
+     "w": 600,
+     "t": "Tai Le"
+    },
+    {
+     "w": 400,
+     "t": "Chiropractic Assistant"
+    },
+    {
+     "w": 500,
+     "t": "Tai has been with West End since 2017, which makes him the person who has been here longest besides Dr. Morgan. He grew up in small-town Texas, moved to Austin in 2013, and graduated from UT Austin with a degree in Kinesiology and Health Education."
+    },
+    {
+     "w": 500,
+     "t": "He plays tennis and is genuinely interested in getting patients back to whatever they were doing before the pain started."
+    },
+    {
+     "w": 500,
+     "t": "If you call the office, there is a good chance you are talking to Tai."
+    },
+    {
+     "w": 600,
+     "t": "Gabriella “Gabby” Menendez"
+    },
+    {
+     "w": 400,
+     "t": "Chiropractic Assistant"
+    },
+    {
+     "w": 500,
+     "t": "Gabby is originally from Cuba and grew up in New Orleans, where she worked as a chiropractic assistant before moving to Austin at the end of 2025. She fell for the city fast."
+    },
+    {
+     "w": 500,
+     "t": "Her background in patient care shows up in how comfortable people are the moment they walk in. She says working here feels like being at home."
+    },
+    {
+     "w": 500,
+     "t": "Outside the office: reading, movies, and anything involving capybaras. Her favorite color is yellow."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Tertiary",
+     "label": "Read Dr. Morgan’s full story"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-casual-standing",
+     "w": 326,
+     "h": 340,
+     "pos": "100% 18%"
+    },
+    {
+     "src": "photos/casey-morgan-suit-standing",
+     "w": 357,
+     "h": 536
+    },
+    {
+     "src": "photos/tai-le-standing",
+     "w": 326,
+     "h": 340,
+     "pos": "50% 20%"
+    },
+    {
+     "src": "photos/team-woman-portrait",
+     "w": 326,
+     "h": 340,
+     "pos": "33% 32%"
+    },
+    {
+     "src": "photos/gabby-menendez-standing",
+     "w": 372,
+     "h": 558
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Come meet them",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. You will leave knowing what is going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,342 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">Personal Injury</span> Chiropractic Care in Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day care after an injury, documentation that holds up, and billing through PIP, the at-fault driver's insurance, or your attorney. Casey Morgan D.C. handles the case side so you can focus on getting better."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "Frame",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "Frame",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-couple",
+     "w": 390,
+     "h": 343
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Treatment and the paperwork, handled together",
+   "paras": [
+    {
+     "w": 500,
+     "t": "A personal injury case needs two things from your chiropractor: real treatment, and records that show what happened to you and what it took to get better."
+    },
+    {
+     "w": 500,
+     "t": "West End has treated Austin auto injury patients since 1994."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "We treat auto accident injuries only.",
+     "text": "No slip and fall, no workers' comp."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/consult-couple-room",
+     "w": 342,
+     "h": 413
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "If you were hurt in a car accident",
+   "paras": [
+    {
+     "w": 500,
+     "t": "•  You were in a crash, recently or a while ago, and something still hurts\n•  You have an attorney, or you're deciding whether you need one\n•  You're not sure how your care will get paid for\n•  You need your injuries examined and documented from the start"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/shoulder-assessment-man",
+     "w": 342,
+     "h": 439
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, document it properly",
+   "title": "Find it, fix it, document it properly",
+   "tag": "What we do about it",
+   "cards": [
+    {
+     "icon": "search",
+     "title": "Find it",
+     "text": "A crash-focused exam: how the crash happened, which direction, whether you were braced, where you felt it first. Digital X-rays on site. Because disc injuries are more likely after a crash, Dr. Morgan refers most car accident patients for an MRI."
+    },
+    {
+     "icon": "wrench",
+     "title": "Fix it",
+     "text": "Adjustments, and spinal decompression where imaging supports it. Crash injuries are usually acute, so care starts frequent to stabilize things. Plans typically run 24 to 48 visits."
+    },
+    {
+     "icon": "pencil-line",
+     "title": "Document it",
+     "text": "Every visit is recorded properly. If your case involves an insurer or an attorney, the paperwork holds up, and we coordinate records with their office."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/consult-room",
+     "w": 342,
+     "h": 234
+    },
+    {
+     "src": "photos/neck-assessment",
+     "w": 342,
+     "h": 368
+    },
+    {
+     "src": "photos/consult-couple-close",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "How personal injury care gets paid for",
+   "paras": [
+    {
+     "w": 600,
+     "t": "PIP (Personal Injury Protection)"
+    },
+    {
+     "w": 400,
+     "t": "Your own auto coverage. In Texas, policies include at least $2,500 unless you rejected it in writing, and it pays no matter who caused the crash."
+    },
+    {
+     "w": 600,
+     "t": "The at-fault driver's insurance"
+    },
+    {
+     "w": 400,
+     "t": "Their liability coverage pays for your treatment, usually when the case settles."
+    },
+    {
+     "w": 400,
+     "t": "In most cases, you pay nothing at the time of service. We don't bill health insurance for car accidents. If none of these apply, we'll tell you up front what care would cost."
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">Personal injury forms →</span>"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "eye",
+     "title": "Letter of protection",
+     "text": "If you have an attorney, they send us a letter of protection. You're treated now, and the bill is paid from your settlement."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/front-desk-patient",
+     "w": 342,
+     "h": 360
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Over the course of just 3 months, Dr. Morgan has significantly decreased my lower back pain. Between chiropractic care and stretches, my back spasms rarely occur and what used to take a week or two to recover from can now be resolved within about a day."
+    },
+    {
+     "w": 400,
+     "t": "I really appreciate the personalized approach, attention to long-term healing, and consistent support throughout the process. Highly recommend to anyone dealing with chronic back pain or muscle spasms!"
+    },
+    {
+     "w": 600,
+     "t": "Molly Sibley"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    },
+    {
+     "w": 400,
+     "t": "Dr. Morgan and the team at West End Chiropractic are incredible! I came in with back and neck pain from working at a computer, and after just a few visits, I felt a huge difference. Dr. Morgan took time to really understand my issues and created a personalized treatment plan that worked. The staff is friendly, the space is welcoming, and scheduling is easy. I feel stronger, more mobile, and finally pain-free. Highly recommend to anyone looking for quality chiropractic care in Austin!"
+    },
+    {
+     "w": 600,
+     "t": "Michael Belfatto"
+    },
+    {
+     "w": 500,
+     "t": "Google Review"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "More on car \naccident injuries",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "car-front",
+     "title": "Car Accident Chiropractor",
+     "text": "same-day care after a wreck, and what to expect"
+    },
+    {
+     "icon": "body",
+     "title": "Car accident injury symptoms",
+     "text": "what to watch for in the days after a crash"
+    },
+    {
+     "icon": "spine",
+     "title": "Car accident insurance options",
+     "text": "PIP, LOP, and third-party explained"
+    },
+    {
+     "icon": "workout",
+     "title": "Neck Pain",
+     "text": "stiffness and pain after a crash"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Do I need an attorney to be seen?",
+     "a": "No. You can be seen without one. If you already have an attorney, we'll work with their office on records and billing."
+    },
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim usually covers it. We'll confirm which applies before treatment starts."
+    },
+    {
+     "q": "How long will treatment take?",
+     "a": "It depends on the injury. Plans typically run 24 to 48 visits, with more frequent visits at the start."
+    },
+    {
+     "q": "Will I need an MRI?",
+     "a": "Often, yes. Disc injuries are more likely after a crash, so Dr. Morgan refers most car accident patients for one."
+    },
+    {
+     "q": "Do you treat slip and falls or workers' comp?",
+     "a": "No. Auto accident injuries only."
+    },
+    {
+     "q": "How soon can I be seen?",
+     "a": "Often the same day. Call and tell us you were in an accident."
+    }
+   ]
+  },
+  {
+   "name": "Wrapper",
+   "title": "Get seen before it becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments are often available. Bring your insurance or claim information if you have it, and we'll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

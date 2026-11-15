@@ -1,0 +1,79 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { Picture } from 'astro:assets';
+import BookingForm from '../components/blocks/BookingForm.astro';
+import Sections from '../components/blocks/Sections.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import Buttons from '../components/blocks/Buttons.astro';
+import Media from '../components/blocks/Media.astro';
+import Button from '../components/ui/Button.astro';
+import BulletItem from '../components/ui/BulletItem.astro';
+import data from '../data/pages/schedule-appointment.json';
+import bg from '../assets/images/shared/cta-adjustment.webp';
+import type { PageData } from '../lib/content';
+const d = data as PageData;
+const [hero, next, , already] = d.sections;
+---
+<SiteLayout title="Book Your Visit | West End Chiropractic, Downtown Austin" description="Request your first visit at West End Chiropractic. Exam, consultation and any necessary digital X-rays. Same-day appointments are often available.">
+  <section class="bhero on-dark">
+    <Picture src={bg} alt="" widths={[640, 1280, 1920, 2560]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="bhero__bg" loading="eager" />
+    <div class="container bhero__inner">
+      <div class="bhero__copy">
+        <h1 class="h1">{hero.title}</h1>
+        <p class="bhero__lead" set:html={hero.paras![0].t} />
+        <ul class="bhero__list" role="list">
+          <BulletItem icon="clock" size={20}>First visit takes about 30 minutes</BulletItem>
+          <BulletItem icon="trust-x-ray" size={20}>Digital X-rays on site</BulletItem>
+          <BulletItem icon="square-parking" size={20}>Free covered garage parking</BulletItem>
+        </ul>
+      </div>
+      <BookingForm />
+    </div>
+  </section>
+
+  <Sections data={d} skip={[0]} bespoke={[1, 3]}>
+    <Fragment slot="s1">
+  <section class="section section--sand bnext">
+    <div class="container bnext__grid">
+      <div class="bnext__copy">
+        <h2 class="h2">{next.title}</h2>
+        <ol class="num-list" role="list">
+          {next.steps!.map((s, i) => <li><span class="num-list__n">{i + 1}</span><div><p class="num-list__t">{s.title}</p><p class="num-list__d" set:html={s.text} /></div></li>)}
+        </ol>
+        <Button href="/new-patients" variant="tertiary">What your first visit looks like</Button>
+      </div>
+      <Media image={next.images![0]} class="bnext__img" />
+    </div>
+  </section>
+
+    </Fragment>
+    <Fragment slot="s3">
+  <section class="section section--white already">
+    <div class="container already__box">
+      <SectionHead title={already.title ?? ''} align="left"><Fragment set:html={already.paras![0].t} /></SectionHead>
+      <Buttons buttons={already.buttons} />
+    </div>
+  </section>
+    </Fragment>
+  </Sections>
+</SiteLayout>
+<style>
+  .bhero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
+  .bhero > :global(picture) { position: absolute; inset: 0; z-index: -2; }
+  .bhero :global(.bhero__bg) { width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%; }
+  .bhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.88) 45%, rgb(15 45 64 / 0.6) 100%); }
+  .bhero__inner { display: grid; gap: 40px; align-items: start; padding-top: calc(var(--masthead-h) + 60px); padding-bottom: 100px; }
+  .bhero__copy { display: flex; flex-direction: column; gap: 24px; padding-top: 24px; }
+  .bhero__lead { color: var(--sand-100); font-weight: 500; max-width: 520px; }
+  .bhero__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px; font-weight: 500; color: var(--sand-100); }
+  .bhero__list :global(.icon) { color: var(--blue-300); }
+  @media (min-width: 1024px) { .bhero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 80px; } }
+  @media (max-width: 767.98px) { .bhero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; gap: 32px; } .bhero__copy { padding-top: 0; } }
+  .bnext__grid { display: grid; gap: 40px; align-items: center; }
+  .bnext__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
+  .bnext :global(.bnext__img img) { aspect-ratio: 488 / 400; }
+  @media (min-width: 1024px) { .bnext__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; } }
+  .already__box { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding: 40px; border-radius: var(--radius-xl); background: var(--sand-100); }
+  @media (min-width: 1024px) { .already__box { flex-direction: row; align-items: center; justify-content: space-between; } }
+  @media (max-width: 767.98px) { .already__box { padding: 24px 16px; align-items: stretch; } .already { padding-block: 60px; } }
+</style>

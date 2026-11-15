@@ -1,0 +1,427 @@
+{
+ "sections": [
+  {
+   "name": "Header"
+  },
+  {
+   "name": "Section / Article Header",
+   "title": "Why your lower back hurts more after sitting all day",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Home"
+    },
+    {
+     "w": 500,
+     "t": "/"
+    },
+    {
+     "w": 500,
+     "t": "Resources"
+    },
+    {
+     "w": 500,
+     "t": "/"
+    },
+    {
+     "w": 500,
+     "t": "Back Pain"
+    },
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">BACK PAIN</span>"
+    },
+    {
+     "w": 400,
+     "t": "Sitting loads your lower back more than standing does. Here is what is going on, the signs it is more than stiffness, and the simple changes that help."
+    },
+    {
+     "w": 600,
+     "t": "By Casey Morgan, D.C."
+    },
+    {
+     "w": 400,
+     "t": "Updated Oct 8, 2026  ·  5 min read"
+    },
+    {
+     "w": 600,
+     "t": "Share"
+    }
+   ]
+  },
+  {
+   "name": "Section / Featured Image",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Dr. Morgan walks a patient through how the lower spine handles load when you sit. Photo: West End Chiropractic"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/spine-model-consult-man-alt",
+     "w": 390,
+     "h": 260,
+     "pos": "60% 0%"
+    }
+   ]
+  },
+  {
+   "name": "Section / Article Body",
+   "title": "What sitting does to your lower back",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Key takeaways"
+    },
+    {
+     "w": 400,
+     "t": "Sitting puts more load on the discs in your lower back than standing does."
+    },
+    {
+     "w": 400,
+     "t": "Tight hip flexors from long days in a chair pull on your lower spine."
+    },
+    {
+     "w": 400,
+     "t": "Pain that travels down a leg, numbness, or tingling means it is time to get checked."
+    },
+    {
+     "w": 400,
+     "t": "Small habits help most: stand up every 30 minutes and raise your screen."
+    },
+    {
+     "w": 600,
+     "t": "In this article"
+    },
+    {
+     "w": 400,
+     "t": "If your back feels fine in the morning and wrecked by 3 PM, your chair is a big part of the story. Sitting puts more pressure on the discs in your lower back than standing does, and most of us sit eight hours or more a day."
+    },
+    {
+     "w": 400,
+     "t": "When you sit, your pelvis tips back and the natural curve in your lower back flattens. That shifts load onto the front of your discs and stretches the ligaments behind them. One hour of that is no big deal. A full workday, five days a week, adds up."
+    },
+    {
+     "w": 400,
+     "t": "Over time the muscles that hold you upright get lazy, and the hip flexors at the front of your hips get short and tight. Tight hip flexors pull on your lower spine every time you stand, which is why the first few steps after a long meeting often hurt the most."
+    },
+    {
+     "w": 400,
+     "t": "Dr. Morgan checks how the pelvis and lower spine move together during a first visit."
+    },
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">RELATED</span>"
+    },
+    {
+     "w": 700,
+     "t": "SCIATICA"
+    },
+    {
+     "w": 600,
+     "t": "Sciatica or a pulled muscle? How to tell the difference"
+    },
+    {
+     "w": 500,
+     "t": "Oct 12, 2026  ·  5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Signs it is more than a stiff back"
+    },
+    {
+     "w": 400,
+     "t": "Pain that travels into your buttock or down one leg"
+    },
+    {
+     "w": 400,
+     "t": "Numbness or tingling in your foot"
+    },
+    {
+     "w": 400,
+     "t": "Pain that gets worse when you cough or sneeze"
+    },
+    {
+     "w": 400,
+     "t": "Stiffness that lasts more than 30 minutes after you get up"
+    },
+    {
+     "w": 600,
+     "t": "“Most of the low back pain I see from desk work is a load problem, not a damage problem. Change the load and the pain usually follows.”"
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">Casey Morgan, D.C.</span>"
+    },
+    {
+     "w": 700,
+     "t": "Simple changes that help"
+    },
+    {
+     "w": 400,
+     "t": "You do not need a standing desk or a new chair to make progress. Start with these four habits:"
+    },
+    {
+     "w": 400,
+     "t": "Keep your hips slightly higher than your knees"
+    },
+    {
+     "w": 400,
+     "t": "Walk for 10 minutes after lunch"
+    },
+    {
+     "w": 700,
+     "t": "When to see a chiropractor"
+    },
+    {
+     "w": 400,
+     "t": "If the pain keeps coming back, spreads into your leg, or is starting to change how you work or sleep, it is worth getting checked. A first visit at West End includes an exam, any digital X-rays you need, and a clear plan, so you know what is going on before you decide anything."
+    },
+    {
+     "w": 700,
+     "t": "New patients"
+    },
+    {
+     "w": 700,
+     "t": "Not sure what's causing your pain?"
+    },
+    {
+     "w": 400,
+     "t": "Your first visit includes an exam and any digital X-rays you need. In-network with most major carriers."
+    },
+    {
+     "w": 400,
+     "t": "This article is general information, not a diagnosis. If you have sudden leg weakness, numbness in the groin or inner thighs, or trouble controlling your bladder or bowels, get emergency care right away."
+    },
+    {
+     "w": 600,
+     "t": "Filed under"
+    },
+    {
+     "w": 600,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Posture & Desk Work"
+    },
+    {
+     "w": 600,
+     "t": "Sciatica"
+    },
+    {
+     "w": 600,
+     "t": "Share"
+    },
+    {
+     "w": 700,
+     "t": "Written and reviewed by"
+    },
+    {
+     "w": 600,
+     "t": "Casey Morgan, D.C."
+    },
+    {
+     "w": 500,
+     "t": "Chiropractor at West End Chiropractic, downtown Austin"
+    },
+    {
+     "w": 400,
+     "t": "Dr. Morgan writes these guides to answer the questions patients ask him most, in plain English."
+    },
+    {
+     "w": 700,
+     "t": "More from Dr. Morgan"
+    }
+   ],
+   "bullets": [
+    {
+     "icon": null,
+     "text": "Or call (512) 472-1116"
+    }
+   ],
+   "steps": [
+    {
+     "title": "Stand up every 30 minutes, even for 60 seconds",
+     "text": "2"
+    },
+    {
+     "title": "Raise your screen to eye level so you stop leaning forward",
+     "text": "4"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-patient-blue-small",
+     "w": 342,
+     "h": 220
+    },
+    {
+     "src": "home/video-thumb-adjustment",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/casey-with-patient-smiling",
+     "w": 294,
+     "h": 176
+    },
+    {
+     "src": "photos/casey-morgan-headshot",
+     "w": 64,
+     "h": 64
+    }
+   ]
+  },
+  {
+   "name": "Related Conditions Section",
+   "title": "Related conditions",
+   "paras": [
+    {
+     "w": 500,
+     "t": "If this article sounds like you, these conditions are often part of the same problem."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "Shooting pain, numbness, or tingling down the leg. Usually a disc pressing on a nerve."
+    },
+    {
+     "icon": "hip-pain",
+     "title": "Hip Pain",
+     "text": "A lot of patients point at their hip when the problem is actually the lower back."
+    },
+    {
+     "icon": "spine",
+     "title": "Herniated or Bulging Disc",
+     "text": "The structural problem underneath a lot of low back pain and sciatica."
+    }
+   ]
+  },
+  {
+   "name": "Section / Keep Reading",
+   "title": "Keep reading",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">MORE ON BACK PAIN</span>"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "5 desk stretches that take less than two minutes"
+    },
+    {
+     "w": 500,
+     "t": "Sep 28, 2026  ·  3 min read"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Herniated disc recovery: what a normal week looks like"
+    },
+    {
+     "w": 500,
+     "t": "Sep 21, 2026  ·  6 min read"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Is spinal decompression right for your back?"
+    },
+    {
+     "w": 500,
+     "t": "Sep 14, 2026  ·  5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "How to lift without hurting your lower back"
+    },
+    {
+     "w": 500,
+     "t": "Sep 7, 2026  ·  4 min read"
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">See all Back Pain articles</span>"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-consult-clipboard",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/adjustment-thoracic-woman",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/decompression-assistant",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "home/hero-casey-with-patient",
+     "w": 112,
+     "h": 84
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Ready to figure out what's going on?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit. A full exam, any necessary digital X-rays, and a real answer about what's going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

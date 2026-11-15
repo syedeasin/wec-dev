@@ -1,0 +1,38 @@
+---
+import Media from './Media.astro';
+import Icon from '../ui/Icon.astro';
+import { articleHref, fmtDate, type ArticleMeta } from '../../data/articles';
+interface Props { a: ArticleMeta; layout?: 'card' | 'row' | 'feature'; dark?: boolean }
+const { a, layout = 'card' } = Astro.props;
+const href = articleHref(a.slug);
+const Tag = href ? 'a' : 'div';
+const meta = [fmtDate(a.date), `${a.minutes} min read`].filter(Boolean).join('  ·  ');
+---
+<Tag class:list={['acard', `acard--${layout}`, !href && 'acard--soon']} href={href}>
+  <Media image={{ src: a.image, w: 1, h: 1 }} class="acard__img" shadow={false} sizes={layout === 'feature' ? '(min-width: 1024px) 640px, 100vw' : layout === 'row' ? '140px' : '(min-width: 1024px) 400px, 100vw'} alt="" />
+  <div class="acard__body">
+    <p class="eyebrow acard__topic">{a.topic}</p>
+    <h3 class="acard__title">{a.title}</h3>
+    <p class="acard__meta">{layout === 'feature' && <span>Casey Morgan, D.C.  ·  </span>}{meta}{!href && <span class="acard__soon">Coming soon</span>}</p>
+  </div>
+  {href && layout !== 'row' && <span class="acard__arrow" aria-hidden="true"><Icon name="arrow-up-right" size={16} /></span>}
+</Tag>
+<style is:global>
+  .acard { position: relative; display: flex; flex-direction: column; gap: 16px; color: var(--navy-900); }
+  .acard__img img { aspect-ratio: 16 / 10; transition: transform var(--dur) var(--ease); }
+  a.acard:hover .acard__img img { transform: scale(1.03); }
+  a.acard:hover .acard__title { color: var(--orange-500); }
+  .acard__body { display: flex; flex-direction: column; gap: 8px; }
+  .acard__topic { color: var(--orange-500); font-size: 11px; }
+  .acard__title { font-size: 18px; line-height: 26px; font-weight: 600; transition: color var(--dur-fast); }
+  .acard__meta { font-size: 13px; line-height: 20px; color: var(--navy-600); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; white-space: pre; }
+  .acard__soon { padding: 2px 8px; border-radius: var(--radius-full); background: var(--sand-200); font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .acard--soon { opacity: 0.85; }
+  .acard__arrow { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--white); color: var(--navy-900); box-shadow: var(--shadow-card); }
+  .acard--row { flex-direction: row; align-items: center; gap: 16px; }
+  .acard--row .acard__img { flex: none; width: 112px; border-radius: var(--radius-md); }
+  .acard--row .acard__img img { aspect-ratio: 4 / 3; }
+  .acard--row .acard__title { font-size: 15px; line-height: 22px; }
+  .acard--feature .acard__title { font-size: var(--fs-h3); line-height: 1.2; }
+  .acard--feature .acard__img img { aspect-ratio: 16 / 11; }
+</style>

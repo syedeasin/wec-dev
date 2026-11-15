@@ -1,0 +1,405 @@
+{
+ "sections": [
+  {
+   "name": "Header – Herniated and Bulging Disc Treatment in",
+   "title": "Herniated and <span class=\"hl\">Bulging Disc Treatment</span> in Downtown Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Herniated, bulging, or \"slipped,\" it's a disc problem. Casey Morgan D.C. finds out what's actually going on before recommending anything."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-side-posture",
+     "w": 390,
+     "h": 451,
+     "pos": "78% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Someone told you it's a disc",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Maybe an MRI said herniated. Maybe another doctor said bulging. Maybe a friend said slipped. Or maybe nobody has told you anything yet, but you've got back pain that won't settle and pain running into a leg."
+    },
+    {
+     "w": 600,
+     "t": "Whichever word you've heard, you're in the right place."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/spine-model-consult-woman",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 111,
+     "h": 148
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Bulging, herniated, slipped: what the words mean",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Your discs are the cushions between the bones of your spine."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Bulging</strong> means the disc is pushing out past where it should sit, a bit like a tire that's low on air."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Herniated</strong> means the soft inner part has pushed through the tougher outer layer."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Slipped</strong> is the everyday name for both. Discs don't actually slip."
+    },
+    {
+     "w": 500,
+     "t": "Any of them can press on a nerve, which is why disc problems so often come with sciatica, numbness, or tingling down a leg."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "What X-rays show and what they don't.",
+     "text": "Discs are soft tissue, so they don't show up on an X-ray. What does show up is the space between the bones. When that space is thinning, it tells Dr. Morgan the disc is wearing down. In the lower back, that disc-space thinning is the change he sees most. If he needs to see the disc itself, that's what an MRI is for."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/spine-model-consult-man",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, keep it from coming bac",
+   "title": "Find it, fix it, keep it from coming back",
+   "tag": "What we do about it",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>When we'd send you for an MRI.</strong> If you haven't improved after about six weeks, or you finish a plan with less change than expected, Dr. Morgan will refer you for one."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "A full history and exam, digital X-rays on site when the exam calls for them, and an MRI referral when it's needed."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "Adjustments plus spinal decompression. Decompression is a slow, controlled stretch that takes pressure off the disc and the nerve it's pressing on. Dr. Morgan never does decompression on its own. The adjustment is always part of it."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Keep it from coming back",
+     "body": "Disc problems in the lower back are usually chronic. The goal is a new baseline: get you out of pain, then slow the wear down from there with maintenance, about once every two weeks."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 342,
+     "h": 234,
+     "pos": "48% 0%"
+    },
+    {
+     "src": "photos/decompression-patient",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/adjustment-lower-back",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "First Visit Section",
+   "title": "Your first visit, start to finish",
+   "paras": [
+    {
+     "w": 400,
+     "t": "First visit runs about 30 minutes. After that, most visits take a few minutes. Dr. Morgan built the practice around working people."
+    }
+   ],
+   "steps": [
+    {
+     "title": "We find out what is actually happening",
+     "text": "Full history and exam. What hurts, what you have already tried, what you want to get back to doing. Any necessary digital X-rays, taken on site."
+    },
+    {
+     "title": "Dr. Morgan shows you the imaging, same day",
+     "text": "He marks it up and walks you through it right there. You will see what he sees. Most patients get their first adjustment the same visit."
+    },
+    {
+     "title": "You come back for the full report",
+     "text": "Within a few days, Dr. Morgan lays out what he found and exactly what he recommends. What it will take, how long, and what it costs. Then you decide."
+    }
+   ],
+   "images": [
+    {
+     "src": "home/how-it-works-adjustment",
+     "w": 390,
+     "h": 1278,
+     "pos": "20% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "How long until this actually feels better",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most people want a number before they start. Dr. Morgan will give you one, just not before he has examined you and looked at your imaging. He will not guess."
+    },
+    {
+     "w": 500,
+     "t": "What he can tell you up front is how it usually goes, including the part most offices skip: the first two weeks are uneven."
+    },
+    {
+     "w": 500,
+     "t": "If you are only trying to get out of pain, a shorter plan can do that. If you want it to stay fixed, it takes about 90 days. Dr. Morgan will give you both options and let you pick."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "WEEKS 1 TO 2",
+     "text": "Inconsistent, and that's normal. You'll have a good day and think it's fixed, then a bad one and think it's not working. Dr. Morgan warns you about this on day one. Real change usually starts around the end of week two, and better sleep is often the first thing people notice."
+    },
+    {
+     "tag": "WEEKS 3 TO 12",
+     "text": "The bulk of the plan. A typical plan is about 24 visits over 90 days, two to three times a week at the start, then less often as you improve. Some people need fewer. Dr. Morgan checks your progress along the way."
+    },
+    {
+     "tag": "AFTER YOUR PLAN",
+     "text": "Most patients move to maintenance, about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you're there."
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Disc problems rarely stay in one place",
+   "cards": [
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "When the disc presses on the nerve to your leg."
+    },
+    {
+     "icon": "body",
+     "title": "Lower Back Pain",
+     "text": "The hub for everything lower back."
+    },
+    {
+     "icon": "hip-pain",
+     "title": "Hip Pain",
+     "text": "Disc pain often shows up in the hip."
+    },
+    {
+     "icon": "stretch-vertical",
+     "title": "Spinal Decompression",
+     "text": "The treatment built for disc problems."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What this costs",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> West End is in-network with BCBS, UnitedHealthcare, UMR, Surest, Aetna, Meritain, Humana, Ambetter, Ascension SmartHealth, Curative, WebTPA, and Medicare. Send us your insurance info when you book and we’ll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in. We are not a Medicaid provider."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Spinal decompression is a cash service, $75 per session.</strong> Dr. Morgan gives you the session count and total before you start."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 360,
+     "pos": "70% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "What's the difference between herniated and bulging?",
+     "a": "A bulging disc pushes out past where it should sit. A herniated disc has its soft inner part pushing through the outer layer. Both can press on a nerve, and both are treated the same way here."
+    },
+    {
+     "q": "Do I need surgery?",
+     "a": "Most disc problems don't need surgery. Dr. Morgan will tell you if your exam or imaging points to a surgeon, and if it does, he'll say so."
+    },
+    {
+     "q": "Can you see a herniated disc on an X-ray?",
+     "a": "Not directly. X-rays show the space between the bones, and a thinning space tells Dr. Morgan the disc is wearing down. An MRI shows the disc itself, and he'll refer you for one if it's needed."
+    },
+    {
+     "q": "Will I need decompression?",
+     "a": "Often, with disc problems. Dr. Morgan recommends it when your exam and imaging support it. It's a cash service, $75 per session, and it always goes alongside your adjustments."
+    },
+    {
+     "q": "Will I need an MRI?",
+     "a": "Not to start. Dr. Morgan refers for one if you haven't improved after about six weeks, or if a plan ends with less change than expected."
+    },
+    {
+     "q": "Will the adjustment hurt with a disc problem?",
+     "a": "Dr. Morgan starts gentle on the first visit to get a feel for your spine. If something is tender, tell him and he works around it."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out what your disc is actually doing",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit and you'll leave knowing what's going on, and whether decompression is part of the answer."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

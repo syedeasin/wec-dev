@@ -1,0 +1,212 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ArticleCard from '../../components/blocks/ArticleCard.astro';
+import Media from '../../components/blocks/Media.astro';
+import Sections from '../../components/blocks/Sections.astro';
+import Button from '../../components/ui/Button.astro';
+import Icon from '../../components/ui/Icon.astro';
+import VideoPopup from '../../components/ui/VideoPopup.astro';
+import data from '../../data/pages/resources.json';
+import { articles, topics, videos, articleHref } from '../../data/articles';
+import { img, type PageData } from '../../lib/content';
+import { site } from '../../data/site';
+const d = data as PageData;
+const by = (slug: string) => articles.find((a) => a.slug === slug)!;
+const featured = by('herniated-vs-bulging-disc-mri');
+const more = ['why-lower-back-hurts-after-sitting', 'first-72-hours-after-car-wreck', 'is-chiropractic-safe-during-pregnancy'].map(by);
+const latest = ['do-you-need-an-x-ray', 'sciatica-or-pulled-muscle', 'why-you-wake-up-with-stiff-neck', 'headaches-that-start-in-your-neck', 'your-first-visit-step-by-step'].map(by);
+const mostRead = [featured, ...more, by('sciatica-or-pulled-muscle')];
+const groups = [
+  { title: 'Back Pain', list: ['desk-stretches-under-two-minutes', 'herniated-disc-recovery-normal-week', 'is-spinal-decompression-right-for-you'].map(by) },
+  { title: 'Auto Accident Recovery', list: ['whiplash-symptoms-days-later', 'how-pip-works-in-texas', 'chiropractor-or-er-after-car-accident'].map(by) },
+];
+const video = videos[0];
+const nl = d.sections[6];
+---
+<SiteLayout title="Chiropractic Resources: Articles & Videos | West End Chiropractic" description="Short, plain-English articles and videos from Casey Morgan, D.C. on back pain, neck pain, headaches, car accident recovery and pregnancy.">
+  <section class="rhero on-dark">
+    <div class="container rhero__grid">
+      <div class="rhero__copy">
+        <p class="eyebrow rhero__eyebrow">Resource library</p>
+        <h1 class="h1" set:html={d.sections[0].title} />
+        <p class="rhero__lead" set:html={d.sections[0].paras![1].t} />
+        <form class="rsearch" role="search" data-search onsubmit="return false">
+          <Icon name="search" size={20} />
+          <label class="sr-only" for="rsearch">Search articles and videos</label>
+          <input id="rsearch" type="search" placeholder="Search articles and videos" autocomplete="off" data-search-input />
+        </form>
+      </div>
+      <div class="rhero__feature">
+        <p class="eyebrow rhero__label">Featured</p>
+        <div class="rhero__card"><ArticleCard a={featured} layout="feature" /></div>
+        <p class="eyebrow rhero__label">More featured</p>
+        <ul class="rhero__more" role="list">{more.map((a) => <li><ArticleCard a={a} layout="row" /></li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <nav class="topics" aria-label="Topics">
+    <div class="container topics__row">
+      <button type="button" class="topics__chip is-active" data-topic="">All topics</button>
+      {[...topics, 'Videos'].map((t) => <button type="button" class="topics__chip" data-topic={t}>{t}</button>)}
+    </div>
+  </nav>
+
+  <section class="section section--white rlatest">
+    <div class="container rlatest__inner">
+      <h2 class="h2">Latest articles</h2>
+      <ul class="rgrid" role="list" data-filter-list>
+        {[...latest, ...groups.flatMap((g) => g.list)].map((a, i) => <li data-topic={a.topic} data-title={a.title.toLowerCase()} hidden={i >= 5 || undefined} data-extra={i >= 5 || undefined}><ArticleCard a={a} /></li>)}
+      </ul>
+      <p class="rlatest__empty" data-empty hidden>No articles match that yet. Try another topic or <a href={site.phoneHref}>call us</a>.</p>
+      <Button variant="secondary" data-load-more>Load More Articles</Button>
+    </div>
+  </section>
+
+  <section class="section section--sand rmost">
+    <div class="container rmost__grid">
+      <div class="rmost__cta">
+        <Media image={d.sections[3].images![0]} sizes="(min-width: 1024px) 420px, 100vw" />
+        <p class="eyebrow rmost__eyebrow">New patients</p>
+        <h2 class="h3">{d.sections[3].title}</h2>
+        <p class="a1 text-muted">{d.sections[3].paras![1].t}</p>
+        <Button href={site.bookHref} blockMobile>{site.bookLabel}</Button>
+        <a class="rmost__call" href={site.phoneHref}>Or call {site.phone}</a>
+      </div>
+      <div class="rmost__list">
+        <p class="eyebrow">Most read</p>
+        <ol role="list">{mostRead.map((a, i) => { const h = articleHref(a.slug); return <li><span class="rmost__n">{i + 1}</span><div>{h ? <a href={h}>{a.title}</a> : <span>{a.title}</span>}<small>{a.minutes} min read</small></div></li>; })}</ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white rbrowse">
+    <div class="container rbrowse__inner">
+      <div class="section-head"><p class="eyebrow rhero__eyebrow">Browse by topic</p><h2 class="h2">{d.sections[4].title}</h2></div>
+      {groups.map((g) => (
+        <div class="rbrowse__group">
+          <div class="rbrowse__head"><h3 class="h4">{g.title}</h3></div>
+          <ul class="rgrid" role="list">{g.list.map((a) => <li><ArticleCard a={a} /></li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--navy-gradient on-dark rvideo" id="videos">
+    <div class="container rvideo__grid">
+      <div class="rvideo__copy">
+        <p class="eyebrow rhero__eyebrow">Watch</p>
+        <h2 class="h2">{d.sections[5].title}</h2>
+        <p class="eyebrow rvideo__topic">{video.topic}</p>
+        <h3 class="h4">{video.title}</h3>
+        <p class="a1 rvideo__meta">Video  ·  {video.date}  ·  {video.length}</p>
+      </div>
+      <VideoPopup url={video.url} image={img(video.image)} alt="Dr. Casey Morgan adjusting a patient" title={`Play: ${video.title}`} class="rvideo__player" />
+    </div>
+  </section>
+
+  <section class="section section--white rnews">
+    <div class="container">
+      <form class="rnews__box" method="post" action="/api/lead">
+        <input type="hidden" name="form" value="Newsletter signup" />
+        <input type="hidden" name="_redirect" value="/resources" />
+        <div class="book__hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="rnews__copy"><h2 class="h3">{nl.paras![0].t}</h2><p class="text-muted">{nl.paras![1].t}</p></div>
+        <div class="rnews__form">
+          <label class="sr-only" for="nl-email">Your email address</label>
+          <input id="nl-email" name="email" type="email" required placeholder="Your email address" autocomplete="email" />
+          <Button type="submit">Subscribe</Button>
+          <p class="a2 text-muted">{nl.paras![3].t}</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <Sections data={d} skip={[0, 1, 2, 3, 4, 5, 6]} />
+</SiteLayout>
+<script>
+  const list = document.querySelector('[data-filter-list]');
+  if (list) {
+    const items = [...list.querySelectorAll<HTMLElement>('li')];
+    const more = document.querySelector<HTMLElement>('[data-load-more]')!;
+    const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+    let topic = '', q = '', expanded = false;
+    const apply = () => {
+      let shown = 0;
+      for (const li of items) {
+        const match = (!topic || li.dataset.topic === topic) && (!q || li.dataset.title!.includes(q));
+        const filtering = topic || q;
+        li.hidden = !match || (!filtering && !expanded && li.dataset.extra !== undefined);
+        if (!li.hidden) shown++;
+      }
+      empty.hidden = shown > 0;
+      more.hidden = expanded || !!topic || !!q;
+    };
+    more.addEventListener('click', () => { expanded = true; apply(); });
+    document.querySelectorAll<HTMLButtonElement>('[data-topic]').forEach((b) => {
+      if (b.tagName !== 'BUTTON') return;
+      b.addEventListener('click', () => {
+        if (b.dataset.topic === 'Videos') { document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' }); return; }
+        topic = b.dataset.topic || '';
+        document.querySelectorAll('.topics__chip').forEach((c) => c.classList.toggle('is-active', c === b));
+        apply();
+        list.closest('section')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    document.querySelector<HTMLInputElement>('[data-search-input]')?.addEventListener('input', (e) => { q = (e.target as HTMLInputElement).value.trim().toLowerCase(); apply(); });
+    document.querySelector('[data-search]')?.addEventListener('submit', () => list.closest('section')?.scrollIntoView({ behavior: 'smooth' }));
+  }
+</script>
+<style>
+  .rhero { background: var(--gradient-navy); }
+  .rhero__grid { display: grid; gap: 48px; padding-top: calc(var(--masthead-h) + 48px); padding-bottom: 80px; align-items: center; }
+  .rhero__copy { display: flex; flex-direction: column; gap: 20px; }
+  .rhero__eyebrow { color: var(--orange-500); }
+  .rhero__lead { color: var(--sand-100); font-weight: 500; max-width: 560px; }
+  .rsearch { display: flex; align-items: center; gap: 12px; max-width: 520px; padding: 0 16px; min-height: 56px; border-radius: var(--radius-md); background: var(--white); color: var(--navy-600); }
+  .rsearch input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 16px; color: var(--navy-900); min-height: 54px; }
+  .rsearch:focus-within { outline: 2px solid var(--orange-500); }
+  .rhero__feature { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: var(--radius-xl); background: var(--white); color: var(--navy-900); }
+  .rhero__label { color: var(--navy-600); }
+  .rhero__more { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .rhero__more li + li { padding-top: 12px; border-top: 1px solid var(--border-light); }
+  @media (min-width: 1024px) { .rhero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 80px; } }
+  @media (max-width: 767.98px) { .rhero__grid { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } .rhero__feature { padding: 16px; } }
+  .topics { position: sticky; top: 0; z-index: var(--z-sticky); background: var(--white); border-bottom: 1px solid var(--border-light); }
+  .topics__row { display: flex; gap: 8px; overflow-x: auto; padding-block: 12px; scrollbar-width: none; }
+  .topics__chip { flex: none; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: var(--radius-full); border: 1px solid var(--border-light); font-size: 14px; line-height: 1; font-weight: 600; white-space: nowrap; }
+  .topics__chip:hover { border-color: var(--orange-500); }
+  .topics__chip.is-active { background: var(--navy-900); border-color: var(--navy-900); color: var(--white); }
+  .rlatest__inner, .rbrowse__inner { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+  .rgrid { list-style: none; padding: 0; width: 100%; display: grid; gap: 32px 24px; }
+  .rgrid > li[hidden] { display: none; }
+  @media (min-width: 768px) { .rgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1280px) { .rgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .rlatest__empty a { color: var(--orange-500); font-weight: 600; }
+  .rbrowse__group { width: 100%; display: flex; flex-direction: column; gap: 24px; }
+  .rbrowse__head { padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+  .rmost__grid { display: grid; gap: 40px; align-items: start; }
+  .rmost__cta { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; padding: 24px; border-radius: var(--radius-xl); background: var(--white); }
+  .rmost__eyebrow { color: var(--orange-500); }
+  .rmost__call { font-weight: 600; color: var(--orange-500); }
+  .rmost__list ol { list-style: none; padding: 0; margin-top: 16px; }
+  .rmost__list li { display: flex; gap: 16px; padding-block: 20px; border-bottom: 1px solid rgb(0 0 0 / 0.1); }
+  .rmost__list li div { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 18px; line-height: 26px; }
+  .rmost__list li a:hover { color: var(--orange-500); }
+  .rmost__list small { font-size: 13px; font-weight: 500; color: var(--navy-600); }
+  .rmost__n { flex: none; font-size: 32px; line-height: 1; font-weight: 700; color: var(--orange-500); width: 32px; }
+  @media (min-width: 1024px) { .rmost__grid { grid-template-columns: 380px minmax(0, 1fr); gap: 80px; } }
+  .rvideo__grid { display: grid; gap: 40px; align-items: center; }
+  .rvideo__copy { display: flex; flex-direction: column; gap: 16px; }
+  .rvideo__topic { color: var(--blue-300); margin-top: 16px; }
+  .rvideo__meta { color: var(--sand-100); }
+  .rvideo :global(.rvideo__player) { aspect-ratio: 16 / 10; }
+  @media (min-width: 1024px) { .rvideo__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 80px; } }
+  .rnews__box { display: grid; gap: 24px; padding: 40px; border-radius: var(--radius-xl); background: var(--sand-100); align-items: center; }
+  .rnews__copy { display: flex; flex-direction: column; gap: 8px; }
+  .rnews__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
+  .rnews__form p { grid-column: 1 / -1; }
+  .rnews__form input { min-height: 52px; padding: 0 16px; border: 1px solid #cfd6db; border-radius: var(--radius-md); background: var(--white); font-size: 16px; }
+  @media (min-width: 1024px) { .rnews__box { grid-template-columns: 1fr 1fr; gap: 80px; } }
+  @media (max-width: 767.98px) { .rnews__box { padding: 24px 16px; } .rnews__form { grid-template-columns: 1fr; } }
+</style>

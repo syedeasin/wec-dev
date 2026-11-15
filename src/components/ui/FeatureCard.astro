@@ -1,0 +1,21 @@
+---
+// "Card / Feature": icon tile, title (P1), short text (A1)
+import IconTile from './IconTile.astro';
+interface Props { icon: string; title: string; class?: string; as?: 'div' | 'li' }
+const { icon, title, class: cls, as: Tag = 'div' } = Astro.props;
+---
+<Tag class:list={['feature', cls]}>
+  <IconTile name={icon} />
+  <div class="feature__body">
+    <h3 class="feature__title" set:html={title} />
+    <p class="feature__text"><slot /></p>
+  </div>
+</Tag>
+<style is:global>
+  .feature { display: flex; flex-direction: column; gap: 16px; }
+  .feature__body { display: flex; flex-direction: column; gap: 8px; }
+  .feature__title { font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; color: var(--navy-900); }
+  .feature__text { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--navy-600); }
+  .on-dark .feature__title { color: var(--white); }
+  .on-dark .feature__text { color: var(--sand-100); }
+</style>

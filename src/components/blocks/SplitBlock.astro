@@ -1,0 +1,73 @@
+---
+// "What Section": copy on one side, one or two photos on the other.
+import Title from './Title.astro';
+import Rich from './Rich.astro';
+import Callout from './Callout.astro';
+import Buttons from './Buttons.astro';
+import Media from './Media.astro';
+import Tag from '../ui/Tag.astro';
+import Icon from '../ui/Icon.astro';
+import { icon, type Section } from '../../lib/content';
+interface Props { s: Section; reverse?: boolean; bg?: 'white' | 'sand'; id?: string }
+const { s, reverse = false, bg = 'white', id } = Astro.props;
+const imgs = s.images ?? [];
+const [a, b] = imgs;
+// Two photos: the larger one is the main photo, the smaller one overlaps its corner.
+const main = b && b.w * b.h > a.w * a.h ? b : a;
+const second = b ? (main === a ? b : a) : undefined;
+---
+<section class:list={['section split-b', `section--${bg}`]} id={id}>
+  <div class:list={['container split-b__grid', reverse && 'split-b__grid--rev', !imgs.length && 'split-b__grid--solo']}>
+    <div class="split-b__copy">
+      {s.tag && <Tag>{s.tag}</Tag>}
+      <Title title={s.title} />
+      <Rich paras={s.paras} class="split-b__text" />
+      {s.steps && (
+        <ol class="num-list" role="list">
+          {s.steps.map((st, i) => <li><span class="num-list__n">{i + 1}</span><div><p class="num-list__t" set:html={st.title} /><p class="num-list__d" set:html={st.text} /></div></li>)}
+        </ol>
+      )}
+      {s.cards && (
+        <ul class="split-b__cards" role="list">
+          {s.cards.map((c) => <li><span class="split-b__ci"><Icon name={icon(c.icon)} size={20} /></span><div><p class="fw-600" set:html={c.title} />{c.text && <p class="a1 text-muted" set:html={c.text} />}</div></li>)}
+        </ul>
+      )}
+      {s.callouts?.map((c) => <Callout title={c.title} text={c.text} />)}
+      <Buttons buttons={s.buttons} />
+    </div>
+    {main && (
+      <div class:list={['split-b__media', second && 'split-b__media--duo']}>
+        <Media image={main} class="split-b__main" />
+        {second && <Media image={second} class="split-b__second" sizes="(min-width: 1280px) 260px, 40vw" />}
+      </div>
+    )}
+  </div>
+</section>
+<style is:global>
+  .split-b__grid { display: grid; gap: 40px; align-items: center; }
+  .split-b__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .split-b__copy > .rich, .split-b__copy > .callout, .split-b__copy > .num-list, .split-b__copy > .split-b__cards { align-self: stretch; }
+  .split-b__text { color: var(--navy-900); }
+  .split-b__main img { aspect-ratio: 519 / 560; }
+  .split-b__media--duo { position: relative; padding: 0 0 0 0; }
+  .split-b__media--duo .split-b__main { width: 82%; }
+  .split-b__media--duo .split-b__main img { aspect-ratio: 420 / 560; }
+  .split-b__media--duo .split-b__second { position: absolute; right: 0; top: 48px; width: 40%; border: 6px solid var(--white); }
+  .split-b__second img { aspect-ratio: 3 / 4; }
+  .split-b__cards { list-style: none; padding: 0; display: grid; gap: 16px; }
+  .split-b__cards li { display: flex; gap: 12px; padding: 16px; border-radius: var(--radius-lg); background: var(--sand-100); }
+  .split-b__ci { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.12); color: var(--orange-500); }
+  @media (min-width: 1024px) {
+    .split-b__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; }
+    .split-b__grid--rev .split-b__media { order: -1; }
+    .split-b__grid--solo { grid-template-columns: minmax(0, 820px); justify-content: center; }
+  }
+  @media (max-width: 1023.98px) {
+    .split-b__media { max-width: 640px; width: 100%; }
+    .split-b__main img { aspect-ratio: 342 / 340; }
+  }
+  @media (max-width: 767.98px) {
+    .split-b { padding-block: 60px; }
+    .split-b__media--duo .split-b__second { top: 24px; border-width: 4px; }
+  }
+</style>

@@ -1,0 +1,219 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">What Kind of Doctor</span> Should You See After a Car Accident?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Not everyone needs the ER after a wreck, but everyone should get checked. Here's who does what, and in what order."
+    },
+    {
+     "w": 500,
+     "t": "Auto injury care since 1994"
+    },
+    {
+     "w": 500,
+     "t": "Digital X-rays on site"
+    },
+    {
+     "w": 500,
+     "t": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-screen",
+     "w": 390,
+     "h": 343,
+     "pos": "100% 33%"
+    }
+   ]
+  },
+  {
+   "name": "Warning Section",
+   "title": "First: does this need the ER?",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Go to an emergency room first if you have:"
+    },
+    {
+     "w": 500,
+     "t": "Everything else on this page comes after those are ruled out."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "heart-pulse",
+     "title": "Chest, rib, or belly pain"
+    },
+    {
+     "icon": "activity",
+     "title": "Trouble breathing"
+    },
+    {
+     "icon": "brain",
+     "title": "A headache with confusion or vomiting"
+    },
+    {
+     "icon": "bone",
+     "title": "A possible broken bone"
+    },
+    {
+     "icon": "zap",
+     "title": "Numbness or weakness that's getting worse"
+    }
+   ]
+  },
+  {
+   "name": "Doctors Section",
+   "title": "The doctors who treat car accident injuries",
+   "cards": [
+    {
+     "icon": "hospital",
+     "title": "Emergency room or urgent care",
+     "text": "Rules out the serious stuff: fractures, internal injuries, concussion. They stabilize you. They usually don't treat the neck and back pain that shows up days later."
+    },
+    {
+     "icon": "stethoscope",
+     "title": "Your family doctor",
+     "text": "Can check you over, document your injuries, and refer you on. Some family doctors aren't set up to bill auto insurance, which can slow things down."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Chiropractor",
+     "text": "Treats the neck and back injuries that crashes cause most: whiplash, back pain, pinched nerves, disc problems. A crash-focused exam and imaging on day one also documents the injury from the start."
+    },
+    {
+     "icon": "scan",
+     "title": "MRI and specialists",
+     "text": "If an injury needs a closer look or a different kind of care, a chiropractor refers you on: for an MRI, to an orthopedic surgeon for fractures or torn ligaments, to a neurologist for concussion or nerve problems, or to pain management."
+    }
+   ]
+  },
+  {
+   "name": "How We Fit In Section",
+   "title": "What happens when you come here",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan's crash exam focuses on how the crash actually happened: which direction, whether you were braced, where you felt it first. Digital X-rays happen on site, and he shows you what he sees the same visit."
+    },
+    {
+     "w": 500,
+     "t": "Because disc injuries are more likely after a crash, he refers most car accident patients for an MRI. If anything points to a specialist, he'll send you to one. Crash injuries are usually acute, so care starts out frequent to stabilize things, and plans typically run 24 to 48 visits."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-couple",
+     "w": 342,
+     "h": 439
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Should I see my family doctor or a chiropractor first?",
+     "a": "If anything on the ER list applies, go there first. Otherwise, either is a reasonable first stop. A chiropractor who works with car accident patients can examine, image, and document your injuries the same day, and refer you on if needed."
+    },
+    {
+     "q": "Will I need an MRI?",
+     "a": "Often, yes. Disc injuries are more likely after a crash, so Dr. Morgan refers most car accident patients for an MRI."
+    },
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim usually covers it."
+    },
+    {
+     "q": "How soon can I be seen?",
+     "a": "Often the same day. Call and tell us you were in an accident."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Keep reading",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The main car accident page, plus three more guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "stethoscope",
+     "title": "Car Accident Chiropractor",
+     "text": "the main page: how we treat crash injuries and how it gets paid for"
+    },
+    {
+     "icon": "car-front",
+     "title": "Car accident injury symptoms",
+     "text": "what to watch for in the days after a crash"
+    },
+    {
+     "icon": "spine",
+     "title": "Car accident insurance options",
+     "text": "PIP, LOP, and third-party explained"
+    },
+    {
+     "icon": "workout",
+     "title": "Why see a chiropractor after an accident",
+     "text": "what we actually treat and what we don't"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Get checked before \nit becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments available. Bring your insurance information if you have it, and we’ll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

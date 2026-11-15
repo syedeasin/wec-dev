@@ -1,0 +1,299 @@
+{
+ "sections": [
+  {
+   "name": "Hero",
+   "title": "Chiropractor in <span class=\"hl\">Downtown Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Just west of downtown, off MoPac, with free covered parking. Most visits after the first take a few minutes, so you can come in on a lunch break and still make your next meeting."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "square-parking",
+     "text": "Free covered parking"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-older-patient",
+     "w": 390,
+     "h": 451,
+     "pos": "99% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Section / Where We Are",
+   "title": "Close to downtown, without the downtown parking",
+   "paras": [
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">WHERE WE ARE</span>"
+    },
+    {
+     "w": 400,
+     "t": "West End Chiropractic is at 1611 W. 5th St., on the ground floor of 5th Street Commons, just off MoPac and near the Whole Foods flagship at 5th and Lamar."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Free covered garage parking",
+     "text": "You get downtown access without downtown logistics. The garage is covered and free, so you're not circling the block, feeding a meter, or walking three blocks in the heat."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "map-pin",
+     "text": "1611 W. 5th St., STE 110, Austin, TX 78703"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "West End Chiropractic",
+     "text": "5th Street Commons, ground floor"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get directions"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 300
+    }
+   ]
+  },
+  {
+   "name": "Section / Why It Works",
+   "title": "Built around a workday",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Casey Morgan D.C. built this practice around working people. Your first visit takes about 30 minutes. After that, most visits take a few minutes."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "clock",
+     "title": "Early and midday hours",
+     "text": "Open at 8am Monday through Thursday, with a midday window most of the downtown lunch crowd can use."
+    },
+    {
+     "icon": "calendar-check",
+     "title": "Same-day when you need it",
+     "text": "Same-day appointments are often available. When your back locks up at your desk, you don't have to wait a week."
+    },
+    {
+     "icon": "timer",
+     "title": "In and out, not rushed",
+     "text": "One patient put it better than we could: \"In and out efficiently, but with care.\""
+    }
+   ]
+  },
+  {
+   "name": "Section / What We See",
+   "title": "What we see most from downtown",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Long days at a screen, then a hard workout to make up for it. That combination shows up in our office every week."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "laptop",
+     "title": "Neck Pain and Tech Neck",
+     "text": "Hours looking down at a laptop or phone."
+    },
+    {
+     "icon": "spine",
+     "title": "Lower Back Pain",
+     "text": "Sitting all day, then lifting or running on the weekend."
+    },
+    {
+     "icon": "brain",
+     "title": "Headaches",
+     "text": "Often starting in the neck and shoulders."
+    },
+    {
+     "icon": "car",
+     "title": "Car Accident Injuries",
+     "text": "Downtown traffic, and the fender benders that come with it."
+    }
+   ]
+  },
+  {
+   "name": "Section / Insurance",
+   "title": "Work downtown? You're probably covered",
+   "paras": [
+    {
+     "w": 500,
+     "t": "A lot of our patients work at the big downtown and central Austin employers. Here's what they usually carry, and all of these are in-network here:"
+    },
+    {
+     "w": 600,
+     "t": "University of Texas"
+    },
+    {
+     "w": 400,
+     "t": "Faculty and staff"
+    },
+    {
+     "w": 400,
+     "t": "<strong>UT SELECT</strong>  Blue Cross Blue Shield PPO"
+    },
+    {
+     "w": 600,
+     "t": "In-network"
+    },
+    {
+     "w": 600,
+     "t": "No referral"
+    },
+    {
+     "w": 600,
+     "t": "Google"
+    },
+    {
+     "w": 400,
+     "t": "Blue Cross Blue Shield"
+    },
+    {
+     "w": 600,
+     "t": "State of Texas"
+    },
+    {
+     "w": 400,
+     "t": "Blue Cross Blue Shield"
+    },
+    {
+     "w": 600,
+     "t": "Meta"
+    },
+    {
+     "w": 400,
+     "t": "Aetna"
+    },
+    {
+     "w": 400,
+     "t": "Employer plans vary"
+    },
+    {
+     "w": 400,
+     "t": "We confirm yours when we verify"
+    },
+    {
+     "w": 400,
+     "t": "Send us your insurance info when you book and we'll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in."
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">See every plan we take</span>"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Verify My Insurance"
+    }
+   ]
+  },
+  {
+   "name": "Section / Reviews (sitewide widget)",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Section / FAQ",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Is parking really free?",
+     "a": "Yes. Free covered garage parking at 5th Street Commons. No meters, no circling the block."
+    },
+    {
+     "q": "Can I come in on my lunch break?",
+     "a": "Most people do after the first visit. Follow-up visits usually take a few minutes. The first visit takes about 30 minutes, so plan a little longer for that one."
+    },
+    {
+     "q": "How soon can I get in?",
+     "a": "Often the same day. Book online or call (512) 472-1116."
+    },
+    {
+     "q": "Do you take my insurance?",
+     "a": "Probably. We're in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. We'll look into your coverage before your visit."
+    },
+    {
+     "q": "Are you open on Fridays?",
+     "a": "No. We're open Monday through Thursday, 8am to 1pm and 3pm to 5pm."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Your back doesn't have to wait for the weekend",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. Same-day appointments are often available."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

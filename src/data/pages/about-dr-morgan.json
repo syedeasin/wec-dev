@@ -1,0 +1,262 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "Casey Morgan, D.C.",
+   "tag": "About",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Second-generation Austin chiropractor. Practicing downtown since 2016, in a practice his family has run since 1994."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-headshot",
+     "w": 390,
+     "h": 451,
+     "pos": "70% 100%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "He decided at sixteen",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan grew up noticing two things."
+    },
+    {
+     "w": 500,
+     "t": "The first was that other kids were always going to the doctor and he never was. The second was that his dad came home from work happy, every single day, doing this."
+    },
+    {
+     "w": 600,
+     "t": "“My whole life I saw different kids going to the doctor and being sick, and I just never was like that. I also saw that my dad loved going to work every day, and I wanted to be like that. And so when I was 16 years old, I decided I was gonna be a chiropractor.”"
+    },
+    {
+     "w": 500,
+     "t": "He has not really reconsidered since."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-portrait-dark",
+     "w": 135,
+     "h": 157
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Trained, board certified, and caring for Austin since 1994.",
+   "tag": "Credentials",
+   "paras": [
+    {
+     "w": 600,
+     "t": "1994"
+    },
+    {
+     "w": 400,
+     "t": "Serving Austin patients"
+    },
+    {
+     "w": 600,
+     "t": "2016"
+    },
+    {
+     "w": 400,
+     "t": "Dr Morgan takes the lead"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "graduation-cap",
+     "title": "Doctor of Chiropractic, Parker University",
+     "text": "Earned his doctorate from one of the country’s leading chiropractic schools, with in-depth training in spinal health, diagnosis, and hands-on adjusting techniques."
+    },
+    {
+     "icon": "badge-check",
+     "title": "Board Certified, National Board of Chiropractic Examiners",
+     "text": "Passed the national board exams that every chiropractor must clear before they can practice, so you know your care meets national standards."
+    },
+    {
+     "icon": "book",
+     "title": "Bachelor’s in Anatomy & Physiology and Health & Wellness",
+     "text": "Two undergraduate degrees give him a deep understanding of how the body works and a whole-person approach to helping patients stay well."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-side-posture-alt",
+     "w": 342,
+     "h": 398,
+     "pos": "85% 49%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Find it, fix it, keep it from coming back",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan’s whole approach comes down to one question, and it is the one he thinks most chiropractors skip."
+    },
+    {
+     "w": 600,
+     "t": "“Can I find it? Can I fix it? I find a lot of times people come to chiropractors and they don’t feel like we found it, and then they leave. If you didn’t find it, why would I ever come back?”"
+    },
+    {
+     "w": 500,
+     "t": "So the first visit is about finding it. A real history, a real exam, and digital X-rays when they are warranted, taken on site. Dr. Morgan reads them himself and shows them to you the moment they come up, rather than at some follow-up a week later."
+    },
+    {
+     "w": 500,
+     "t": "Then he fixes it. Adjustments, and spinal decompression when the imaging calls for it. No shockwave machine, no laser room, no four-modality circuit. He does two things and he does a lot of them."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "He is also not afraid to adjust.",
+     "text": "Patients who have been to other offices often say the same thing: the last chiropractor either would not adjust them or would only do one section at a time. That is not how it works here."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-casual",
+     "w": 133,
+     "h": 133,
+     "pos": "63% 33%"
+    },
+    {
+     "src": "photos/xray-explain-standing",
+     "w": 342,
+     "h": 413,
+     "pos": "65% 16%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Three things people mention",
+   "paras": [
+    {
+     "w": 600,
+     "t": "He is fast, and he means to be."
+    },
+    {
+     "w": 400,
+     "t": "Most visits after the first one take a few minutes. Dr. Morgan built the practice around working people. One patient put it better than we could: “In and out efficiently, but with care.”"
+    },
+    {
+     "w": 600,
+     "t": "He explains things."
+    },
+    {
+     "w": 400,
+     "t": "You will see your own X-rays. You will know what he found and why he is recommending what he is recommending, before you agree to anything."
+    },
+    {
+     "w": 600,
+     "t": "He is 6'6\"."
+    },
+    {
+     "w": 400,
+     "t": "This comes up more than you would expect. Patients tell him it is part of why they picked him, usually something about leverage. One review says it outright: “most importantly he’s 6 foot six so the guy gets good leverage.”"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "When he is not here",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan is home with his wife Rachel and their daughter Saylor."
+    },
+    {
+     "w": 500,
+     "t": "He used to compete in wakeboarding until a knee injury ended that, and he still works out most days. He takes his lawn seriously, by his own description approaching golf course conditions."
+    },
+    {
+     "w": 500,
+     "t": "He is a born-and-raised Austinite and has spent his whole career here."
+    },
+    {
+     "w": 400,
+     "t": "coolest dad ever!!"
+    },
+    {
+     "w": 400,
+     "t": "- Saylor"
+    },
+    {
+     "w": 500,
+     "t": "Pending, she can’t talk yet"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-family",
+     "w": 342,
+     "h": 365
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The long version of the goal",
+   "paras": [
+    {
+     "w": 600,
+     "t": "“I hope to change the Austin community one spine at a time. Just help people live their best lives without the restriction of drugs, without having to limit themselves, from not being able to run, not being able to exercise, do the things that they love.”"
+    },
+    {
+     "w": 400,
+     "t": "Better health, drug free. That is the whole thing."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-morgan-portrait-dark",
+     "w": 135,
+     "h": 157
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Come see \nwhat he finds",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. You will leave knowing what is going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Meet the rest of the team →"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

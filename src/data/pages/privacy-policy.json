@@ -1,0 +1,424 @@
+{
+ "sections": [
+  {
+   "name": "header+hero",
+   "title": "Privacy <span class=\"hl\">Policy</span>",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Home  /  Privacy Policy"
+    },
+    {
+     "w": 400,
+     "t": "HIPAA Notice of Patient Privacy Policy. This notice describes how medical information about you may be used and disclosed and how you can get access to this information."
+    }
+   ]
+  },
+  {
+   "name": "Legal Content Section",
+   "title": "Your Rights",
+   "paras": [
+    {
+     "w": 600,
+     "t": "On this page"
+    },
+    {
+     "w": 400,
+     "t": "When it comes to your health information, you have certain rights. This section explains your rights and some of our responsibilities to help you."
+    },
+    {
+     "w": 600,
+     "t": "Get an electronic or paper copy of your medical record"
+    },
+    {
+     "w": 400,
+     "t": "You can ask to see or get an electronic or paper copy of your medical record and other health information we have about you. Ask us how to do this."
+    },
+    {
+     "w": 400,
+     "t": "We will provide a copy or a summary of your health information, usually within 30 days of your request. We may charge a reasonable, cost-based fee."
+    },
+    {
+     "w": 600,
+     "t": "Ask us to correct your medical record"
+    },
+    {
+     "w": 400,
+     "t": "You can ask us to correct health information about you that you think is incorrect or incomplete. Ask us how to do this."
+    },
+    {
+     "w": 400,
+     "t": "We may say “no” to your request, but we will tell you why in writing within 60 days."
+    },
+    {
+     "w": 600,
+     "t": "Request confidential communications"
+    },
+    {
+     "w": 400,
+     "t": "You can ask us to contact you in a specific way (for example, home or office phone) or to send mail to a different address."
+    },
+    {
+     "w": 400,
+     "t": "We will say “yes” to all reasonable requests."
+    },
+    {
+     "w": 600,
+     "t": "Ask us to limit what we use or share"
+    },
+    {
+     "w": 400,
+     "t": "You can ask us not to use or share certain health information for treatment, payment, or our operations."
+    },
+    {
+     "w": 400,
+     "t": "We are not required to agree to your request, and we may say “no” if it would affect your care."
+    },
+    {
+     "w": 400,
+     "t": "If you pay for a service or health care item out-of-pocket in full, you can ask us not to share that information for the purpose of payment or our operations with your health insurer."
+    },
+    {
+     "w": 400,
+     "t": "We will say “yes” unless a law requires us to share that information."
+    },
+    {
+     "w": 600,
+     "t": "Get a list of those with whom we’ve shared information"
+    },
+    {
+     "w": 400,
+     "t": "You can ask for a list (accounting) of the times we’ve shared your health information for six years prior to the date you ask, who we shared it with, and why."
+    },
+    {
+     "w": 400,
+     "t": "We will include all the disclosures except for those about treatment, payment, and health care operations, and certain other disclosures (such as any you ask us to make). We’ll provide one accounting a year for free but will charge a reasonable, cost-based fee if you ask for another one within 12 months."
+    },
+    {
+     "w": 600,
+     "t": "Get a copy of this privacy notice"
+    },
+    {
+     "w": 400,
+     "t": "You can ask for a paper copy of this notice at any time, even if you have agreed to receive the notice electronically. We will provide you with a paper copy promptly."
+    },
+    {
+     "w": 600,
+     "t": "Choose someone to act for you"
+    },
+    {
+     "w": 400,
+     "t": "If you have given someone medical power of attorney or if someone is your legal guardian, that person can exercise your rights and make choices about your health information."
+    },
+    {
+     "w": 400,
+     "t": "We will make sure the person has this authority and can act for you before we take any action."
+    },
+    {
+     "w": 600,
+     "t": "File a complaint if you feel your rights are violated"
+    },
+    {
+     "w": 400,
+     "t": "You can complain if you feel we have violated your rights by contacting us using the information on page 1."
+    },
+    {
+     "w": 400,
+     "t": "You can file a complaint with the U.S. Department of Health and Human Services Office for Civil Rights by sending a letter to 200 Independence Avenue, S.W., Washington D.C. 20201, calling 1-877-696-6775, or visiting www.hhs.gov/ocr/privacy/hipaa/complaints/ ."
+    },
+    {
+     "w": 400,
+     "t": "We will not retaliate against you for filing a complaint."
+    },
+    {
+     "w": 700,
+     "t": "Your Choices"
+    },
+    {
+     "w": 400,
+     "t": "For certain health information, you can tell us your choices about what we share. If you have a clear preference for how we share your information in the situations described below, talk to us. Tell us what you want us to do, and we will follow your instructions."
+    },
+    {
+     "w": 600,
+     "t": "In these cases, you have both the right and choice to tell us to:"
+    },
+    {
+     "w": 400,
+     "t": "Share information with your family, close friends, or others involved in your care."
+    },
+    {
+     "w": 400,
+     "t": "Share your information in a disaster relief situation."
+    },
+    {
+     "w": 400,
+     "t": "Contact you for fundraising efforts."
+    },
+    {
+     "w": 400,
+     "t": "If you are not able to tell us your preference, for example if you are unconscious, we may go ahead and share your information if we believe it is in your best interest. We may also share your information when needed to lessen a serious and imminent threat to health or safety."
+    },
+    {
+     "w": 600,
+     "t": "In these cases we never share your information unless you give us written permission:"
+    },
+    {
+     "w": 400,
+     "t": "Marketing purposes."
+    },
+    {
+     "w": 400,
+     "t": "Sale of your information."
+    },
+    {
+     "w": 400,
+     "t": "Most sharing of psychotherapy notes."
+    },
+    {
+     "w": 600,
+     "t": "In the case of fundraising:"
+    },
+    {
+     "w": 400,
+     "t": "We may contact you for fundraising efforts, but you can tell us not to contact you again."
+    },
+    {
+     "w": 700,
+     "t": "Our Uses and Disclosures"
+    },
+    {
+     "w": 400,
+     "t": "How do we use or share your health information? We typically use or share your health information in the following ways."
+    },
+    {
+     "w": 600,
+     "t": "Treat you:"
+    },
+    {
+     "w": 400,
+     "t": "We can use your health information and share it with other professionals who are treating you."
+    },
+    {
+     "w": 500,
+     "t": "Example: a Doctor treating you for an injury asks another doctor about your overall health condition."
+    },
+    {
+     "w": 600,
+     "t": "Run our organization:"
+    },
+    {
+     "w": 400,
+     "t": "We can use and share your health information to run our practice, improve your care, and contact you when necessary."
+    },
+    {
+     "w": 500,
+     "t": "Example: We use health information about you to manage your treatment and services. This may include chiropractic interns/chiropractic associate(s)"
+    },
+    {
+     "w": 400,
+     "t": "Sign-in-sheets may be used to register for your appointment with your provider."
+    },
+    {
+     "w": 400,
+     "t": "Your name may be called upon when the provider is ready to see you."
+    },
+    {
+     "w": 400,
+     "t": "We do utilize open adjusting and therapy areas. Private rooms are available, just ask."
+    },
+    {
+     "w": 400,
+     "t": "We may share your health information with a third party “business associates” that for example perform billing and/or transcription services. Your health information with a business associate also contains terms that protect your private health information."
+    },
+    {
+     "w": 400,
+     "t": "We may use and disclose your protected health information for internal marketing such as your name and address may be used to send you a newsletter regarding our practice, services, or products that may be of benefit to you."
+    },
+    {
+     "w": 600,
+     "t": "Bill for your services:"
+    },
+    {
+     "w": 400,
+     "t": "We can use and share your health information to bill and get payment from health plans or other entities."
+    },
+    {
+     "w": 500,
+     "t": "Example: We give information about you to your health insurance plan so it will pay for your services."
+    },
+    {
+     "w": 600,
+     "t": "How else can we use or share your health information?"
+    },
+    {
+     "w": 400,
+     "t": "We are allowed or required to share your information in other ways – usually in ways that contribute to the public good, such as public health and research. We have to meet many conditions in the law before we can share your information to these purposes. For more information see: http://www.hhs.gov/ocr/privacy/hipaa/understanding/consumers/index.html."
+    },
+    {
+     "w": 600,
+     "t": "Help with public health and safety issues"
+    },
+    {
+     "w": 400,
+     "t": "We can share health information about you for certain situations such as:"
+    },
+    {
+     "w": 400,
+     "t": "preventing disease"
+    },
+    {
+     "w": 400,
+     "t": "helping with product recalls"
+    },
+    {
+     "w": 400,
+     "t": "reporting adverse reactions to medications"
+    },
+    {
+     "w": 400,
+     "t": "suspected, neglect, or domestic violence"
+    },
+    {
+     "w": 400,
+     "t": "preventing or reducing a serious threat to anyone’s health or safety"
+    },
+    {
+     "w": 600,
+     "t": "Do research:"
+    },
+    {
+     "w": 400,
+     "t": "We can use or share your information for health research."
+    },
+    {
+     "w": 600,
+     "t": "Comply with the law:"
+    },
+    {
+     "w": 400,
+     "t": "We will share information about you if state or federal laws require it, including with the Department of Health and Human Services if it wants to see that we’re complying with the federal law."
+    },
+    {
+     "w": 600,
+     "t": "Address workers’ compensation, law enforcement, and other government requests:"
+    },
+    {
+     "w": 400,
+     "t": "We can share health information about you:"
+    },
+    {
+     "w": 400,
+     "t": "For workers compensation claims"
+    },
+    {
+     "w": 400,
+     "t": "For law enforcement purposes or with a law enforcement official"
+    },
+    {
+     "w": 400,
+     "t": "With health oversight agencies for activities authorized by law"
+    },
+    {
+     "w": 400,
+     "t": "For special government functions such as military, national security, and presidential protective services"
+    },
+    {
+     "w": 600,
+     "t": "Respond to lawsuits and legal actions"
+    },
+    {
+     "w": 400,
+     "t": "We can share information about you:"
+    },
+    {
+     "w": 400,
+     "t": "In response to a court or administrative order"
+    },
+    {
+     "w": 400,
+     "t": "In response to a subpoena"
+    },
+    {
+     "w": 400,
+     "t": "In response to a discovery request"
+    },
+    {
+     "w": 400,
+     "t": "In response to other lawful process"
+    },
+    {
+     "w": 700,
+     "t": "Our Responsibilities"
+    },
+    {
+     "w": 400,
+     "t": "We are required by law to maintain the privacy and security of your protected health information."
+    },
+    {
+     "w": 400,
+     "t": "We will let you know promptly if a breach occurs that may have compromised the privacy or security of your information"
+    },
+    {
+     "w": 400,
+     "t": "We must follow the duties and privacy practices described in this notice and give you a copy of it"
+    },
+    {
+     "w": 400,
+     "t": "We will not use or share your information other than as described here unless you tell us we can in writing. If you tell us we can, your mind at any time. Let us know in writing if you change your mind."
+    },
+    {
+     "w": 400,
+     "t": "For more information see:"
+    },
+    {
+     "w": 600,
+     "t": "<span class=\"hl\">www.hhs.gov/ocr/privacy/hipaa/understanding/consumers/noticepp.html</span>"
+    },
+    {
+     "w": 700,
+     "t": "Changes to the Terms of This Notice"
+    },
+    {
+     "w": 400,
+     "t": "We can change the terms of this notice, and the changes will apply to all information we have about you. The new notice will be available upon request, in our office, and on our website."
+    },
+    {
+     "w": 700,
+     "t": "Contact Information"
+    },
+    {
+     "w": 700,
+     "t": "PRIVACY OFFICER NAME"
+    },
+    {
+     "w": 600,
+     "t": "Casey Morgan"
+    },
+    {
+     "w": 700,
+     "t": "PHONE NUMBER"
+    },
+    {
+     "w": 600,
+     "t": "512-472-1116"
+    },
+    {
+     "w": 700,
+     "t": "WEBSITE"
+    },
+    {
+     "w": 600,
+     "t": "austin-chiropractor.com"
+    },
+    {
+     "w": 400,
+     "t": "You may also contact any member of our staff."
+    },
+    {
+     "w": 600,
+     "t": "This notice becomes effective and was published on 12/05/2024."
+    }
+   ]
+  }
+ ]
+}

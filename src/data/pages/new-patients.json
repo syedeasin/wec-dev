@@ -1,0 +1,455 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "What Your <span class=\"hl\">First Visit</span> Actually \nLooks Like",
+   "paras": [
+    {
+     "w": 400,
+     "t": "No mystery, no runaround. Here is exactly what happens, how long it takes, and what it costs."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/team-group",
+     "w": 390,
+     "h": 451,
+     "pos": "41% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Two things to handle first",
+   "paras": [
+    {
+     "w": 500,
+     "t": "That is it. Wear whatever you would normally wear."
+    }
+   ],
+   "steps": [
+    {
+     "title": "Fill out your forms online.",
+     "text": "We send them when you book. Doing them at home means you are not sitting in the lobby with a clipboard."
+    },
+    {
+     "title": "Send us your insurance card if you have one.",
+     "text": "We verify your benefits by phone before your visit, so if we already have your information there is nothing to sort out at the desk."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/office-exterior",
+     "w": 342,
+     "h": 398,
+     "pos": "21% 24%"
+    }
+   ]
+  },
+  {
+   "name": "Row – Your first visit, About 30 minutes",
+   "title": "Your first visit, \nAbout 30 minutes",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>Most patients get adjusted on day one.</strong> Dr. Morgan starts gentle, to get a feel for your spine before doing anything else. If something is tender, tell him and he works around it."
+    }
+   ],
+   "steps": [
+    {
+     "title": "We find out what is actually going on",
+     "text": "Dr. Morgan asks what hurts, how long it has been going on, what you have already tried, and what you want to get back to doing. This part takes longer than you expect, and it is on purpose."
+    },
+    {
+     "title": "A real exam",
+     "text": "Not a two-minute look. Dr. Morgan checks how you move, where the restriction is, and what is compensating for what."
+    },
+    {
+     "title": "Digital X-rays, if your exam calls for them",
+     "text": "Taken on site. No referral to an imaging center, no separate appointment, no separate bill. Not every patient needs them."
+    },
+    {
+     "title": "He shows you the imaging right then",
+     "text": "This is the part most offices do not do. Dr. Morgan pulls your X-ray up the moment it is taken and walks you through what he is looking at, in the same visit. He calls it an insta report."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/assistant-intake-patient",
+     "w": 390,
+     "h": 1739,
+     "pos": "81% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The report of findings, a few days later",
+   "paras": [
+    {
+     "w": 500,
+     "t": "This is where you find out what it will actually take."
+    },
+    {
+     "w": 500,
+     "t": "Dr. Morgan has spent time with your imaging by now and marked it up further. He walks you through what he found, where the problem is, and why you are feeling it where you are feeling it."
+    },
+    {
+     "w": 500,
+     "t": "Then he draws you a graph."
+    },
+    {
+     "w": 700,
+     "t": "OPTIMAL HEALTH"
+    },
+    {
+     "w": 400,
+     "t": "Feeling your best, no symptoms"
+    },
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">SYMPTOM ZONE</span>"
+    },
+    {
+     "w": 400,
+     "t": "Pain zone."
+    },
+    {
+     "w": 400,
+     "t": "Headache zone."
+    },
+    {
+     "w": 400,
+     "t": "Years of slowly"
+    },
+    {
+     "w": 400,
+     "t": "beating yourself up"
+    },
+    {
+     "w": 700,
+     "t": "The moment"
+    },
+    {
+     "w": 700,
+     "t": "you fell off"
+    },
+    {
+     "w": 700,
+     "t": "the horse"
+    },
+    {
+     "w": 700,
+     "t": "When you finally"
+    },
+    {
+     "w": 400,
+     "t": "look up a"
+    },
+    {
+     "w": 400,
+     "t": "chiropractor"
+    },
+    {
+     "w": 700,
+     "t": "<span class=\"hl\">THE PLAN</span>"
+    },
+    {
+     "w": 400,
+     "t": "How you climb"
+    },
+    {
+     "w": 400,
+     "t": "back out. Not all"
+    },
+    {
+     "w": 400,
+     "t": "the way to the top,"
+    },
+    {
+     "w": 400,
+     "t": "but well above"
+    },
+    {
+     "w": 400,
+     "t": "where you started."
+    },
+    {
+     "w": 700,
+     "t": "THEN"
+    },
+    {
+     "w": 400,
+     "t": "How you"
+    },
+    {
+     "w": 400,
+     "t": "stay there"
+    },
+    {
+     "w": 500,
+     "t": "He will tell you how many visits he thinks it takes and how often. You will get a straight number and a straight price. Then you decide."
+    },
+    {
+     "w": 500,
+     "t": "There is no pressure close. If you want to think about it, think about it."
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What regular \nvisits look like",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>A few minutes.</strong> That is not a corner being cut, it is the design. Dr. Morgan built this practice around people with jobs, and most visits after the first one are quick enough to fit into a lunch break."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Two to three times a week at the start.</strong> That frequency is what actually moves a structural problem. It tapers as you improve."
+    },
+    {
+     "w": 400,
+     "t": "<strong>About 24 visits over 90 days</strong> for a typical plan. Some people need fewer."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Then maintenance, or nothing.</strong> Once the problem is corrected most patients come in about every two weeks. Some stop entirely. Dr. Morgan will tell you when you are there rather than keeping you on a schedule you do not need."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-patient-consult",
+     "w": 342,
+     "h": 398,
+     "pos": "50% 0%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "The first two weeks are a little strange",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most people have a good day, decide they are fixed, then have a bad one and decide it is not working. That is normal and Dr. Morgan will warn you about it on day one."
+    },
+    {
+     "w": 500,
+     "t": "Real change usually starts around the second week. Better sleep is often the first thing people notice, before the pain itself shifts."
+    },
+    {
+     "w": 500,
+     "t": "If you are only trying to get out of pain, a shorter plan can do that. If you want it to stay fixed, it takes about 90 days."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "Day 1",
+     "text": "Dr. Morgan tells you what to expect"
+    },
+    {
+     "tag": "Weeks 1 to 2",
+     "text": "Good days and bad days, both normal"
+    },
+    {
+     "tag": "Around week 2",
+     "text": "Sleep often improves first"
+    },
+    {
+     "tag": "After about 90 days",
+     "text": "The full plan, then maintenance, or nothing"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What your first visit costs",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 700,
+     "t": "Using insurance? We are in-network with twelve carriers. Send us your insurance info when you book and we'll look into your coverage before you come in."
+    },
+    {
+     "w": 700,
+     "t": "Paying yourself? Your first visit covers your exam, a consultation with Dr. Morgan, and any necessary digital X-rays. Call us or ask when you book and we'll tell you the cost up front."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-lower-back-alt",
+     "w": 342,
+     "h": 360
+    }
+   ]
+  },
+  {
+   "name": "Section / Location",
+   "title": "Come see us <strong>downtown</strong>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>West End</strong> Chiropractic"
+    },
+    {
+     "w": 600,
+     "t": "Free parking for patients"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "Address",
+     "text": "1611 W. 5th St., STE 110,\nAustin, TX 78703"
+    },
+    {
+     "icon": "phone",
+     "title": "Phone",
+     "text": "(512) 472-1116"
+    },
+    {
+     "icon": "mail",
+     "title": "Email",
+     "text": "contact@austin-chiropractor.com"
+    },
+    {
+     "icon": "clock-4",
+     "title": "Hours",
+     "text": "Monday–Thursday\n8am–1pm and 3pm–5pm"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 340
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Does the adjustment hurt?",
+     "a": "No. Most people describe it as relief. You might hear a pop, which is gas releasing from the joint, not bones cracking. Dr. Morgan starts gentle on the first visit."
+    },
+    {
+     "q": "Will I get adjusted on my first visit?",
+     "a": "Usually, yes. Most patients do."
+    },
+    {
+     "q": "Do I need X-rays?",
+     "a": "Only if your exam calls for them. If you do, they happen on site the same visit."
+    },
+    {
+     "q": "How long does the first visit take?",
+     "a": "About 30 minutes. Visits after that are usually a few minutes."
+    },
+    {
+     "q": "Do I need a referral?",
+     "a": "Only on HMO plans. Most PPO patients book directly."
+    },
+    {
+     "q": "What if I decide not to do a care plan?",
+     "a": "That is fine. You will still leave knowing what is going on, and you are welcome to come back whenever you want."
+    },
+    {
+     "q": "Do I have to keep coming forever?",
+     "a": "No. Once the problem is corrected most patients move to maintenance every couple of weeks, and some stop altogether."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Come find out \nwhat is going on",
+   "paras": [
+    {
+     "w": 400,
+     "t": "About 30 minutes, and you leave knowing what is actually happening in your back."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

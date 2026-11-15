@@ -1,0 +1,86 @@
+---
+// "What this costs": white card (what the first visit covers + photo), then insurance note, logos, buttons.
+import Title from './Title.astro';
+import Rich from './Rich.astro';
+import Buttons from './Buttons.astro';
+import Media from './Media.astro';
+import Tag from '../ui/Tag.astro';
+import FeatureCard from '../ui/FeatureCard.astro';
+import InsuranceLogos from '../sections/InsuranceLogos.astro';
+import { icon, isUpper, strip, type Section, type Para } from '../../lib/content';
+interface Props { s: Section; bg?: 'white' | 'sand' }
+const { s, bg = 'sand' } = Astro.props;
+const paras = s.paras ?? [];
+let head: Para[] = [];
+if (paras[0] && isUpper(paras[0].t)) {
+  let i = 0;
+  while (i < paras.length && strip(paras[i].t).length < 40) i++;
+  head = paras.slice(0, i);
+}
+const rest = paras.slice(head.length);
+const eyebrow = head.find((p) => isUpper(p.t) && !p.t.startsWith('$'));
+const price = head.find((p) => /^\$/.test(strip(p.t)));
+const sub = head.find((p) => p.w === 500);
+const subhead = head.filter((p) => p !== eyebrow && p !== price && p !== sub).pop();
+const hasHead = head.length > 0;
+const logos = hasHead && rest.some((p) => /in-network/i.test(p.t));
+---
+<section class:list={['section cost', `section--${bg}`]}>
+  <div class="container cost__inner">
+    <div class="cost__head">
+      {s.tag && <Tag variant="orange">{s.tag}</Tag>}
+      <Title title={s.title} center mark={false} />
+    </div>
+    <div class="cost__card">
+      <div class="cost__info">
+        {hasHead ? (
+          <div class="cost__top">
+            {eyebrow && <p class="eyebrow cost__eyebrow" set:html={eyebrow.t} />}
+            {price && <p class="cost__price"><span set:html={price.t} />{sub && <span class="cost__per" set:html={sub.t} />}</p>}
+            {!price && sub && <p class="text-muted" set:html={sub.t} />}
+            {subhead && <h3 class="cost__subhead" set:html={subhead.t} />}
+          </div>
+        ) : (
+          <Rich paras={rest} />
+        )}
+        <ul class="cost__grid" role="list">
+          {s.cards?.map((c) => <li><FeatureCard icon={icon(c.icon)} title={c.title}>{c.text && <Fragment set:html={c.text} />}</FeatureCard></li>)}
+        </ul>
+      </div>
+      {s.images?.[0] && <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" />}
+    </div>
+    {hasHead && rest.length > 0 && <Rich paras={rest} class="cost__notes" />}
+    {logos && <InsuranceLogos />}
+    <Buttons buttons={s.buttons} center />
+  </div>
+</section>
+<style is:global>
+  .cost__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .cost__head { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .cost__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); align-items: center; }
+  .cost__info { display: flex; flex-direction: column; gap: 24px; }
+  .cost__top { display: flex; flex-direction: column; gap: 12px; }
+  .cost__eyebrow { color: var(--orange-500); }
+  .cost__price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 48px; line-height: 1; font-weight: 700; color: var(--navy-900); }
+  .cost__per { font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
+  .cost__subhead { font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; }
+  .cost__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
+  .cost__grid > li { position: relative; padding-block: 24px; border-bottom: 1px solid rgb(0 0 0 / 0.1); }
+  .cost__grid > li:first-child { border-top: 1px solid rgb(0 0 0 / 0.1); }
+  .cost__grid > li:first-child::after { content: ''; position: absolute; left: 0; top: -2px; width: 81px; height: 3px; background: var(--blue-300); }
+  .cost__media img { aspect-ratio: 488 / 520; }
+  .cost__notes { max-width: 820px; text-align: center; color: var(--navy-600); }
+  .cost__notes strong { color: var(--navy-900); }
+  @media (min-width: 768px) { .cost__grid { grid-template-columns: 1fr 1fr; } .cost__grid > li:nth-child(2) { border-top: 1px solid rgb(0 0 0 / 0.1); } }
+  @media (min-width: 1024px) { .cost__card { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
+  @media (max-width: 1023.98px) { .cost__media img { aspect-ratio: 342 / 300; } }
+  @media (max-width: 767.98px) {
+    .cost { padding-block: 60px; }
+    .cost__inner { align-items: stretch; gap: 32px; }
+    .cost__head { align-items: flex-start; }
+    .cost__head .btitle--center { justify-content: flex-start; text-align: left; }
+    .cost__card { padding: 24px 16px; gap: 24px; }
+    .cost__notes { text-align: left; }
+    .cost__price { font-size: 40px; }
+  }
+</style>

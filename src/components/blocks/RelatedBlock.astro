@@ -1,0 +1,39 @@
+---
+// Navy section with linked cards (related conditions, "What we see", "Keep reading").
+import SectionHead from '../ui/SectionHead.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import FeatureCard from '../ui/FeatureCard.astro';
+import { cardHref, icon, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const cards = s.cards ?? [];
+---
+<section class="section section--navy-gradient on-dark related">
+  <div class="container related__inner">
+    <SectionHead title={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} maxWidth={760}>{s.paras?.[0] && <Fragment set:html={s.paras[0].t} />}</SectionHead>
+    <ul class:list={['related__grid', `related__grid--${Math.min(cards.length, 4)}`]} role="list">
+      {cards.map((c) => {
+        const href = cardHref(c.title);
+        return <li>{href ? <ServiceCard icon={icon(c.icon)} title={c.title} href={href}><Fragment set:html={c.text ?? ''} /></ServiceCard> : <div class="svc-card"><FeatureCard icon={icon(c.icon)} title={c.title}><Fragment set:html={c.text ?? ''} /></FeatureCard></div>}</li>;
+      })}
+    </ul>
+  </div>
+</section>
+<style is:global>
+  .related__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .related__grid { width: 100%; list-style: none; padding: 0; display: grid; gap: 16px; }
+  .related__grid > li { display: flex; }
+  .related__grid > li > * { flex: 1; }
+  .related .svc-card .feature__title { color: var(--navy-900); }
+  .related .svc-card .feature__text { color: var(--navy-600); }
+  @media (min-width: 768px) { .related__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+  @media (min-width: 1280px) {
+    .related__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .related__grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767.98px) {
+    .related { padding-block: 60px; }
+    .related__inner { gap: 32px; align-items: stretch; }
+    .related .section-head--center { align-items: flex-start; text-align: left; }
+  }
+</style>

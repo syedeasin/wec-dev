@@ -1,0 +1,209 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "<span class=\"hl\">Car Accident</span> Insurance Options in Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "After a crash, your care is usually covered by auto insurance, not health insurance. Here's how each option works, and how we handle it."
+    },
+    {
+     "w": 500,
+     "t": "Auto injury care since 1994"
+    },
+    {
+     "w": 500,
+     "t": "Digital X-rays on site"
+    },
+    {
+     "w": 500,
+     "t": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-screen",
+     "w": 390,
+     "h": 343,
+     "pos": "100% 33%"
+    }
+   ]
+  },
+  {
+   "name": "Intro Section",
+   "title": "You almost certainly aren't paying for this yourself",
+   "paras": [
+    {
+     "w": 500,
+     "t": "There are three common ways chiropractic care gets paid for after a car accident: your own PIP coverage, the at-fault driver's insurance, or a letter of protection from your attorney. We handle all three in house."
+    },
+    {
+     "w": 500,
+     "t": "Tell us what you have, and we'll tell you what it covers before you're treated."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 413
+    }
+   ]
+  },
+  {
+   "name": "Options Section",
+   "title": "How each one works",
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "PIP (Personal Injury Protection)",
+     "text": "In Texas, auto policies include at least $2,500 of PIP unless you rejected it in writing. It's your own coverage and it pays for medical care after a crash no matter who caused it. It can cover your passengers too."
+    },
+    {
+     "icon": "car",
+     "title": "The at-fault driver's insurance",
+     "text": "If someone else caused the crash, their liability coverage pays for your treatment. These claims usually pay when the case settles, not visit by visit, which is why we track the documentation for you along the way."
+    },
+    {
+     "icon": "file-check",
+     "title": "Letter of protection (LOP)",
+     "text": "If you have an attorney, they can send us a letter of protection. You get treated now, and the bill is paid from your settlement. No money up front."
+    }
+   ]
+  },
+  {
+   "name": "Health Insurance Section",
+   "title": "We don't bill health insurance for car accidents",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Car accident care runs through auto insurance or your claim, not your health plan."
+    },
+    {
+     "w": 500,
+     "t": "If none of the options above apply to you, we'll tell you that up front and walk you through what care would cost before anything starts."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/consult-couple-room",
+     "w": 342,
+     "h": 439
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Will this cost me anything?",
+     "a": "In most cases, no. PIP, a letter of protection, or a third-party claim usually covers it. We'll confirm which applies to you before treatment starts."
+    },
+    {
+     "q": "What if the crash was my fault?",
+     "a": "Your own PIP still applies. It pays regardless of who caused the crash."
+    },
+    {
+     "q": "Do I need an attorney to be seen?",
+     "a": "No. You can be seen without one. If you already have an attorney, we'll work with their office on documentation."
+    },
+    {
+     "q": "Is PIP my own coverage or the other driver's?",
+     "a": "Your own. It pays for medical care after a crash no matter who caused it, so you don't have to wait on the other driver's insurance to get treated."
+    },
+    {
+     "q": "How soon can I be seen?",
+     "a": "Often the same day. Call and tell us you were in an accident."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Keep reading",
+   "paras": [
+    {
+     "w": 500,
+     "t": "The main car accident page, plus three more guides for the days and weeks after a crash."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "stethoscope",
+     "title": "Car Accident Chiropractor",
+     "text": "the main page: how we treat crash injuries and how it gets paid for"
+    },
+    {
+     "icon": "car-front",
+     "title": "Car accident injury symptoms",
+     "text": "what to watch for in the days after a crash"
+    },
+    {
+     "icon": "body",
+     "title": "What doctor to see after a car accident",
+     "text": "who handles what, and in what order"
+    },
+    {
+     "icon": "workout",
+     "title": "Why see a chiropractor after an accident",
+     "text": "what we actually treat and what we don't"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Get checked before \nit becomes a bigger problem",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Same-day appointments available. Bring your insurance information if you have it, and we’ll handle the rest."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Seen Today"
+    },
+    {
+     "variant": "Primary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

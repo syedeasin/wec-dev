@@ -1,0 +1,33 @@
+---
+// Every page uses this: <head>/SEO from BaseLayout + top bar, header and footer.
+// headerVariant="overlay" floats the header over a dark hero (the hero must add
+// padding-top: var(--masthead-h)). Use "solid" on pages that start with a light section.
+import BaseLayout from './BaseLayout.astro';
+import TopBar from '../components/layout/TopBar.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+  headerVariant?: 'overlay' | 'solid';
+}
+const { headerVariant = 'overlay', ...seo } = Astro.props;
+---
+<BaseLayout {...seo}>
+  <slot name="head" slot="head" />
+  <div slot="header" class:list={['masthead', `masthead--${headerVariant}`]}>
+    <TopBar />
+    <Header variant={headerVariant} />
+  </div>
+  <slot />
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style is:global>
+  :root { --masthead-h: calc(var(--topbar-h) + var(--nav-h)); }
+  .masthead--overlay { position: absolute; inset: 0 0 auto 0; z-index: var(--z-header); }
+  .masthead--solid { position: relative; z-index: var(--z-header); background: var(--navy-900); }
+</style>

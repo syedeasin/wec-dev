@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import CompactHero from './CompactHero.astro';
+import LegalBody from './LegalBody.astro';
+import { strip, type PageData } from '../../lib/content';
+interface Props { data: PageData; title: string; description: string; h2?: string[] | 'all'; inserts?: Record<string, string> }
+const { data, title, description, h2, inserts } = Astro.props;
+const [hero, body] = data.sections;
+const crumb = strip(hero.paras?.[0]?.t ?? '').split('/').pop()!.trim();
+---
+<SiteLayout title={title} description={description}>
+  <CompactHero title={hero.title ?? ''} crumb={crumb} sub={hero.paras?.[1]?.t} />
+  <LegalBody s={body} h2={h2} inserts={inserts} />
+</SiteLayout>

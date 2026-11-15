@@ -1,0 +1,21 @@
+---
+// Short navy hero with breadcrumb (legal pages, forms).
+interface Props { title: string; crumb: string; sub?: string }
+const { title, crumb, sub } = Astro.props;
+---
+<section class="chero on-dark">
+  <div class="container chero__inner">
+    <nav class="chero__crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{crumb}</span></nav>
+    <h1 class="h1 chero__title" set:html={title} />
+    {sub && <p class="chero__sub" set:html={sub} />}
+    <slot />
+  </div>
+</section>
+<style is:global>
+  .chero { background: var(--gradient-navy); }
+  .chero__inner { padding-top: calc(var(--masthead-h) + 60px); padding-bottom: 80px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .chero__crumb { display: flex; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--sand-100); opacity: 0.8; }
+  .chero__crumb a:hover { color: var(--orange-500); }
+  .chero__sub { max-width: 760px; color: var(--sand-100); font-weight: 500; }
+  @media (max-width: 767.98px) { .chero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 48px; } .chero__crumb { font-size: 12px; } }
+</style>

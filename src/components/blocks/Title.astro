@@ -1,0 +1,17 @@
+---
+// Section title with the faded spine mark (Figma "What Section" heading).
+import SpineMark from '../ui/SpineMark.astro';
+interface Props { title?: string; level?: 'h1' | 'h2' | 'h3'; mark?: boolean; class?: string; center?: boolean }
+const { title = '', level = 'h2', mark = true, class: cls, center = false } = Astro.props;
+const H = level;
+const html = title.replace(/\s*\n\s*/g, ' ');
+---
+<H class:list={['h2 btitle', mark && 'btitle--mark', center && 'btitle--center', cls]}>{mark && <SpineMark class="btitle__mark" height={64} />}<span set:html={html} /></H>
+<style is:global>
+  .btitle { display: flex; align-items: center; gap: 16px; font-weight: 600; }
+  .btitle strong { font-weight: 700; }
+  .btitle--center { justify-content: center; text-align: center; }
+  .btitle__mark { flex: none; color: var(--blue-300); opacity: 0.4; }
+  .btitle__mark svg { height: 64px; width: auto; }
+  @media (max-width: 767.98px) { .btitle__mark svg { height: 52px; } .btitle { gap: 12px; } }
+</style>

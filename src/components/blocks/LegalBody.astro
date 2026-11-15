@@ -1,0 +1,68 @@
+---
+// Long-form legal text with an "On this page" list (sticky on desktop).
+import Media from './Media.astro';
+import Icon from '../ui/Icon.astro';
+import { isUpper, strip, textLink, type Section } from '../../lib/content';
+interface Props { s: Section; h2?: string[] | 'all'; inserts?: Record<string, string> }
+const { s, h2 = 'all', inserts = {} } = Astro.props;
+const slugify = (t: string) => strip(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+type N = { tag: 'h2' | 'h3' | 'p' | 'label' | 'a' | 'img'; t: string; id?: string; href?: string; img?: number };
+const nodes: N[] = [{ tag: 'h2', t: s.title ?? '', id: slugify(s.title ?? '') }];
+let imgI = 0;
+if (s.images?.[imgI]) nodes.push({ tag: 'img', t: '', img: imgI++ });
+for (const p of s.paras ?? []) {
+  const t = strip(p.t);
+  if (t === 'On this page') continue;
+  const link = textLink(p.t);
+  if (link) { nodes.push({ tag: 'a', t: link.label, href: link.href }); continue; }
+  const isHead = p.w >= 600 && t.length < 90 && !/[.:]$/.test(t) && !/^\d/.test(t);
+  if (p.w >= 700 && isUpper(p.t)) { nodes.push({ tag: 'label', t: p.t }); continue; }
+  const asH2 = (p.w >= 700) || (isHead && (h2 === 'all' ? p.w === 600 : h2.includes(t)));
+  if (asH2) {
+    nodes.push({ tag: 'h2', t: p.t, id: slugify(p.t) });
+    if (p.w >= 700 && s.images?.[imgI]) nodes.push({ tag: 'img', t: '', img: imgI++ });
+    continue;
+  }
+  if (isHead && p.w === 600 && !nodes.at(-1)?.tag.startsWith('label')) { nodes.push({ tag: 'h3', t: p.t }); continue; }
+  nodes.push({ tag: 'p', t: p.t });
+  if (inserts[t.slice(0, 40)]) nodes.push({ tag: 'p', t: inserts[t.slice(0, 40)] });
+}
+const toc = nodes.filter((n) => n.tag === 'h2');
+---
+<section class="section section--white legal">
+  <div class="container legal__grid">
+    <nav class="legal__toc" aria-label="On this page">
+      <p class="eyebrow">On this page</p>
+      <ol role="list">{toc.map((n) => <li><a href={`#${n.id}`} set:html={strip(n.t)} /></li>)}</ol>
+    </nav>
+    <div class="legal__body prose">
+      {nodes.map((n) =>
+        n.tag === 'h2' ? <h2 id={n.id} set:html={n.t} /> :
+        n.tag === 'h3' ? <h3 set:html={n.t} /> :
+        n.tag === 'label' ? <p class="eyebrow legal__label" set:html={n.t} /> :
+        n.tag === 'a' ? <p><a href={n.href} target={n.href!.startsWith('http') ? '_blank' : undefined} rel="noopener" class="legal__link">{n.t}<Icon name="arrow-up-right" size={16} /></a></p> :
+        n.tag === 'img' ? <Media image={s.images![n.img!]} class="legal__img" sizes="(min-width: 1024px) 560px, 100vw" /> :
+        <p set:html={n.t} />
+      )}
+    </div>
+  </div>
+</section>
+<style is:global>
+  .legal__grid { display: grid; gap: 40px; align-items: start; }
+  .legal__grid > * { min-width: 0; overflow-wrap: anywhere; }
+  .legal__toc { padding: 24px; border-radius: var(--radius-xl); background: var(--sand-100); }
+  .legal__toc .eyebrow { color: var(--orange-500); margin-bottom: 12px; }
+  .legal__toc ol { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 500; }
+  .legal__toc a:hover { color: var(--orange-500); }
+  .legal__body { max-width: 800px; color: var(--navy-600); }
+  .legal__body h2 { color: var(--navy-900); scroll-margin-top: 24px; }
+  .legal__body h2:first-child { margin-top: 0; }
+  .legal__body h3 { color: var(--navy-900); }
+  .legal__label { margin-top: 24px; color: var(--navy-600); }
+  .legal__label + p { margin-top: 4px; color: var(--navy-900); font-weight: 600; }
+  .prose .legal__link { display: inline; font-weight: 600; text-decoration: none; color: var(--orange-500); overflow-wrap: anywhere; word-break: break-word; }
+  .prose .legal__link .icon { display: inline-block; vertical-align: -3px; margin-left: 4px; }
+  .legal__img { max-width: 560px; margin-block: 24px; }
+  @media (min-width: 1024px) { .legal__grid { grid-template-columns: 280px minmax(0, 1fr); gap: 80px; } .legal__toc { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow: auto; } }
+  @media (max-width: 767.98px) { .legal { padding-block: 48px; } }
+</style>

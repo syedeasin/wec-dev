@@ -1,0 +1,26 @@
+---
+// "Card / Service": white card with icon, title, text and a Learn More link
+import IconTile from './IconTile.astro';
+import Button from './Button.astro';
+interface Props { icon: string; title: string; href: string; cta?: string }
+const { icon, title, href, cta = 'Learn More' } = Astro.props;
+---
+<article class="svc-card">
+  <div class="svc-card__body">
+    <IconTile name={icon} />
+    <div class="stack-8">
+      <h3 class="svc-card__title"><a href={href} class="svc-card__link">{title}</a></h3>
+      <p class="svc-card__text"><slot /></p>
+    </div>
+  </div>
+  <Button variant="tertiary" href={href} tabindex="-1" aria-hidden="true">{cta}</Button>
+</article>
+<style is:global>
+  .svc-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 24px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); color: var(--navy-900); transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+  .svc-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgb(var(--shadow-tint) / 0.3); }
+  .svc-card__body { display: flex; flex-direction: column; gap: 16px; }
+  .svc-card__title { font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; }
+  .svc-card__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .svc-card__text { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--navy-600); }
+  .svc-card .btn--tertiary { position: relative; z-index: 1; align-self: flex-start; }
+</style>

@@ -1,0 +1,68 @@
+---
+// "Find it, fix it, keep it from coming back": sand section, white card with 3 items + photo.
+import Tag from '../ui/Tag.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import Icon from '../ui/Icon.astro';
+import Buttons from './Buttons.astro';
+import Media from './Media.astro';
+import { icon, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const items = (s.bullets?.length ? s.bullets.map((b) => ({ icon: b.icon, title: b.text, text: b.body ?? '' })) : (s.cards ?? []).map((c) => ({ icon: c.icon, title: c.title, text: c.text ?? '' })));
+const imgs = s.images ?? [];
+const intro = s.paras?.[0]?.t;
+---
+<section class="section section--sand ffk">
+  <div class="container ffk__inner">
+    <div class="ffk__head">
+      {s.tag && <Tag variant="orange">{s.tag}</Tag>}
+      <SectionHead title={s.title ?? ''} maxWidth={760}>{intro && <Fragment set:html={intro} />}</SectionHead>
+    </div>
+    <div class="ffk__card">
+      <ul class="ffk__list" role="list">
+        {items.map((it, i) => (
+          <li class="ffk__item">
+            <div class="ffk__row">
+              <span class="ffk__icon"><Icon name={icon(it.icon)} size={24} /></span>
+              <div class="ffk__body"><h3 class="ffk__title" set:html={it.title} /><p class="ffk__text" set:html={it.text} /></div>
+            </div>
+            {imgs[i] && <Media image={imgs[i]} class="ffk__img-m" sizes="100vw" shadow={false} />}
+          </li>
+        ))}
+      </ul>
+      {imgs[0] && <Media image={imgs[0]} class="ffk__img-d" sizes="(min-width: 1280px) 560px, 45vw" />}
+    </div>
+    <Buttons buttons={s.buttons} center />
+  </div>
+</section>
+<style is:global>
+  .ffk__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .ffk__head { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .ffk__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); align-items: stretch; }
+  .ffk__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .ffk__item { display: flex; flex-direction: column; gap: 16px; padding: 24px; border: 1px solid var(--border-light); border-radius: var(--radius-lg); }
+  .ffk__row { display: flex; gap: 16px; align-items: flex-start; }
+  .ffk__icon { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.1); color: var(--orange-500); }
+  .ffk__body { display: flex; flex-direction: column; gap: 8px; }
+  .ffk__title { font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; }
+  .ffk__text { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--navy-600); }
+  .ffk__img-m img { aspect-ratio: 342 / 234; }
+  .ffk__img-d { display: none; }
+  .ffk__img-d { min-height: 420px; }
+  .ffk__img-d picture { position: absolute; inset: 0; }
+  .ffk__img-d img { position: absolute; inset: 0; height: 100%; width: 100%; }
+  @media (min-width: 1024px) {
+    .ffk__card { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+    .ffk__img-m { display: none; }
+    .ffk__img-d { display: block; }
+  }
+  @media (max-width: 767.98px) {
+    .ffk { padding-block: 60px; }
+    .ffk__inner { gap: 32px; align-items: stretch; }
+    .ffk__head { align-items: flex-start; }
+    .ffk__head .section-head--center { align-items: flex-start; text-align: left; }
+    .ffk__card { padding: 12px; }
+    .ffk__item { padding: 16px; }
+    .ffk__icon { width: 40px; height: 40px; }
+  }
+</style>

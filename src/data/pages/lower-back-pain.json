@@ -1,0 +1,401 @@
+{
+ "sections": [
+  {
+   "name": "Header – Lower Back Pain Treatment in Downtown Au",
+   "title": "Lower <span class=\"hl\">Back Pain Treatment</span> in Downtown Austin",
+   "paras": [
+    {
+     "w": 400,
+     "t": "If your back has been hurting for weeks and stretching hasn't touched it, something structural is going on. Casey Morgan D.C. finds what it is before he treats it."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 451,
+     "pos": "88% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Most of the low back pain we see comes from two places",
+   "paras": [
+    {
+     "w": 500,
+     "t": "You pushed too hard in the gym, and you've been pushing too hard for a while. Or you spent a weekend on the yard and something let go on Sunday night."
+    },
+    {
+     "w": 500,
+     "t": "It's rarely one moment. It's usually months or years of the same thing, and then one ordinary movement is the one your back finally objects to. Tying a shoe. Lifting a bag out of the trunk."
+    },
+    {
+     "w": 600,
+     "t": "If that sounds familiar, you're the person this page is for."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/pain-adjustment-lower-back",
+     "w": 212,
+     "h": 314,
+     "pos": "39% 100%"
+    },
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 111,
+     "h": 148,
+     "pos": "64% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Pain is the symptom. It is not the problem.",
+   "paras": [
+    {
+     "w": 500,
+     "t": "By the time your back hurts enough to look up a chiropractor, the thing causing it has usually been building for a while."
+    },
+    {
+     "w": 600,
+     "t": "You cannot stretch your way out of a structural problem. That is why the stretching stopped working."
+    },
+    {
+     "w": 500,
+     "t": "Low back problems are usually chronic, so the goal is a new baseline: get you out of pain, then slow the wear down from there."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "This is why we image before we treat.",
+     "text": "Dr. Morgan takes digital X-rays on site when your exam calls for it, reads them himself, and shows them to you the moment they come up. No separate imaging appointment. No waiting a week to find out what is going on."
+    }
+   ],
+   "images": [
+    {
+     "src": "home/video-thumb-adjustment",
+     "w": 342,
+     "h": 346,
+     "pos": "88% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Header – Find it, fix it, keep it from coming bac",
+   "title": "Find it, fix it, keep it from coming back",
+   "tag": "What we do about it",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Dr. Morgan does not run a shockwave machine or a laser room. He does adjustments and decompression, and he does a lot of them. If you have been somewhere that ran you through four modalities and never told you what was wrong, this will feel different."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "A full history and a real exam. Digital X-rays if your exam calls for them. Dr. Morgan reads them himself and walks you through what he sees."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "Chiropractic adjustments, and spinal decompression where the imaging supports it. Most low back plans run two to three visits a week at the start. That frequency is not a sales tactic, it is what actually moves a structural problem."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Keep it from coming back",
+     "body": "Once you are out of pain and the problem is corrected, most patients move to maintenance, usually about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you are there."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-xray-review-screen",
+     "w": 342,
+     "h": 234,
+     "pos": "48% 0%"
+    },
+    {
+     "src": "photos/patient-smiling-blue-shirt",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/adjustment-lower-back",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "First Visit Section",
+   "title": "Your first visit, start to finish",
+   "paras": [
+    {
+     "w": 400,
+     "t": "First visit runs about 30 minutes. After that, most visits take a few minutes. Dr. Morgan built the practice around working people."
+    }
+   ],
+   "steps": [
+    {
+     "title": "We find out what is actually happening",
+     "text": "Full history and exam. What hurts, what you have already tried, what you want to get back to doing. Any necessary digital X-rays, taken on site."
+    },
+    {
+     "title": "Dr. Morgan shows you the imaging, same day",
+     "text": "He marks it up and walks you through it right there. You will see what he sees. Most patients get their first adjustment the same visit."
+    },
+    {
+     "title": "You come back for the full report",
+     "text": "Within a few days, Dr. Morgan lays out what he found and exactly what he recommends. What it will take, how long, and what it costs. Then you decide."
+    }
+   ],
+   "images": [
+    {
+     "src": "home/how-it-works-adjustment",
+     "w": 390,
+     "h": 1278,
+     "pos": "20% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "How long until this actually feels better",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most people want a number before they start. Dr. Morgan will give you one, just not before he has examined you and looked at your imaging. He will not guess."
+    },
+    {
+     "w": 500,
+     "t": "What he can tell you up front is how it usually goes, including the part most offices skip: the first two weeks are uneven."
+    },
+    {
+     "w": 500,
+     "t": "If you are only trying to get out of pain, a shorter plan can do that. If you want it to stay fixed, it takes about 90 days. Dr. Morgan will give you both options and let you pick."
+    }
+   ],
+   "tags": [
+    {
+     "tag": "WEEKS 1 TO 2",
+     "text": "Inconsistent, and that's normal. You'll have a good day and think it's fixed, then a bad one and think it's not working. Dr. Morgan warns you about this on day one. Real change usually starts around the end of week two, and better sleep is often the first thing people notice."
+    },
+    {
+     "tag": "WEEKS 3 TO 12",
+     "text": "The bulk of the plan. A typical plan is about 24 visits over 90 days, two to three times a week at the start, then less often as you improve. Some people need fewer. Dr. Morgan checks your progress along the way."
+    },
+    {
+     "tag": "AFTER YOUR PLAN",
+     "text": "Most patients move to maintenance, about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you're there."
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Low back pain \nhas company",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Low back problems rarely stay in the low back. If any of these sound like you, they are often the same underlying issue."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "Shooting pain, numbness, or tingling down the leg. Usually a disc pressing on a nerve."
+    },
+    {
+     "icon": "hip-pain",
+     "title": "Hip Pain",
+     "text": "A lot of patients point at their hip when the problem is actually the lower back."
+    },
+    {
+     "icon": "spine",
+     "title": "Herniated or Bulging Disc",
+     "text": "The structural problem underneath a lot of low back pain and sciatica."
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What this costs",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> West End is in-network with BCBS, UnitedHealthcare, UMR, Surest, Aetna, Meritain, Humana, Ambetter, Ascension SmartHealth, Curative, WebTPA, and Medicare. Send us your insurance info when you book and we’ll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in. We are not a Medicaid provider."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 360,
+     "pos": "70% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Can a chiropractor actually help low back pain?",
+     "a": "That depends on what is causing it. If the problem is structural, a joint that stopped moving, a disc that narrowed, alignment that shifted, then yes. If it is something else, Dr. Morgan will tell you and point you somewhere better. The exam and imaging exist to answer that question before anyone starts treatment."
+    },
+    {
+     "q": "Will the adjustment hurt?",
+     "a": "No. Most people describe it as relief. You might hear a pop, which is gas releasing from the joint, not bones cracking. Dr. Morgan starts gentle on the first visit to get a feel for your spine before doing anything else."
+    },
+    {
+     "q": "Do I need an X-ray?",
+     "a": "Only if your exam suggests it. If Dr. Morgan takes them, they happen on site at your first visit, so there is no separate imaging appointment and no separate bill."
+    },
+    {
+     "q": "How many visits will I need?",
+     "a": "Dr. Morgan will not know until he has examined you and reviewed your imaging. A typical plan is about 24 visits over 90 days, usually two to three times a week at the start. He gives you a real recommendation on your second visit."
+    },
+    {
+     "q": "What is spinal decompression and do I need it?",
+     "a": "A cash service that takes pressure off a compressed disc. Dr. Morgan recommends it when the imaging shows degeneration or you have pain radiating into a leg. It is not right for everyone and he will say so."
+    },
+    {
+     "q": "I already tried physical therapy. Why would this be different?",
+     "a": "A lot of patients tell us the same thing, that the last place either would not adjust them or only worked on one section at a time. Dr. Morgan adjusts, and he tells you what he found before he does."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out what is actually causing it",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit. A full exam, any necessary digital X-rays, and a real answer about what's going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

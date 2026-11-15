@@ -1,0 +1,333 @@
+{
+ "sections": [
+  {
+   "name": "Header – On-Site Digital X-rays in Downtown Austi",
+   "title": "On-Site Digital X-rays <span class=\"hl\">in Downtown Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Taken in the office, read by Casey Morgan D.C. himself, and shown to you the same visit. No imaging center, no separate appointment, no waiting a week."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-woman",
+     "w": 390,
+     "h": 451,
+     "pos": "94% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Why we image before we treat",
+   "paras": [
+    {
+     "w": 500,
+     "t": "An X-ray shows what's going on with the bones of your spine: the curve, how the joints line up, and whether the space between them is thinning. That's the \"find it\" part of find it, fix it, keep it from coming back."
+    },
+    {
+     "w": 500,
+     "t": "Digital X-rays are fast, and they're right here in the office."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "You see it the same day.",
+     "text": "Dr. Morgan pulls your X-ray up the moment it's taken and walks you through what he's looking at. He calls it an insta report."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-older-patient",
+     "w": 342,
+     "h": 346,
+     "pos": "100% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Not everyone needs one",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan takes X-rays when your exam calls for them, not by default. They're most useful when:"
+    },
+    {
+     "w": 500,
+     "t": "•  Pain has lasted weeks or keeps coming back\n•  There's pain, numbness, or tingling running into an arm or leg\n•  You've been in a car accident\n•  He's checking whether a disc problem might need decompression"
+    },
+    {
+     "w": 400,
+     "t": "<strong>We don't X-ray during pregnancy.</strong> Pregnancy evaluations are history and physical exam only."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-review-older-patient",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 111,
+     "h": 148,
+     "pos": "64% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Header – From exam to answers, same visit",
+   "title": "From exam to answers, same visit",
+   "tag": "How it works",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>What an X-ray can't show.</strong> Discs and nerves are soft tissue, so they don't show up on an X-ray. When Dr. Morgan needs to see them, he refers you for an MRI."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "The exam comes first",
+     "body": "Dr. Morgan decides whether you need imaging based on your history and exam."
+    },
+    {
+     "icon": "wrench",
+     "text": "X-rays on site",
+     "body": "Taken in the office during your first visit. No referral, no imaging center, no separate trip."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "He shows you right then",
+     "body": "You see your own spine and hear what he sees. A few days later, at your report of findings, he walks you through the full picture and his recommendation."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/head-adjustment-seated",
+     "w": 342,
+     "h": 234
+    },
+    {
+     "src": "photos/assistant-shoulder-check",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/xray-review-man",
+     "w": 342,
+     "h": 292,
+     "pos": "100% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What X-rays cost",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 600,
+     "t": "No separate bill. Any necessary X-rays are part of your first visit, along with your exam and consultation.\n\nUsing insurance? Your first visit goes through your plan. Send us your insurance info when you book and we'll look into your coverage before your visit."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-with-patient-smiling",
+     "w": 342,
+     "h": 360,
+     "pos": "41% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "What patients say",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Related care",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Where X-rays usually come into the picture."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "spine",
+     "title": "Spinal Decompression",
+     "text": "A slow, controlled stretch for disc problems that haven't gotten better on their own."
+    },
+    {
+     "icon": "body",
+     "title": "Lower Back Pain",
+     "text": "Pain that has lasted weeks or keeps coming back."
+    },
+    {
+     "icon": "workout",
+     "title": "Neck Pain",
+     "text": "Neck pain, or numbness and tingling running into an arm."
+    },
+    {
+     "icon": "car-front",
+     "title": "Car Accident Care",
+     "text": "Same-day care and imaging after a crash."
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Do I need an X-ray?",
+     "a": "Only if your exam calls for it. Not every patient gets one."
+    },
+    {
+     "q": "Is there a separate bill?",
+     "a": "No. Any necessary X-rays are part of your first visit."
+    },
+    {
+     "q": "How long until I see the results?",
+     "a": "Right away. Dr. Morgan shows you the imaging the same visit."
+    },
+    {
+     "q": "Can I bring X-rays from somewhere else?",
+     "a": "Yes. Bring them, or have them sent over, and Dr. Morgan will look at them first."
+    },
+    {
+     "q": "Do you take X-rays during pregnancy?",
+     "a": "No. Pregnancy evaluations are history and physical exam only."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "See what's actually going on",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit. If your exam calls for X-rays, you'll see them the same day."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

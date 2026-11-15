@@ -1,0 +1,90 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { Picture } from 'astro:assets';
+import Icon from '../components/ui/Icon.astro';
+import Tag from '../components/ui/Tag.astro';
+import Button from '../components/ui/Button.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import Sections from '../components/blocks/Sections.astro';
+import data from '../data/pages/thank-you.json';
+import bg from '../assets/images/shared/cta-adjustment.webp';
+import { site } from '../data/site';
+import type { PageData } from '../lib/content';
+const d = data as PageData;
+const [hero, expect] = d.sections;
+// "What to expect": title (600) followed by its items (400)
+const cols: { title: string; items: string[] }[] = [];
+for (const p of expect.paras!.slice(1)) {
+  if (p.w === 600) cols.push({ title: p.t, items: [] }); else cols.at(-1)?.items.push(p.t);
+}
+const icons = ['clipboard-list', 'clock', 'phone'];
+---
+<SiteLayout title="Thank You | West End Chiropractic" description="We received your request." noindex>
+  <section class="tyhero on-dark">
+    <Picture src={bg} alt="" widths={[640, 1280, 1920, 2560]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="tyhero__bg" loading="eager" />
+    <div class="container tyhero__inner">
+      <span class="tyhero__check"><Icon name="check" size={32} /></span>
+      <h1 class="h1">{hero.title}</h1>
+      <p class="tyhero__lead">Thanks, we have your request. We’ll confirm your appointment by phone or email shortly, and send your intake forms so you can fill them out at home.</p>
+      <div class="tyhero__when" data-when hidden>
+        <p><Icon name="calendar-check" size={20} /><span data-when-text></span></p>
+        <p><Icon name="map-pin" size={20} /><span>{site.address.street}, {site.address.city}</span></p>
+      </div>
+      <div class="btn-row">
+        <Button href={site.mapsHref} icon="navigation" blockMobile target="_blank" rel="noopener">Get Directions</Button>
+        <Button href={site.phoneHref} variant="outline-light" icon="phone" blockMobile>Call {site.phone}</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white expect">
+    <div class="container expect__inner">
+      <SectionHead title={expect.title ?? ''}><Tag variant="orange" slot="before">{expect.tag}</Tag>{expect.paras![0].t}</SectionHead>
+      <ul class="expect__grid" role="list">
+        {cols.map((c, i) => (
+          <li class="expect__card">
+            <span class="expect__icon"><Icon name={icons[i] ?? 'check'} size={24} /></span>
+            <h3 class="h4">{c.title}</h3>
+            <ul class="expect__items" role="list">{c.items.map((t) => <li><Icon name="check" size={16} /><span set:html={t.replace(site.email, `<a href="${site.emailHref}">${site.email}</a>`).replace(site.phone, `<a href="${site.phoneHref}">${site.phone}</a>`)} /></li>)}</ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Sections data={d} skip={[0, 1]} />
+</SiteLayout>
+<script>
+  try {
+    const b = JSON.parse(sessionStorage.getItem('wec-booking') || 'null');
+    if (b?.date && b?.time) {
+      const el = document.querySelector<HTMLElement>('[data-when]')!;
+      el.querySelector('[data-when-text]')!.textContent = `Requested: ${b.date.replace(/ \d{4}$/, '')} at ${b.time}`;
+      el.hidden = false;
+    }
+  } catch {}
+</script>
+<style>
+  .tyhero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
+  .tyhero > :global(picture) { position: absolute; inset: 0; z-index: -2; }
+  .tyhero :global(.tyhero__bg) { width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%; }
+  .tyhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.9) 45%, rgb(15 45 64 / 0.55) 100%); }
+  .tyhero__inner { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 100px; max-width: 760px; margin-inline: max(var(--gutter), (100% - var(--container)) / 2); }
+  .tyhero__check { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--orange-500); color: var(--white); }
+  .tyhero__lead { color: var(--sand-100); font-weight: 500; }
+  .tyhero__when { display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.08); font-weight: 600; }
+  .tyhero__when[hidden] { display: none; }
+  .tyhero__when p { display: flex; gap: 10px; align-items: center; }
+  .tyhero__when :global(.icon) { color: var(--orange-500); }
+  @media (max-width: 767.98px) { .tyhero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 60px; } .tyhero :global(.btn-row) { align-self: stretch; } }
+  .expect__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  .expect__grid { list-style: none; padding: 0; width: 100%; display: grid; gap: 16px; }
+  .expect__card { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-xl); background: var(--sand-100); }
+  .expect__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--white); color: var(--orange-500); }
+  .expect__items { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .expect__items li { display: flex; gap: 8px; }
+  .expect__items :global(.icon) { flex: none; margin-top: 3px; color: var(--orange-500); }
+  .expect__items :global(a) { color: var(--orange-500); font-weight: 600; }
+  @media (min-width: 1024px) { .expect__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+  @media (max-width: 767.98px) { .expect { padding-block: 60px; } .expect__card { padding: 24px 16px; } }
+</style>

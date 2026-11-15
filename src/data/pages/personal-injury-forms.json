@@ -1,0 +1,123 @@
+{
+ "sections": [
+  {
+   "name": "header+hero",
+   "title": "Personal Injury <span class=\"hl\">Forms</span>",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Home  /  Personal Injury Forms"
+    },
+    {
+     "w": 400,
+     "t": "Complete our personal injury forms before your first visit."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Fill Out the Form"
+    },
+    {
+     "variant": "Primary",
+     "label": "Existing Patients"
+    }
+   ]
+  },
+  {
+   "name": "Legal Content Section",
+   "title": "Pain relief from your injury is just around the corner!",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Directions to West End Chiropractic Clinic"
+    },
+    {
+     "w": 400,
+     "t": "Park in the covered parking garage of the 5th St. Commons complex."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "If your condition is not related to a personal injury or car accident claim, please use our self pay forms.",
+     "text": "<span class=\"hl\">Self pay forms</span>"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Patient Intake Form- Personal Injury",
+     "text": "This form gathers important information about your injury and current condition."
+    },
+    {
+     "icon": "clipboard-list",
+     "title": "Embedded intake form",
+     "text": "Online form embed or PDF viewer goes here"
+    }
+   ],
+   "steps": [
+    {
+     "title": "Located near downtown near West 5th and Mopac, West End’s office is a state of the art facility with ample parking.",
+     "text": "2"
+    },
+    {
+     "title": "The office entrance is through the parking garage, and we are between Pearl & Fin Oyster Bar and the nail salon.",
+     "text": "See you soon!"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Fill Out the Form"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Download PDF"
+    }
+   ]
+  },
+  {
+   "name": "Section / Location (alt)",
+   "title": "Come see us <strong>downtown</strong>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>West End</strong> Chiropractic"
+    },
+    {
+     "w": 600,
+     "t": "Free parking for patients"
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "Address",
+     "text": "1611 W. 5th St., STE 110,\nAustin, TX 78703"
+    },
+    {
+     "icon": "phone",
+     "title": "Phone",
+     "text": "(512) 472-1116"
+    },
+    {
+     "icon": "mail",
+     "title": "Email",
+     "text": "contact@austin-chiropractor.com"
+    },
+    {
+     "icon": "clock-4",
+     "title": "Hours",
+     "text": "Monday–Thursday\n8am–1pm and 3pm–5pm"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 340
+    }
+   ]
+  }
+ ]
+}

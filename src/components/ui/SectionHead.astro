@@ -1,0 +1,18 @@
+---
+// Section title block. Title accepts HTML so <strong> (bold) / <span class="hl"> (orange) work.
+interface Props { title: string; level?: 'h1' | 'h2' | 'h3'; align?: 'left' | 'center'; size?: 'h2' | 'h3'; class?: string; maxWidth?: number }
+const { title, level = 'h2', align = 'center', size = 'h2', class: cls, maxWidth } = Astro.props;
+const H = level;
+---
+<div class:list={['section-head', { 'section-head--center': align === 'center' }, cls]} style={maxWidth ? `max-width:${maxWidth}px` : undefined}>
+  <slot name="before" />
+  <H class:list={[size, 'section-head__title']} set:html={title} />
+  {Astro.slots.has('default') && <div class="section-head__text p2"><slot /></div>}
+</div>
+<style is:global>
+  .section-head__title { font-weight: 500; }
+  .section-head__title strong { font-weight: 700; }
+  .section-head__text { font-weight: 500; color: var(--navy-600); }
+  .on-dark .section-head__text { color: var(--sand-100); }
+  .section-head__text strong { font-weight: 600; }
+</style>

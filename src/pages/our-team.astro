@@ -1,0 +1,76 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Tag from '../components/ui/Tag.astro';
+import Button from '../components/ui/Button.astro';
+import Media from '../components/blocks/Media.astro';
+import Sections from '../components/blocks/Sections.astro';
+import data from '../data/pages/our-team.json';
+import type { PageData, Img } from '../lib/content';
+const d = data as PageData;
+const [hero, members] = d.sections;
+// Split the member list: name (600) → role (400) → bio paragraphs (500)
+type M = { name: string; role: string; bio: string[] };
+const people: M[] = [];
+for (const p of members.paras!) {
+  if (p.w === 600) people.push({ name: p.t, role: '', bio: [] });
+  else if (p.w === 400 && !people.at(-1)!.role) people.at(-1)!.role = p.t;
+  else people.at(-1)!.bio.push(p.t);
+}
+const byName = (n: string) => members.images!.find((i) => i.src.includes(n))!;
+const photos: Img[] = [byName('casey-morgan-suit-standing'), byName('tai-le-standing'), byName('gabby-menendez-standing')];
+const alts = ['Dr. Casey Morgan, D.C.', 'Tai Le, chiropractic assistant', 'Gabby Menendez, chiropractic assistant'];
+---
+<SiteLayout title="Meet Our Team | West End Chiropractic, Austin" description="Meet Dr. Casey Morgan and the West End Chiropractic team. Three of us, and you will know all of our names by your second visit.">
+  <section class="thero on-dark">
+    <div class="container thero__inner">
+      <div class="thero__copy">
+        <Tag variant="soft-dark">{hero.tag}</Tag>
+        <h1 class="h1">{hero.title}</h1>
+        <p class="thero__lead" set:html={hero.paras![0].t} />
+      </div>
+      <ul class="thero__faces" role="list">
+        {hero.images!.map((im, i) => <li><Media image={im} eager sizes="(min-width: 1024px) 220px, 30vw" alt={alts[i]} /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--white team">
+    <div class="container team__list">
+      {people.map((m, i) => (
+        <article class:list={['member', i % 2 === 1 && 'member--rev']}>
+          <Media image={photos[i]} class="member__img" alt={alts[i]} />
+          <div class="member__copy">
+            <p class="eyebrow member__role">{m.role}</p>
+            <h2 class="h2" set:html={m.name} />
+            {m.bio.map((b) => <p set:html={b} />)}
+            {i === 0 && <Button href="/about-dr-morgan" variant="tertiary">Read Dr. Morgan’s full story</Button>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Sections data={d} skip={[0, 1, 2]} reviewsKey="team" />
+</SiteLayout>
+<style>
+  .thero { background: var(--gradient-navy); }
+  .thero__inner { display: grid; gap: 40px; align-items: center; padding-top: calc(var(--masthead-h) + 48px); padding-bottom: 80px; }
+  .thero__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .thero__lead { color: var(--sand-100); font-weight: 500; max-width: 520px; }
+  .thero__faces { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .thero__faces :global(img) { aspect-ratio: 5 / 6; }
+  @media (min-width: 1024px) { .thero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; } .thero__faces { gap: 20px; } }
+  @media (max-width: 767.98px) { .thero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } }
+  .team__list { display: flex; flex-direction: column; gap: 100px; }
+  .member { display: grid; gap: 32px; align-items: center; }
+  .member__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .member__role { color: var(--orange-500); }
+  .member :global(.member__img img) { aspect-ratio: 4 / 5; }
+  @media (min-width: 1024px) {
+    .member { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: 80px; }
+    .member--rev :global(.member__img) { order: 2; }
+    .member--rev { grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); }
+  }
+  @media (max-width: 1023.98px) { .member :global(.member__img) { max-width: 480px; } }
+  @media (max-width: 767.98px) { .team__list { gap: 60px; } }
+</style>

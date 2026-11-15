@@ -1,0 +1,522 @@
+{
+ "sections": [
+  {
+   "name": "Hero",
+   "title": "Chiropractic Resources from <span class=\"hl\">West End</span>",
+   "paras": [
+    {
+     "w": 700,
+     "t": "Resource library"
+    },
+    {
+     "w": 400,
+     "t": "Short, plain-English articles and videos from Casey Morgan, D.C. on back pain, neck pain, auto accident recovery, and pregnancy care."
+    },
+    {
+     "w": 400,
+     "t": "Search articles and videos"
+    },
+    {
+     "w": 700,
+     "t": "Featured"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 700,
+     "t": "Herniated disc vs. bulging disc: what your MRI is really telling you"
+    },
+    {
+     "w": 600,
+     "t": "Casey Morgan, D.C."
+    },
+    {
+     "w": 500,
+     "t": "7 min read"
+    },
+    {
+     "w": 700,
+     "t": "More featured"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Why your lower back hurts more after sitting all day"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Auto Accident"
+    },
+    {
+     "w": 600,
+     "t": "What to do in the first 72 hours after a car wreck"
+    },
+    {
+     "w": 500,
+     "t": "6 min read"
+    },
+    {
+     "w": 700,
+     "t": "Pregnancy"
+    },
+    {
+     "w": 600,
+     "t": "Is chiropractic safe during pregnancy?"
+    },
+    {
+     "w": 500,
+     "t": "4 min read"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/exam-patient-teal-shirt",
+     "w": 342,
+     "h": 420,
+     "pos": "94% 50%"
+    },
+    {
+     "src": "photos/spine-model-consult-man-alt",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/shoulder-assessment-man",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/casey-morgan-family",
+     "w": 112,
+     "h": 84
+    }
+   ]
+  },
+  {
+   "name": "Topic Bar (sticky, scrolls sideways)",
+   "paras": [
+    {
+     "w": 600,
+     "t": "All topics"
+    },
+    {
+     "w": 600,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Neck Pain & Headaches"
+    },
+    {
+     "w": 600,
+     "t": "Sciatica"
+    },
+    {
+     "w": 600,
+     "t": "Auto Accident"
+    },
+    {
+     "w": 600,
+     "t": "Pregnancy"
+    },
+    {
+     "w": 600,
+     "t": "Videos"
+    }
+   ]
+  },
+  {
+   "name": "Section / Latest",
+   "title": "Latest articles",
+   "paras": [
+    {
+     "w": 700,
+     "t": "X-rays & Imaging"
+    },
+    {
+     "w": 600,
+     "t": "Do you really need an X-ray? When imaging helps and when it does not"
+    },
+    {
+     "w": 500,
+     "t": "Oct 16, 2026  ·  6 min read"
+    },
+    {
+     "w": 700,
+     "t": "Sciatica"
+    },
+    {
+     "w": 600,
+     "t": "Sciatica or a pulled muscle? How to tell the difference"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Neck Pain"
+    },
+    {
+     "w": 600,
+     "t": "Why you wake up with a stiff neck (and how to stop it)"
+    },
+    {
+     "w": 500,
+     "t": "4 min read"
+    },
+    {
+     "w": 700,
+     "t": "Headaches"
+    },
+    {
+     "w": 600,
+     "t": "Headaches that start in your neck: 4 signs to look for"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 700,
+     "t": "New Patients"
+    },
+    {
+     "w": 600,
+     "t": "Your first visit, step by step"
+    },
+    {
+     "w": 500,
+     "t": "4 min read"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Secondary",
+     "label": "Load More Articles"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/xray-explain-older-man",
+     "w": 342,
+     "h": 176
+    },
+    {
+     "src": "home/video-thumb-adjustment",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/consult-woman-standing",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/adjustment-neck-woman",
+     "w": 112,
+     "h": 84
+    },
+    {
+     "src": "photos/casey-tablet-patient",
+     "w": 112,
+     "h": 84
+    }
+   ]
+  },
+  {
+   "name": "Section / Most Read",
+   "title": "Not sure what's causing your pain?",
+   "paras": [
+    {
+     "w": 700,
+     "t": "New patients"
+    },
+    {
+     "w": 400,
+     "t": "Your first visit includes an exam and any digital X-rays you need. In-network with most major carriers."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": null,
+     "text": "Most read"
+    },
+    {
+     "icon": null,
+     "text": "Or call (512) 472-1116"
+    }
+   ],
+   "steps": [
+    {
+     "title": "Herniated disc vs. bulging disc: what your MRI is really telling you",
+     "text": "7 min read"
+    },
+    {
+     "title": "Why your lower back hurts more after sitting all day",
+     "text": "5 min read"
+    },
+    {
+     "title": "What to do in the first 72 hours after a car wreck",
+     "text": "6 min read"
+    },
+    {
+     "title": "Is chiropractic safe during pregnancy?",
+     "text": "4 min read"
+    },
+    {
+     "title": "Sciatica or a pulled muscle? How to tell the difference",
+     "text": "5 min read"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-with-patient-smiling",
+     "w": 294,
+     "h": 176
+    }
+   ]
+  },
+  {
+   "name": "Section / Browse by Topic",
+   "title": "Find answers for what hurts",
+   "paras": [
+    {
+     "w": 700,
+     "t": "Browse by topic"
+    },
+    {
+     "w": 600,
+     "t": "Back Pain"
+    },
+    {
+     "w": 700,
+     "t": "See all"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "5 desk stretches that take less than two minutes"
+    },
+    {
+     "w": 500,
+     "t": "3 min read"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Herniated disc recovery: what a normal week looks like"
+    },
+    {
+     "w": 500,
+     "t": "6 min read"
+    },
+    {
+     "w": 700,
+     "t": "Back Pain"
+    },
+    {
+     "w": 600,
+     "t": "Is spinal decompression right for your back?"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 600,
+     "t": "Auto Accident Recovery"
+    },
+    {
+     "w": 700,
+     "t": "See all"
+    },
+    {
+     "w": 700,
+     "t": "Auto Accident"
+    },
+    {
+     "w": 600,
+     "t": "Whiplash symptoms can show up days after a wreck"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Auto Accident"
+    },
+    {
+     "w": 600,
+     "t": "How PIP coverage works in Texas after a car accident"
+    },
+    {
+     "w": 500,
+     "t": "5 min read"
+    },
+    {
+     "w": 700,
+     "t": "Auto Accident"
+    },
+    {
+     "w": 600,
+     "t": "Chiropractor or ER? Where to go after a car accident"
+    },
+    {
+     "w": 500,
+     "t": "4 min read"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/casey-consult-clipboard",
+     "w": 260,
+     "h": 176
+    },
+    {
+     "src": "photos/adjustment-thoracic-woman",
+     "w": 260,
+     "h": 176
+    },
+    {
+     "src": "photos/decompression-assistant",
+     "w": 260,
+     "h": 176
+    },
+    {
+     "src": "photos/xray-review-older-patient",
+     "w": 260,
+     "h": 176
+    },
+    {
+     "src": "photos/assistant-xray-machine",
+     "w": 260,
+     "h": 176
+    },
+    {
+     "src": "photos/adjustment-table-patient",
+     "w": 260,
+     "h": 176
+    }
+   ]
+  },
+  {
+   "name": "Section / Videos",
+   "title": "Short videos from Dr. Morgan",
+   "paras": [
+    {
+     "w": 700,
+     "t": "Watch"
+    },
+    {
+     "w": 700,
+     "t": "3:42"
+    },
+    {
+     "w": 700,
+     "t": "Posture & Desk Work"
+    },
+    {
+     "w": 600,
+     "t": "Text neck: a 3-minute check you can do at your desk"
+    },
+    {
+     "w": 500,
+     "t": "Video  ·  Oct 15, 2026"
+    },
+    {
+     "w": 700,
+     "t": "See all videos"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/doctor-adjusting-patient-table",
+     "w": 342,
+     "h": 216
+    }
+   ]
+  },
+  {
+   "name": "Section / Newsletter",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Get one useful tip a month"
+    },
+    {
+     "w": 400,
+     "t": "Short, plain-English advice on back pain, posture, and recovery. Straight to your inbox."
+    },
+    {
+     "w": 400,
+     "t": "Your email address"
+    },
+    {
+     "w": 400,
+     "t": "No spam. Unsubscribe anytime."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Subscribe"
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Ready to figure out what's going on?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit. A full exam, any necessary digital X-rays, and a real answer about what's going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

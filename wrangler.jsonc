@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "west-end-chiropractic",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "observability": { "enabled": true }
+  // LEAD_WEBHOOK_URL is a secret: set it in the Cloudflare dashboard
+  // (Workers & Pages > west-end-chiropractic > Settings > Variables and Secrets)
+  // or with: npx wrangler secret put LEAD_WEBHOOK_URL
+}

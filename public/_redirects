@@ -1,0 +1,8 @@
+# Old / alternate URLs → current pages (Cloudflare Pages/Workers static redirects)
+/services-treatments/spinal-decompression   /services/spinal-decompression   301
+/services-treatments/spinal-decompression/  /services/spinal-decompression   301
+/about                                      /about-dr-morgan                 301
+/team                                       /our-team                        301
+/contact                                    /schedule-appointment            301
+/book                                       /schedule-appointment            301
+/new-patient-forms                          /forms                           301

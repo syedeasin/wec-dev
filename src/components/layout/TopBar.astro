@@ -1,0 +1,58 @@
+---
+import Icon from '../ui/Icon.astro';
+import { site } from '../../data/site';
+---
+<div class="topbar">
+  <div class="container topbar__inner">
+    <p class="topbar__status" data-open-status>
+      <span class="topbar__dot" aria-hidden="true"></span>
+      <span data-open-status-text>Open today until 5:00 PM</span>
+    </p>
+    <div class="topbar__links">
+      <a href={site.mapsHref} target="_blank" rel="noopener" class="topbar__link"><Icon name="map-pin" size={16} />{site.addressLine}</a>
+      <a href={site.phoneHref} class="topbar__link"><Icon name="phone" size={16} />{site.phone}</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Live "open now" status in Austin time (Mon–Thu 8–1, 3–5).
+  const el = document.querySelector<HTMLElement>('[data-open-status]');
+  const txt = el?.querySelector<HTMLElement>('[data-open-status-text]');
+  if (el && txt) {
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+    const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '';
+    const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+    const mins = (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10);
+    const workday = day >= 1 && day <= 4;
+    let msg = 'Closed today · Opens Monday 8:00 AM';
+    let open = false;
+    if (workday) {
+      if (mins < 480) msg = 'Opens today at 8:00 AM';
+      else if (mins < 780) { msg = 'Open today until 5:00 PM'; open = true; }
+      else if (mins < 900) msg = 'Back today at 3:00 PM';
+      else if (mins < 1020) { msg = 'Open today until 5:00 PM'; open = true; }
+      else msg = day === 4 ? 'Closed now · Opens Monday 8:00 AM' : 'Closed now · Opens tomorrow 8:00 AM';
+    }
+    txt.textContent = msg;
+    el.dataset.state = open ? 'open' : 'closed';
+  }
+</script>
+
+<style>
+  .topbar { background: var(--gradient-navy-h); color: var(--sand-100); font-size: 12px; line-height: 22px; font-weight: 600; }
+  .topbar__inner { display: flex; align-items: center; justify-content: center; min-height: var(--topbar-h); padding-block: 8px; }
+  .topbar__status { display: inline-flex; align-items: center; gap: 8px; }
+  .topbar__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-online); box-shadow: 0 0 12px -1px rgb(54 255 43 / 0.6); }
+  [data-state='closed'] .topbar__dot { background: var(--orange-500); box-shadow: 0 0 12px -1px rgb(232 81 42 / 0.6); }
+  .topbar__links { display: none; }
+  @media (min-width: 768px) {
+    .topbar { font-size: 14px; font-weight: 500; }
+    .topbar__inner { justify-content: space-between; padding-block: 12px; }
+    .topbar__links { display: flex; align-items: center; gap: 40px; }
+    .topbar__link { display: inline-flex; align-items: center; gap: 8px; }
+    .topbar__link:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+    .topbar__link .icon { color: var(--sand-100); }
+  }
+  @media (min-width: 768px) and (max-width: 1023.98px) { .topbar__links a:first-child { display: none; } }
+</style>

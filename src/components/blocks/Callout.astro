@@ -1,0 +1,16 @@
+---
+interface Props { title?: string; text?: string; class?: string }
+const { title, text, class: cls } = Astro.props;
+---
+<aside class:list={['callout', cls]}>
+  {title && <p class="callout__title" set:html={title} />}
+  {text && <p class="callout__text" set:html={text} />}
+  <slot />
+</aside>
+<style is:global>
+  .callout { display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--sand-100); border-left: 3px solid var(--orange-500); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .callout__title { font-weight: 700; color: var(--navy-900); }
+  .callout__text { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--navy-600); }
+  .callout__text .hl { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 767.98px) { .callout { padding: 20px 16px; } }
+</style>

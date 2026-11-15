@@ -1,0 +1,166 @@
+---
+// Two-step booking request: pick a date and time, then your details. Posts to /api/lead.
+// Times are requests: the front desk confirms. Open days/slots come from site.openingHours below.
+import Icon from '../ui/Icon.astro';
+import Button from '../ui/Button.astro';
+import { site } from '../../data/site';
+const slots = { Morning: ['8:00 AM', '8:30 AM', '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'], Afternoon: ['3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM'] };
+---
+<form class="book" method="post" action="/api/lead" data-book novalidate>
+  <input type="hidden" name="form" value="Booking request" />
+  <input type="hidden" name="_redirect" value="/thank-you" />
+  <input type="hidden" name="date" data-date-field />
+  <input type="hidden" name="time" data-time-field />
+  <div class="book__hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+
+  <ol class="book__steps" role="list">
+    <li class="is-active" data-step-tab="1"><span>1</span>Date &amp; time</li>
+    <li data-step-tab="2"><span>2</span>Your details</li>
+  </ol>
+
+  <fieldset class="book__panel" data-step="1">
+    <legend class="sr-only">Pick a date and time</legend>
+    <div class="cal">
+      <div class="cal__head">
+        <button type="button" class="cal__nav" data-prev aria-label="Previous month"><Icon name="chevron-left" size={20} /></button>
+        <p class="cal__month" data-month aria-live="polite"></p>
+        <button type="button" class="cal__nav" data-next aria-label="Next month"><Icon name="chevron-right" size={20} /></button>
+      </div>
+      <div class="cal__dow" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      <div class="cal__grid" data-grid role="grid"></div>
+    </div>
+    <div class="times" data-times hidden>
+      <p class="times__day" data-day-label></p>
+      {Object.entries(slots).map(([label, list]) => (
+        <div class="times__group">
+          <p class="eyebrow">{label}</p>
+          <div class="times__grid">{list.map((t) => <button type="button" class="slot" data-slot={t}>{t}</button>)}</div>
+        </div>
+      ))}
+    </div>
+    <div class="book__selected" data-selected hidden><Icon name="calendar-check" size={20} /><span>Selected <strong data-selected-text></strong></span></div>
+    <p class="book__error" data-err1 hidden>Pick a day and a time to continue.</p>
+    <Button type="button" block data-continue>Continue to Your Details</Button>
+    <p class="a1 book__note">Same-day appointments are often available. Don’t see a time that works? Call us at <a href={site.phoneHref}><strong>{site.phone}</strong></a>.</p>
+  </fieldset>
+
+  <fieldset class="book__panel" data-step="2" hidden>
+    <legend class="sr-only">Your details</legend>
+    <div class="book__selected"><Icon name="calendar-check" size={20} /><span><strong data-selected-text></strong></span><button type="button" class="book__change" data-back>Change</button></div>
+    <div class="field-grid">
+      <label class="field"><span>First name *</span><input name="first_name" required autocomplete="given-name" /></label>
+      <label class="field"><span>Last name *</span><input name="last_name" required autocomplete="family-name" /></label>
+      <label class="field"><span>Phone *</span><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+      <label class="field"><span>Email *</span><input name="email" type="email" required autocomplete="email" /></label>
+      <label class="field field--full"><span>Have you been here before?</span>
+        <select name="patient_type"><option>New patient</option><option>Returning patient</option></select></label>
+      <label class="field field--full"><span>How will you pay?</span>
+        <select name="payment"><option>Health insurance</option><option>Paying myself</option><option>Car accident / personal injury</option></select></label>
+      <label class="field field--full"><span>What’s going on? (optional)</span><textarea name="message" rows="3"></textarea></label>
+    </div>
+    <p class="book__error" data-err2 hidden>Please fill in your name, phone and email.</p>
+    <Button type="submit" block>Request This Appointment</Button>
+    <p class="a2 book__note">We’ll confirm your time by phone or email. Prefer to email? <a href={site.emailHref}>{site.email}</a></p>
+  </fieldset>
+</form>
+
+<script>
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const OPEN = [1, 2, 3, 4]; // Mon–Thu
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-book]')) {
+    const $ = <T extends Element>(s: string) => form.querySelector<T>(s)!;
+    const grid = $<HTMLDivElement>('[data-grid]'), monthEl = $('[data-month]');
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let view = new Date(today.getFullYear(), today.getMonth(), 1);
+    let picked: Date | null = null, time = '';
+    const fmt = (d: Date) => `${DAYS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}`;
+    function render() {
+      monthEl.textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
+      grid.innerHTML = '';
+      const first = view.getDay(), days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+      for (let i = 0; i < first; i++) grid.append(document.createElement('span'));
+      for (let d = 1; d <= days; d++) {
+        const date = new Date(view.getFullYear(), view.getMonth(), d);
+        const b = document.createElement('button');
+        b.type = 'button'; b.textContent = String(d); b.className = 'cal__day';
+        const ok = date >= today && OPEN.includes(date.getDay());
+        b.disabled = !ok;
+        b.setAttribute('aria-label', fmt(date));
+        if (picked && +picked === +date) { b.classList.add('is-picked'); b.setAttribute('aria-pressed', 'true'); }
+        b.addEventListener('click', () => { picked = date; time = ''; render(); update(); });
+        grid.append(b);
+      }
+      $<HTMLButtonElement>('[data-prev]').disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    }
+    function update() {
+      $<HTMLElement>('[data-times]').hidden = !picked;
+      if (picked) $('[data-day-label]').textContent = fmt(picked);
+      form.querySelectorAll<HTMLButtonElement>('[data-slot]').forEach((s) => s.classList.toggle('is-picked', s.dataset.slot === time));
+      const text = picked && time ? `${fmt(picked).replace(/^(\w{3})\w+/, '$1').replace(/(\w{3})\w+ (\d+)$/, '$1 $2')} at ${time}` : '';
+      $<HTMLElement>('[data-selected]').hidden = !text;
+      form.querySelectorAll('[data-selected-text]').forEach((e) => (e.textContent = text));
+      $<HTMLInputElement>('[data-date-field]').value = picked ? fmt(picked) + ` ${picked.getFullYear()}` : '';
+      $<HTMLInputElement>('[data-time-field]').value = time;
+      if (text) $<HTMLElement>('[data-err1]').hidden = true;
+    }
+    form.querySelectorAll<HTMLButtonElement>('[data-slot]').forEach((s) => s.addEventListener('click', () => { time = s.dataset.slot!; update(); }));
+    $('[data-prev]').addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(); });
+    $('[data-next]').addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(); });
+    const step = (n: number) => {
+      form.querySelectorAll<HTMLElement>('[data-step]').forEach((f) => (f.hidden = f.dataset.step !== String(n)));
+      form.querySelectorAll('[data-step-tab]').forEach((t) => t.classList.toggle('is-active', Number((t as HTMLElement).dataset.stepTab) <= n));
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    $('[data-continue]').addEventListener('click', () => { if (picked && time) step(2); else $<HTMLElement>('[data-err1]').hidden = false; });
+    $('[data-back]').addEventListener('click', () => step(1));
+    form.addEventListener('submit', (e) => {
+      const req = [...form.querySelectorAll<HTMLInputElement>('[required]')];
+      if (req.some((i) => !i.checkValidity())) { e.preventDefault(); $<HTMLElement>('[data-err2]').hidden = false; req.find((i) => !i.checkValidity())?.focus(); return; }
+      try { sessionStorage.setItem('wec-booking', JSON.stringify({ date: $<HTMLInputElement>('[data-date-field]').value, time })); } catch {}
+    });
+    render(); update();
+  }
+</script>
+<style is:global>
+  .book { display: flex; flex-direction: column; gap: 24px; padding: 32px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); color: var(--navy-900); scroll-margin-top: 24px; }
+  .book__hp { position: absolute; left: -9999px; }
+  .book__steps { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .book__steps li { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; border-bottom: 3px solid var(--sand-200); font-size: 14px; font-weight: 600; color: var(--navy-600); }
+  .book__steps li span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--sand-200); font-size: 13px; line-height: 1; }
+  .book__steps li.is-active { border-color: var(--orange-500); color: var(--navy-900); }
+  .book__steps li.is-active span { background: var(--orange-500); color: var(--white); }
+  .book__panel { border: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .book__panel[hidden] { display: none; }
+  .cal__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .cal__month { font-weight: 700; font-size: 18px; }
+  .cal__nav { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-light); }
+  .cal__nav:disabled { opacity: 0.3; cursor: default; }
+  .cal__dow, .cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+  .cal__dow { font-size: 12px; font-weight: 600; color: var(--navy-600); margin-bottom: 4px; }
+  .cal__day { display: grid; place-items: center; height: 44px; border-radius: var(--radius-md); font-size: 14px; line-height: 1; font-weight: 600; transition: background var(--dur-fast); }
+  .cal__day:not(:disabled):hover { background: var(--sand-100); }
+  .cal__day:disabled { color: rgb(15 45 64 / 0.3); font-weight: 500; cursor: default; }
+  .cal__day.is-picked { background: var(--orange-500); color: var(--white); }
+  .times { display: flex; flex-direction: column; gap: 16px; }
+  .times[hidden] { display: none; }
+  .times__day { font-weight: 700; }
+  .times__group .eyebrow { color: var(--navy-600); margin-bottom: 8px; }
+  .times__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .slot { display: grid; place-items: center; height: 44px; border: 1px solid var(--border-light); border-radius: var(--radius-md); font-size: 14px; line-height: 1; font-weight: 600; }
+  .slot:hover { border-color: var(--orange-500); }
+  .slot.is-picked { background: var(--orange-500); border-color: var(--orange-500); color: var(--white); }
+  .book__selected { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--radius-md); background: var(--sand-100); font-size: 14px; }
+  .book__selected[hidden] { display: none; }
+  .book__selected .icon { color: var(--orange-500); flex: none; }
+  .book__change { margin-left: auto; color: var(--orange-500); font-weight: 600; font-size: 14px; }
+  .book__error { color: var(--red-600); font-size: 14px; font-weight: 600; }
+  .book__note { color: var(--navy-600); text-align: center; }
+  .book__note a { color: var(--orange-500); }
+  .field-grid { display: grid; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+  .field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid #cfd6db; border-radius: var(--radius-md); background: var(--white); font-size: 16px; font-weight: 500; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--orange-500); outline-offset: 0; border-color: transparent; }
+  @media (min-width: 768px) { .field-grid { grid-template-columns: 1fr 1fr; } .field--full { grid-column: 1 / -1; } .times__grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 767.98px) { .book { padding: 20px 16px; } .cal__day { height: 40px; } }
+</style>

@@ -1,0 +1,12 @@
+---
+import Icon from './Icon.astro';
+interface Props { name: string; size?: 40 | 50 | 56; tone?: 'blue' | 'orange' | 'blue-dark'; iconSize?: number; class?: string }
+const { name, size = 56, tone = 'blue', iconSize, class: cls } = Astro.props;
+---
+<span class:list={['itile', `itile--${tone}`, cls]} style={`--tile:${size}px`}><Icon name={name} size={iconSize ?? (size === 40 ? 16 : 24)} /></span>
+<style is:global>
+  .itile { flex: none; display: grid; place-items: center; width: var(--tile); height: var(--tile); border-radius: var(--radius-md); }
+  .itile--blue { background: rgb(114 166 200 / 0.08); color: var(--blue-300); }
+  .itile--blue-dark { background: rgb(114 166 200 / 0.08); color: var(--blue-300); }
+  .itile--orange { background: rgb(232 81 42 / 0.08); color: var(--orange-500); }
+</style>

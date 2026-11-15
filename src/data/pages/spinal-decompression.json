@@ -1,0 +1,339 @@
+{
+ "sections": [
+  {
+   "name": "Header – Non-Surgical Spinal Decompression in Dow",
+   "title": "Non-Surgical Spinal Decompression <span class=\"hl\">in Downtown Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "For disc problems that haven't gotten better on their own. Casey Morgan D.C. looks at your imaging first, and only recommends decompression when it shows decompression fits."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "$75 per session, stated up front"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/decompression-man",
+     "w": 390,
+     "h": 451
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What spinal decompression actually does",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Decompression is a slow, controlled stretch of the spine. It takes pressure off discs that have narrowed or bulged, and off the nerves they press on."
+    },
+    {
+     "w": 500,
+     "t": "It's not an adjustment, and it's not surgery. It's a separate tool for a specific problem, which is why it starts with an evaluation, not a session."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "Dr. Morgan does two things: adjustments and decompression.",
+     "text": "No shockwave, no laser room, no four-machine circuit. When decompression is part of your plan, it works alongside your adjustments, not instead of them."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/decompression-man-alt",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "Who decompression is usually for",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Dr. Morgan recommends decompression when your X-rays show disc space narrowing or degeneration, or when pain is running down into a leg. That usually means one of these:"
+    },
+    {
+     "w": 500,
+     "t": "•  Herniated or bulging disc\n•  Sciatica, or pain, numbness, or tingling down the leg\n•  Low back pain that has lasted months and hasn't responded to other treatment\n•  Neck pain from a disc problem"
+    },
+    {
+     "w": 400,
+     "t": "<strong>Who it's not for:</strong> Decompression isn't right for everyone. Dr. Morgan screens for things like severe osteoporosis, spinal fusion hardware, some advanced spinal conditions, and pregnancy. If it's not a fit, he'll tell you, and tell you what would help instead."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/assistant-decompression-setup",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 111,
+     "h": 148,
+     "pos": "64% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Header – How it works at West End",
+   "title": "How it works at West End",
+   "tag": "How it works",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>No free first session, no hard sell afte</strong>r. We do a real evaluation first, and you decide with the price in front of you."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Your first visit: find out what's going on",
+     "body": "Full history, a real exam, and any necessary digital X-rays, taken on site. Dr. Morgan shows you the imaging the same visit. If decompression might be part of the answer, he'll mention it then."
+    },
+    {
+     "icon": "wrench",
+     "text": "A few days later: the recommendation",
+     "body": "Dr. Morgan walks you through what he found and what he recommends. If decompression fits, you get the number of sessions and the total price before you commit to anything."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Your plan",
+     "body": "Decompression sessions alongside your adjustments, on a schedule built around your week."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/decompression-room",
+     "w": 342,
+     "h": 234,
+     "pos": "100% 50%"
+    },
+    {
+     "src": "photos/spine-model-consult-man",
+     "w": 342,
+     "h": 292
+    },
+    {
+     "src": "photos/decompression-assistant",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What decompression costs",
+   "tag": "Cash service",
+   "paras": [
+    {
+     "w": 700,
+     "t": "SPINAL DECOMPRESSION"
+    },
+    {
+     "w": 500,
+     "t": "Per session, cash service"
+    },
+    {
+     "w": 700,
+     "t": "$75"
+    },
+    {
+     "w": 600,
+     "t": "What to know"
+    },
+    {
+     "w": 400,
+     "t": "Spinal decompression is a cash service. Not every patient is a candidate."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Insurance does not cover it",
+     "text": "Decompression is a cash service, so we tell you the price up front."
+    },
+    {
+     "icon": "person-standing",
+     "title": "A typical plan is about 24 visits",
+     "text": "Dr. Morgan confirms the number and the total for you after your evaluation, before anything starts."
+    },
+    {
+     "icon": "eye",
+     "title": "First visit",
+     "text": "Your exam, consultation, and any necessary digital X-rays. Using insurance? It can go through your plan. Paying yourself? Call us and we'll tell you the cost up front."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Not every patient is a candidate",
+     "text": "If it's not a fit, Dr. Morgan will tell you, and tell you what would help instead."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/decompression-patient",
+     "w": 342,
+     "h": 360
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "What patients say",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Conditions decompression is used for",
+   "paras": [
+    {
+     "w": 500,
+     "t": "If one of these sounds like you, decompression may be part of the answer."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "spine",
+     "title": "Herniated or Bulging Disc",
+     "text": "The structural problem underneath a lot of low back pain and sciatica."
+    },
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "Shooting pain, numbness, or tingling down the leg. Usually a disc pressing on a nerve."
+    },
+    {
+     "icon": "body",
+     "title": "Lower Back Pain",
+     "text": "Pain that has lasted months and hasn't responded to other treatment."
+    },
+    {
+     "icon": "workout",
+     "title": "Neck Pain",
+     "text": "Neck pain, numbness, or tingling into the arm from a disc problem."
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "How do I know if I'm a candidate?",
+     "a": "That's what the first visit is for. Dr. Morgan examines you, takes any necessary digital X-rays, and tells you whether decompression fits. If it doesn't, he'll say so."
+    },
+    {
+     "q": "Does insurance cover it?",
+     "a": "No. Decompression is a cash service at $75 per session. Your first visit, with the exam and any necessary X-rays, can go through your insurance."
+    },
+    {
+     "q": "How many sessions will I need?",
+     "a": "A typical plan is about 24 visits, but it depends on what your imaging shows. Dr. Morgan gives you the number and the total price after your evaluation, before you start."
+    },
+    {
+     "q": "Does it hurt?",
+     "a": "Most people find it relaxing. It's a slow, controlled stretch, not a pop or a crack. If anything is uncomfortable, Dr. Morgan adjusts it."
+    },
+    {
+     "q": "Can I still get adjusted?",
+     "a": "Yes. Decompression works alongside your adjustments. Most decompression patients get both."
+    },
+    {
+     "q": "Is this an alternative to surgery?",
+     "a": "Many people look at decompression before they consider surgery. It isn't a replacement for a surgeon's opinion, and if your imaging points to one, Dr. Morgan will tell you."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out if decompression fits",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Your first visit gets you a full exam, a consultation, and any necessary digital X-rays. You'll leave knowing what's going on, and whether decompression is part of the answer."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Evaluation"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

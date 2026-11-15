@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+const files = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/insurance/*.webp', { eager: true });
+const logo = (n: string) => files[`../../assets/images/insurance/${n}.webp`].default;
+const list = [
+  ['bcbs', 'BlueCross BlueShield'], ['united-healthcare', 'UnitedHealthcare'], ['aetna', 'Aetna'], ['humana', 'Humana'],
+  ['ambetter', 'Ambetter Health'], ['ascension', 'Ascension SmartHealth'], ['webtpa', 'WebTPA'], ['curative', 'Curative'],
+  ['surest', 'Surest'], ['umr', 'UMR'], ['medicare', 'Medicare'], ['meritain', 'Meritain Health'],
+] as const;
+interface Props { class?: string }
+---
+<ul class:list={['ins-logos', Astro.props.class]} role="list">
+  {list.map(([key, name]) => {
+    const img = logo(key);
+    return <li class="ins-logos__cell"><Image src={img} alt={name} width={Math.round(img.width / 3)} height={Math.round(img.height / 3)} densities={[1, 2, 3]} loading="lazy" /></li>;
+  })}
+</ul>
+<style is:global>
+  .ins-logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: 100%; max-width: 1028px; opacity: 0.7; }
+  .ins-logos__cell { display: grid; place-items: center; height: 80px; padding: 8px 16px; border-radius: var(--radius-xl); }
+  .ins-logos__cell img { max-width: 100%; height: auto; max-height: 50px; width: auto; }
+  @media (max-width: 767.98px) { .ins-logos__cell { height: 64px; padding: 4px 8px; } .ins-logos__cell img { max-height: 42px; max-width: 86%; } }
+  @media (min-width: 768px) { .ins-logos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>

@@ -1,0 +1,47 @@
+---
+// Area pages "Where we are": copy + parking callout left, map with a pin card right.
+import { Picture } from 'astro:assets';
+import Title from './Title.astro';
+import Callout from './Callout.astro';
+import Buttons from './Buttons.astro';
+import Icon from '../ui/Icon.astro';
+import map from '../../assets/images/shared/office-map.webp';
+import { site } from '../../data/site';
+import { isUpper, strip, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const eyebrow = s.paras?.find((p) => isUpper(p.t));
+const text = s.paras?.filter((p) => p !== eyebrow) ?? [];
+const pin = s.cards?.[0];
+---
+<section class="section section--white where">
+  <div class="container where__grid">
+    <div class="where__copy">
+      {eyebrow && <p class="eyebrow where__eyebrow">{strip(eyebrow.t)}</p>}
+      <Title title={s.title} mark={false} />
+      {text.map((p) => <p set:html={p.t} />)}
+      {s.callouts?.map((c) => <Callout title={c.title} text={c.text} />)}
+      {s.bullets?.map((b) => <p class="where__addr"><Icon name="map-pin" size={20} /><span>{b.text}</span></p>)}
+      <Buttons buttons={s.buttons} />
+    </div>
+    <a class="where__map" href={site.mapsHref} target="_blank" rel="noopener" aria-label="Open West End Chiropractic in Google Maps">
+      <Picture src={map} alt="Map showing West End Chiropractic at 1611 W. 5th St." widths={[360, 560, 800, 1000]} sizes="(min-width: 1024px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+      {pin && <span class="where__pin"><span class="where__pin-i"><Icon name="map-pin" size={20} /></span><span><strong>{pin.title}</strong><small>{pin.text}</small></span></span>}
+    </a>
+  </div>
+</section>
+<style is:global>
+  .where__grid { display: grid; gap: 40px; align-items: center; }
+  .where__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .where__copy > .callout { align-self: stretch; }
+  .where__eyebrow { color: var(--orange-500); }
+  .where__addr { display: flex; gap: 8px; align-items: center; font-size: var(--fs-a1); font-weight: 500; }
+  .where__addr .icon { color: var(--orange-500); flex: none; }
+  .where__map { position: relative; display: block; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-image); }
+  .where__map img { width: 100%; aspect-ratio: 560 / 470; object-fit: cover; }
+  .where__pin { position: absolute; left: 24px; bottom: 24px; display: flex; gap: 12px; align-items: center; padding: 12px 16px 12px 12px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); font-size: 14px; line-height: 20px; color: var(--navy-900); }
+  .where__pin small { display: block; font-size: 12px; color: var(--navy-600); }
+  .where__pin-i { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--orange-500); color: var(--white); }
+  @media (min-width: 1024px) { .where__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 80px; } }
+  @media (max-width: 767.98px) { .where { padding-block: 60px; } .where__map img { aspect-ratio: 342 / 300; } .where__pin { left: 12px; bottom: 12px; right: 12px; } }
+</style>

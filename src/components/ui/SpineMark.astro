@@ -1,0 +1,9 @@
+---
+import mark from '../../assets/logos/spine-mark.svg?raw';
+interface Props { class?: string; height?: number }
+const { class: cls, height = 80 } = Astro.props;
+const svg = mark.replace(/preserveAspectRatio="none" overflow="visible" style="display: block;"/, 'aria-hidden="true"')
+  .replace(/width="27" height="79.8336"/, `width="${Math.round(height * 27 / 80)}" height="${height}"`).replace(/ opacity="0.4"/, '');
+---
+<span class:list={['spine-mark', cls]} set:html={svg} />
+<style>.spine-mark { display: inline-flex; flex: none; line-height: 0; }</style>

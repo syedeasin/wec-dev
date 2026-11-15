@@ -1,0 +1,16 @@
+---
+import Button from '../ui/Button.astro';
+import { btnHref, btnIcon, btnVariant, cleanLabel, type Btn } from '../../lib/content';
+interface Props { buttons?: Btn[]; dark?: boolean; class?: string; center?: boolean }
+const { buttons = [], dark = false, class: cls, center = false } = Astro.props;
+---
+{buttons.length > 0 && (
+  <div class:list={['btn-row', center && 'btn-row--center', cls]}>
+    {buttons.map((b, i) => {
+      const v = btnVariant(b, i, dark);
+      return <Button href={btnHref(b.label)} variant={v} icon={v === 'tertiary' ? undefined : btnIcon(b.label)} blockMobile={v !== 'tertiary'}>{cleanLabel(b.label)}</Button>;
+    })}
+  </div>
+)}
+<style is:global>
+</style>

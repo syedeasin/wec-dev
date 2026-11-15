@@ -1,0 +1,63 @@
+---
+// Renders a page's sections (from src/data/pages/<slug>.json) with the matching block.
+// `skip` drops sections by index; `bespoke` slots let a page render its own markup for an index
+// (pass <Fragment slot="s3">…</Fragment> and list 3 in `bespoke`).
+import PageHero from './PageHero.astro';
+import SplitBlock from './SplitBlock.astro';
+import FfkBlock from './FfkBlock.astro';
+import StepsDark from './StepsDark.astro';
+import Timeline from './Timeline.astro';
+import CostBlock from './CostBlock.astro';
+import RelatedBlock from './RelatedBlock.astro';
+import CardsBlock from './CardsBlock.astro';
+import WarningBlock from './WarningBlock.astro';
+import WhereBlock from './WhereBlock.astro';
+import EmployersBlock from './EmployersBlock.astro';
+import PlanList from './PlanList.astro';
+import LogosBlock from './LogosBlock.astro';
+import FindingsBlock from './FindingsBlock.astro';
+import Reviews from '../sections/Reviews.astro';
+import FAQ from '../sections/FAQ.astro';
+import CTABand from '../sections/CTABand.astro';
+import Location from '../sections/Location.astro';
+import reviews from '../../data/reviews.json';
+import { sectionKind, img, strip, btnHref, cleanLabel, btnIcon, type PageData } from '../../lib/content';
+interface Props { data: PageData; reviewsKey?: string; skip?: number[]; bespoke?: number[]; hero?: boolean }
+const { data, reviewsKey = 'home', skip = [], bespoke = [], hero = true } = Astro.props;
+const items = data.sections.map((s, i) => ({ s, i, kind: sectionKind(s, i) }));
+// alternate split direction and light backgrounds so sections don't run together
+let splitN = 0;
+const rendered: Record<number, string> = {};
+for (const i of bespoke) rendered[i] = await Astro.slots.render(`s${i}`);
+const rk = (reviewsKey in reviews ? reviewsKey : 'home') as keyof typeof reviews;
+---
+{items.map(({ s, i, kind }) => {
+  if (skip.includes(i)) return null;
+  if (bespoke.includes(i)) return <Fragment set:html={rendered[i]} />;
+  switch (kind) {
+    case 'hero': return hero ? <PageHero s={s} /> : null;
+    case 'faq': return <FAQ items={s.faqs!} title={s.title === 'Common Questions' ? 'Common <strong>Questions</strong>' : s.title} />;
+    case 'cta': {
+      const [text, note] = s.paras ?? [];
+      const b2 = s.buttons?.[1];
+      const image = s.images?.[0] ? img(s.images[0].src) : undefined;
+      return <CTABand title={(s.title ?? '').replace(/\s*\n\s*/g, '<br>')} text={text?.t} note={note ? strip(note.t) : ''} image={image}
+        secondary={b2 ? { label: cleanLabel(b2.label), href: btnHref(b2.label), icon: btnIcon(b2.label) } : undefined} />;
+    }
+    case 'reviews': return <Reviews page={rk} title={s.title} />;
+    case 'logos': return <LogosBlock s={s} />;
+    case 'planlist': return <PlanList s={s} />;
+    case 'employers': return <EmployersBlock s={s} />;
+    case 'where': return <WhereBlock s={s} />;
+    case 'findus': return <Location title={s.title} lead={s.paras?.map((p) => p.t).join(' ')} directions={!!s.buttons?.length} />;
+    case 'findings': return <FindingsBlock s={s} />;
+    case 'timeline': return <Timeline s={s} />;
+    case 'ffk': return <FfkBlock s={s} />;
+    case 'stepsdark': return <StepsDark s={s} />;
+    case 'warning': return <WarningBlock s={s} />;
+    case 'cost': return <CostBlock s={s} />;
+    case 'related': return <RelatedBlock s={s} />;
+    case 'cards': return <CardsBlock s={s} />;
+    default: { const rev = splitN++ % 2 === 1; return <SplitBlock s={s} reverse={rev} />; }
+  }
+})}

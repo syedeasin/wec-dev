@@ -1,0 +1,417 @@
+{
+ "sections": [
+  {
+   "name": "Hero Section",
+   "title": "Book Your Visit",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Pick a time that works. Your first visit covers your exam, a consultation, and any necessary digital X-rays."
+    },
+    {
+     "w": 600,
+     "t": "1"
+    },
+    {
+     "w": 600,
+     "t": "Date & time"
+    },
+    {
+     "w": 600,
+     "t": "2"
+    },
+    {
+     "w": 500,
+     "t": "Your details"
+    },
+    {
+     "w": 600,
+     "t": "November 2026"
+    },
+    {
+     "w": 600,
+     "t": "S"
+    },
+    {
+     "w": 600,
+     "t": "M"
+    },
+    {
+     "w": 600,
+     "t": "T"
+    },
+    {
+     "w": 600,
+     "t": "W"
+    },
+    {
+     "w": 600,
+     "t": "T"
+    },
+    {
+     "w": 600,
+     "t": "F"
+    },
+    {
+     "w": 600,
+     "t": "S"
+    },
+    {
+     "w": 500,
+     "t": "1"
+    },
+    {
+     "w": 600,
+     "t": "2"
+    },
+    {
+     "w": 600,
+     "t": "3"
+    },
+    {
+     "w": 600,
+     "t": "4"
+    },
+    {
+     "w": 600,
+     "t": "5"
+    },
+    {
+     "w": 500,
+     "t": "6"
+    },
+    {
+     "w": 500,
+     "t": "7"
+    },
+    {
+     "w": 500,
+     "t": "8"
+    },
+    {
+     "w": 600,
+     "t": "9"
+    },
+    {
+     "w": 600,
+     "t": "10"
+    },
+    {
+     "w": 600,
+     "t": "11"
+    },
+    {
+     "w": 600,
+     "t": "12"
+    },
+    {
+     "w": 500,
+     "t": "13"
+    },
+    {
+     "w": 500,
+     "t": "14"
+    },
+    {
+     "w": 500,
+     "t": "15"
+    },
+    {
+     "w": 600,
+     "t": "16"
+    },
+    {
+     "w": 600,
+     "t": "17"
+    },
+    {
+     "w": 600,
+     "t": "18"
+    },
+    {
+     "w": 600,
+     "t": "19"
+    },
+    {
+     "w": 500,
+     "t": "20"
+    },
+    {
+     "w": 500,
+     "t": "21"
+    },
+    {
+     "w": 500,
+     "t": "22"
+    },
+    {
+     "w": 600,
+     "t": "23"
+    },
+    {
+     "w": 600,
+     "t": "24"
+    },
+    {
+     "w": 600,
+     "t": "25"
+    },
+    {
+     "w": 600,
+     "t": "26"
+    },
+    {
+     "w": 500,
+     "t": "27"
+    },
+    {
+     "w": 500,
+     "t": "28"
+    },
+    {
+     "w": 500,
+     "t": "29"
+    },
+    {
+     "w": 600,
+     "t": "30"
+    },
+    {
+     "w": 600,
+     "t": "Tuesday, November 3"
+    },
+    {
+     "w": 600,
+     "t": "MORNING"
+    },
+    {
+     "w": 600,
+     "t": "8:00 AM"
+    },
+    {
+     "w": 600,
+     "t": "8:30 AM"
+    },
+    {
+     "w": 600,
+     "t": "9:00 AM"
+    },
+    {
+     "w": 600,
+     "t": "10:30 AM"
+    },
+    {
+     "w": 600,
+     "t": "11:00 AM"
+    },
+    {
+     "w": 600,
+     "t": "12:00 PM"
+    },
+    {
+     "w": 600,
+     "t": "AFTERNOON"
+    },
+    {
+     "w": 600,
+     "t": "3:00 PM"
+    },
+    {
+     "w": 600,
+     "t": "3:30 PM"
+    },
+    {
+     "w": 600,
+     "t": "4:00 PM"
+    },
+    {
+     "w": 600,
+     "t": "4:30 PM"
+    },
+    {
+     "w": 400,
+     "t": "Selected"
+    },
+    {
+     "w": 600,
+     "t": "Tue, Nov 3 at 9:00 AM"
+    },
+    {
+     "w": 400,
+     "t": "Same-day appointments are often available. Don't see a time that works? Call us at <strong>(512) 472-1116</strong> and we'll find one."
+    },
+    {
+     "w": 400,
+     "t": "Prefer to email? contact@austin-chiropractor.com"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Continue to Your Details"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 1375
+    }
+   ]
+  },
+  {
+   "name": "What Happens Next",
+   "title": "Here's what happens next",
+   "steps": [
+    {
+     "title": "We send your forms",
+     "text": "Fill them out at home so you're not sitting in the lobby with a clipboard."
+    },
+    {
+     "title": "We look into your insurance",
+     "text": "If you're using insurance, we check your coverage before your visit, so we'll have a good idea of what your plan covers by the time you're here."
+    },
+    {
+     "title": "You come in",
+     "text": "Your first visit takes about 30 minutes. Visits after that usually take a few minutes."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Tertiary",
+     "label": "What your first visit looks like"
+    }
+   ],
+   "images": [
+    {
+     "src": "home/new-patient-health-history",
+     "w": 342,
+     "h": 260
+    }
+   ]
+  },
+  {
+   "name": "Insurance Check",
+   "title": "Want to check your coverage first?",
+   "tag": "USING INSURANCE?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "We're in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. Not sure about yours? Check the full list or give us a call."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "See Every Plan We Take"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "logos": true
+  },
+  {
+   "name": "Already Coming In",
+   "title": "Already coming in?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your next visit the same way, or call the front desk at (512) 472-1116."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Next Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ]
+  },
+  {
+   "name": "Finding Us",
+   "title": "Easy to get to, easy to park",
+   "paras": [
+    {
+     "w": 600,
+     "t": "Ground floor of 5th Street Commons, just off MoPac."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Free covered garage parking.</strong> No circling the block, no meters."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "map-pin",
+     "title": "Address",
+     "text": "1611 W. 5th St., STE 110,\nAustin, TX 78703"
+    },
+    {
+     "icon": "phone",
+     "title": "Phone",
+     "text": "(512) 472-1116"
+    },
+    {
+     "icon": "mail",
+     "title": "Email",
+     "text": "contact@austin-chiropractor.com"
+    },
+    {
+     "icon": "clock-4",
+     "title": "Hours",
+     "text": "Monday–Thursday\n8am–1pm and 3pm–5pm\nFriday–Sunday: closed"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Get Directions"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/office-map",
+     "w": 342,
+     "h": 340
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Ready to figure out what's going on?",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit. A full exam, any necessary digital X-rays, and a real answer about what's going on."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

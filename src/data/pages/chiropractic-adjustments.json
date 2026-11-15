@@ -1,0 +1,332 @@
+{
+ "sections": [
+  {
+   "name": "Header – Chiropractic Adjustments in Downtown Aus",
+   "title": "Chiropractic Adjustments <span class=\"hl\">in Downtown Austin</span>",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Hands-on adjustments, based on what your exam and imaging actually show. Casey Morgan D.C. finds the problem first, then adjusts where it is."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "fast-forward",
+     "text": "In and out in minutes, not rushed"
+    },
+    {
+     "icon": "trust-x-ray",
+     "text": "Digital X-rays on site"
+    },
+    {
+     "icon": "trust-calendar",
+     "text": "Same-day appointments available"
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-neck-woman",
+     "w": 390,
+     "h": 451,
+     "pos": "83% 50%"
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What an adjustment actually does",
+   "paras": [
+    {
+     "w": 500,
+     "t": "An adjustment is a quick, controlled movement of a joint in your spine that has stopped moving the way it should. The goal is to get it moving again, so the muscles and joints around it can stop working overtime to compensate."
+    },
+    {
+     "w": 500,
+     "t": "Every adjustment here is done by hand, by Dr. Morgan."
+    }
+   ],
+   "callouts": [
+    {
+     "title": "He's not afraid to adjust.",
+     "text": "Patients who've been elsewhere often tell us the same thing: the last office wouldn't adjust them, or only worked on one section at a time. Dr. Morgan adjusts where your exam says the problem is."
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/adjustment-back-woman",
+     "w": 342,
+     "h": 346
+    }
+   ]
+  },
+  {
+   "name": "What Section",
+   "title": "What adjustments are used for",
+   "paras": [
+    {
+     "w": 500,
+     "t": "Most of what Dr. Morgan sees comes from long days sitting and the occasional weekend that asks too much of your back:"
+    },
+    {
+     "w": 500,
+     "t": "•  Lower back pain and stiffness\n•  Neck pain and tech neck\n•  Headaches that start in the neck\n•  Pain running into the hip, shoulder, or down a leg\n•  Car accident injuries\n•  Back pain during pregnancy"
+    },
+    {
+     "w": 600,
+     "t": "When imaging shows a disc problem, adjustments are often paired with spinal decompression."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/neck-adjustment-seated",
+     "w": 212,
+     "h": 314
+    },
+    {
+     "src": "team/casey-morgan-xray-review",
+     "w": 111,
+     "h": 148,
+     "pos": "64% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Header – How it works at West End",
+   "title": "How it works at West End",
+   "tag": "How it works",
+   "paras": [
+    {
+     "w": 400,
+     "t": "<strong>Built for your workday.</strong> Your first visit takes about 30 minutes. After that, most visits take a few minutes."
+    }
+   ],
+   "bullets": [
+    {
+     "icon": "search",
+     "text": "Find it",
+     "body": "A full history, a real exam, and any necessary digital X-rays, taken on site. Dr. Morgan shows you what he sees the same visit."
+    },
+    {
+     "icon": "wrench",
+     "text": "Fix it",
+     "body": "Most patients get their first adjustment on day one. Dr. Morgan starts gentle to get a feel for your spine. Most plans start at two to three visits a week and taper as you improve."
+    },
+    {
+     "icon": "shield-plus",
+     "text": "Keep it from coming back",
+     "body": "Once the problem is corrected, most patients move to maintenance, about once every two weeks. Some stop entirely."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/head-adjustment-seated",
+     "w": 342,
+     "h": 234
+    },
+    {
+     "src": "photos/adjustment-thoracic-woman",
+     "w": 342,
+     "h": 292,
+     "pos": "46% 50%"
+    },
+    {
+     "src": "photos/casey-with-patient-smiling",
+     "w": 342,
+     "h": 292
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "What adjustments cost",
+   "paras": [
+    {
+     "w": 700,
+     "t": "YOUR FIRST VISIT"
+    },
+    {
+     "w": 600,
+     "t": "This Covers"
+    },
+    {
+     "w": 400,
+     "t": "Paying yourself? Call us or ask when you book and we'll tell you the cost up front."
+    },
+    {
+     "w": 400,
+     "t": "<strong>Using insurance?</strong> We're in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. Send us your insurance info when you book and we'll look into your coverage before your first visit, so we have a good idea of what your plan covers by the time you walk in."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "file-text",
+     "title": "Full history and exam",
+     "text": "We ask what hurts, what you have already tried, and what you want back."
+    },
+    {
+     "icon": "person-standing",
+     "title": "Digital X-rays",
+     "text": "Any necessary imaging happens in-office. No trip to an imaging center, no separate bill."
+    },
+    {
+     "icon": "eye",
+     "title": "Dr. Morgan reviews your case personally",
+     "text": "Dr. Morgan reads your X-rays and makes the call himself."
+    },
+    {
+     "icon": "thumbs-up",
+     "title": "Honest recommendation",
+     "text": "If you need care, you get the plan and the price before you commit. If you don't, we say so."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Verify My Insurance"
+    }
+   ],
+   "images": [
+    {
+     "src": "photos/consult-couple-close",
+     "w": 342,
+     "h": 360,
+     "pos": "27% 50%"
+    }
+   ]
+  },
+  {
+   "name": "Reviews Section",
+   "title": "What patients say",
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "See More Google reviews"
+    }
+   ]
+  },
+  {
+   "name": "Conditions Section",
+   "title": "Conditions adjustments are used for",
+   "paras": [
+    {
+     "w": 500,
+     "t": "If one of these sounds like you, start with an exam."
+    }
+   ],
+   "cards": [
+    {
+     "icon": "body",
+     "title": "Lower Back Pain",
+     "text": "Stiffness and pain from long days sitting, or a weekend that asked too much."
+    },
+    {
+     "icon": "workout",
+     "title": "Neck Pain",
+     "text": "Neck pain and tech neck from desks, phones, and screens."
+    },
+    {
+     "icon": "body",
+     "title": "Headaches",
+     "text": "Headaches that start in the neck."
+    },
+    {
+     "icon": "sciatica",
+     "title": "Sciatica",
+     "text": "Shooting pain, numbness, or tingling down the leg. Usually a disc pressing on a nerve."
+    }
+   ]
+  },
+  {
+   "name": "Faq Section",
+   "title": "Common Questions",
+   "faqs": [
+    {
+     "q": "Does an adjustment hurt?",
+     "a": "No. Most people describe it as relief. You might hear a pop, which is gas releasing from the joint, not bones cracking."
+    },
+    {
+     "q": "Will I get adjusted on my first visit?",
+     "a": "Usually, yes. Dr. Morgan starts gentle on the first visit to get a feel for your spine."
+    },
+    {
+     "q": "What if I'm nervous about being adjusted?",
+     "a": "Tell Dr. Morgan. He'll explain what he wants to do before he does it, and if something's tender, he works around it."
+    },
+    {
+     "q": "How often will I need to come in?",
+     "a": "Most plans start at two to three visits a week, about 24 visits over 90 days, and taper as you improve. Dr. Morgan gives you a real recommendation on your second visit."
+    },
+    {
+     "q": "Do I have to keep coming forever?",
+     "a": "No. Once the problem is corrected, most patients move to maintenance, about once every two weeks. Some stop entirely. Dr. Morgan will tell you when you're there."
+    }
+   ]
+  },
+  {
+   "name": "Section / CTA Band",
+   "title": "Find out what's going on",
+   "paras": [
+    {
+     "w": 400,
+     "t": "Book your first visit and you'll leave knowing what's causing the problem, whether or not you decide to do anything about it."
+    },
+    {
+     "w": 400,
+     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+    }
+   ],
+   "buttons": [
+    {
+     "variant": "Primary",
+     "label": "Book Your Visit"
+    },
+    {
+     "variant": "Secondary",
+     "label": "Call (512) 472-1116"
+    }
+   ],
+   "images": [
+    {
+     "src": "shared/cta-adjustment",
+     "w": 390,
+     "h": 808,
+     "pos": "86% 50%"
+    }
+   ]
+  }
+ ]
+}

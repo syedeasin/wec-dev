@@ -1,0 +1,27 @@
+---
+// Numbered step list (Home "How it works"). Dark background expected.
+interface Props { steps: { title: string; text: string }[]; class?: string }
+const { steps, class: cls } = Astro.props;
+---
+<ol class:list={['steps', cls]} role="list">
+  {steps.map((s, i) => (
+    <li class="steps__item">
+      <span class="steps__num" aria-hidden="true">{i + 1}</span>
+      <div class="steps__body">
+        <h3 class="steps__title">{s.title}</h3>
+        <p class="steps__text" set:html={s.text} />
+      </div>
+    </li>
+  ))}
+</ol>
+<style is:global>
+  .steps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .steps__item { position: relative; display: flex; gap: 16px; padding-block: 32px; border-bottom: 1px solid rgb(255 255 255 / 0.16); }
+  .steps__item:first-child::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 81px; height: 5px; background: var(--blue-300); border-radius: 4px; }
+  .steps__num { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-md); background: rgb(255 93 51 / 0.36);
+    color: var(--orange-400); font-size: 24px; line-height: 1; font-weight: 700; }
+  .steps__body { display: flex; flex-direction: column; gap: 8px; }
+  .steps__title { font-size: var(--fs-p1); line-height: var(--lh-p1); font-weight: 600; color: var(--white); }
+  .steps__text { font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--sand-100); }
+  @media (max-width: 767.98px) { .steps__item { padding-block: 24px; } .steps__num { width: 40px; height: 40px; font-size: 20px; } }
+</style>

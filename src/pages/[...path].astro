@@ -1,0 +1,18 @@
+---
+// Inner pages driven by src/data/pages/<slug>.json (conditions, services, auto accident, areas, new patients, insurance).
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Sections from '../components/blocks/Sections.astro';
+import { routes } from '../data/routes';
+import type { PageData } from '../lib/content';
+
+export function getStaticPaths() {
+  return routes.map((r) => ({ params: { path: r.path }, props: { route: r } }));
+}
+const { route } = Astro.props;
+const pages = import.meta.glob<PageData>('../data/pages/*.json', { eager: true, import: 'default' });
+const data = pages[`../data/pages/${route.slug}.json`];
+const ogImage = data.sections[0]?.images?.[0]?.src;
+---
+<SiteLayout title={route.title} description={route.description}>
+  <Sections data={data} reviewsKey={route.reviews} />
+</SiteLayout>

@@ -1,0 +1,313 @@
+---
+import Icon from '../ui/Icon.astro';
+import Logo from '../ui/Logo.astro';
+import Button from '../ui/Button.astro';
+import { site, mainNav, services, conditionHubs, areas } from '../../data/site';
+
+interface Props {
+  /** overlay = transparent over a dark hero (default); solid = navy bar for pages without a dark hero */
+  variant?: 'overlay' | 'solid';
+}
+const { variant = 'overlay' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (item: (typeof mainNav)[number]) => {
+  const hrefs = [item.href, ...(item.children ?? []).flatMap((c) => [c.href, ...(c.children ?? []).map((g) => g.href)])];
+  if (item.label === 'About') hrefs.push(...areas.map((a) => a.href));
+  return hrefs.some((h) => h.replace(/\/$/, '') === path);
+};
+const about = mainNav[0].children!;
+---
+<header class:list={['site-header', `site-header--${variant}`]} data-header>
+  <div class="container site-header__bar">
+    <a href="/" class="site-header__logo" aria-label="West End Chiropractic home"><Logo width={180} class="logo-desktop" /><Logo width={150} class="logo-mobile" /></a>
+
+    <nav class="nav" aria-label="Main">
+      <ul class="nav__list" role="list">
+        {mainNav.map((item, i) => (
+          <li class="nav__item" data-menu-item>
+            {item.children ? (
+              <button class:list={['nav__link', { 'is-active': isActive(item) }]} aria-expanded="false" aria-controls={`mega-${i}`} data-menu-trigger>
+                <span>{item.label}</span><Icon name="chevron-down" size={16} />
+              </button>
+            ) : (
+              <a href={item.href} class:list={['nav__link', { 'is-active': isActive(item) }]} aria-current={isActive(item) ? 'page' : undefined}><span>{item.label}</span></a>
+            )}
+
+            {item.label === 'About' && (
+              <div class="mega" id={`mega-${i}`} data-menu-panel hidden>
+                <div class="mega__panel mega__panel--about">
+                  <div class="mega__col">
+                    <p class="mega__eyebrow">About West End</p>
+                    {about.map((l) => <a class="mlink" href={l.href}><span class="mlink__tile"><Icon name={l.icon!} /></span><span class="mlink__text"><span class="mlink__title">{l.label}</span><span class="mlink__desc">{l.desc}</span></span></a>)}
+                  </div>
+                  <div class="mega__col mega__col--areas">
+                    <p class="mega__eyebrow">Areas we serve</p>
+                    <div class="mega__sublinks">{areas.map((a) => <a class="msub" href={a.href}>{a.label}<Icon name="chevron-right" size={16} /></a>)}</div>
+                  </div>
+                  <div class="mega__feature">
+                    <p class="mega__feature-eyebrow">Visit the clinic</p>
+                    <p class="mega__feature-title">{site.addressLine}</p>
+                    <p class="mega__feature-text">Easy to reach from downtown, with free parking off MoPac.</p>
+                    <div class="mega__spacer"></div>
+                    <Button href={site.bookHref} block>{site.bookLabel}</Button>
+                    <p class="mega__feature-info"><Icon name="clock" size={16} />Open Monday–Thursday</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {item.label === 'Services' && (
+              <div class="mega" id={`mega-${i}`} data-menu-panel hidden>
+                <div class="mega__panel mega__panel--services">
+                  <div class="mega__col">
+                    <p class="mega__eyebrow">Our services</p>
+                    <div class="mega__grid-2">
+                      {services.map((l) => <a class="mlink" href={l.href}><span class="mlink__tile"><Icon name={l.icon!} /></span><span class="mlink__text"><span class="mlink__title">{l.label}</span><span class="mlink__desc">{l.desc}</span></span></a>)}
+                    </div>
+                  </div>
+                  <div class="mega__feature">
+                    <p class="mega__feature-eyebrow">Insurance</p>
+                    <p class="mega__feature-title">In-network with most major plans</p>
+                    <p class="mega__feature-text">Blue Cross Blue Shield, UnitedHealthcare, Ambetter and more. We check your benefits before you come in.</p>
+                    <div class="mega__spacer"></div>
+                    <Button href={site.insuranceHref} block>Verify My Insurance</Button>
+                    <a class="mega__feature-info" href={site.insuranceHref}><Icon name="shield-check" size={16} />See Insurance &amp; Billing</a>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {item.label === 'Conditions' && (
+              <div class="mega" id={`mega-${i}`} data-menu-panel hidden>
+                <div class="mega__panel mega__panel--conditions">
+                  <p class="mega__eyebrow">Conditions we treat</p>
+                  <div class="mega__grid-3">
+                    {[[conditionHubs[0]], [conditionHubs[1], conditionHubs[3]], [conditionHubs[2], conditionHubs[4]]].map((col) => (
+                      <div class="mega__cluster-col">
+                        {col.map((hub) => (
+                          <div class="mega__cluster">
+                            <a class="mlink" href={hub.href}><span class="mlink__tile"><Icon name={hub.icon!} /></span><span class="mlink__text"><span class="mlink__title">{hub.label}</span><span class="mlink__desc">{hub.desc}</span></span></a>
+                            {hub.children && <div class="mega__spokes">{hub.children.map((s) => <a class="msub" href={s.href}>{s.short ?? s.label}<Icon name="chevron-right" size={16} /></a>)}</div>}
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                  <div class="mega__strip">
+                    <div>
+                      <p class="mega__strip-title">Not sure what’s causing your pain?</p>
+                      <p class="mega__strip-text">Your first visit includes a full exam and any necessary digital X-rays. Most major insurance plans accepted.</p>
+                    </div>
+                    <a class="mega__strip-phone" href={site.phoneHref}><Icon name="phone" size={16} />{site.phone}</a>
+                    <Button href={site.bookHref}>{site.bookLabel}</Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <Button href={site.bookHref} size="small" class="site-header__book">{site.bookLabel}</Button>
+      <a href={site.phoneHref} class="icon-tile icon-tile--phone" aria-label={`Call ${site.phone}`}><Icon name="phone" size={24} /></a>
+      <button class="icon-tile icon-tile--menu" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-drawer-open><Icon name="menu" size={24} /></button>
+    </div>
+  </div>
+
+  <!-- Mobile / tablet drawer -->
+  <div class="drawer" id="mobile-menu" data-drawer hidden>
+    <div class="drawer__head">
+      <a href="/" aria-label="West End Chiropractic home"><Logo width={150} /></a>
+      <div class="drawer__head-actions">
+        <a href={site.phoneHref} class="icon-tile icon-tile--phone" aria-label={`Call ${site.phone}`}><Icon name="phone" size={24} /></a>
+        <button class="icon-tile icon-tile--menu" aria-label="Close menu" data-drawer-close><Icon name="x" size={24} /></button>
+      </div>
+    </div>
+    <nav class="drawer__body" aria-label="Mobile">
+      <ul role="list" class="drawer__list">
+        {mainNav.map((item) => (
+          <li class="drawer__row">
+            {item.children ? (
+              <details class="acc" open={isActive(item) && item.label === 'Conditions' ? true : undefined}>
+                <summary class:list={['drawer__link', { 'is-active': isActive(item) }]}>{item.label}<Icon name="chevron-down" size={20} /></summary>
+                <div class="acc__panel">
+                  {item.label === 'Conditions' ? (
+                    conditionHubs.map((hub) => (
+                      <div class="acc__group">
+                        <a class="acc__hub" href={hub.href}><span class="acc__tile"><Icon name={hub.icon!} size={18} /></span>{hub.label}</a>
+                        {hub.children && <div class="acc__spokes">{hub.children.map((s) => <a href={s.href}>{s.short ?? s.label}</a>)}</div>}
+                      </div>
+                    ))
+                  ) : (
+                    <div class="acc__group">
+                      {(item.label === 'About' ? [...item.children, ...areas.map((a) => ({ ...a, label: `Chiropractor near ${a.label}`, icon: 'map-pin' }))] : item.children).map((c) => (
+                        <a class="acc__hub" href={c.href}><span class="acc__tile"><Icon name={c.icon ?? 'map-pin'} size={18} /></span>{c.label}</a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </details>
+            ) : (
+              <a class:list={['drawer__link', { 'is-active': isActive(item) }]} href={item.href}>{item.label}</a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="drawer__cta">
+      <Button href={site.bookHref} block>{site.bookLabel}</Button>
+      <Button href={site.phoneHref} variant="secondary" icon="phone" block>Call {site.phone}</Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  if (header) {
+    // ---- Desktop mega menu: hover with intent delay, click/keyboard toggle ----
+    const items = [...header.querySelectorAll<HTMLElement>('[data-menu-item]')];
+    let closeTimer: number | undefined;
+    const closeAll = (except?: HTMLElement) => items.forEach((it) => { if (it !== except) setOpen(it, false); });
+    function setOpen(item: HTMLElement, open: boolean) {
+      const trig = item.querySelector<HTMLButtonElement>('[data-menu-trigger]');
+      const panel = item.querySelector<HTMLElement>('[data-menu-panel]');
+      if (!trig || !panel) return;
+      trig.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+      item.classList.toggle('is-open', open);
+      header!.classList.toggle('has-mega-open', items.some((i) => i.classList.contains('is-open')));
+    }
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+    items.forEach((item) => {
+      const trig = item.querySelector<HTMLButtonElement>('[data-menu-trigger]');
+      if (!trig) return;
+      trig.addEventListener('click', () => { const open = trig.getAttribute('aria-expanded') !== 'true'; closeAll(item); setOpen(item, open); });
+      item.addEventListener('mouseenter', () => { if (!fine.matches) return; clearTimeout(closeTimer); closeAll(item); setOpen(item, true); });
+      item.addEventListener('mouseleave', () => { if (!fine.matches) return; closeTimer = window.setTimeout(() => setOpen(item, false), 160); });
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeAll(); closeDrawer(); } });
+    document.addEventListener('click', (e) => { if (!header.contains(e.target as Node)) closeAll(); });
+
+    // ---- Sticky state ----
+    const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 40);
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ---- Drawer ----
+    const drawer = header.querySelector<HTMLElement>('[data-drawer]')!;
+    const openBtn = header.querySelector<HTMLButtonElement>('[data-drawer-open]')!;
+    const closeBtn = header.querySelector<HTMLButtonElement>('[data-drawer-close]')!;
+    function openDrawer() { drawer.hidden = false; requestAnimationFrame(() => drawer.classList.add('is-open')); openBtn.setAttribute('aria-expanded', 'true'); document.documentElement.classList.add('no-scroll'); closeBtn.focus(); }
+    function closeDrawer() { if (drawer.hidden) return; drawer.classList.remove('is-open'); openBtn.setAttribute('aria-expanded', 'false'); document.documentElement.classList.remove('no-scroll'); setTimeout(() => (drawer.hidden = true), 250); }
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', () => { closeDrawer(); openBtn.focus(); });
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', (m) => m.matches && closeDrawer());
+  }
+</script>
+
+<style>
+  .site-header { position: relative; z-index: var(--z-header); color: var(--white); }
+  .site-header--overlay { background: transparent; }
+  .site-header--solid { background: var(--navy-900); }
+  .site-header__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
+  .site-header__logo { display: inline-flex; flex: none; }
+  .site-header__logo :global(.logo-desktop) { display: none; }
+  .nav { display: none; }
+  .site-header__actions { display: flex; align-items: center; gap: 8px; }
+  .site-header__book { display: none; }
+  .icon-tile { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); color: var(--sand-100); }
+  .icon-tile--phone { background: rgb(114 166 200 / 0.16); }
+  .icon-tile--menu { background: var(--orange-500); color: var(--white); }
+
+  /* Sticky: header turns solid navy once you scroll */
+  .site-header.is-stuck { position: fixed; inset: 0 0 auto 0; background: rgb(15 45 64 / 0.96); backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgb(0 0 0 / 0.16); animation: header-in var(--dur) var(--ease); }
+  @keyframes header-in { from { transform: translateY(-100%); } to { transform: none; } }
+
+  @media (min-width: 768px) { .site-header__bar { min-height: 88px; } }
+
+  @media (min-width: 1280px) {
+    .site-header__bar { min-height: 88px; padding-top: 0; }
+    .site-header__logo :global(.logo-mobile) { display: none; }
+    .site-header__logo :global(.logo-desktop) { display: inline-flex; }
+    .nav { display: block; }
+    .nav__list { display: flex; align-items: center; list-style: none; padding: 0; }
+    .nav__link { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 16px; border-radius: var(--radius-md);
+      font-size: 14px; line-height: 1; font-weight: 600; color: var(--sand-100); transition: background var(--dur-fast); }
+    .nav__link span { text-box: trim-both cap alphabetic; }
+    .nav__link .icon { transition: transform var(--dur-fast) var(--ease); }
+    .nav__link:hover, .nav__item.is-open .nav__link, .nav__link.is-active { background: rgb(255 255 255 / 0.08); color: var(--white); }
+    .nav__item.is-open .nav__link .icon { transform: rotate(180deg); }
+    .site-header__book { display: inline-flex; }
+    .icon-tile { display: none; }
+    .drawer { display: none !important; }
+  }
+
+  /* ---- Mega menu ---- */
+  .mega { position: absolute; left: 0; right: 0; top: 100%; padding-top: 8px; }
+  .mega[hidden] { display: none; }
+  .mega__panel { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; display: flex; gap: 32px; padding: 32px;
+    background: var(--white); color: var(--navy-900); border-radius: var(--radius-xl); box-shadow: 0 24px 48px -8px rgb(15 45 64 / 0.18);
+    animation: mega-in var(--dur) var(--ease); }
+  @keyframes mega-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .mega__panel--conditions { flex-direction: column; gap: 24px; }
+  .mega__col { display: flex; flex-direction: column; gap: 24px; flex: 1 1 512px; min-width: 0; }
+  .mega__col--areas { flex: 0 0 240px; gap: 16px; }
+  .mega__eyebrow { font-size: 12px; line-height: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-600); }
+  .mega__grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .mega__grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .mega__cluster-col { display: flex; flex-direction: column; gap: 24px; }
+  .mega__cluster { display: flex; flex-direction: column; gap: 4px; }
+  .mega__spokes { display: flex; flex-direction: column; padding-left: 76px; }
+  .mega__sublinks { display: flex; flex-direction: column; gap: 4px; }
+  .mlink { display: flex; align-items: flex-start; gap: 16px; padding: 12px; border-radius: var(--radius-lg); transition: background var(--dur-fast); }
+  .mlink__tile { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-md); background: rgb(114 166 200 / 0.10); color: var(--blue-300); transition: background var(--dur-fast), color var(--dur-fast); }
+  .mlink__text { display: flex; flex-direction: column; gap: 4px; }
+  .mlink__title { font-size: 16px; line-height: 1.8; font-weight: 600; transition: color var(--dur-fast); }
+  .mlink__desc { font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .mlink:hover { background: var(--sand-100); }
+  .mlink:hover .mlink__title { color: var(--orange-500); }
+  .mlink:hover .mlink__tile { background: var(--navy-900); color: var(--white); }
+  .msub { display: inline-flex; align-items: center; gap: 8px; min-height: 34px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); width: fit-content; }
+  .msub .icon { opacity: 0; transform: translateX(-4px); transition: opacity var(--dur-fast), transform var(--dur-fast); }
+  .msub:hover { color: var(--orange-500); }
+  .msub:hover .icon { opacity: 1; transform: none; }
+  .mega__feature { flex: 0 0 320px; display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-xl); background: var(--navy-900); color: var(--white); }
+  .mega__feature-eyebrow { font-size: 12px; line-height: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-300); }
+  .mega__feature-title { font-size: 20px; line-height: 26px; font-weight: 600; }
+  .mega__feature-text { font-size: 14px; line-height: 22px; color: var(--sand-100); }
+  .mega__spacer { flex: 1; min-height: 1px; }
+  .mega__feature-info { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--sand-100); }
+  a.mega__feature-info:hover { color: var(--white); text-decoration: underline; }
+  .mega__strip { display: flex; align-items: center; gap: 24px; padding: 20px 24px; border-radius: var(--radius-lg); background: var(--navy-900); color: var(--white); }
+  .mega__strip > div { flex: 1; }
+  .mega__strip-title { font-size: 16px; line-height: 1.8; font-weight: 600; }
+  .mega__strip-text { font-size: 14px; line-height: 22px; color: var(--sand-100); }
+  .mega__strip-phone { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+
+  /* ---- Drawer (mobile + tablet) ---- */
+  .drawer { position: fixed; inset: 0; z-index: var(--z-drawer); display: flex; flex-direction: column; background: var(--white); color: var(--navy-900);
+    opacity: 0; transform: translateY(-8px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease); overflow-y: auto; overscroll-behavior: contain; }
+  .drawer.is-open { opacity: 1; transform: none; }
+  .drawer[hidden] { display: none; }
+  .drawer__head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; min-height: 72px; padding: 16px var(--gutter); background: var(--navy-900); }
+  .drawer__head-actions { display: flex; gap: 8px; }
+  .drawer__body { flex: 1; padding: 8px var(--gutter) 0; }
+  .drawer__list { list-style: none; padding: 0; }
+  .drawer__row { border-bottom: 1px solid var(--border-light); }
+  .drawer__link { display: flex; align-items: center; justify-content: space-between; min-height: 62px; padding-block: 16px; font-size: 16px; line-height: 1.8; font-weight: 600; cursor: pointer; list-style: none; }
+  .drawer__link::-webkit-details-marker { display: none; }
+  .drawer__link .icon { transition: transform var(--dur-fast); }
+  .acc[open] > .drawer__link { color: var(--orange-500); }
+  .acc[open] > .drawer__link .icon { transform: rotate(180deg); }
+  .drawer__link.is-active { color: var(--orange-500); }
+  .acc__panel { display: flex; flex-direction: column; gap: 20px; padding: 4px 0 20px 16px; }
+  .acc__group { display: flex; flex-direction: column; gap: 10px; }
+  .acc__hub { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; line-height: 22px; font-weight: 600; }
+  .acc__tile { display: grid; place-items: center; width: 32px; height: 32px; border-radius: var(--radius-sm); background: rgb(114 166 200 / 0.10); color: var(--blue-300); flex: none; }
+  .acc__spokes { display: flex; flex-direction: column; gap: 10px; padding-left: 42px; }
+  .acc__spokes a { font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .acc__hub:hover, .acc__spokes a:hover { color: var(--orange-500); }
+  .drawer__cta { display: flex; flex-direction: column; gap: 12px; padding: 24px var(--gutter) 32px; }
+  :global(html.no-scroll) { overflow: hidden; }
+</style>

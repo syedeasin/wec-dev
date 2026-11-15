@@ -1,0 +1,26 @@
+---
+// "Plans we are in-network with": heading, note, logo grid, callout, buttons.
+import SectionHead from '../ui/SectionHead.astro';
+import Tag from '../ui/Tag.astro';
+import InsuranceLogos from '../sections/InsuranceLogos.astro';
+import Callout from './Callout.astro';
+import Buttons from './Buttons.astro';
+import type { Section } from '../../lib/content';
+interface Props { s: Section; bg?: 'white' | 'sand' }
+const { s, bg = 'white' } = Astro.props;
+---
+<section class:list={['section logos-b', `section--${bg}`]}>
+  <div class="container logos-b__inner">
+    {s.tag && <Tag variant="orange">{s.tag}</Tag>}
+    <SectionHead title={s.title ?? ''} maxWidth={760}>{s.paras?.[0] && <Fragment set:html={s.paras[0].t} />}</SectionHead>
+    <InsuranceLogos />
+    {s.callouts?.map((c) => <Callout title={c.title} text={c.text} class="logos-b__callout" />)}
+    <Buttons buttons={s.buttons} center />
+  </div>
+</section>
+<style is:global>
+  .logos-b__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .logos-b__inner > :first-child + .section-head { margin-top: -24px; }
+  .logos-b__callout { width: 100%; max-width: 820px; }
+  @media (max-width: 767.98px) { .logos-b { padding-block: 60px; } .logos-b__inner { gap: 32px; } }
+</style>
