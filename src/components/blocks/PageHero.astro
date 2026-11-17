@@ -20,11 +20,14 @@ const pos = image?.pos ?? '70% 50%';
   <div class="container phero__inner">
     <div class="phero__copy">
       {rating && <RatingRow layout="row" class="phero__rating" />}
-      <div class="phero__title">
-        <h1 class="h1" set:html={(s.title ?? '').replace(/\n/g, ' ')} />
-        {lead && <p class="phero__lead" set:html={lead.t} />}
+      <div class="phero__head">
+        <div class="phero__title">
+          <h1 class="h1" set:html={(s.title ?? '').replace(/\n/g, ' ')} />
+          {lead && <p class="phero__lead" set:html={lead.t} />}
+        </div>
+        <Buttons buttons={s.buttons} dark class="phero__buttons" />
       </div>
-      <Buttons buttons={s.buttons} dark class="phero__buttons" />
+      {trust.length > 0 && <hr class="phero__rule" />}
       {trust.length > 0 && (
         <ul class="phero__bullets" role="list">
           {trust.map((b) => <BulletItem icon={b.icon} size={20}>{b.text}</BulletItem>)}
@@ -42,21 +45,25 @@ const pos = image?.pos ?? '70% 50%';
     /* Same Figma overlay stack as the homepage hero: deep navy behind the header and on the copy side */
     background:
       linear-gradient(90deg, rgb(15 45 64 / 0.24) 0%, rgb(15 45 64 / 0.24) 100%),
-      linear-gradient(-0.27deg, #0f2d40 0.38%, rgb(15 45 64 / 0) 27.98%),
-      linear-gradient(-0.27deg, rgb(15 45 64 / 0) 60.68%, #0f2d40 114.12%),
-      linear-gradient(270deg, rgb(15 45 64 / 0) 0%, #0f2d40 48.96%); }
-  .phero__inner { padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 100px; min-height: 760px; display: flex; align-items: center; }
-  .phero__copy { display: flex; flex-direction: column; gap: 32px; max-width: 680px; }
+      linear-gradient(269.79deg, rgb(15 45 64 / 0) 30.25%, #0f2d40 77.26%),
+      linear-gradient(-0.27deg, rgb(15 45 64 / 0) 76.86%, #0f2d40 102.04%),
+      linear-gradient(179.73deg, rgb(15 45 64 / 0) 26.62%, #0f2d40 86.74%); }
+  /* Figma inner hero: 46px top bar + 880px hero, copy sits at the bottom with 96px below */
+  .phero__inner { padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 96px; min-height: 926px; display: flex; align-items: flex-end; }
+  .phero__copy { display: flex; flex-direction: column; gap: 24px; max-width: 727px; }
+  .phero__head { display: flex; flex-direction: column; gap: 32px; }
+  .phero__rule { width: 262px; height: 1px; border: 0; background: #15405b; }
+  .phero__buttons .btn { min-width: 300px; }
   .phero__copy > .rating { justify-content: flex-start; align-self: flex-start; }
   .phero__title { display: flex; flex-direction: column; gap: 16px; }
-  .phero__title .h1 { font-weight: 600; }
-  .phero__lead { color: rgb(255 255 255 / 0.85); font-weight: 500; max-width: 600px; }
+  .phero__title .h1 { font-weight: 700; }
+  .phero__lead { color: rgb(255 255 255 / 0.8); font-weight: 500; }
   .phero__buttons .btn--outline-light .icon { color: var(--orange-500); }
   .phero__bullets { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--sand-100); }
   .phero__bullets .icon { color: var(--blue-300); }
   .phero__media-mobile { display: none; }
   @media (max-width: 1279.98px) {
-    .phero__inner { min-height: 640px; padding-bottom: 80px; }
+    .phero__inner { min-height: 680px; padding-bottom: 80px; }
     .phero::before { background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.85) 50%, rgb(15 45 64 / 0.45) 100%); }
   }
   @media (max-width: 767.98px) {
@@ -64,6 +71,9 @@ const pos = image?.pos ?? '70% 50%';
     .phero::before { background: linear-gradient(180deg, #0f2d40 0%, #0f2d40 calc(100% - 380px), rgb(15 45 64 / 0.55) calc(100% - 260px), rgb(15 45 64 / 0) 100%); }
     .phero__inner { min-height: 0; padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 0; }
     .phero__copy { gap: 24px; }
+    .phero__head { gap: 24px; }
+    .phero__rule { display: none; }
+    .phero__buttons .btn { min-width: 0; }
     .phero__lead { font-size: 14px; line-height: 1.8; }
     .phero__bullets { flex-direction: column; gap: 8px; font-size: 12px; }
     .phero__media-mobile { display: block; height: 300px; }

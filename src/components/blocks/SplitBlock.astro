@@ -37,8 +37,8 @@ const second = b ? (main === a ? b : a) : undefined;
     </div>
     {main && (
       <div class:list={['split-b__media', second && 'split-b__media--duo']}>
-        <Media image={main} class="split-b__main" />
-        {second && <Media image={second} class="split-b__second" sizes="(min-width: 1280px) 260px, 40vw" />}
+        <Media image={main} class="split-b__main" shadow={false} sizes={second ? '(min-width: 1280px) 370px, (min-width: 1024px) 30vw, 60vw' : '(min-width: 1280px) 550px, (min-width: 1024px) 45vw, 100vw'} />
+        {second && <Media image={second} class="split-b__second" shadow={false} sizes="(min-width: 1280px) 194px, 30vw" />}
       </div>
     )}
   </div>
@@ -47,27 +47,35 @@ const second = b ? (main === a ? b : a) : undefined;
   .split-b__grid { display: grid; gap: 40px; align-items: center; }
   .split-b__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
   .split-b__copy > .rich, .split-b__copy > .callout, .split-b__copy > .num-list, .split-b__copy > .split-b__cards { align-self: stretch; }
+  .split-b__copy > .callout { margin-top: 8px; }
   .split-b__text { color: var(--navy-900); }
-  .split-b__main img { aspect-ratio: 519 / 560; }
-  .split-b__media--duo { position: relative; padding: 0 0 0 0; }
-  .split-b__media--duo .split-b__main { width: 82%; }
-  .split-b__media--duo .split-b__main img { aspect-ratio: 420 / 560; }
-  .split-b__media--duo .split-b__second { position: absolute; right: 0; top: 48px; width: 40%; border: 6px solid var(--white); }
-  .split-b__second img { aspect-ratio: 3 / 4; }
+  /* Figma: single photo 550 x 688 */
+  .split-b__main img { aspect-ratio: 550 / 688; background: var(--navy-900); }
+  /* Figma "Who" group: 370 x 546 photo + 194 x 257 photo, 32px apart, the small one 24px down */
+  .split-b__media--duo { display: flex; align-items: flex-start; gap: 32px; }
+  .split-b__media--duo .split-b__main { flex: 370 1 0; min-width: 0; }
+  .split-b__media--duo .split-b__main img { aspect-ratio: 370 / 546; }
+  .split-b__media--duo .split-b__second { flex: 194 1 0; min-width: 0; margin-top: 24px; }
+  .split-b__second img { aspect-ratio: 194 / 257; }
   .split-b__cards { list-style: none; padding: 0; display: grid; gap: 16px; }
   .split-b__cards li { display: flex; gap: 12px; padding: 16px; border-radius: var(--radius-lg); background: var(--sand-100); }
   .split-b__ci { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.12); color: var(--orange-500); }
   @media (min-width: 1024px) {
-    .split-b__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; }
+    .split-b__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 100px; }
+    .split-b__grid:has(.split-b__media--duo) { grid-template-columns: minmax(0, 498fr) minmax(0, 596fr); gap: 40px; }
+    .split-b__grid--rev:has(.split-b__media--duo) { grid-template-columns: minmax(0, 596fr) minmax(0, 498fr); }
     .split-b__grid--rev .split-b__media { order: -1; }
     .split-b__grid--solo { grid-template-columns: minmax(0, 820px); justify-content: center; }
+    .split-b__copy { padding-block: 24px; }
   }
+  @media (min-width: 1024px) and (max-width: 1279.98px) { .split-b__grid { gap: 60px; } }
   @media (max-width: 1023.98px) {
     .split-b__media { max-width: 640px; width: 100%; }
     .split-b__main img { aspect-ratio: 342 / 340; }
   }
   @media (max-width: 767.98px) {
     .split-b { padding-block: 60px; }
-    .split-b__media--duo .split-b__second { top: 24px; border-width: 4px; }
+    .split-b__media--duo { gap: 16px; }
+    .split-b__media--duo .split-b__second { margin-top: 16px; }
   }
 </style>

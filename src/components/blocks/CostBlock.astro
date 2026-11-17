@@ -24,6 +24,9 @@ const sub = head.find((p) => p.w === 500);
 const subhead = head.filter((p) => p !== eyebrow && p !== price && p !== sub).pop();
 const hasHead = head.length > 0;
 const logos = hasHead && rest.some((p) => /in-network/i.test(p.t));
+// Figma: the short "Paying yourself?" note sits inside the card under a rule; the rest goes below the card
+const cardNote = hasHead ? rest.find((p) => /^paying yourself/i.test(strip(p.t))) : undefined;
+const below = rest.filter((p) => p !== cardNote);
 ---
 <section class:list={['section cost', `section--${bg}`]}>
   <div class="container cost__inner">
@@ -31,25 +34,28 @@ const logos = hasHead && rest.some((p) => /in-network/i.test(p.t));
       {s.tag && <Tag variant="orange">{s.tag}</Tag>}
       <Title title={s.title} center mark={false} />
     </div>
-    <div class="cost__card">
+    <div class:list={['cost__card', hasHead && 'cost__card--split']}>
       <div class="cost__info">
         {hasHead ? (
           <div class="cost__top">
             {eyebrow && <p class="eyebrow cost__eyebrow" set:html={eyebrow.t} />}
             {price && <p class="cost__price"><span set:html={price.t} />{sub && <span class="cost__per" set:html={sub.t} />}</p>}
             {!price && sub && <p class="text-muted" set:html={sub.t} />}
-            {subhead && <h3 class="cost__subhead" set:html={subhead.t} />}
           </div>
         ) : (
           <Rich paras={rest} />
         )}
-        <ul class="cost__grid" role="list">
+        {hasHead && <hr class="cost__rule" />}
+        {hasHead && subhead && <h3 class="cost__subhead" set:html={subhead.t} />}
+        <ul class:list={['cost__grid', hasHead && 'cost__grid--list']} role="list">
           {s.cards?.map((c) => <li><FeatureCard icon={icon(c.icon)} title={c.title}>{c.text && <Fragment set:html={c.text} />}</FeatureCard></li>)}
         </ul>
+        {cardNote && <hr class="cost__rule" />}
+        {cardNote && <p class="cost__cardnote" set:html={cardNote.t} />}
       </div>
-      {s.images?.[0] && <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" />}
+      {s.images?.[0] && <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} />}
     </div>
-    {hasHead && rest.length > 0 && <Rich paras={rest} class="cost__notes" />}
+    {hasHead && below.length > 0 && <Rich paras={below} class="cost__notes" />}
     {logos && <InsuranceLogos />}
     <Buttons buttons={s.buttons} center />
   </div>
@@ -74,7 +80,32 @@ const logos = hasHead && rest.some((p) => /in-network/i.test(p.t));
   @media (min-width: 768px) { .cost__grid { grid-template-columns: 1fr 1fr; } .cost__grid > li:nth-child(2) { border-top: 1px solid rgb(0 0 0 / 0.1); } }
   @media (min-width: 1024px) { .cost__card { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
   @media (max-width: 1023.98px) { .cost__media img { aspect-ratio: 342 / 300; } }
+  .cost__rule { width: 100%; height: 1px; border: 0; margin: 0; background: rgb(0 0 0 / 0.1); }
+  .cost__cardnote { font-size: 14px; line-height: 1.4; color: var(--navy-700, #1b4f72); }
+  .cost__card--split { padding: 0; gap: 0; overflow: hidden; align-items: stretch; box-shadow: 0 8px 32px rgb(15 45 64 / 0.06); }
+  .cost__card--split .cost__info { gap: 32px; padding: 48px 40px; }
+  .cost__card--split .cost__eyebrow { font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: 0; color: var(--navy-900); }
+  .cost__grid--list { display: flex; flex-direction: column; gap: 32px; }
+  .cost__grid--list > li, .cost__grid--list > li:first-child, .cost__grid--list > li:nth-child(2) { padding: 0; border: 0; }
+  .cost__grid--list > li::after { display: none; }
+  .cost__grid--list .feature { flex-direction: row; gap: 16px; }
+  .cost__card--split .cost__media { position: relative; border-radius: 0; min-height: 320px; }
+  .cost__card--split .cost__media picture, .cost__card--split .cost__media img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; border-radius: 0; }
+  .cost__notes { font-size: 16px; line-height: 1.8; color: var(--navy-900); opacity: 0.8; max-width: 1020px; }
+  .cost .btn { min-width: 300px; }
+  @media (min-width: 1024px) {
+    .cost__card--split { grid-template-columns: minmax(0, 690fr) minmax(0, 510fr); }
+    .cost__card--split .cost__info { border-right: 4px solid var(--sand-100); }
+    .cost__inner { gap: 40px; }
+    .cost__head { margin-bottom: 20px; }
+  }
+  @media (max-width: 1023.98px) { .cost__card--split .cost__media { min-height: 0; aspect-ratio: 342 / 360; } }
   @media (max-width: 767.98px) {
+    .cost .btn { min-width: 0; }
+    .cost__card.cost__card--split { padding: 0; gap: 0; }
+    .cost__card--split .cost__info { padding: 32px 20px; gap: 24px; }
+    .cost__grid--list { gap: 24px; }
+    .cost__notes { font-size: 14px; }
     .cost { padding-block: 60px; }
     .cost__inner { align-items: stretch; gap: 32px; }
     .cost__head { align-items: flex-start; }

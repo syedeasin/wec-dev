@@ -6,12 +6,13 @@ const { title = '', level = 'h2', mark = true, class: cls, center = false } = As
 const H = level;
 const html = title.replace(/\s*\n\s*/g, ' ');
 ---
-<H class:list={['h2 btitle', mark && 'btitle--mark', center && 'btitle--center', cls]}>{mark && <SpineMark class="btitle__mark" height={64} />}<span set:html={html} /></H>
+<H class:list={['h2 btitle', mark && 'btitle--mark', center && 'btitle--center', cls]}>{mark && <SpineMark class="btitle__mark" height={80} />}<span set:html={html} /></H>
 <style is:global>
   .btitle { display: flex; align-items: center; gap: 16px; font-weight: 600; }
   .btitle strong { font-weight: 700; }
   .btitle--center { justify-content: center; text-align: center; }
   .btitle__mark { flex: none; color: var(--blue-300); opacity: 0.4; }
-  .btitle__mark svg { height: 64px; width: auto; }
+  .btitle__mark svg { height: 80px; width: auto; }
+  @media (min-width: 768px) { .btitle { gap: 24px; } }
   @media (max-width: 767.98px) { .btitle__mark svg { height: 52px; } .btitle { gap: 12px; } }
 </style>

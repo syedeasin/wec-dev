@@ -30,7 +30,7 @@ const intro = s.paras?.[0]?.t;
           </li>
         ))}
       </ul>
-      {imgs[0] && <Media image={imgs[0]} class="ffk__img-d" sizes="(min-width: 1280px) 560px, 45vw" />}
+      {imgs[0] && <Media image={imgs[0]} class="ffk__img-d" sizes="(min-width: 1280px) 900px, 70vw" />}
     </div>
     <Buttons buttons={s.buttons} center />
   </div>
@@ -52,9 +52,25 @@ const intro = s.paras?.[0]?.t;
   .ffk__img-d picture { position: absolute; inset: 0; }
   .ffk__img-d img { position: absolute; inset: 0; height: 100%; width: 100%; }
   @media (min-width: 1024px) {
-    .ffk__card { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+    .ffk { padding-block: 100px; }
+    .ffk__inner { gap: 60px; }
+    .ffk__head { gap: 24px; }
+    .ffk__head .section-head h2, .ffk__head h2 { font-weight: 700; }
+    .ffk__card { display: flex; gap: 0; padding: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 32px 32px rgb(15 45 64 / 0.06); }
+    .ffk__list { flex: 0 0 426px; gap: 0; }
+    .ffk__item { position: relative; flex: 1 1 auto; justify-content: center; padding: 40px 32px; border: 0; border-radius: 0; border-top: 2px solid var(--sand, #f3f1ec); border-bottom: 2px solid var(--sand, #f3f1ec); border-right: 4px solid var(--sand, #f3f1ec); }
+    .ffk__item:first-child { border-top: 0; }
+    .ffk__item:last-child { border-bottom: 0; }
+    .ffk__item:first-child::after { content: ''; position: absolute; left: -3px; bottom: -3px; width: 81px; height: 4px; border-radius: 2px; background: #72a6c8; }
+    .ffk__row { display: block; }
+    .ffk__icon { display: inline-grid; width: 24px; height: 24px; background: none; border-radius: 0; color: var(--orange-500); vertical-align: top; margin-right: 8px; float: left; }
+    .ffk__body { gap: 16px; }
+    .ffk__title { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+    .ffk__text { font-size: 16px; line-height: 1.8; color: var(--navy-900); clear: left; }
     .ffk__img-m { display: none; }
-    .ffk__img-d { display: block; }
+    .ffk__img-d { display: block; position: relative; flex: 1 1 0; min-width: 0; border-radius: 0; }
+    .ffk__img-d img { border-radius: 0; object-fit: cover; }
+    .ffk .btn { min-width: 300px; }
   }
   @media (max-width: 767.98px) {
     .ffk { padding-block: 60px; }
