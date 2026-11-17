@@ -74,15 +74,15 @@ const caseySlides = [
 
   <!-- ============ VIDEO ============ -->
   <section class="section video-sec on-dark">
-    <Deco opacity={0.02} style="right:-350px;top:0;transform:rotate(-32deg);transform-origin:top left" />
-    <Deco opacity={0.02} style="left:-492px;top:21px;" />
+    <Deco fillOpacity={0.02} rotate={32.56} box={[1073, 1336]} style="right:-281px;top:0;" />
+    <Deco fillOpacity={0.02} rotate={-35.76} box={[1120, 1316]} style="left:-492px;top:-237px;" />
     <div class="container">
       <div class="video-sec__card">
         <VideoPopup url={site.videos.meetTheDoctor} image={videoThumb} alt="Dr. Casey Morgan adjusting a patient" title="Play: a minute with Dr. Casey Morgan" class="video-sec__video" />
         <div class="video-sec__copy">
           <div class="stack-24">
             <Tag variant="soft-dark">Non-Surgical Treatment</Tag>
-            <h2 class="h2 video-sec__title">A minute with the doctor you’ll actually be seeing.</h2>
+            <h2 class="h2 video-sec__title">A minute with the<br class="br-xl" /> doctor you’ll actually<br class="br-xl" /> be seeing.</h2>
             <ul class="bullet-list video-sec__list" role="list">
               <BulletItem icon="check" size={24}>5.0 stars, 250+ reviews</BulletItem>
               <BulletItem icon="check" size={24}>Free covered parking off MoPac</BulletItem>
@@ -100,7 +100,7 @@ const caseySlides = [
     <div class="container split pain__split">
       <div class="pain__copy">
         <div class="stack-24">
-          <h2 class="h2 pain__title"><SpineMark class="pain__mark" /><span>Pain that won’t let up <strong>wears you down</strong></span></h2>
+          <h2 class="h2 pain__title"><SpineMark class="pain__mark" /><span>Pain that won’t let up<br class="br-lg" /> <strong>wears you down</strong></span></h2>
           <div class="stack-16 pain__text">
             <p>When your back locks up during a meeting, or your neck stiffens at your desk, or a headache turns a Wednesday into a lost day, it’s not just discomfort. <strong>It’s your work, your workouts, your time with family. All of it takes a hit.</strong></p>
             <p class="fw-500">Most people push through it. They stretch. They pop ibuprofen. They tell themselves it will pass. Sometimes it does. Sometimes it doesn’t.</p>
@@ -150,7 +150,7 @@ const caseySlides = [
           </div>
         </div>
         <div class="casey__copy">
-          <h2 class="h2 casey__title">Casey Morgan D.C.<br />Second-generation<br />Austin chiropractor</h2>
+          <h2 class="h2 casey__title"><strong>Casey Morgan D.C.</strong><br />Second-generation<br />Austin chiropractor</h2>
           <div class="stack-16 casey__text">
             <p>Dr. Morgan grew up noticing two things. Other kids were always going to the doctor and he never was. And his dad loved going to work every single day. At sixteen he decided he’d be a chiropractor too.</p>
             <p>Parker University graduate. Board Certified by the NBCE. Second generation. Adjusting patients in downtown Austin since 2016.</p>
@@ -296,9 +296,10 @@ const caseySlides = [
   .hero :global(picture) { position: absolute; inset: 0; z-index: -2; }
   .hero::before { content: ''; position: absolute; inset: 0; z-index: -1;
     background:
-      linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.92) 28%, rgb(15 45 64 / 0.35) 55%, rgb(15 45 64 / 0) 75%),
-      linear-gradient(180deg, rgb(15 45 64 / 0) 55%, #0f2d40 100%),
-      rgb(15 45 64 / 0.24); }
+      linear-gradient(90deg, rgb(15 45 64 / 0.24) 0%, rgb(15 45 64 / 0.24) 100%),
+      linear-gradient(-0.27deg, #0f2d40 0.38%, rgb(15 45 64 / 0) 27.98%),
+      linear-gradient(-0.27deg, rgb(15 45 64 / 0) 60.68%, #0f2d40 114.12%),
+      linear-gradient(270deg, rgb(15 45 64 / 0) 0%, #0f2d40 48.96%); }
   .hero__inner { position: relative; padding-top: calc(var(--masthead-h) + 60px); padding-bottom: 120px; min-height: 880px; display: flex; align-items: center; }
   .hero__copy { display: flex; flex-direction: column; gap: 32px; max-width: 758px; }
   .hero__title { display: flex; flex-direction: column; gap: 16px; }
@@ -332,6 +333,8 @@ const caseySlides = [
 
   /* ---------- Video ---------- */
   .video-sec { position: relative; overflow: hidden; isolation: isolate; background: var(--navy-900); padding-top: 80px; }
+  .video-sec__title .br-xl { display: none; }
+  @media (min-width: 1280px) { .video-sec__title .br-xl { display: inline; } .video-sec__title { text-wrap: nowrap; } }
   .video-sec__card { position: relative; z-index: 1; display: grid; gap: 40px; padding: 40px; background: var(--navy-750); border-radius: var(--radius-xl); align-items: center; }
   .video-sec :global(.video-sec__video) { aspect-ratio: 519 / 571; }
   .video-sec__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
@@ -339,41 +342,45 @@ const caseySlides = [
   .video-sec__list { font-size: 16px; line-height: 1.8; font-weight: 600; color: var(--sand-100); }
   .video-sec__list :global(.icon) { color: var(--orange-500); }
   @media (min-width: 1024px) {
-    .video-sec__card { grid-template-columns: minmax(0, 519px) minmax(0, 521px); justify-content: space-between; gap: 80px; }
-    .video-sec__title { max-width: 440px; }
+    /* Figma: 519 media / 521 copy, 80 gap — scale columns with the container instead of pinning px widths */
+    .video-sec__card { grid-template-columns: minmax(0, 519fr) minmax(0, 521fr); gap: 80px; }
   }
   @media (max-width: 1023.98px) {
     .video-sec__copy { order: -1; }
     .video-sec :global(.video-sec__video) { aspect-ratio: 310 / 343; max-height: 520px; width: 100%; }
   }
   @media (max-width: 767.98px) {
-    .video-sec { padding-top: 0; padding-bottom: 0; }
-    .video-sec__card { padding: 24px 12px 12px; gap: 24px; margin-bottom: 60px; }
-    .video-sec__copy { padding-inline: 8px; }
-    .video-sec__title { font-size: 20px; line-height: 1.2; }
-    .video-sec__list { font-size: 14px; line-height: 1.6; gap: 12px; }
-    .video-sec__list :global(.bullet--24) { --bsz: 20px; }
-    .video-sec__list :global(.icon) { width: 20px; height: 20px; }
+    /* Figma mobile: 40px section padding, 16px card padding, 24px radius, 28px bold title, video 343 tall */
+    .video-sec { padding-block: 40px; }
+    .video-sec__card { padding: 16px; gap: 32px; border-radius: 24px; }
+    .video-sec__title { font-size: 28px; line-height: 1.2; font-weight: 700; text-wrap: wrap; }
+    .video-sec__list { line-height: 1.4; }
+    .video-sec :global(.video-sec__video) { aspect-ratio: auto; height: 343px; max-height: none; }
   }
 
   /* ---------- Pain ---------- */
   .pain__split { gap: 40px; }
   .pain__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; padding-block: 24px; }
-  .pain__title { display: flex; align-items: center; gap: 24px; font-weight: 500; }
+  .pain__title { display: flex; align-items: center; gap: 24px; font-weight: 600; }
+  .pain__title .br-lg { display: none; }
+  @media (min-width: 1024px) { .pain__title .br-lg { display: inline; } }
   .pain__title strong { font-weight: 700; }
   .pain :global(.pain__mark) { color: var(--blue-300); opacity: 0.4; }
   .pain :global(.pain__mark svg) { height: 80px; width: auto; }
-  .pain__text { color: var(--navy-900); }
+  .pain__text { color: var(--navy-900); font-weight: 500; }
   .pain__text strong { font-weight: 600; }
   .pain__media { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-image); }
   .pain__media :global(img) { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 519 / 571; }
-  @media (min-width: 1024px) { .pain__split { grid-template-columns: minmax(0, 557px) minmax(0, 519px); justify-content: space-between; gap: 80px; } }
+  /* Figma: 557 copy / 519 media, 124 gap at 1200 — proportional so the gap never balloons on wide screens */
+  @media (min-width: 1024px) { .pain__split { grid-template-columns: minmax(0, 557fr) minmax(0, 519fr); gap: 60px; } }
+  @media (min-width: 1280px) { .pain__split { gap: 124px; } }
   @media (max-width: 1023.98px) { .pain__media { order: 2; } .pain__media :global(img) { aspect-ratio: 342 / 359; } }
   @media (max-width: 767.98px) {
-    .pain { padding-top: 60px; padding-bottom: 0; }
-    .pain__copy { padding-block: 0; }
-    .pain__title { gap: 16px; }
-    .pain :global(.pain__mark svg) { height: 64px; }
+    .pain { padding-block: 80px; }
+    .pain__split { gap: 32px; }
+    .pain__title { font-weight: 600; text-wrap: wrap; }
+    .pain__title strong { font-weight: 600; }
+    .pain__title { gap: 24px; }
   }
 
   /* ---------- Symptoms ---------- */
@@ -413,6 +420,7 @@ const caseySlides = [
   .dots__dot.is-active { background: var(--navy-900); }
   .casey__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
   .casey__title { font-weight: 600; }
+  .casey__title strong { font-weight: 700; }
   .casey__text { color: var(--navy-600); font-weight: 500; }
   .team-row { display: flex; flex-direction: column; align-items: center; gap: 60px; }
   .team-row__title { text-align: center; font-weight: 600; }
@@ -424,10 +432,11 @@ const caseySlides = [
   .person__name { font-size: 20px; line-height: 26px; font-weight: 600; }
   .person__role { font-size: 14px; line-height: 22px; font-style: italic; color: var(--orange-500); }
   .person__bio { font-size: 16px; line-height: 1.6; color: var(--navy-900); }
-  @media (min-width: 1024px) { .casey__split { grid-template-columns: minmax(0, 488px) minmax(0, 652px); justify-content: space-between; gap: 60px; } }
+  /* Figma: 488 media / 652 copy, 60 gap — proportional columns */
+  @media (min-width: 1024px) { .casey__split { grid-template-columns: minmax(0, 488fr) minmax(0, 652fr); gap: 60px; } }
   @media (min-width: 1024px) { .team-row__grid { grid-template-columns: repeat(2, minmax(0, 560px)); justify-content: center; gap: 80px; } }
   @media (max-width: 767.98px) {
-    .casey { padding-top: 60px; }
+    .casey { padding-top: 80px; }
     .casey__inner { gap: 60px; }
     .casey__slide :global(img) { aspect-ratio: 342 / 391; }
     .team-row { gap: 40px; align-items: stretch; }
