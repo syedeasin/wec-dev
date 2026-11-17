@@ -29,20 +29,22 @@ const alts = ['Dr. Casey Morgan, D.C.', 'Tai Le, chiropractic assistant', 'Gabby
         <p class="thero__lead" set:html={hero.paras![0].t} />
       </div>
       <ul class="thero__faces" role="list">
-        {hero.images!.map((im, i) => <li><Media image={im} eager sizes="(min-width: 1024px) 220px, 30vw" alt={alts[i]} /></li>)}
+        {hero.images!.map((im, i) => <li><Media image={im} eager shadow={false} sizes="(min-width: 1024px) 242px, 30vw" alt={alts[i]} /></li>)}
       </ul>
     </div>
   </section>
 
-  <section class="section section--white team">
+  <section class="section section--sand team">
     <div class="container team__list">
       {people.map((m, i) => (
-        <article class:list={['member', i % 2 === 1 && 'member--rev']}>
-          <Media image={photos[i]} class="member__img" alt={alts[i]} />
+        <article class="member">
+          <Media image={photos[i]} class="member__img" shadow={false} sizes="(min-width: 1024px) 376px, 100vw" alt={alts[i]} />
           <div class="member__copy">
-            <p class="eyebrow member__role">{m.role}</p>
-            <h2 class="h2" set:html={m.name} />
-            {m.bio.map((b) => <p set:html={b} />)}
+            <div class="member__head">
+              <h2 class="member__name" set:html={m.name} />
+              <p class="member__role">{m.role}</p>
+            </div>
+            <div class="member__bio">{m.bio.map((b) => <p set:html={b} />)}</div>
             {i === 0 && <Button href="/about-dr-morgan" variant="tertiary">Read Dr. Morgan’s full story</Button>}
           </div>
         </article>
@@ -53,24 +55,40 @@ const alts = ['Dr. Casey Morgan, D.C.', 'Tai Le, chiropractic assistant', 'Gabby
   <Sections data={d} skip={[0, 1, 2]} reviewsKey="team" />
 </SiteLayout>
 <style>
-  .thero { background: var(--gradient-navy); }
-  .thero__inner { display: grid; gap: 40px; align-items: center; padding-top: calc(var(--masthead-h) + 48px); padding-bottom: 80px; }
+  .thero { background: var(--navy-900); overflow: hidden; }
+  .thero__inner { display: grid; gap: 40px; align-items: center; padding-top: calc(var(--masthead-h) + 40px); padding-bottom: 80px; }
   .thero__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-  .thero__lead { color: var(--sand-100); font-weight: 500; max-width: 520px; }
+  .thero__copy .h1 { color: var(--sand-100); font-weight: 600; }
+  .thero__lead { color: rgb(255 255 255 / 0.8); font-size: 16px; line-height: 1.8; font-weight: 500; }
   .thero__faces { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .thero__faces :global(img) { aspect-ratio: 5 / 6; }
-  @media (min-width: 1024px) { .thero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; } .thero__faces { gap: 20px; } }
-  @media (max-width: 767.98px) { .thero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } }
-  .team__list { display: flex; flex-direction: column; gap: 100px; }
-  .member { display: grid; gap: 32px; align-items: center; }
-  .member__copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-  .member__role { color: var(--orange-500); }
-  .member :global(.member__img img) { aspect-ratio: 4 / 5; }
+  .thero__faces :global(img) { aspect-ratio: 242 / 292; object-position: 50% 20%; }
+  /* Figma: 242 / 232 / 232 x 292 photos, 16px apart, running off the right edge */
   @media (min-width: 1024px) {
-    .member { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: 80px; }
-    .member--rev :global(.member__img) { order: 2; }
-    .member--rev { grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); }
+    .thero__inner { grid-template-columns: 512px minmax(0, 1fr); gap: 120px; }
+    .thero__faces { display: flex; gap: 16px; width: max-content; }
+    .thero__faces li { width: 232px; flex: none; }
+    .thero__faces li:first-child { width: 242px; }
+    .thero__faces :global(img) { aspect-ratio: auto; height: 292px; }
   }
-  @media (max-width: 1023.98px) { .member :global(.member__img) { max-width: 480px; } }
-  @media (max-width: 767.98px) { .team__list { gap: 60px; } }
+  @media (min-width: 1024px) and (max-width: 1279.98px) { .thero__inner { grid-template-columns: 420px minmax(0, 1fr); gap: 60px; } }
+  @media (max-width: 767.98px) { .thero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } }
+
+  /* Figma: white 24px-radius cards on sand, 376px photo inset 8px, copy padded 60px */
+  .team__list { display: flex; flex-direction: column; gap: 40px; }
+  .member { display: grid; gap: 8px; padding: 8px; background: var(--white); border-radius: 24px; overflow: hidden; }
+  .member :global(.member__img) { border-radius: var(--radius-xl); }
+  .member :global(.member__img img) { aspect-ratio: 376 / 420; object-position: 50% 20%; border-radius: var(--radius-xl); }
+  .member__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; justify-content: center; padding: 24px 16px; }
+  .member__head { display: flex; flex-direction: column; gap: 8px; }
+  .member__name { font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--navy-900); }
+  .member__role { font-style: italic; font-size: 16px; line-height: 1.8; background: var(--gradient-primary, linear-gradient(172.6deg, #e8512a 8.28%, #c23e18 91.72%)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .member__bio { display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.8; font-weight: 500; color: var(--navy-600); }
+  @media (min-width: 1024px) {
+    .member { grid-template-columns: 376px minmax(0, 1fr); align-items: stretch; }
+    .member :global(.member__img) { position: relative; min-height: 391px; }
+    .member :global(.member__img picture), .member :global(.member__img img) { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; }
+    .member__copy { padding: 60px; }
+    .member__name { font-size: 40px; }
+  }
+  @media (max-width: 767.98px) { .member__bio { font-size: 14px; } }
 </style>

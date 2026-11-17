@@ -49,7 +49,7 @@ const rk = (reviewsKey in reviews ? reviewsKey : 'home') as keyof typeof reviews
     case 'planlist': return <PlanList s={s} />;
     case 'employers': return <EmployersBlock s={s} />;
     case 'where': return <WhereBlock s={s} />;
-    case 'findus': return <Location title={s.title} lead={s.paras?.map((p) => p.t).join(' ')} directions={!!s.buttons?.length} />;
+    case 'findus': return <Location title={s.title} lead={s.paras?.[0]?.t} directions={!!s.buttons?.length} />;
     case 'findings': return <FindingsBlock s={s} />;
     case 'timeline': return <Timeline s={s} />;
     case 'ffk': return <FfkBlock s={s} />;

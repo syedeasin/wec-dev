@@ -16,7 +16,7 @@ const intro = s.paras?.[0]?.t;
   <div class="container ffk__inner">
     <div class="ffk__head">
       {s.tag && <Tag variant="orange">{s.tag}</Tag>}
-      <SectionHead title={s.title ?? ''} maxWidth={760}>{intro && <Fragment set:html={intro} />}</SectionHead>
+      <SectionHead title={s.title ?? ''} maxWidth={1200} />
     </div>
     <div class="ffk__card">
       <ul class="ffk__list" role="list">
@@ -32,10 +32,12 @@ const intro = s.paras?.[0]?.t;
       </ul>
       {imgs[0] && <Media image={imgs[0]} class="ffk__img-d" sizes="(min-width: 1280px) 900px, 70vw" />}
     </div>
+    {intro && <p class="ffk__intro" set:html={intro} />}
     <Buttons buttons={s.buttons} center />
   </div>
 </section>
 <style is:global>
+  .ffk__intro { max-width: 1020px; text-align: center; font-size: 16px; line-height: 1.8; color: var(--navy-900); opacity: 0.8; }
   .ffk__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
   .ffk__head { display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .ffk__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); align-items: stretch; }
@@ -53,7 +55,8 @@ const intro = s.paras?.[0]?.t;
   .ffk__img-d img { position: absolute; inset: 0; height: 100%; width: 100%; }
   @media (min-width: 1024px) {
     .ffk { padding-block: 100px; }
-    .ffk__inner { gap: 60px; }
+    .ffk__inner { gap: 40px; }
+    .ffk__head { margin-bottom: 20px; }
     .ffk__head { gap: 24px; }
     .ffk__head .section-head h2, .ffk__head h2 { font-weight: 700; }
     .ffk__card { display: flex; gap: 0; padding: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 32px 32px rgb(15 45 64 / 0.06); }
@@ -77,6 +80,7 @@ const intro = s.paras?.[0]?.t;
     .ffk__inner { gap: 32px; align-items: stretch; }
     .ffk__head { align-items: flex-start; }
     .ffk__head .section-head--center { align-items: flex-start; text-align: left; }
+    .ffk__intro { text-align: left; font-size: 14px; }
     .ffk__card { padding: 12px; }
     .ffk__item { padding: 16px; }
     .ffk__icon { width: 40px; height: 40px; }
