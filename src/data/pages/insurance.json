@@ -182,7 +182,8 @@
      "w": 342,
      "h": 314
     }
-   ]
+   ],
+   "layout": "narrow"
   },
   {
    "name": "What Section",
@@ -223,12 +224,12 @@
    ],
    "images": [
     {
-     "src": "photos/office-sign",
-     "w": 342,
-     "h": 240,
-     "pos": "35% 1%"
+     "src": "photos/office-storefront",
+     "w": 612,
+     "h": 783
     }
-   ]
+   ],
+   "layout": "fineprint"
   },
   {
    "name": "Row – In a wreck? Different rules apply",
@@ -263,11 +264,16 @@
    ],
    "images": [
     {
-     "src": "home/how-it-works-adjustment",
-     "w": 390,
-     "h": 1049,
-     "pos": "6% 50%"
+     "src": "photos/wreck-adjustment-bg",
+     "w": 1440,
+     "h": 762
     }
+   ],
+   "layout": "darkrow",
+   "icons": [
+    "shield-plus",
+    "file-pen-line",
+    "car"
    ]
   },
   {
@@ -298,7 +304,8 @@
      "q": "Do I need a referral?",
      "a": "Only on HMO plans. Most PPO patients can book directly."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Section / CTA Band",

@@ -3,6 +3,7 @@
 import { Picture } from 'astro:assets';
 import Steps from '../sections/Steps.astro';
 import Buttons from './Buttons.astro';
+import Deco from '../ui/Deco.astro';
 import { img, type Section } from '../../lib/content';
 interface Props { s: Section }
 const { s } = Astro.props;
@@ -10,12 +11,13 @@ const image = s.images?.[0];
 const meta = image ? img(image.src) : undefined;
 ---
 <section class="sdark on-dark" style={`--pos:${image?.pos ?? '20% 50%'}`}>
-  {meta && <Picture src={meta} alt="" widths={[640, 960, 1440, 1920].filter((w) => w <= meta.width)} sizes="(min-width: 1024px) 60vw, 100vw" formats={['webp']} fallbackFormat="webp" class="sdark__bg" loading="lazy" />}
+  {meta && <Picture quality={85} src={meta} alt="" widths={[640, 960, 1440, 1920, 2400, 2880].filter((w) => w <= meta.width)} sizes="(min-width: 1024px) 110vw, 100vw" formats={['webp']} fallbackFormat="webp" class="sdark__bg" loading="lazy" />}
+  <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="left:calc(50% - 148px);top:0;z-index:-1;" class="hide-mobile" />
   <div class="container sdark__inner">
     <div class="sdark__copy">
       <h2 class="h2 sdark__title" set:html={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} />
-      {s.paras?.map((p) => <p class:list={['sdark__lead', p.w >= 500 && 'sdark__lead--note']} set:html={p.t} />)}
       <Steps steps={s.steps ?? []} />
+      {s.paras?.map((p) => <p class="sdark__lead" set:html={p.t} />)}
       <Buttons buttons={s.buttons} dark />
     </div>
   </div>
@@ -25,13 +27,14 @@ const meta = image ? img(image.src) : undefined;
   .sdark > picture { position: absolute; inset: 0 40% 0 0; z-index: -2; }
   .sdark__bg { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos); }
   .sdark::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(15 45 64 / 0.1) 0%, rgb(19 58 83 / 0.45) 30%, rgb(27 79 114 / 0.95) 50%, #0f2d40 70%); }
-  .sdark__inner { display: grid; min-height: 750px; align-items: center; padding-block: 100px; }
+  .sdark__inner { display: grid; min-height: 782px; align-items: center; padding-block: 100px; }
   .sdark__copy { display: flex; flex-direction: column; gap: 24px; }
   .sdark__title { font-weight: 700; color: var(--white); }
-  .sdark__lead { color: var(--sand-100); }
-  .sdark__lead--note { font-weight: 600; color: var(--white); }
+  .sdark__lead { color: var(--sand-100); font-size: 14px; line-height: 22px; }
   .sdark__lead strong { color: var(--white); }
-  @media (min-width: 1024px) { .sdark__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 632px); justify-content: space-between; gap: 80px; } .sdark__copy { grid-column: 2; } }
+  /* Same overlay as the homepage 'How it works' (Figma: multiply gradient over the photo) */
+  @media (min-width: 1024px) { .sdark::before { background: linear-gradient(88.45deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 27.89%, #1b4f72 45.75%, #0f2d40 75.48%); mix-blend-mode: multiply; } }
+  @media (min-width: 1024px) { .sdark > picture { inset: -10% auto auto -8%; width: 108%; height: 136%; } .sdark__inner { grid-template-columns: minmax(0, 488fr) minmax(0, 632fr); gap: 80px; } .sdark__copy { grid-column: 2; } }
   @media (max-width: 1023.98px) {
     .sdark > picture { inset: 0 0 auto 0; height: 360px; }
     .sdark::before { background: linear-gradient(180deg, rgb(15 45 64 / 0) 0, rgb(15 45 64 / 0.4) 200px, #0f2d40 360px); }

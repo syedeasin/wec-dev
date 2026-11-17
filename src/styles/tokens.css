@@ -120,8 +120,8 @@
   --section-gap: 40px;
 
   /* ---- Layout ---- */
-  --gutter: 20px;
-  --container: 1280px;
+  --gutter: 24px;          /* Figma mobile frame: 24px side padding */
+  --container: 1200px;     /* Figma 1440 frame: 1200 content width */
   --container-narrow: 800px;
 
   /* ---- Radius ---- */

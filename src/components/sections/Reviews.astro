@@ -7,14 +7,14 @@ import SectionHead from '../ui/SectionHead.astro';
 import reviews from '../../data/reviews.json';
 import { site } from '../../data/site';
 type Key = keyof typeof reviews;
-interface Props { page: Key; title?: string; bg?: 'sand-warm' | 'white' | 'sand' }
-const { page, title = 'Patients who came in hurting.<br><strong>Now they don’t</strong>', bg = 'sand-warm' } = Astro.props;
+interface Props { page: Key; title?: string; bg?: 'sand-warm' | 'white' | 'sand'; moreLabel?: string }
+const { page, title = 'Patients who came in hurting.<br><strong>Now they don’t</strong>', bg = 'sand-warm', moreLabel = 'See More Google reviews' } = Astro.props;
 const list = reviews[page] ?? reviews.home;
 const cols = [0, 1, 2].map((c) => list.filter((_, i) => i % 3 === c));
 ---
 <section class:list={['section', 'reviews', `section--${bg}`]}>
   <div class="container reviews__inner">
-    <SectionHead title={title} />
+    <SectionHead title={title} maxWidth={1200} />
     <div class="reviews__wall" data-reviews>
       {cols.map((col, c) => (
         <div class:list={['reviews__col', `reviews__col--${c}`]}>{col.map((r) => <ReviewCard {...r} />)}</div>
@@ -24,7 +24,7 @@ const cols = [0, 1, 2].map((c) => list.filter((_, i) => i % 3 === c));
     <div class="reviews__actions">
       <div class="reviews__buttons">
         <Button href={site.bookHref} class="reviews__book" blockMobile>{site.bookLabel}</Button>
-        <Button href={site.googleReviewsHref} variant="secondary" icon="arrow-up-right" iconAfter="" target="_blank" rel="noopener" blockMobile>See More Google reviews</Button>
+        <Button href={site.googleReviewsHref} variant="secondary" icon="arrow-up-right" iconAfter="" target="_blank" rel="noopener" blockMobile>{moreLabel}</Button>
       </div>
       <RatingRow tone="light" layout="row" />
     </div>

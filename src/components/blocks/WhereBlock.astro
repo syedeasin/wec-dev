@@ -25,7 +25,7 @@ const pin = s.cards?.[0];
       <Buttons buttons={s.buttons} />
     </div>
     <a class="where__map" href={site.mapsHref} target="_blank" rel="noopener" aria-label="Open West End Chiropractic in Google Maps">
-      <Picture src={map} alt="Map showing West End Chiropractic at 1611 W. 5th St." widths={[360, 560, 800, 1000]} sizes="(min-width: 1024px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+      <Picture quality={85} src={map} alt="Map showing West End Chiropractic at 1611 W. 5th St." widths={[360, 560, 800, 1000]} sizes="(min-width: 1024px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
       {pin && <span class="where__pin"><span class="where__pin-i"><Icon name="map-pin" size={20} /></span><span><strong>{pin.title}</strong><small>{pin.text}</small></span></span>}
     </a>
   </div>

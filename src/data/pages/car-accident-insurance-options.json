@@ -139,7 +139,8 @@
      "q": "How soon can I be seen?",
      "a": "Often the same day. Call and tell us you were in an accident."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Conditions Section",

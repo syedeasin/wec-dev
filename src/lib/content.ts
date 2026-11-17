@@ -3,7 +3,7 @@
 import { site, services, conditionHubs } from '../data/site';
 
 export type Para = { w: number; t: string };
-export type Img = { src: string; w: number; h: number; pos?: string; flip?: boolean };
+export type Img = { src: string; w: number; h: number; pos?: string; flip?: boolean; crop?: [number, number, number, number] };
 export type Btn = { variant: string; label: string };
 export type Card = { icon?: string; title: string; text?: string };
 export type Section = {
@@ -13,6 +13,8 @@ export type Section = {
   cards?: Card[]; steps?: { title: string; text: string }[];
   faqs?: { q: string; a: string }[]; tags?: { tag: string; text: string }[];
   buttons?: Btn[]; images?: Img[]; logos?: boolean;
+  /** 'stack': photos stacked vertically (Figma desktop); mark: false hides the spine mark */
+  layout?: 'stack' | 'narrow' | 'fineprint' | 'darkrow'; mark?: boolean; icons?: string[]; faqOpen?: boolean;
 };
 export type PageData = { sections: Section[] };
 
@@ -141,6 +143,8 @@ export function groupParas(paras: Para[] = []): Block[] {
 export function sectionKind(s: Section, i: number): string {
   const n = s.name;
   if (i === 0) return 'hero';
+  if (s.layout === 'fineprint') return 'fineprint';
+  if (s.layout === 'darkrow') return 'darkrow';
   if (s.faqs?.length) return 'faq';
   if (/CTA Band|^Wrapper/.test(n)) return 'cta';
   if (/Reviews/.test(n) && /patients/i.test(strip(s.title)) ) return 'reviews';

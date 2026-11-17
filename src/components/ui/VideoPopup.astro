@@ -16,7 +16,7 @@ const { url = '', image, alt, title = 'Play video', sizes = '(min-width: 1280px)
 function embed(u: string): string | null {
   if (!u) return null;
   const yt = u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
-  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&rel=0`;
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&rel=0&playsinline=1`;
   const vm = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/);
   if (vm) return `https://player.vimeo.com/video/${vm[1]}?autoplay=1${vm[2] ? `&h=${vm[2]}` : ''}`;
   return null;
@@ -24,7 +24,7 @@ function embed(u: string): string | null {
 const src = embed(url);
 ---
 <div class:list={['video', { 'video--tint': tint }, cls]}>
-  <Picture src={image} alt={alt} widths={[400, 640, 900, 1200]} sizes={sizes} formats={['webp']} fallbackFormat="webp" class="video__img" loading="lazy" />
+  <Picture quality={85} src={image} alt={alt} widths={[400, 640, 900, 1200, 1600]} sizes={sizes} formats={['webp']} fallbackFormat="webp" class="video__img" loading="lazy" />
   <button type="button" class="video__play" data-video-open data-src={src ?? ''} aria-label={title}>
     <svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="35" fill="#E8512A"/><path d="M28 23.8c0-1.5 1.7-2.5 3-1.7l16.6 10.2c1.3.8 1.3 2.6 0 3.4L31 45.9c-1.3.8-3-.2-3-1.7V23.8Z" fill="#fff"/></svg>
   </button>
@@ -63,10 +63,15 @@ const src = embed(url);
   .video__play { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; width: 100%; }
   .video__play svg { width: 70px; height: 70px; transition: transform var(--dur) var(--ease); filter: drop-shadow(0 8px 16px rgb(232 81 42 / 0.32)); }
   .video__play:hover svg { transform: scale(1.08); }
-  .video-modal { width: min(100% - 32px, 1080px); padding: 0; border: 0; border-radius: var(--radius-lg); background: #000; overflow: visible; }
+  /* margin:auto re-centres the dialog (the global reset sets margin:0 on everything).
+     Width is also capped by viewport height so a 16:9 frame + close button always fits. */
+  .video-modal { margin: auto; width: min(100% - 32px, 1080px, (100dvh - 128px) * 16 / 9); max-width: none; max-height: none; padding: 0; border: 0; border-radius: var(--radius-lg); background: #000; overflow: visible; }
+  .video-modal[open] { animation: video-modal-in var(--dur) var(--ease); }
+  @keyframes video-modal-in { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
   .video-modal::backdrop { background: rgb(15 45 64 / 0.85); }
   .video-modal__frame { aspect-ratio: 16 / 9; }
   .video-modal__frame iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius-lg); }
   .video-modal__empty { display: grid; place-items: center; height: 100%; color: #fff; font-weight: 600; }
-  .video-modal__close { position: absolute; top: -48px; right: 0; width: 40px; height: 40px; display: grid; place-items: center; color: #fff; }
+  .video-modal__close { position: absolute; top: -48px; right: 0; width: 40px; height: 40px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: rgb(255 255 255 / 0.12); transition: background var(--dur-fast); }
+  .video-modal__close:hover { background: rgb(255 255 255 / 0.24); }
 </style>

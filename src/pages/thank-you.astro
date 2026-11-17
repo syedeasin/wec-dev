@@ -7,7 +7,7 @@ import Button from '../components/ui/Button.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import Sections from '../components/blocks/Sections.astro';
 import data from '../data/pages/thank-you.json';
-import bg from '../assets/images/shared/cta-adjustment.webp';
+import bg from '../assets/images/photos/adjustment-side-lying-woman.webp';
 import { site } from '../data/site';
 import type { PageData } from '../lib/content';
 const d = data as PageData;
@@ -17,35 +17,36 @@ const cols: { title: string; items: string[] }[] = [];
 for (const p of expect.paras!.slice(1)) {
   if (p.w === 600) cols.push({ title: p.t, items: [] }); else cols.at(-1)?.items.push(p.t);
 }
-const icons = ['clipboard-list', 'clock', 'phone'];
+const icons = ['id-card', 'clipboard-list', 'phone'];
 ---
 <SiteLayout title="Thank You | West End Chiropractic" description="We received your request." noindex>
   <section class="tyhero on-dark">
-    <Picture src={bg} alt="" widths={[640, 1280, 1920, 2560]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="tyhero__bg" loading="eager" />
+    <Picture quality={85} src={bg} alt="" widths={[640, 1280, 1920, 2100]} sizes="86vw" formats={['webp']} fallbackFormat="webp" class="tyhero__bg" loading="eager" />
     <div class="container tyhero__inner">
-      <span class="tyhero__check"><Icon name="check" size={32} /></span>
-      <h1 class="h1">{hero.title}</h1>
+      <span class="tyhero__check"><span><Icon name="check" size={28} /></span></span>
+      <h1 class="tyhero__title">{hero.title}</h1>
       <p class="tyhero__lead">Thanks, we have your request. We’ll confirm your appointment by phone or email shortly, and send your intake forms so you can fill them out at home.</p>
-      <div class="tyhero__when" data-when hidden>
-        <p><Icon name="calendar-check" size={20} /><span data-when-text></span></p>
-        <p><Icon name="map-pin" size={20} /><span>{site.address.street}, {site.address.city}</span></p>
+      <div class="tyhero__chips">
+        <p class="tyhero__chip" data-when hidden><Icon name="calendar-check" size={18} /><span data-when-text></span></p>
+        <p class="tyhero__chip"><Icon name="map-pin" size={18} /><span>1611 W. 5th St., Suite 110, Austin</span></p>
       </div>
-      <div class="btn-row">
-        <Button href={site.mapsHref} icon="navigation" blockMobile target="_blank" rel="noopener">Get Directions</Button>
-        <Button href={site.phoneHref} variant="outline-light" icon="phone" blockMobile>Call {site.phone}</Button>
+      <div class="tyhero__btns">
+        <Button href="#" data-ics hidden>Add to Calendar</Button>
+        <Button href={site.phoneHref} data-call>Call {site.phone}</Button>
+        <a class="tyhero__dir" href={site.mapsHref} target="_blank" rel="noopener">Get Directions</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--white expect">
+  <section class="section section--sand expect">
     <div class="container expect__inner">
       <SectionHead title={expect.title ?? ''}><Tag variant="orange" slot="before">{expect.tag}</Tag>{expect.paras![0].t}</SectionHead>
       <ul class="expect__grid" role="list">
         {cols.map((c, i) => (
           <li class="expect__card">
-            <span class="expect__icon"><Icon name={icons[i] ?? 'check'} size={24} /></span>
-            <h3 class="h4">{c.title}</h3>
-            <ul class="expect__items" role="list">{c.items.map((t) => <li><Icon name="check" size={16} /><span set:html={t.replace(site.email, `<a href="${site.emailHref}">${site.email}</a>`).replace(site.phone, `<a href="${site.phoneHref}">${site.phone}</a>`)} /></li>)}</ul>
+            <span class="expect__icon"><Icon name={icons[i] ?? 'check'} size={26} /></span>
+            <h3 class="expect__t">{c.title}</h3>
+            <ul class="expect__items" role="list">{c.items.map((t) => <li><Icon name="circle-check" size={18} /><span set:html={t.replace(site.email, `<a href="${site.emailHref}">${site.email}</a>`).replace(site.phone, `<a href="${site.phoneHref}">${site.phone}</a>`)} /></li>)}</ul>
           </li>
         ))}
       </ul>
@@ -59,32 +60,65 @@ const icons = ['clipboard-list', 'clock', 'phone'];
     const b = JSON.parse(sessionStorage.getItem('wec-booking') || 'null');
     if (b?.date && b?.time) {
       const el = document.querySelector<HTMLElement>('[data-when]')!;
-      el.querySelector('[data-when-text]')!.textContent = `Requested: ${b.date.replace(/ \d{4}$/, '')} at ${b.time}`;
+      el.querySelector('[data-when-text]')!.textContent = `${b.date.replace(/ \d{4}$/, '')} at ${b.time}`;
       el.hidden = false;
+      // Add to Calendar: build an .ics for the requested slot (30 minute visit)
+      const m = String(b.date).match(/(\w+) (\d+) (\d{4})$/), t = String(b.time).match(/(\d+):(\d+) (AM|PM)/);
+      if (m && t) {
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        let h = Number(t[1]) % 12 + (t[3] === 'PM' ? 12 : 0);
+        const start = new Date(Number(m[3]), months.indexOf(m[1]), Number(m[2]), h, Number(t[2]));
+        const end = new Date(start.getTime() + 30 * 60000);
+        const f = (d: Date) => `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}T${String(d.getHours()).padStart(2, '0')}${String(d.getMinutes()).padStart(2, '0')}00`;
+        const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//West End Chiropractic//EN', 'BEGIN:VEVENT', `UID:${Date.now()}@westendchiro`, `DTSTART;TZID=America/Chicago:${f(start)}`, `DTEND;TZID=America/Chicago:${f(end)}`, 'SUMMARY:West End Chiropractic visit', 'LOCATION:1611 W. 5th St.\\, Suite 110\\, Austin\\, TX 78703', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+        const a = document.querySelector<HTMLAnchorElement>('[data-ics]')!;
+        a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+        a.setAttribute('download', 'west-end-chiropractic.ics');
+        a.hidden = false;
+        document.querySelector<HTMLElement>('[data-call]')!.hidden = true;
+      }
     }
   } catch {}
 </script>
 <style>
-  .tyhero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
-  .tyhero > :global(picture) { position: absolute; inset: 0; z-index: -2; }
-  .tyhero :global(.tyhero__bg) { width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%; }
-  .tyhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.9) 45%, rgb(15 45 64 / 0.55) 100%); }
-  .tyhero__inner { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 100px; max-width: 760px; margin-inline: max(var(--gutter), (100% - var(--container)) / 2); }
-  .tyhero__check { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--orange-500); color: var(--white); }
-  .tyhero__lead { color: var(--sand-100); font-weight: 500; }
-  .tyhero__when { display: flex; flex-direction: column; gap: 8px; padding: 16px 20px; border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.08); font-weight: 600; }
-  .tyhero__when[hidden] { display: none; }
-  .tyhero__when p { display: flex; gap: 10px; align-items: center; }
-  .tyhero__when :global(.icon) { color: var(--orange-500); }
-  @media (max-width: 767.98px) { .tyhero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 60px; } .tyhero :global(.btn-row) { align-self: stretch; } }
-  .expect__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
+  /* Figma: centred hero, photo set right with five navy gradients on top */
+  .tyhero { position: relative; isolation: isolate; overflow: hidden; background: #0d2534; }
+  .tyhero > :global(picture) { position: absolute; left: 24.81%; top: -8.37%; width: 85.78%; height: 93.58%; z-index: -2; }
+  .tyhero :global(.tyhero__bg) { width: 100%; height: 100%; object-fit: cover; }
+  .tyhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background:
+    linear-gradient(180deg, rgb(15 45 64 / 0.55) 0%, rgb(15 45 64 / 0.85) 100%),
+    linear-gradient(90deg, rgb(15 45 64 / 0.24) 0%, rgb(15 45 64 / 0.24) 100%),
+    linear-gradient(269.75deg, rgb(15 45 64 / 0) 30.25%, #0f2d40 77.26%),
+    linear-gradient(-0.23deg, rgb(15 45 64 / 0) 76.86%, #0f2d40 102.04%),
+    linear-gradient(179.77deg, rgb(15 45 64 / 0) 26.62%, #0f2d40 86.74%); }
+  .tyhero__inner { display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 120px; }
+  .tyhero__check { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: rgb(232 81 42 / 0.2); }
+  .tyhero__check > span { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--orange-500); color: var(--white); }
+  .tyhero__title { max-width: 600px; font-size: 56px; line-height: 1.2; font-weight: 700; color: var(--white); }
+  .tyhero__lead { max-width: 620px; font-size: 20px; line-height: 26px; color: var(--white); }
+  .tyhero__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .tyhero__chip { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 800px; background: rgb(255 255 255 / 0.1); border: 1px solid rgb(255 255 255 / 0.2); font-size: 14px; line-height: 22px; font-weight: 600; color: var(--white); }
+  .tyhero__chip[hidden] { display: none; }
+  .tyhero__chip :global(.icon) { color: var(--orange-500); }
+  .tyhero__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding-top: 12px; }
+  .tyhero__btns :global([hidden]) { display: none; }
+  .tyhero__dir { display: inline-flex; align-items: center; justify-content: center; min-width: 198px; height: 61px; padding: 16px 24px; border-radius: var(--radius-md); border: 1px solid rgb(255 255 255 / 0.5); background: rgb(255 255 255 / 0.06); font-size: 16px; font-weight: 600; color: var(--white); }
+  .tyhero__dir:hover { background: rgb(255 255 255 / 0.12); }
+  @media (max-width: 1023.98px) { .tyhero > :global(picture) { left: 0; width: 100%; height: 70%; top: 0; } }
+  @media (max-width: 767.98px) { .tyhero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 60px; } .tyhero__title { font-size: 36px; } .tyhero__lead { font-size: 16px; line-height: 1.8; } .tyhero__btns { align-self: stretch; flex-direction: column; } .tyhero__btns > * { width: 100%; } }
+  .expect__inner { display: flex; flex-direction: column; align-items: center; gap: 56px; }
+  .expect__inner :global(.section-head) { gap: 20px; }
+  .expect__inner :global(.section-head__title) { font-weight: 700; }
+  .expect__inner :global(.section-head__text) { font-weight: 400; color: var(--navy-600); }
   .expect__grid { list-style: none; padding: 0; width: 100%; display: grid; gap: 16px; }
-  .expect__card { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-xl); background: var(--sand-100); }
-  .expect__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--white); color: var(--orange-500); }
-  .expect__items { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 22px; color: var(--navy-600); }
-  .expect__items li { display: flex; gap: 8px; }
-  .expect__items :global(.icon) { flex: none; margin-top: 3px; color: var(--orange-500); }
-  .expect__items :global(a) { color: var(--orange-500); font-weight: 600; }
+  .expect__card { display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: var(--radius-xl); background: var(--white); }
+  .expect__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: var(--radius-lg); background: rgb(232 81 42 / 0.1); color: var(--orange-500); }
+  .expect__t { font-size: 18px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .expect__items { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .expect__items li { display: flex; gap: 10px; }
+  .expect__items :global(.icon) { flex: none; margin-top: 2px; color: var(--orange-500); }
+  .expect__items :global(a) { color: inherit; }
+  .expect :global(.expect__call) { margin-top: 21px; }
   @media (min-width: 1024px) { .expect__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
   @media (max-width: 767.98px) { .expect { padding-block: 60px; } .expect__card { padding: 24px 16px; } }
 </style>

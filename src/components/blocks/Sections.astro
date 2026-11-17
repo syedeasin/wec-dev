@@ -7,6 +7,8 @@ import SplitBlock from './SplitBlock.astro';
 import FfkBlock from './FfkBlock.astro';
 import StepsDark from './StepsDark.astro';
 import Timeline from './Timeline.astro';
+import FinePrint from './FinePrint.astro';
+import DarkRow from './DarkRow.astro';
 import CostBlock from './CostBlock.astro';
 import RelatedBlock from './RelatedBlock.astro';
 import CardsBlock from './CardsBlock.astro';
@@ -36,7 +38,7 @@ const rk = (reviewsKey in reviews ? reviewsKey : 'home') as keyof typeof reviews
   if (bespoke.includes(i)) return <Fragment set:html={rendered[i]} />;
   switch (kind) {
     case 'hero': return hero ? <PageHero s={s} /> : null;
-    case 'faq': return <FAQ items={s.faqs!} title={s.title === 'Common Questions' ? 'Common <strong>Questions</strong>' : s.title} />;
+    case 'faq': return <FAQ items={s.faqs!} openAll={s.faqOpen} title={s.title === 'Common Questions' ? 'Common <strong>Questions</strong>' : s.title} />;
     case 'cta': {
       const [text, note] = s.paras ?? [];
       const b2 = s.buttons?.[1];
@@ -44,13 +46,15 @@ const rk = (reviewsKey in reviews ? reviewsKey : 'home') as keyof typeof reviews
       return <CTABand title={(s.title ?? '').replace(/\s*\n\s*/g, '<br>')} text={text?.t} note={note ? strip(note.t) : ''} image={image}
         secondary={b2 ? { label: cleanLabel(b2.label), href: btnHref(b2.label), icon: btnIcon(b2.label) } : undefined} />;
     }
-    case 'reviews': return <Reviews page={rk} title={s.title} />;
+    case 'reviews': return <Reviews page={rk} title={s.title} moreLabel={reviewsKey === 'team' ? 'See More Google reviews' : 'See Google reviews'} />;
     case 'logos': return <LogosBlock s={s} />;
     case 'planlist': return <PlanList s={s} />;
     case 'employers': return <EmployersBlock s={s} />;
     case 'where': return <WhereBlock s={s} />;
-    case 'findus': return <Location title={s.title} lead={s.paras?.map((p) => p.t).join(' ')} directions={!!s.buttons?.length} />;
+    case 'findus': return <Location title={s.title} lead={s.paras?.[0]?.t} directions={!!s.buttons?.length} />;
     case 'findings': return <FindingsBlock s={s} />;
+    case 'fineprint': return <FinePrint s={s} />;
+    case 'darkrow': return <DarkRow s={s} />;
     case 'timeline': return <Timeline s={s} />;
     case 'ffk': return <FfkBlock s={s} />;
     case 'stepsdark': return <StepsDark s={s} />;

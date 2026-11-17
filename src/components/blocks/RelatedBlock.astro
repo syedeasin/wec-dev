@@ -10,7 +10,7 @@ const cards = s.cards ?? [];
 ---
 <section class="section section--navy-gradient on-dark related">
   <div class="container related__inner">
-    <SectionHead title={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} maxWidth={760}>{s.paras?.[0] && <Fragment set:html={s.paras[0].t} />}</SectionHead>
+    <SectionHead title={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} maxWidth={1200}>{s.paras?.[0] && <Fragment set:html={s.paras[0].t} />}</SectionHead>
     <ul class:list={['related__grid', `related__grid--${Math.min(cards.length, 4)}`]} role="list">
       {cards.map((c) => {
         const href = cardHref(c.title);
@@ -20,6 +20,7 @@ const cards = s.cards ?? [];
   </div>
 </section>
 <style is:global>
+  .related .section-head__text { max-width: 760px; margin-inline: auto; }
   .related__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; }
   .related__grid { width: 100%; list-style: none; padding: 0; display: grid; gap: 16px; }
   .related__grid > li { display: flex; }

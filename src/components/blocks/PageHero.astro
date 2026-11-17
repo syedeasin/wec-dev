@@ -14,17 +14,25 @@ const trust = s.bullets?.length ? s.bullets.map((b) => ({ icon: icon(b.icon), te
 const image = s.images?.[0];
 const meta = image ? img(image.src) : undefined;
 const pos = image?.pos ?? '70% 50%';
+// Figma CROP fill (desktop): [left, top, width, height] of the visible window as image fractions.
+const crop = image?.crop;
+const ar = meta ? meta.width / meta.height : 1.5;
+const vars = [`--pos:${pos}`, image?.flip && '--flip:-1',
+  crop && `--cx:${crop[0]};--cy:${crop[1]};--cw:${crop[2]};--ch:${crop[3]};--ar:${ar}`].filter(Boolean).join(';');
 ---
-<section class="phero on-dark" style={`--pos:${pos}`}>
-  {meta && <Picture src={meta} alt="" widths={[480, 768, 1280, 1920, 2560].filter((w) => w <= meta.width)} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="phero__bg" loading="eager" fetchpriority="high" />}
+<section class:list={['phero on-dark', crop && 'phero--crop']} style={vars}>
+  {meta && <Picture quality={85} src={meta} alt="" widths={[480, 768, 1280, 1920, 2560, 2880].filter((w) => w <= meta.width)} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="phero__bg" loading="eager" fetchpriority="high" />}
   <div class="container phero__inner">
     <div class="phero__copy">
       {rating && <RatingRow layout="row" class="phero__rating" />}
-      <div class="phero__title">
-        <h1 class="h1" set:html={(s.title ?? '').replace(/\n/g, ' ')} />
-        {lead && <p class="phero__lead" set:html={lead.t} />}
+      <div class="phero__head">
+        <div class="phero__title">
+          <h1 class="h1" set:html={(s.title ?? '').replace(/\n/g, ' ')} />
+          {lead && <p class="phero__lead" set:html={lead.t} />}
+        </div>
+        <Buttons buttons={s.buttons} dark class="phero__buttons" />
       </div>
-      <Buttons buttons={s.buttons} dark class="phero__buttons" />
+      {trust.length > 0 && <hr class="phero__rule" />}
       {trust.length > 0 && (
         <ul class="phero__bullets" role="list">
           {trust.map((b) => <BulletItem icon={b.icon} size={20}>{b.text}</BulletItem>)}
@@ -37,21 +45,37 @@ const pos = image?.pos ?? '70% 50%';
 <style is:global>
   .phero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
   .phero > picture { position: absolute; inset: 0; z-index: -2; }
-  .phero__bg { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos); }
+  .phero__bg { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos); transform: scaleX(var(--flip, 1)); }
+  @media (min-width: 1280px) {
+    /* Reproduce the Figma crop window under the top bar; grow if the hero gets taller than the crop */
+    .phero--crop > picture { top: var(--topbar-h); overflow: hidden; container-type: size; }
+    .phero--crop .phero__bg { --iw: max(100cqw / var(--cw), 100cqh * var(--ar) / var(--ch)); position: absolute; max-width: none;
+      width: var(--iw); height: calc(var(--iw) / var(--ar)); left: calc(var(--iw) * var(--cx) * -1); top: calc(var(--iw) / var(--ar) * var(--cy) * -1); }
+  }
   .phero::before { content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.9) 30%, rgb(15 45 64 / 0.35) 58%, rgb(15 45 64 / 0.05) 80%), linear-gradient(180deg, rgb(15 45 64 / 0.5) 0%, rgb(15 45 64 / 0) 30%, rgb(15 45 64 / 0) 70%, rgb(15 45 64 / 0.6) 100%); }
-  .phero__inner { padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 100px; min-height: 760px; display: flex; align-items: center; }
-  .phero__copy { display: flex; flex-direction: column; gap: 32px; max-width: 680px; }
+    /* Same Figma overlay stack as the homepage hero: deep navy behind the header and on the copy side */
+    background:
+      linear-gradient(90deg, rgb(15 45 64 / 0.24) 0%, rgb(15 45 64 / 0.24) 100%),
+      linear-gradient(269.79deg, rgb(15 45 64 / 0) 30.25%, #0f2d40 77.26%),
+      linear-gradient(-0.27deg, rgb(15 45 64 / 0) 76.86%, #0f2d40 102.04%),
+      linear-gradient(179.73deg, rgb(15 45 64 / 0) 26.62%, #0f2d40 86.74%); }
+  /* Figma inner hero: 46px top bar + 880px hero, copy sits at the bottom with 96px below */
+  .phero__inner { padding-top: calc(var(--masthead-h) + 80px); padding-bottom: 96px; min-height: 926px; display: flex; align-items: flex-end; }
+  .phero__copy { display: flex; flex-direction: column; gap: 24px; max-width: 727px; }
+  .phero__head { display: flex; flex-direction: column; gap: 32px; }
+  .phero__rule { width: 262px; height: 1px; border: 0; background: #15405b; }
+  .phero__buttons .btn { min-width: 300px; }
   .phero__copy > .rating { justify-content: flex-start; align-self: flex-start; }
   .phero__title { display: flex; flex-direction: column; gap: 16px; }
-  .phero__title .h1 { font-weight: 600; }
-  .phero__lead { color: rgb(255 255 255 / 0.85); font-weight: 500; max-width: 600px; }
+  .phero__title .h1 { font-weight: 700; }
+  .phero__lead { color: rgb(255 255 255 / 0.8); font-weight: 500; }
   .phero__buttons .btn--outline-light .icon { color: var(--orange-500); }
   .phero__bullets { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--sand-100); }
   .phero__bullets .icon { color: var(--blue-300); }
   .phero__media-mobile { display: none; }
+  @media (max-width: 767.98px) { .phero__br { display: none; } }
   @media (max-width: 1279.98px) {
-    .phero__inner { min-height: 640px; padding-bottom: 80px; }
+    .phero__inner { min-height: 680px; padding-bottom: 80px; }
     .phero::before { background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.85) 50%, rgb(15 45 64 / 0.45) 100%); }
   }
   @media (max-width: 767.98px) {
@@ -59,6 +83,9 @@ const pos = image?.pos ?? '70% 50%';
     .phero::before { background: linear-gradient(180deg, #0f2d40 0%, #0f2d40 calc(100% - 380px), rgb(15 45 64 / 0.55) calc(100% - 260px), rgb(15 45 64 / 0) 100%); }
     .phero__inner { min-height: 0; padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 0; }
     .phero__copy { gap: 24px; }
+    .phero__head { gap: 24px; }
+    .phero__rule { display: none; }
+    .phero__buttons .btn { min-width: 0; }
     .phero__lead { font-size: 14px; line-height: 1.8; }
     .phero__bullets { flex-direction: column; gap: 8px; font-size: 12px; }
     .phero__media-mobile { display: block; height: 300px; }

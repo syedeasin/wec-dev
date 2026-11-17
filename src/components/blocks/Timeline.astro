@@ -3,15 +3,23 @@
 import Title from './Title.astro';
 import Rich from './Rich.astro';
 import Buttons from './Buttons.astro';
+import Callout from './Callout.astro';
 import type { Section } from '../../lib/content';
 interface Props { s: Section; bg?: 'white' | 'sand' }
 const { s, bg = 'white' } = Astro.props;
+// Figma: the closing "If you are only trying…" paragraph is a Callout, not body copy
+const paras = s.paras ?? [];
+const last = paras.length >= 3 && /^If you are only/i.test(paras[paras.length - 1].t) ? paras[paras.length - 1] : undefined;
+const body = last ? paras.slice(0, -1) : paras;
 ---
 <section class:list={['section timeline', `section--${bg}`]}>
   <div class:list={['container timeline__grid', !s.paras?.length && 'timeline__grid--solo']}>
     <div class="timeline__copy">
-      <Title title={s.title} />
-      <Rich paras={s.paras} />
+      <div class="timeline__head">
+        <Title title={s.title} />
+        <Rich paras={body} />
+      </div>
+      {last && <Callout text={last.t} />}
       <Buttons buttons={s.buttons} />
     </div>
     <ol class="timeline__card" role="list">
@@ -26,15 +34,18 @@ const { s, bg = 'white' } = Astro.props;
 </section>
 <style is:global>
   .timeline__grid { display: grid; gap: 40px; align-items: center; }
-  .timeline__copy { display: flex; flex-direction: column; gap: 24px; }
-  .timeline__card { list-style: none; margin: 0; padding: 24px; display: flex; flex-direction: column; gap: 16px; border-radius: var(--radius-xl); background: var(--gradient-primary); box-shadow: var(--shadow-btn-lg); }
-  .timeline__item { display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--white); border-radius: var(--radius-lg); font-size: var(--fs-a1); line-height: var(--lh-a1); color: var(--navy-600); }
-  .timeline__tag { align-self: flex-start; display: inline-flex; align-items: center; min-height: 28px; padding: 4px 12px; border-radius: var(--radius-full); background: rgb(232 81 42 / 0.12); color: var(--orange-500); font-size: 12px; line-height: 1; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .timeline__copy { display: flex; flex-direction: column; gap: 32px; }
+  .timeline__head { display: flex; flex-direction: column; gap: 24px; }
+  .timeline__head .rich { font-size: 16px; line-height: 1.8; font-weight: 500; color: var(--navy-900); }
+  .timeline__card { list-style: none; margin: 0; padding: 32px; display: flex; flex-direction: column; gap: 13px; border-radius: var(--radius-xl); background: var(--orange-500); }
+  .timeline__item { display: flex; flex-direction: column; gap: 16px; padding: 24px; background: var(--white); border-radius: var(--radius-md); box-shadow: 0 8px 32px rgb(15 45 64 / 0.08); font-size: 16px; line-height: 1.8; font-weight: 500; color: var(--navy-900); }
+  .timeline__tag { align-self: flex-start; display: inline-flex; align-items: center; padding: 6px 12px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.08); color: var(--orange-500); font-size: 12px; line-height: 22px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
   .timeline__grid--solo .timeline__card { display: grid; }
   @media (min-width: 1024px) {
-    .timeline__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; }
+    .timeline__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 519px); gap: 124px; }
+    .timeline__copy { padding-block: 24px; }
     .timeline__grid--solo { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
-    .timeline__card { padding: 32px; }
   }
-  @media (max-width: 767.98px) { .timeline { padding-block: 60px; } .timeline__card { padding: 12px; } .timeline__item { padding: 20px 16px; } }
+  @media (min-width: 1024px) and (max-width: 1279.98px) { .timeline__grid { gap: 60px; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); } }
+  @media (max-width: 767.98px) { .timeline { padding-block: 60px; } .timeline__card { padding: 12px; } .timeline__item { padding: 20px 16px; font-size: 14px; } .timeline__head .rich { font-size: 14px; } }
 </style>

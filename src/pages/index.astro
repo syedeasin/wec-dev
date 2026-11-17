@@ -46,7 +46,7 @@ const caseySlides = [
 >
   <!-- ============ HERO ============ -->
   <section class="hero on-dark">
-    <Picture src={heroImg} alt="" widths={[640, 960, 1280, 1920, 2560, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="hero__bg" loading="eager" fetchpriority="high" />
+    <Picture quality={85} src={heroImg} alt="" widths={[640, 960, 1280, 1920, 2560, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="hero__bg" loading="eager" fetchpriority="high" />
     <div class="container hero__inner">
       <div class="hero__copy">
         <div class="hero__title">
@@ -74,15 +74,15 @@ const caseySlides = [
 
   <!-- ============ VIDEO ============ -->
   <section class="section video-sec on-dark">
-    <Deco opacity={0.02} style="right:-350px;top:0;transform:rotate(-32deg);transform-origin:top left" />
-    <Deco opacity={0.02} style="left:-492px;top:21px;" />
+    <Deco fillOpacity={0.02} rotate={32.56} box={[1073, 1336]} style="right:-281px;top:0;" />
+    <Deco fillOpacity={0.02} rotate={-35.76} box={[1120, 1316]} style="left:-492px;top:-237px;" />
     <div class="container">
       <div class="video-sec__card">
         <VideoPopup url={site.videos.meetTheDoctor} image={videoThumb} alt="Dr. Casey Morgan adjusting a patient" title="Play: a minute with Dr. Casey Morgan" class="video-sec__video" />
         <div class="video-sec__copy">
           <div class="stack-24">
             <Tag variant="soft-dark">Non-Surgical Treatment</Tag>
-            <h2 class="h2 video-sec__title">A minute with the doctor you’ll actually be seeing.</h2>
+            <h2 class="h2 video-sec__title">A minute with the<br class="br-xl" /> doctor you’ll actually<br class="br-xl" /> be seeing.</h2>
             <ul class="bullet-list video-sec__list" role="list">
               <BulletItem icon="check" size={24}>5.0 stars, 250+ reviews</BulletItem>
               <BulletItem icon="check" size={24}>Free covered parking off MoPac</BulletItem>
@@ -100,7 +100,7 @@ const caseySlides = [
     <div class="container split pain__split">
       <div class="pain__copy">
         <div class="stack-24">
-          <h2 class="h2 pain__title"><SpineMark class="pain__mark" /><span>Pain that won’t let up <strong>wears you down</strong></span></h2>
+          <h2 class="h2 pain__title"><SpineMark class="pain__mark" /><span>Pain that won’t let up<br class="br-lg" /> <strong>wears you down</strong></span></h2>
           <div class="stack-16 pain__text">
             <p>When your back locks up during a meeting, or your neck stiffens at your desk, or a headache turns a Wednesday into a lost day, it’s not just discomfort. <strong>It’s your work, your workouts, your time with family. All of it takes a hit.</strong></p>
             <p class="fw-500">Most people push through it. They stretch. They pop ibuprofen. They tell themselves it will pass. Sometimes it does. Sometimes it doesn’t.</p>
@@ -110,7 +110,7 @@ const caseySlides = [
         <Button href={site.bookHref} blockMobile>{site.bookLabel}</Button>
       </div>
       <div class="pain__media">
-        <Picture src={painImg} alt="Dr. Casey Morgan performing a lower back adjustment" widths={[360, 540, 800, 1040]} sizes="(min-width: 1280px) 519px, (min-width: 1024px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+        <Picture quality={85} src={painImg} alt="Dr. Casey Morgan performing a lower back adjustment" widths={[360, 540, 800, 1040, 1200]} sizes="(min-width: 1280px) 519px, (min-width: 1024px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
       </div>
     </div>
   </section>
@@ -141,7 +141,7 @@ const caseySlides = [
           <div class="casey__track">
             {caseySlides.map((s, i) => (
               <figure class:list={['casey__slide', { 'is-active': i === 0 }]} data-slide aria-hidden={i === 0 ? undefined : 'true'}>
-                <Picture src={s.src} alt={s.alt} widths={[360, 488, 720, 976]} sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+                <Picture quality={85} src={s.src} alt={s.alt} widths={[360, 488, 720, 976, 1200]} sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
               </figure>
             ))}
           </div>
@@ -150,7 +150,7 @@ const caseySlides = [
           </div>
         </div>
         <div class="casey__copy">
-          <h2 class="h2 casey__title">Casey Morgan D.C.<br />Second-generation<br />Austin chiropractor</h2>
+          <h2 class="h2 casey__title"><strong>Casey Morgan D.C.</strong><br />Second-generation<br />Austin chiropractor</h2>
           <div class="stack-16 casey__text">
             <p>Dr. Morgan grew up noticing two things. Other kids were always going to the doctor and he never was. And his dad loved going to work every single day. At sixteen he decided he’d be a chiropractor too.</p>
             <p>Parker University graduate. Board Certified by the NBCE. Second generation. Adjusting patients in downtown Austin since 2016.</p>
@@ -165,7 +165,7 @@ const caseySlides = [
         <h2 class="h3 team-row__title">The people who make the visit easy</h2>
         <div class="team-row__grid">
           <article class="person">
-            <Picture src={taiImg} alt="Tai Le, chiropractic assistant" widths={[132, 264]} sizes="132px" formats={['webp']} fallbackFormat="webp" loading="lazy" class="person__img" />
+            <Picture quality={85} src={taiImg} alt="Tai Le, chiropractic assistant" widths={[132, 264, 396]} sizes="132px" formats={['webp']} fallbackFormat="webp" loading="lazy" class="person__img" />
             <div class="person__body">
               <h3 class="person__name">Tai Le</h3>
               <p class="person__role">Chiropractic Assistant</p>
@@ -173,7 +173,7 @@ const caseySlides = [
             </div>
           </article>
           <article class="person">
-            <Picture src={gabbyImg} alt="Gabriella “Gabby” Menendez, chiropractic assistant" widths={[132, 264]} sizes="132px" formats={['webp']} fallbackFormat="webp" loading="lazy" class="person__img" />
+            <Picture quality={85} src={gabbyImg} alt="Gabriella “Gabby” Menendez, chiropractic assistant" widths={[132, 264, 396]} sizes="132px" formats={['webp']} fallbackFormat="webp" loading="lazy" class="person__img" />
             <div class="person__body">
               <h3 class="person__name">Gabriella "Gabby" Menendez</h3>
               <p class="person__role">Chiropractic Assistant</p>
@@ -188,11 +188,11 @@ const caseySlides = [
 
   <!-- ============ HOW IT WORKS ============ -->
   <section class="how on-dark">
-    <Picture src={howImg} alt="" widths={[640, 960, 1440, 2160, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="how__bg" loading="lazy" />
-    <Deco opacity={0.04} style="right:-360px;top:5px;" class="hide-mobile" />
+    <Picture quality={85} src={howImg} alt="" widths={[640, 960, 1440, 2160, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="how__bg" loading="lazy" />
+    <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="right:-341px;top:5px;" class="hide-mobile" />
     <div class="container how__inner">
       <div class="how__media-mobile">
-        <Picture src={caseyXray} alt="Dr. Casey Morgan explaining X-ray results to a patient" widths={[360, 720]} sizes="100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+        <Picture quality={85} src={caseyXray} alt="Dr. Casey Morgan explaining X-ray results to a patient" widths={[390, 780, 1170]} sizes="100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
       </div>
       <div class="how__copy">
         <h2 class="h2 how__title">How it works</h2>
@@ -208,7 +208,7 @@ const caseySlides = [
   <!-- ============ NEW PATIENT ============ -->
   <section class="section section--sand first-visit">
     <div class="container first-visit__inner">
-      <SectionHead title="<strong>New patient?<br>Here is your first visit.</strong>" maxWidth={572}>Your exam, a consultation, and any necessary digital X-rays.</SectionHead>
+      <SectionHead title="<strong>New patient?<br>Here is your first visit.</strong>" maxWidth={572}>Your exam, a consultation, and any<br class="br-md" /> necessary digital X-rays.</SectionHead>
       <div class="first-visit__card">
         <ul class="first-visit__grid" role="list">
           <li><FeatureCard icon="file-text" title="Full history and exam">We ask what hurts, what you have already tried, and what you want back.</FeatureCard></li>
@@ -217,7 +217,7 @@ const caseySlides = [
           <li><FeatureCard icon="thumbs-up" title="Honest recommendation">If decompression fits, you get the plan and pricing. If not, we say so.</FeatureCard></li>
         </ul>
         <div class="first-visit__media">
-          <Picture src={newPatientImg} alt="New patient filling out a health history form on a clipboard" widths={[360, 488, 720, 976]} sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+          <Picture quality={85} src={newPatientImg} alt="New patient filling out a health history form on a clipboard" widths={[360, 488, 720, 976, 1200]} sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
         </div>
       </div>
       <div class="first-visit__actions">
@@ -292,17 +292,19 @@ const caseySlides = [
 <style>
   /* ---------- Hero ---------- */
   .hero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
-  .hero :global(.hero__bg) { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 75% 50%; }
+  /* Figma image frame: starts 6.62% from the left, 118.69% wide, full height */
+  .hero :global(.hero__bg) { position: absolute; top: 0; left: 6.62%; z-index: -2; width: 118.69%; max-width: none; height: 100%; object-fit: cover; object-position: 50% 50%; }
   .hero :global(picture) { position: absolute; inset: 0; z-index: -2; }
   .hero::before { content: ''; position: absolute; inset: 0; z-index: -1;
     background:
-      linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.92) 28%, rgb(15 45 64 / 0.35) 55%, rgb(15 45 64 / 0) 75%),
-      linear-gradient(180deg, rgb(15 45 64 / 0) 55%, #0f2d40 100%),
-      rgb(15 45 64 / 0.24); }
+      linear-gradient(90deg, rgb(15 45 64 / 0.24) 0%, rgb(15 45 64 / 0.24) 100%),
+      linear-gradient(-0.27deg, #0f2d40 0.38%, rgb(15 45 64 / 0) 27.98%),
+      linear-gradient(-0.27deg, rgb(15 45 64 / 0) 60.68%, #0f2d40 114.12%),
+      linear-gradient(270deg, rgb(15 45 64 / 0) 0%, #0f2d40 48.96%); }
   .hero__inner { position: relative; padding-top: calc(var(--masthead-h) + 60px); padding-bottom: 120px; min-height: 880px; display: flex; align-items: center; }
   .hero__copy { display: flex; flex-direction: column; gap: 32px; max-width: 758px; }
   .hero__title { display: flex; flex-direction: column; gap: 16px; }
-  .hero__title .h1 { max-width: 737px; font-weight: 500; }
+  .hero__title .h1 { max-width: 737px; font-weight: 600; }
   .hero__lead { color: rgb(255 255 255 / 0.8); font-weight: 500; max-width: 640px; }
   .hero__buttons { display: flex; flex-wrap: wrap; gap: 16px; }
   .hero :global(.hero__verify .icon) { color: var(--orange-500); }
@@ -319,7 +321,7 @@ const caseySlides = [
   @media (max-width: 767.98px) {
     /* Mobile: copy on navy, photo below with a fade (matches Figma mobile) */
     .hero :global(picture) { inset: auto 0 0 0; height: 451px; top: auto; }
-    .hero :global(.hero__bg) { position: absolute; object-position: 77% 50%; }
+    .hero :global(.hero__bg) { position: absolute; left: 0; width: 100%; object-position: 77% 50%; }
     .hero::before { background: linear-gradient(180deg, #0f2d40 0%, #0f2d40 calc(100% - 451px), rgb(15 45 64 / 0.6) calc(100% - 330px), rgb(15 45 64 / 0) 100%); }
     .hero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 0; }
     .hero__copy { gap: 24px; }
@@ -332,6 +334,8 @@ const caseySlides = [
 
   /* ---------- Video ---------- */
   .video-sec { position: relative; overflow: hidden; isolation: isolate; background: var(--navy-900); padding-top: 80px; }
+  .video-sec__title .br-xl { display: none; }
+  @media (min-width: 1280px) { .video-sec__title .br-xl { display: inline; } .video-sec__title { text-wrap: nowrap; } }
   .video-sec__card { position: relative; z-index: 1; display: grid; gap: 40px; padding: 40px; background: var(--navy-750); border-radius: var(--radius-xl); align-items: center; }
   .video-sec :global(.video-sec__video) { aspect-ratio: 519 / 571; }
   .video-sec__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
@@ -339,41 +343,45 @@ const caseySlides = [
   .video-sec__list { font-size: 16px; line-height: 1.8; font-weight: 600; color: var(--sand-100); }
   .video-sec__list :global(.icon) { color: var(--orange-500); }
   @media (min-width: 1024px) {
-    .video-sec__card { grid-template-columns: minmax(0, 519px) minmax(0, 521px); justify-content: space-between; gap: 80px; }
-    .video-sec__title { max-width: 440px; }
+    /* Figma: 519 media / 521 copy, 80 gap — scale columns with the container instead of pinning px widths */
+    .video-sec__card { grid-template-columns: minmax(0, 519fr) minmax(0, 521fr); gap: 80px; }
   }
   @media (max-width: 1023.98px) {
     .video-sec__copy { order: -1; }
     .video-sec :global(.video-sec__video) { aspect-ratio: 310 / 343; max-height: 520px; width: 100%; }
   }
   @media (max-width: 767.98px) {
-    .video-sec { padding-top: 0; padding-bottom: 0; }
-    .video-sec__card { padding: 24px 12px 12px; gap: 24px; margin-bottom: 60px; }
-    .video-sec__copy { padding-inline: 8px; }
-    .video-sec__title { font-size: 20px; line-height: 1.2; }
-    .video-sec__list { font-size: 14px; line-height: 1.6; gap: 12px; }
-    .video-sec__list :global(.bullet--24) { --bsz: 20px; }
-    .video-sec__list :global(.icon) { width: 20px; height: 20px; }
+    /* Figma mobile: 40px section padding, 16px card padding, 24px radius, 28px bold title, video 343 tall */
+    .video-sec { padding-block: 40px; }
+    .video-sec__card { padding: 16px; gap: 32px; border-radius: 24px; }
+    .video-sec__title { font-size: 28px; line-height: 1.2; font-weight: 700; text-wrap: wrap; }
+    .video-sec__list { line-height: 1.4; }
+    .video-sec :global(.video-sec__video) { aspect-ratio: auto; height: 343px; max-height: none; }
   }
 
   /* ---------- Pain ---------- */
   .pain__split { gap: 40px; }
   .pain__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; padding-block: 24px; }
-  .pain__title { display: flex; align-items: center; gap: 24px; font-weight: 500; }
+  .pain__title { display: flex; align-items: center; gap: 24px; font-weight: 600; }
+  .pain__title .br-lg { display: none; }
+  @media (min-width: 1024px) { .pain__title .br-lg { display: inline; } }
   .pain__title strong { font-weight: 700; }
   .pain :global(.pain__mark) { color: var(--blue-300); opacity: 0.4; }
   .pain :global(.pain__mark svg) { height: 80px; width: auto; }
-  .pain__text { color: var(--navy-900); }
+  .pain__text { color: var(--navy-900); font-weight: 500; }
   .pain__text strong { font-weight: 600; }
-  .pain__media { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-image); }
+  .pain__media { border-radius: var(--radius-xl); overflow: hidden; }
   .pain__media :global(img) { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 519 / 571; }
-  @media (min-width: 1024px) { .pain__split { grid-template-columns: minmax(0, 557px) minmax(0, 519px); justify-content: space-between; gap: 80px; } }
+  /* Figma: 557 copy / 519 media, 124 gap at 1200 — proportional so the gap never balloons on wide screens */
+  @media (min-width: 1024px) { .pain__split { grid-template-columns: minmax(0, 557fr) minmax(0, 519fr); gap: 60px; } }
+  @media (min-width: 1280px) { .pain__split { gap: 124px; } }
   @media (max-width: 1023.98px) { .pain__media { order: 2; } .pain__media :global(img) { aspect-ratio: 342 / 359; } }
   @media (max-width: 767.98px) {
-    .pain { padding-top: 60px; padding-bottom: 0; }
-    .pain__copy { padding-block: 0; }
-    .pain__title { gap: 16px; }
-    .pain :global(.pain__mark svg) { height: 64px; }
+    .pain { padding-block: 80px; }
+    .pain__split { gap: 32px; }
+    .pain__title { font-weight: 600; text-wrap: wrap; }
+    .pain__title strong { font-weight: 600; }
+    .pain__title { gap: 24px; }
   }
 
   /* ---------- Symptoms ---------- */
@@ -404,7 +412,7 @@ const caseySlides = [
   .casey__inner { display: flex; flex-direction: column; gap: 100px; }
   .casey__split { display: grid; gap: 40px; align-items: center; }
   .casey__media { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-  .casey__track { display: grid; width: 100%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-image); }
+  .casey__track { display: grid; width: 100%; border-radius: var(--radius-xl); overflow: hidden; }
   .casey__slide { grid-area: 1 / 1; opacity: 0; transition: opacity 500ms var(--ease); }
   .casey__slide.is-active { opacity: 1; }
   .casey__slide :global(img) { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 488 / 549; }
@@ -413,6 +421,7 @@ const caseySlides = [
   .dots__dot.is-active { background: var(--navy-900); }
   .casey__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
   .casey__title { font-weight: 600; }
+  .casey__title strong { font-weight: 700; }
   .casey__text { color: var(--navy-600); font-weight: 500; }
   .team-row { display: flex; flex-direction: column; align-items: center; gap: 60px; }
   .team-row__title { text-align: center; font-weight: 600; }
@@ -421,13 +430,15 @@ const caseySlides = [
   .person :global(.person__img), .person :global(picture) { flex: none; }
   .person :global(img) { width: 132px; height: 132px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-image-soft); }
   .person__body { display: flex; flex-direction: column; gap: 4px; }
-  .person__name { font-size: 20px; line-height: 26px; font-weight: 600; }
-  .person__role { font-size: 14px; line-height: 22px; font-style: italic; color: var(--orange-500); }
+  .person__name { font-size: 20px; line-height: 1.2; font-weight: 600; }
+  .person__role { font-size: 14px; line-height: 1.8; font-style: italic; color: var(--orange-500); }
   .person__bio { font-size: 16px; line-height: 1.6; color: var(--navy-900); }
-  @media (min-width: 1024px) { .casey__split { grid-template-columns: minmax(0, 488px) minmax(0, 652px); justify-content: space-between; gap: 60px; } }
-  @media (min-width: 1024px) { .team-row__grid { grid-template-columns: repeat(2, minmax(0, 560px)); justify-content: center; gap: 80px; } }
+  /* Figma: 488 media / 652 copy, 60 gap — proportional columns */
+  @media (min-width: 1024px) { .casey__split { grid-template-columns: minmax(0, 488fr) minmax(0, 652fr); gap: 60px; } }
+  /* Figma: two equal columns spanning the full container, 80px gap */
+  @media (min-width: 1024px) { .team-row__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; } }
   @media (max-width: 767.98px) {
-    .casey { padding-top: 60px; }
+    .casey { padding-top: 80px; }
     .casey__inner { gap: 60px; }
     .casey__slide :global(img) { aspect-ratio: 342 / 391; }
     .team-row { gap: 40px; align-items: stretch; }
@@ -442,15 +453,17 @@ const caseySlides = [
 
   /* ---------- How it works ---------- */
   .how { position: relative; overflow: hidden; isolation: isolate; background: var(--navy-900); }
-  .how :global(.how__bg) { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 0% 10%; transform: scale(1.3); transform-origin: 0 0; }
+  /* Figma image frame: 108.24% × 136.39% of the section, offset -8.26% / -9.94% (shows the full photo, not a zoomed crop) */
+  .how :global(.how__bg) { position: absolute; left: -8.26%; top: -9.94%; z-index: -2; width: 108.24%; height: 136.39%; max-width: none; object-fit: cover; object-position: 50% 50%; }
   .how > :global(picture) { position: absolute; inset: 0; z-index: -2; }
   .how::before { content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(90deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 28%, rgb(27 79 114 / 0.95) 46%, #0f2d40 75%); }
+    background: linear-gradient(88.45deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 27.89%, #1b4f72 45.75%, #0f2d40 75.48%);
+    mix-blend-mode: multiply; }
   .how__inner { display: grid; min-height: 750px; align-items: center; padding-block: 80px; }
   .how__copy { display: flex; flex-direction: column; gap: 24px; }
   .how__title { font-weight: 700; color: var(--white); }
   .how__media-mobile { display: none; }
-  @media (min-width: 1024px) { .how__inner { grid-template-columns: minmax(0, 488px) minmax(0, 632px); justify-content: space-between; gap: 80px; } .how__copy { grid-column: 2; } }
+  @media (min-width: 1024px) { .how__inner { grid-template-columns: minmax(0, 488fr) minmax(0, 632fr); gap: 80px; } .how__copy { grid-column: 2; } }
   @media (max-width: 1023.98px) {
     .how > :global(picture) { display: none; }
     .how::before { background: var(--gradient-navy); }
@@ -462,7 +475,9 @@ const caseySlides = [
 
   /* ---------- First visit ---------- */
   .first-visit__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); align-items: center; }
+  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: 0 8px 16px 0 rgb(15 45 64 / 0.06); align-items: end; }
+  .first-visit .br-md { display: none; }
+  @media (min-width: 768px) { .first-visit .br-md { display: inline; } }
   .first-visit__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
   .first-visit__grid > li { position: relative; padding-block: 32px; border-top: 1px solid rgb(0 0 0 / 0.12); }
   .first-visit__grid > li:last-child { border-bottom: 1px solid rgb(0 0 0 / 0.12); }
@@ -474,7 +489,7 @@ const caseySlides = [
   .first-visit :global(.btn--plain) { box-shadow: none; }
   .first-visit__note { text-align: center; color: rgb(27 79 114 / 0.8); }
   @media (min-width: 768px) { .first-visit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .first-visit__grid > li:nth-last-child(-n+2) { border-bottom: 1px solid rgb(0 0 0 / 0.12); } }
-  @media (min-width: 1024px) { .first-visit__card { grid-template-columns: minmax(0, 572px) minmax(0, 488px); justify-content: space-between; gap: 60px; } }
+  @media (min-width: 1024px) { .first-visit__card { grid-template-columns: minmax(0, 572fr) minmax(0, 488fr); gap: 60px; } }
   @media (max-width: 1023.98px) { .first-visit__media { order: -1; } }
   @media (max-width: 767.98px) {
     .first-visit__card { padding: 16px 16px 8px; gap: 24px; }

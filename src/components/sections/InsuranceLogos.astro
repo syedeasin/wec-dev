@@ -12,7 +12,7 @@ interface Props { class?: string }
 <ul class:list={['ins-logos', Astro.props.class]} role="list">
   {list.map(([key, name]) => {
     const img = logo(key);
-    return <li class="ins-logos__cell"><Image src={img} alt={name} width={Math.round(img.width / 3)} height={Math.round(img.height / 3)} densities={[1, 2, 3]} loading="lazy" /></li>;
+    return <li class="ins-logos__cell"><Image quality={85} src={img} alt={name} width={Math.round(img.width / 3)} height={Math.round(img.height / 3)} densities={[1, 2, 3]} loading="lazy" /></li>;
   })}
 </ul>
 <style is:global>

@@ -1,13 +1,14 @@
 ---
+// Resource library — Figma 14030:31003 (centred masthead + featured stories, sticky topic chips,
+// latest list with sticky sidebar, browse-by-topic rows, videos, CTA band).
+import { Picture } from 'astro:assets';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import ArticleCard from '../../components/blocks/ArticleCard.astro';
-import Media from '../../components/blocks/Media.astro';
 import Sections from '../../components/blocks/Sections.astro';
 import Button from '../../components/ui/Button.astro';
 import Icon from '../../components/ui/Icon.astro';
 import VideoPopup from '../../components/ui/VideoPopup.astro';
 import data from '../../data/pages/resources.json';
-import { articles, topics, videos, articleHref } from '../../data/articles';
+import { articles, topics, videos, articleHref, fmtDate, type ArticleMeta } from '../../data/articles';
 import { img, type PageData } from '../../lib/content';
 import { site } from '../../data/site';
 const d = data as PageData;
@@ -17,18 +18,23 @@ const more = ['why-lower-back-hurts-after-sitting', 'first-72-hours-after-car-wr
 const latest = ['do-you-need-an-x-ray', 'sciatica-or-pulled-muscle', 'why-you-wake-up-with-stiff-neck', 'headaches-that-start-in-your-neck', 'your-first-visit-step-by-step'].map(by);
 const mostRead = [featured, ...more, by('sciatica-or-pulled-muscle')];
 const groups = [
-  { title: 'Back Pain', list: ['desk-stretches-under-two-minutes', 'herniated-disc-recovery-normal-week', 'is-spinal-decompression-right-for-you'].map(by) },
-  { title: 'Auto Accident Recovery', list: ['whiplash-symptoms-days-later', 'how-pip-works-in-texas', 'chiropractor-or-er-after-car-accident'].map(by) },
+  { title: 'Back Pain', desc: 'Desk aches, disc problems, and getting moving again.', topic: 'Back Pain', list: ['desk-stretches-under-two-minutes', 'herniated-disc-recovery-normal-week', 'is-spinal-decompression-right-for-you', 'how-to-lift-without-hurting-your-back'].map(by) },
+  { title: 'Auto Accident Recovery', desc: 'What to do after a wreck, from first symptoms to your PIP claim.', topic: 'Auto Accident', list: ['whiplash-symptoms-days-later', 'how-pip-works-in-texas', 'chiropractor-or-er-after-car-accident', 'document-injuries-insurance-claim'].map(by) },
 ];
-const video = videos[0];
+const all = [...latest, ...groups.flatMap((g) => g.list)];
+const meta = (a: ArticleMeta) => [fmtDate(a.date), `${a.minutes} min read`].filter(Boolean).join('  ·  ');
+const w = (m: ImageMetadata, max: number) => [240, 400, 600, 800, 1200, 1600].filter((x) => x <= Math.min(m.width, max));
+const hero = img(featured.image);
+const avatar = img('resources/avatar');
+const book = img('resources/bookcard');
 const nl = d.sections[6];
 ---
 <SiteLayout title="Chiropractic Resources: Articles & Videos | West End Chiropractic" description="Short, plain-English articles and videos from Casey Morgan, D.C. on back pain, neck pain, headaches, car accident recovery and pregnancy.">
   <section class="rhero on-dark">
-    <div class="container rhero__grid">
-      <div class="rhero__copy">
-        <p class="eyebrow rhero__eyebrow">Resource library</p>
-        <h1 class="h1" set:html={d.sections[0].title} />
+    <div class="container rhero__inner">
+      <div class="rhero__mast">
+        <p class="rk rk--blue">Resource library</p>
+        <h1 class="rhero__title">Chiropractic Resources<br />from <span class="hl">West End</span></h1>
         <p class="rhero__lead" set:html={d.sections[0].paras![1].t} />
         <form class="rsearch" role="search" data-search onsubmit="return false">
           <Icon name="search" size={20} />
@@ -36,11 +42,29 @@ const nl = d.sections[6];
           <input id="rsearch" type="search" placeholder="Search articles and videos" autocomplete="off" data-search-input />
         </form>
       </div>
-      <div class="rhero__feature">
-        <p class="eyebrow rhero__label">Featured</p>
-        <div class="rhero__card"><ArticleCard a={featured} layout="feature" /></div>
-        <p class="eyebrow rhero__label">More featured</p>
-        <ul class="rhero__more" role="list">{more.map((a) => <li><ArticleCard a={a} layout="row" /></li>)}</ul>
+      <div class="rhero__stories">
+        {(() => { const href = articleHref(featured.slug); const T = href ? 'a' : 'div'; return (
+          <T class="rlead" href={href}>
+            <Picture src={hero} alt="" class="rlead__img" widths={w(hero, 1600)} sizes="(min-width: 1280px) 760px, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} loading="eager" />
+            <div class="rlead__body">
+              <div class="rlead__labels"><span class="rlead__flag">Featured</span><span class="rk rk--white">{featured.topic}</span></div>
+              <h2 class="rlead__title">{featured.title}</h2>
+              <p class="rlead__dek">{featured.dek}</p>
+              <div class="rlead__by"><Picture src={avatar} alt="" widths={[64, 128]} sizes="32px" formats={['webp']} fallbackFormat="webp" class="rlead__av" /><strong>Casey Morgan, D.C.</strong><span>{meta(featured)}</span></div>
+            </div>
+          </T>
+        ); })()}
+        <div class="rmore">
+          <p class="rk rmore__label">More featured</p>
+          <ul role="list">
+            {more.map((a) => { const href = articleHref(a.slug); const T = href ? 'a' : 'div'; const m = img(a.image); return (
+              <li><T class="rmore__item" href={href}>
+                <Picture src={m} alt="" class="rmore__img" widths={w(m, 400)} sizes="112px" formats={['webp']} fallbackFormat="webp" quality={85} />
+                <div><p class="rk rk--blue">{a.topic}</p><p class="rmore__t">{a.title}</p><p class="rmore__m">{meta(a)}</p></div>
+              </T></li>
+            ); })}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -52,73 +76,100 @@ const nl = d.sections[6];
     </div>
   </nav>
 
-  <section class="section section--white rlatest">
-    <div class="container rlatest__inner">
-      <h2 class="h2">Latest articles</h2>
-      <ul class="rgrid" role="list" data-filter-list>
-        {[...latest, ...groups.flatMap((g) => g.list)].map((a, i) => <li data-topic={a.topic} data-title={a.title.toLowerCase()} hidden={i >= 5 || undefined} data-extra={i >= 5 || undefined}><ArticleCard a={a} /></li>)}
-      </ul>
-      <p class="rlatest__empty" data-empty hidden>No articles match that yet. Try another topic or <a href={site.phoneHref}>call us</a>.</p>
-      <Button variant="secondary" data-load-more>Load More Articles</Button>
+  <section class="rlatest">
+    <div class="container rlatest__grid">
+      <div class="rlatest__main">
+        <div class="rlatest__head"><h2 class="rh">Latest articles</h2><p class="rlatest__count" data-count>Showing {latest.length} of {all.length}</p></div>
+        <ul class="rlist" role="list" data-filter-list>
+          {all.map((a, i) => { const href = articleHref(a.slug); const T = href ? 'a' : 'div'; const m = img(a.image); return (
+            <li data-topic={a.topic} data-title={a.title.toLowerCase()} hidden={i >= latest.length || undefined} data-extra={i >= latest.length || undefined}>
+              <T class="rrow" href={href}>
+                <Picture src={m} alt="" class="rrow__img" widths={w(m, 800)} sizes="(min-width: 768px) 280px, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} />
+                <div class="rrow__body">
+                  <p class="rk rk--orange">{a.topic}</p>
+                  <h3 class="rrow__t">{a.title}</h3>
+                  {a.dek && <p class="rrow__d">{a.dek}</p>}
+                  <p class="rrow__m">{meta(a)}</p>
+                </div>
+              </T>
+            </li>
+          ); })}
+        </ul>
+        <p class="rlatest__empty" data-empty hidden>No articles match that yet. Try another topic or <a href={site.phoneHref}>call us</a>.</p>
+        <div class="rlatest__more"><Button variant="secondary" data-load-more class="rlatest__btn">Load More Articles</Button></div>
+      </div>
+      <aside class="rside">
+        <div class="rside__most">
+          <p class="rside__h"><Icon name="trending-up" size={22} />Most read</p>
+          <ol role="list">
+            {mostRead.map((a, i) => { const h = articleHref(a.slug); return <li><span class="rside__n">{String(i + 1).padStart(2, '0')}</span><div>{h ? <a href={h}>{a.title}</a> : <span>{a.title}</span>}<small>{a.minutes} min read</small></div></li>; })}
+          </ol>
+        </div>
+        <div class="rbook">
+          <Picture src={book} alt="Dr. Casey Morgan talking with a patient" class="rbook__img" widths={w(book, 800)} sizes="312px" formats={['webp']} fallbackFormat="webp" quality={85} />
+          <div class="rbook__text">
+            <p class="rk rk--orange">New patients</p>
+            <h2 class="rbook__t">{d.sections[3].title}</h2>
+            <p class="rbook__d">{d.sections[3].paras![1].t}</p>
+          </div>
+          <Button href={site.bookHref} block>{site.bookLabel}</Button>
+          <a class="rbook__call" href={site.phoneHref}><Icon name="phone" size={16} />Or call {site.phone}</a>
+        </div>
+        <form class="rnews" method="post" action="/api/lead">
+          <input type="hidden" name="form" value="Newsletter signup" />
+          <input type="hidden" name="_redirect" value="/resources" />
+          <div class="book__hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+          <span class="rnews__ic"><Icon name="mail" size={24} /></span>
+          <div class="rnews__text"><p class="rnews__t">{nl.paras![0].t}</p><p class="rnews__d">{nl.paras![1].t}</p></div>
+          <div class="rnews__form">
+            <label class="sr-only" for="nl-email">Your email address</label>
+            <input id="nl-email" name="email" type="email" required placeholder="Your email address" autocomplete="email" />
+            <Button type="submit" block>Subscribe</Button>
+          </div>
+          <p class="rnews__fine">{nl.paras![3].t}</p>
+        </form>
+      </aside>
     </div>
   </section>
 
-  <section class="section section--sand rmost">
-    <div class="container rmost__grid">
-      <div class="rmost__cta">
-        <Media image={d.sections[3].images![0]} sizes="(min-width: 1024px) 420px, 100vw" />
-        <p class="eyebrow rmost__eyebrow">New patients</p>
-        <h2 class="h3">{d.sections[3].title}</h2>
-        <p class="a1 text-muted">{d.sections[3].paras![1].t}</p>
-        <Button href={site.bookHref} blockMobile>{site.bookLabel}</Button>
-        <a class="rmost__call" href={site.phoneHref}>Or call {site.phone}</a>
-      </div>
-      <div class="rmost__list">
-        <p class="eyebrow">Most read</p>
-        <ol role="list">{mostRead.map((a, i) => { const h = articleHref(a.slug); return <li><span class="rmost__n">{i + 1}</span><div>{h ? <a href={h}>{a.title}</a> : <span>{a.title}</span>}<small>{a.minutes} min read</small></div></li>; })}</ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--white rbrowse">
+  <section class="rbrowse">
     <div class="container rbrowse__inner">
-      <div class="section-head"><p class="eyebrow rhero__eyebrow">Browse by topic</p><h2 class="h2">{d.sections[4].title}</h2></div>
+      <div class="rbrowse__head"><p class="rk rk--orange">Browse by topic</p><h2 class="rh rh--40">{d.sections[4].title}</h2></div>
       {groups.map((g) => (
-        <div class="rbrowse__group">
-          <div class="rbrowse__head"><h3 class="h4">{g.title}</h3></div>
-          <ul class="rgrid" role="list">{g.list.map((a) => <li><ArticleCard a={a} /></li>)}</ul>
+        <div class="rgroup">
+          <div class="rgroup__head">
+            <div><h3 class="rh">{g.title}</h3><p class="rgroup__d">{g.desc}</p></div>
+            <button type="button" class="rgroup__all" data-topic={g.topic}>See all {g.title} articles<Icon name="arrow-right" size={16} /></button>
+          </div>
+          <ul class="rcards" role="list">
+            {g.list.map((a) => { const href = articleHref(a.slug); const T = href ? 'a' : 'div'; const m = img(a.image); return (
+              <li><T class="rcard" href={href}>
+                <Picture src={m} alt="" class="rcard__img" widths={w(m, 800)} sizes="(min-width: 1280px) 282px, (min-width: 768px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} />
+                <div class="rcard__body"><p class="rk rk--orange">{a.topic}</p><h4 class="rcard__t">{a.title}</h4><p class="rrow__m">{meta(a)}</p></div>
+              </T></li>
+            ); })}
+          </ul>
         </div>
       ))}
     </div>
   </section>
 
-  <section class="section section--navy-gradient on-dark rvideo" id="videos">
-    <div class="container rvideo__grid">
-      <div class="rvideo__copy">
-        <p class="eyebrow rhero__eyebrow">Watch</p>
-        <h2 class="h2">{d.sections[5].title}</h2>
-        <p class="eyebrow rvideo__topic">{video.topic}</p>
-        <h3 class="h4">{video.title}</h3>
-        <p class="a1 rvideo__meta">Video  ·  {video.date}  ·  {video.length}</p>
+  <section class="rvideos on-dark" id="videos">
+    <div class="container rvideos__inner">
+      <div class="rvideos__head">
+        <div><p class="rk rk--blue">Watch</p><h2 class="rh rh--40 rh--white">{d.sections[5].title}</h2></div>
       </div>
-      <VideoPopup url={video.url} image={img(video.image)} alt="Dr. Casey Morgan adjusting a patient" title={`Play: ${video.title}`} class="rvideo__player" />
-    </div>
-  </section>
-
-  <section class="section section--white rnews">
-    <div class="container">
-      <form class="rnews__box" method="post" action="/api/lead">
-        <input type="hidden" name="form" value="Newsletter signup" />
-        <input type="hidden" name="_redirect" value="/resources" />
-        <div class="book__hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
-        <div class="rnews__copy"><h2 class="h3">{nl.paras![0].t}</h2><p class="text-muted">{nl.paras![1].t}</p></div>
-        <div class="rnews__form">
-          <label class="sr-only" for="nl-email">Your email address</label>
-          <input id="nl-email" name="email" type="email" required placeholder="Your email address" autocomplete="email" />
-          <Button type="submit">Subscribe</Button>
-          <p class="a2 text-muted">{nl.paras![3].t}</p>
-        </div>
-      </form>
+      <ul class="rvgrid" role="list">
+        {videos.map((v) => (
+          <li class="rvcard">
+            <div class="rvcard__media">
+              <VideoPopup url={v.url} image={img(v.image)} alt="" title={`Play: ${v.title}`} class="rvcard__player" tint={false} sizes="(min-width: 1280px) 384px, (min-width: 768px) 33vw, 100vw" />
+              <span class="rvcard__len">{v.length}</span>
+            </div>
+            <div class="rvcard__body"><p class="rk rk--blue">{v.topic}</p><h3 class="rvcard__t">{v.title}</h3><p class="rvcard__m">Video  ·  {v.date}</p></div>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -141,6 +192,8 @@ const nl = d.sections[6];
       }
       empty.hidden = shown > 0;
       more.hidden = expanded || !!topic || !!q;
+      const count = document.querySelector('[data-count]');
+      if (count) count.textContent = `Showing ${shown} of ${items.length}`;
     };
     more.addEventListener('click', () => { expanded = true; apply(); });
     document.querySelectorAll<HTMLButtonElement>('[data-topic]').forEach((b) => {
@@ -148,7 +201,7 @@ const nl = d.sections[6];
       b.addEventListener('click', () => {
         if (b.dataset.topic === 'Videos') { document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' }); return; }
         topic = b.dataset.topic || '';
-        document.querySelectorAll('.topics__chip').forEach((c) => c.classList.toggle('is-active', c === b));
+        document.querySelectorAll<HTMLElement>('.topics__chip').forEach((c) => c.classList.toggle('is-active', c.dataset.topic === (b.dataset.topic || '')));
         apply();
         list.closest('section')?.scrollIntoView({ behavior: 'smooth' });
       });
@@ -158,55 +211,158 @@ const nl = d.sections[6];
   }
 </script>
 <style>
-  .rhero { background: var(--gradient-navy); }
-  .rhero__grid { display: grid; gap: 48px; padding-top: calc(var(--masthead-h) + 48px); padding-bottom: 80px; align-items: center; }
-  .rhero__copy { display: flex; flex-direction: column; gap: 20px; }
-  .rhero__eyebrow { color: var(--orange-500); }
-  .rhero__lead { color: var(--sand-100); font-weight: 500; max-width: 560px; }
-  .rsearch { display: flex; align-items: center; gap: 12px; max-width: 520px; padding: 0 16px; min-height: 56px; border-radius: var(--radius-md); background: var(--white); color: var(--navy-600); }
-  .rsearch input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 16px; color: var(--navy-900); min-height: 54px; }
+  .rk { font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+  .rk--blue { color: var(--blue-300); }
+  .rk--white { color: #fff; }
+  .rk--orange { color: var(--orange-600); }
+  .rh { font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--navy-900); }
+  .rh--40 { font-size: 40px; }
+  .rh--white { color: #fff; }
+
+  .rhero { background: var(--navy-900); }
+  .rhero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 100px; display: flex; flex-direction: column; gap: 72px; }
+  .rhero__mast { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+  .rhero__title { font-size: 48px; line-height: 1.2; font-weight: 700; color: #fff; }
+  .rhero__lead { max-width: 640px; margin-top: 4px; color: rgb(255 255 255 / .8); font-size: 16px; line-height: 1.8; }
+  .rsearch { margin-top: 12px; width: 560px; max-width: 100%; display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 20px; border-radius: 8px; background: #fff; color: var(--navy-900); }
+  .rsearch input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 16px; color: var(--navy-900); height: 54px; }
+  .rsearch input::placeholder { color: var(--navy-900); opacity: 1; }
   .rsearch:focus-within { outline: 2px solid var(--orange-500); }
-  .rhero__feature { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: var(--radius-xl); background: var(--white); color: var(--navy-900); }
-  .rhero__label { color: var(--navy-600); }
-  .rhero__more { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-  .rhero__more li + li { padding-top: 12px; border-top: 1px solid var(--border-light); }
-  @media (min-width: 1024px) { .rhero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 80px; } }
-  @media (max-width: 767.98px) { .rhero__grid { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } .rhero__feature { padding: 16px; } }
-  .topics { position: sticky; top: 0; z-index: var(--z-sticky); background: var(--white); border-bottom: 1px solid var(--border-light); }
-  .topics__row { display: flex; gap: 8px; overflow-x: auto; padding-block: 12px; scrollbar-width: none; }
-  .topics__chip { flex: none; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: var(--radius-full); border: 1px solid var(--border-light); font-size: 14px; line-height: 1; font-weight: 600; white-space: nowrap; }
+  .rhero__stories { display: grid; gap: 40px; align-items: start; }
+  .rlead { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 500px; padding: 40px; border-radius: 16px; overflow: hidden; isolation: isolate; color: #fff; }
+  .rlead__img { position: absolute; inset: 0; z-index: -2; }
+  .rlead__img img, .rlead__img { width: 100%; height: 100%; }
+  .rlead__img img { object-fit: cover; object-position: 50% 18.7%; transition: transform var(--dur) var(--ease); }
+  .rlead::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(15 45 64 / 0) 0%, rgb(15 45 64 / .1) 30%, rgb(15 45 64 / .78) 62%, rgb(15 45 64 / .96) 100%); }
+  a.rlead:hover .rlead__img img { transform: scale(1.03); }
+  .rlead__body { display: flex; flex-direction: column; gap: 16px; }
+  .rlead__labels { display: flex; align-items: center; gap: 12px; }
+  .rlead__flag { padding: 4px 10px; border-radius: 4px; background: var(--orange-500); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+  .rlead__title { font-size: 32px; line-height: 1.2; font-weight: 700; color: #fff; }
+  .rlead__dek { font-size: 16px; line-height: 1.8; color: rgb(255 255 255 / .85); }
+  .rlead__by { display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 22px; white-space: pre; }
+  .rlead__by strong { font-weight: 600; }
+  .rlead__by span { font-weight: 500; color: rgb(255 255 255 / .7); }
+  .rlead__av, .rlead__av img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+  .rmore ul { list-style: none; margin: 0; padding: 0; }
+  .rmore__label { padding-bottom: 16px; color: rgb(255 255 255 / .6); }
+  .rmore li { border-top: 1px solid rgb(255 255 255 / .14); padding-block: 20px; }
+  .rmore__item { display: flex; gap: 16px; align-items: flex-start; color: #fff; }
+  .rmore__img { flex: none; width: 112px; height: 84px; }
+  .rmore__img img, .rmore__img { width: 112px; height: 84px; border-radius: 8px; object-fit: cover; }
+  .rmore__item > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .rmore__t { font-size: 18px; line-height: 26px; font-weight: 600; }
+  a.rmore__item:hover .rmore__t { color: var(--orange-500); }
+  .rmore__m { font-size: 12px; line-height: 22px; font-weight: 500; white-space: pre; }
+  @media (min-width: 1024px) { .rhero__stories { grid-template-columns: minmax(0, 760fr) minmax(0, 400fr); } }
+  @media (max-width: 767.98px) {
+    .rhero__inner { padding-top: calc(var(--masthead-h) + 32px); padding-bottom: 60px; gap: 40px; }
+    .rhero__title { font-size: 32px; }
+    .rlead { min-height: 420px; padding: 24px; }
+    .rlead__title { font-size: 24px; }
+    .rlead__dek { font-size: 14px; }
+    .rlead__by { flex-wrap: wrap; row-gap: 0; }
+    .rmore__t { font-size: 16px; line-height: 24px; }
+  }
+
+  .topics { position: sticky; top: 0; z-index: var(--z-sticky); background: #fff; border-bottom: 1px solid #e3e3e3; }
+  .topics__row { display: flex; gap: 8px; overflow-x: auto; padding-block: 20px; scrollbar-width: none; }
+  .topics__chip { flex: none; display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 800px; border: 1px solid #d9d9d9; background: #fff; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); white-space: nowrap; cursor: pointer; }
   .topics__chip:hover { border-color: var(--orange-500); }
-  .topics__chip.is-active { background: var(--navy-900); border-color: var(--navy-900); color: var(--white); }
-  .rlatest__inner, .rbrowse__inner { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
-  .rgrid { list-style: none; padding: 0; width: 100%; display: grid; gap: 32px 24px; }
-  .rgrid > li[hidden] { display: none; }
-  @media (min-width: 768px) { .rgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1280px) { .rgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .topics__chip.is-active { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
+
+  .rlatest { background: #fff; padding: 80px 0 100px; }
+  .rlatest__grid { display: grid; gap: 64px; align-items: start; }
+  .rlatest__main { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+  .rlatest__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+  .rlatest__count { font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); white-space: nowrap; }
+  .rlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 32px; }
+  .rlist > li { padding-bottom: 32px; border-bottom: 1px solid #e3e3e3; }
+  .rlist > li[hidden] { display: none; }
+  .rrow { display: flex; gap: 32px; align-items: flex-start; color: var(--navy-900); }
+  .rrow__img { flex: none; width: 280px; height: 186px; }
+  .rrow__img img, .rrow__img { width: 280px; height: 186px; border-radius: 12px; object-fit: cover; }
+  .rrow__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .rrow__t { font-size: 24px; line-height: 1.3; font-weight: 700; color: var(--navy-900); transition: color var(--dur-fast); }
+  a.rrow:hover .rrow__t, a.rcard:hover .rcard__t { color: var(--orange-500); }
+  .rrow__d { font-size: 16px; line-height: 1.8; color: var(--navy-600); }
+  .rrow__m { font-size: 12px; line-height: 22px; font-weight: 500; color: var(--navy-600); white-space: pre; }
   .rlatest__empty a { color: var(--orange-500); font-weight: 600; }
-  .rbrowse__group { width: 100%; display: flex; flex-direction: column; gap: 24px; }
-  .rbrowse__head { padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
-  .rmost__grid { display: grid; gap: 40px; align-items: start; }
-  .rmost__cta { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; padding: 24px; border-radius: var(--radius-xl); background: var(--white); }
-  .rmost__eyebrow { color: var(--orange-500); }
-  .rmost__call { font-weight: 600; color: var(--orange-500); }
-  .rmost__list ol { list-style: none; padding: 0; margin-top: 16px; }
-  .rmost__list li { display: flex; gap: 16px; padding-block: 20px; border-bottom: 1px solid rgb(0 0 0 / 0.1); }
-  .rmost__list li div { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 18px; line-height: 26px; }
-  .rmost__list li a:hover { color: var(--orange-500); }
-  .rmost__list small { font-size: 13px; font-weight: 500; color: var(--navy-600); }
-  .rmost__n { flex: none; font-size: 32px; line-height: 1; font-weight: 700; color: var(--orange-500); width: 32px; }
-  @media (min-width: 1024px) { .rmost__grid { grid-template-columns: 380px minmax(0, 1fr); gap: 80px; } }
-  .rvideo__grid { display: grid; gap: 40px; align-items: center; }
-  .rvideo__copy { display: flex; flex-direction: column; gap: 16px; }
-  .rvideo__topic { color: var(--blue-300); margin-top: 16px; }
-  .rvideo__meta { color: var(--sand-100); }
-  .rvideo :global(.rvideo__player) { aspect-ratio: 16 / 10; }
-  @media (min-width: 1024px) { .rvideo__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 80px; } }
-  .rnews__box { display: grid; gap: 24px; padding: 40px; border-radius: var(--radius-xl); background: var(--sand-100); align-items: center; }
-  .rnews__copy { display: flex; flex-direction: column; gap: 8px; }
-  .rnews__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
-  .rnews__form p { grid-column: 1 / -1; }
-  .rnews__form input { min-height: 52px; padding: 0 16px; border: 1px solid #cfd6db; border-radius: var(--radius-md); background: var(--white); font-size: 16px; }
-  @media (min-width: 1024px) { .rnews__box { grid-template-columns: 1fr 1fr; gap: 80px; } }
-  @media (max-width: 767.98px) { .rnews__box { padding: 24px 16px; } .rnews__form { grid-template-columns: 1fr; } }
+  .rlatest__more { display: flex; justify-content: center; }
+  .rlatest__more :global(.rlatest__btn) { border: 1.6px solid var(--navy-900); padding-inline: 24px; }
+  .rside { display: flex; flex-direction: column; gap: 48px; min-width: 0; }
+  .rside__most { display: flex; flex-direction: column; gap: 8px; }
+  .rside__h { display: flex; align-items: center; gap: 10px; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .rside__h :global(svg) { color: var(--orange-500); }
+  .rside ol { list-style: none; margin: 0; padding: 0; }
+  .rside li { display: flex; gap: 16px; padding-block: 16px; border-bottom: 1px solid #e3e3e3; }
+  .rside__n { flex: none; width: 48px; font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--orange-500); }
+  .rside li div { display: flex; flex-direction: column; gap: 4px; font-size: 18px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .rside li a:hover { color: var(--orange-500); }
+  .rside small { font-size: 12px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
+  .rbook { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 24px; border-radius: 16px; background: var(--sand-100); }
+  .rbook__img, .rbook__img img { width: 100%; height: 176px; border-radius: 12px; object-fit: cover; }
+  .rbook__text { align-self: stretch; display: flex; flex-direction: column; gap: 8px; }
+  .rbook__t { font-size: 24px; line-height: 1.3; font-weight: 700; color: var(--navy-900); }
+  .rbook__d { font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .rbook__call { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .rbook__call:hover { color: var(--orange-500); }
+  .rnews { display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: 16px; background: var(--navy-900); color: #fff; }
+  .rnews__ic { width: 48px; height: 48px; border-radius: 50%; background: var(--orange-500); display: grid; place-items: center; color: #fff; }
+  .rnews__text { display: flex; flex-direction: column; gap: 8px; }
+  .rnews__t { font-size: 20px; line-height: 26px; font-weight: 600; }
+  .rnews__d { font-size: 14px; line-height: 22px; }
+  .rnews__form { display: flex; flex-direction: column; gap: 12px; }
+  .rnews__form input { height: 52px; padding: 0 16px; border: 0; border-radius: 8px; background: #fff; font-size: 14px; color: var(--navy-900); }
+  .rnews__form input::placeholder { color: var(--navy-600); }
+  .rnews__fine { font-size: 12px; line-height: 22px; }
+  @media (min-width: 1024px) {
+    .rlatest__grid { grid-template-columns: minmax(0, 760fr) minmax(0, 360fr); gap: 80px; }
+    .rside { position: sticky; top: 108px; }
+  }
+  @media (max-width: 767.98px) {
+    .rlatest { padding: 48px 0 64px; }
+    .rh { font-size: 26px; }
+    .rh--40 { font-size: 30px; }
+    .rrow { flex-direction: column; gap: 16px; }
+    .rrow__img, .rrow__img img { width: 100%; height: auto; aspect-ratio: 280 / 186; }
+    .rrow__t { font-size: 20px; }
+    .rrow__d { font-size: 14px; }
+  }
+
+  .rbrowse { background: var(--sand-100); padding: 100px 0; }
+  .rbrowse__inner { display: flex; flex-direction: column; gap: 72px; }
+  .rbrowse__head { display: flex; flex-direction: column; gap: 12px; }
+  .rgroup { display: flex; flex-direction: column; gap: 32px; }
+  .rgroup__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .rgroup__head > div { display: flex; flex-direction: column; gap: 8px; }
+  .rgroup__d { font-size: 16px; line-height: 1.8; color: var(--navy-600); }
+  .rgroup__all { display: inline-flex; align-items: center; gap: 8px; background: none; border: 0; padding: 0; cursor: pointer; font-size: 14px; line-height: 22px; font-weight: 700; color: var(--orange-600); }
+  .rgroup__all:hover { color: var(--orange-500); }
+  .rcards { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px 24px; }
+  .rcard { display: flex; flex-direction: column; gap: 16px; color: var(--navy-900); }
+  .rcard__img, .rcard__img img { width: 100%; height: 176px; border-radius: 12px; object-fit: cover; }
+  .rcard__body { display: flex; flex-direction: column; gap: 8px; }
+  .rcard__t { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); transition: color var(--dur-fast); }
+  @media (min-width: 768px) { .rcards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1280px) { .rcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 767.98px) { .rbrowse { padding: 64px 0; } .rbrowse__inner { gap: 48px; } .rcard__t { font-size: 18px; } }
+
+  .rvideos { background: var(--navy-900); padding: 100px 0; }
+  .rvideos__inner { display: flex; flex-direction: column; gap: 48px; }
+  .rvideos__head > div { display: flex; flex-direction: column; gap: 12px; }
+  .rvgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px 24px; }
+  .rvcard { display: flex; flex-direction: column; gap: 16px; }
+  .rvcard__media { position: relative; }
+  .rvcard__media :global(.rvcard__player) { height: 216px; border-radius: 12px; }
+  .rvcard__media :global(.video__img), .rvcard__media :global(.video__img img) { width: 100%; height: 216px; object-fit: cover; }
+  .rvcard__media :global(.video__play svg) { width: 64px; height: 64px; }
+  .rvcard__media :global(.video__play circle) { fill: #fff; }
+  .rvcard__media :global(.video__play path) { fill: var(--navy-900); }
+  .rvcard__len { position: absolute; left: 12px; bottom: 12px; padding: 2px 8px; border-radius: 4px; background: var(--navy-900); font-size: 12px; line-height: 22px; font-weight: 700; color: #fff; pointer-events: none; }
+  .rvcard__body { display: flex; flex-direction: column; gap: 8px; }
+  .rvcard__t { font-size: 20px; line-height: 26px; font-weight: 600; color: #fff; }
+  .rvcard__m { font-size: 12px; line-height: 22px; font-weight: 500; color: #fff; white-space: pre; }
+  @media (min-width: 768px) { .rvgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 767.98px) { .rvideos { padding: 64px 0; } }
 </style>

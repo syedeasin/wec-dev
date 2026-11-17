@@ -2,7 +2,7 @@
  "sections": [
   {
    "name": "Hero",
-   "title": "Chiropractor in <span class=\"hl\">West Austin</span>",
+   "title": "Chiropractor in <br class=\"phero__br\"><span class=\"hl\">West Austin</span>",
    "paras": [
     {
      "w": 400,
@@ -38,7 +38,13 @@
      "src": "photos/xray-explain-smiling",
      "w": 390,
      "h": 451,
-     "pos": "89% 50%"
+     "pos": "89% 50%",
+     "crop": [
+      0,
+      0,
+      1,
+      1
+     ]
     }
    ]
   },
@@ -221,7 +227,7 @@
   },
   {
    "name": "Section / Reviews (sitewide widget)",
-   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "title": "Patients who came in hurting. Now they don't.",
    "buttons": [
     {
      "variant": "Primary",
@@ -253,7 +259,8 @@
      "q": "How soon can I get in?",
      "a": "Often the same day. Book online or call (512) 472-1116."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Section / CTA Band",

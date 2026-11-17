@@ -40,7 +40,7 @@ const social = [
           <p class="footer__head">Working Hours</p>
           <div class="footer__hours">
             <p class="footer__day">Monday – Thursday</p>
-            <p>8 AM – 1 PM<br />3 PM – 5 PM</p>
+            <div class="footer__times"><p>8 AM – 1 PM</p><p>3 PM – 5 PM</p></div>
           </div>
           <hr class="footer__rule" />
           <div class="footer__hours">
@@ -67,7 +67,7 @@ const social = [
 
     <div class="footer__bottom">
       <p>© {year} West End Chiropractic</p>
-      <ul role="list" class="footer__legal">{legal.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      <ul role="list" class="footer__legal">{legal.filter((l) => /privacy|terms/i.test(l.label)).map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
       <p>{site.license}</p>
     </div>
   </div>
@@ -82,7 +82,9 @@ const social = [
   .stack-13 { display: flex; flex-direction: column; gap: 13px; }
   .footer__title { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--white); }
   .footer__blurb { font-size: 12px; line-height: 1.5; }
-  .footer__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 65px 24px; }
+  .footer__cols { display: grid; grid-template-columns: minmax(0, 180px) minmax(0, 1fr); gap: 65px 24px; }
+  .footer__times { display: flex; flex-direction: column; gap: 4px; }
+  .footer__addr :global(.icon) { color: var(--orange-500); }
   .footer__col { display: flex; flex-direction: column; gap: 13px; font-size: 14px; line-height: 22px; }
   .footer__col ul { display: flex; flex-direction: column; gap: 13px; list-style: none; padding: 0; }
   .footer__col a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
@@ -95,13 +97,14 @@ const social = [
   .footer__day { font-size: 12px; line-height: 1.2; font-weight: 700; }
   .footer__rule { border: 0; border-top: 1px solid var(--navy-line); max-width: 110px; margin: 0; }
   .footer__mid { display: flex; flex-direction: column; gap: 60px; padding-block: 30px; border-block: 1px solid var(--navy-line); }
-  .footer__contact { display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 32px; }
+  .footer__contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
   .footer__contact > :first-child { grid-column: 1 / -1; }
   .footer__contact .footer__col { gap: 8px; }
   .footer__social { display: flex; gap: 18px; color: var(--orange-500); }
   .footer__social a:hover { color: var(--white); }
   .footer__bottom { display: flex; flex-direction: column; gap: 16px; font-size: 14px; line-height: 22px; color: var(--white); }
-  .footer__legal { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; color: var(--sand-100); font-size: 12px; }
+  .footer__bottom > p { flex: none; }
+  .footer__legal { display: flex; flex-wrap: wrap; gap: 4px 20px; list-style: none; padding: 0; color: var(--sand-100); font-size: 12px; line-height: 20px; opacity: .8; }
   .footer__legal a:hover { color: var(--white); text-decoration: underline; }
   .footer__disclaimer { background: var(--navy-600); color: var(--sand-100); font-size: 11px; line-height: 1.5; text-align: center; padding: 16px var(--gutter); }
 
@@ -113,10 +116,13 @@ const social = [
   }
   @media (min-width: 1280px) {
     .footer__inner { padding-top: 90px; padding-bottom: 40px; }
-    .footer__top { flex-direction: row; justify-content: space-between; gap: 112px; }
-    .footer__about { max-width: 325px; }
+    /* Figma (1200 frame): brand 317-325px left, link row 700px right; both rows spread with space-between.
+       The right block scales with the container (700/1200) so wide screens don't open a hole in the middle. */
+    .footer__top { flex-direction: row; justify-content: space-between; gap: 40px; }
+    .footer__about { max-width: 325px; flex: none; }
+    .footer__cols { display: flex; justify-content: space-between; gap: 24px; width: 58.34%; }
     .footer__mid { flex-direction: row; align-items: center; justify-content: space-between; }
-    .footer__contact { gap: 32px; width: 700px; grid-template-columns: 237px 1fr max-content; }
+    .footer__contact { display: flex; justify-content: space-between; gap: 32px; width: 58.34%; }
     .footer__bottom { flex-direction: row; align-items: center; justify-content: space-between; }
   }
 </style>

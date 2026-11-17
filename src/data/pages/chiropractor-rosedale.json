@@ -2,7 +2,7 @@
  "sections": [
   {
    "name": "Hero",
-   "title": "Chiropractor Near <span class=\"hl\">Rosedale, Austin</span>",
+   "title": "Chiropractor Near <br class=\"phero__br\"><span class=\"hl\">Rosedale, Austin</span>",
    "paras": [
     {
      "w": 400,
@@ -38,7 +38,13 @@
      "src": "photos/adjustment-side-posture-alt",
      "w": 390,
      "h": 451,
-     "pos": "99% 50%"
+     "pos": "99% 50%",
+     "crop": [
+      0,
+      0.04,
+      1,
+      0.917
+     ]
     }
    ]
   },
@@ -217,7 +223,7 @@
   },
   {
    "name": "Section / Reviews (sitewide widget)",
-   "title": "Patients who came in hurting. <strong>Now they don't</strong>",
+   "title": "Patients who came in hurting. Now they don't.",
    "paras": [
     {
      "w": 400,
@@ -279,7 +285,8 @@
      "q": "Is parking free?",
      "a": "Yes. Free covered garage parking at 5th Street Commons."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Section / CTA Band",

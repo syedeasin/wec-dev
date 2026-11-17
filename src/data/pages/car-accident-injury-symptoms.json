@@ -150,12 +150,7 @@
      "text": "Disc injuries are more likely after a crash, so Dr. Morgan refers most crash patients for one."
     }
    ],
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Get Seen Today"
-    }
-   ],
+   "buttons": [],
    "images": [
     {
      "src": "photos/office-interior",
@@ -185,7 +180,8 @@
      "q": "How soon can I be seen?",
      "a": "Often the same day. Call and tell us you were in an accident."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Conditions Section",

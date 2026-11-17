@@ -7,7 +7,10 @@ import SectionHead from '../components/ui/SectionHead.astro';
 import Buttons from '../components/blocks/Buttons.astro';
 import Media from '../components/blocks/Media.astro';
 import Button from '../components/ui/Button.astro';
-import BulletItem from '../components/ui/BulletItem.astro';
+import RatingRow from '../components/ui/RatingRow.astro';
+import Steps from '../components/sections/Steps.astro';
+import Deco from '../components/ui/Deco.astro';
+import { site } from '../data/site';
 import data from '../data/pages/schedule-appointment.json';
 import bg from '../assets/images/shared/cta-adjustment.webp';
 import type { PageData } from '../lib/content';
@@ -16,33 +19,32 @@ const [hero, next, , already] = d.sections;
 ---
 <SiteLayout title="Book Your Visit | West End Chiropractic, Downtown Austin" description="Request your first visit at West End Chiropractic. Exam, consultation and any necessary digital X-rays. Same-day appointments are often available.">
   <section class="bhero on-dark">
-    <Picture src={bg} alt="" widths={[640, 1280, 1920, 2560]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="bhero__bg" loading="eager" />
+    <Picture quality={85} src={bg} alt="" widths={[640, 1280, 1920, 2560, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="bhero__bg" loading="eager" />
     <div class="container bhero__inner">
       <div class="bhero__copy">
-        <h1 class="h1">{hero.title}</h1>
+        <RatingRow layout="row" />
+        <h1 class="bhero__title">{hero.title}</h1>
         <p class="bhero__lead" set:html={hero.paras![0].t} />
-        <ul class="bhero__list" role="list">
-          <BulletItem icon="clock" size={20}>First visit takes about 30 minutes</BulletItem>
-          <BulletItem icon="trust-x-ray" size={20}>Digital X-rays on site</BulletItem>
-          <BulletItem icon="square-parking" size={20}>Free covered garage parking</BulletItem>
-        </ul>
       </div>
       <BookingForm />
+      <div class="bhero__help">
+        <p>Same-day appointments are often available. Don’t see a time that works? Call us at <a href={site.phoneHref}><strong>{site.phone}</strong></a> and we’ll find one.</p>
+        <p class="bhero__email">Prefer to email? <a href={site.emailHref}>{site.email}</a></p>
+      </div>
     </div>
   </section>
 
   <Sections data={d} skip={[0]} bespoke={[1, 3]}>
     <Fragment slot="s1">
-  <section class="section section--sand bnext">
+  <section class="section bnext on-dark">
+    <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="left:calc(50% - 148px);top:0;" class="hide-mobile" />
     <div class="container bnext__grid">
       <div class="bnext__copy">
-        <h2 class="h2">{next.title}</h2>
-        <ol class="num-list" role="list">
-          {next.steps!.map((s, i) => <li><span class="num-list__n">{i + 1}</span><div><p class="num-list__t">{s.title}</p><p class="num-list__d" set:html={s.text} /></div></li>)}
-        </ol>
+        <h2 class="h2 bnext__title">{next.title}</h2>
+        <Steps steps={next.steps!} />
         <Button href="/new-patients" variant="tertiary">What your first visit looks like</Button>
       </div>
-      <Media image={next.images![0]} class="bnext__img" />
+      <Media image={next.images![0]} class="bnext__img" sizes="(min-width: 1024px) 488px, 100vw" />
     </div>
   </section>
 
@@ -61,18 +63,28 @@ const [hero, next, , already] = d.sections;
   .bhero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
   .bhero > :global(picture) { position: absolute; inset: 0; z-index: -2; }
   .bhero :global(.bhero__bg) { width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%; }
-  .bhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.88) 45%, rgb(15 45 64 / 0.6) 100%); }
-  .bhero__inner { display: grid; gap: 40px; align-items: start; padding-top: calc(var(--masthead-h) + 60px); padding-bottom: 100px; }
-  .bhero__copy { display: flex; flex-direction: column; gap: 24px; padding-top: 24px; }
-  .bhero__lead { color: var(--sand-100); font-weight: 500; max-width: 520px; }
-  .bhero__list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px; font-weight: 500; color: var(--sand-100); }
-  .bhero__list :global(.icon) { color: var(--blue-300); }
-  @media (min-width: 1024px) { .bhero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 80px; } }
-  @media (max-width: 767.98px) { .bhero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; gap: 32px; } .bhero__copy { padding-top: 0; } }
-  .bnext__grid { display: grid; gap: 40px; align-items: center; }
-  .bnext__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
-  .bnext :global(.bnext__img img) { aspect-ratio: 488 / 400; }
-  @media (min-width: 1024px) { .bnext__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; } }
+  .bhero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(15 45 64 / 0.85) 0%, rgb(15 45 64 / 0.72) 50%, rgb(15 45 64 / 0.9) 100%); }
+  .bhero__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; padding-top: calc(var(--masthead-h) + 56px); padding-bottom: 72px; text-align: center; }
+  .bhero__copy { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .bhero__title { font-size: 56px; line-height: 1.2; font-weight: 700; color: var(--white); }
+  .bhero__lead { color: var(--sand-100); font-size: 20px; line-height: 26px; max-width: 760px; }
+  .bhero :global(.book) { width: 100%; max-width: 960px; }
+  .bhero__help { display: flex; flex-direction: column; gap: 8px; color: var(--white); font-size: 16px; line-height: 1.8; }
+  .bhero__help a { color: inherit; }
+  .bhero__email { font-size: 14px; line-height: 22px; color: var(--sand-100); }
+  .bhero__email a { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 1279.98px) { .bhero__title { font-size: 48px; } }
+  @media (max-width: 767.98px) { .bhero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; gap: 32px; } .bhero__title { font-size: 36px; } .bhero__lead { font-size: 16px; line-height: 1.8; } .bhero__help { font-size: 14px; } }
+
+  /* Figma "What Happens Next": dark navy with the multiply gradient + faint vine, steps left, photo right */
+  .bnext { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
+  .bnext::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(88.51deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 27.89%, #1b4f72 45.75%, #0f2d40 75.48%); mix-blend-mode: multiply; }
+  .bnext__grid { position: relative; display: grid; gap: 40px; align-items: center; }
+  .bnext__copy { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .bnext__title { font-weight: 700; color: var(--white); }
+  .bnext__copy :global(.steps) { align-self: stretch; }
+  .bnext :global(.bnext__img img) { aspect-ratio: 488 / 580; }
+  @media (min-width: 1024px) { .bnext__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 488px); gap: 80px; } }
   .already__box { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; padding: 40px; border-radius: var(--radius-xl); background: var(--sand-100); }
   @media (min-width: 1024px) { .already__box { flex-direction: row; align-items: center; justify-content: space-between; } }
   @media (max-width: 767.98px) { .already__box { padding: 24px 16px; align-items: stretch; } .already { padding-block: 60px; } }

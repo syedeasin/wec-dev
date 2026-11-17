@@ -71,11 +71,19 @@
    "images": [
     {
      "src": "photos/casey-morgan-portrait-standing",
-     "w": 342,
-     "h": 402,
+     "w": 510,
+     "h": 577,
      "pos": "100% 26%"
+    },
+    {
+     "src": "photos/spine-model-consult-talk",
+     "w": 510,
+     "h": 364,
+     "pos": "50% 50%"
     }
-   ]
+   ],
+   "layout": "stack",
+   "mark": false
   },
   {
    "name": "What Section",
