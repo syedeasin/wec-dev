@@ -475,7 +475,7 @@ const caseySlides = [
 
   /* ---------- First visit ---------- */
   .first-visit__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: 0 8px 16px 0 rgb(15 45 64 / 0.06); align-items: end; }
+  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: 0 8px 16px 0 rgb(15 45 64 / 0.06); align-items: stretch; }
   .first-visit .br-md { display: none; }
   @media (min-width: 768px) { .first-visit .br-md { display: inline; } }
   .first-visit__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
@@ -489,7 +489,13 @@ const caseySlides = [
   .first-visit :global(.btn--plain) { box-shadow: none; }
   .first-visit__note { text-align: center; color: rgb(27 79 114 / 0.8); }
   @media (min-width: 768px) { .first-visit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .first-visit__grid > li:nth-last-child(-n+2) { border-bottom: 1px solid rgb(0 0 0 / 0.12); } }
-  @media (min-width: 1024px) { .first-visit__card { grid-template-columns: minmax(0, 572fr) minmax(0, 488fr); gap: 60px; } }
+  @media (min-width: 1024px) {
+    .first-visit__card { grid-template-columns: minmax(0, 572fr) minmax(0, 488fr); gap: 60px; }
+    /* Photo follows the feature grid's height so the grid starts at the top (no empty band above it) */
+    .first-visit__media { position: relative; min-height: 360px; }
+    .first-visit__media :global(picture) { position: absolute; inset: 0; }
+    .first-visit__media :global(img) { position: absolute; inset: 0; aspect-ratio: auto; }
+  }
   @media (max-width: 1023.98px) { .first-visit__media { order: -1; } }
   @media (max-width: 767.98px) {
     .first-visit__card { padding: 16px 16px 8px; gap: 24px; }
