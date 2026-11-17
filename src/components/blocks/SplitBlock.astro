@@ -17,7 +17,7 @@ const stack = s.layout === 'stack';
 const main = !stack && b && b.w * b.h > a.w * a.h ? b : a;
 const second = b ? (main === a ? b : a) : undefined;
 ---
-<section class:list={['section split-b', `section--${bg}`]} id={id}>
+<section class:list={['section split-b', `section--${bg}`, s.layout === 'narrow' && 'split-b--narrow']} id={id}>
   <div class:list={['container split-b__grid', reverse && 'split-b__grid--rev', !imgs.length && 'split-b__grid--solo']}>
     <div class="split-b__copy">
       {s.tag && <Tag>{s.tag}</Tag>}
@@ -78,6 +78,8 @@ const second = b ? (main === a ? b : a) : undefined;
     .split-b__grid--rev:has(.split-b__media--duo) { grid-template-columns: minmax(0, 596fr) minmax(0, 498fr); }
     .split-b__grid--rev .split-b__media { order: -1; }
     .split-b__grid:has(.split-b__media--stack) { grid-template-columns: minmax(0, 588fr) minmax(0, 510fr); gap: 102px; }
+    .split-b--narrow .split-b__grid { grid-template-columns: minmax(0, 588fr) minmax(0, 510fr); gap: 102px; }
+    .split-b--narrow .split-b__main img { aspect-ratio: 510 / 546; }
     .split-b__grid--solo { grid-template-columns: minmax(0, 820px); justify-content: center; }
     .split-b__copy { padding-block: 24px; }
   }

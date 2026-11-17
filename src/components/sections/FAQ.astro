@@ -2,8 +2,8 @@
 // FAQ accordion (native <details>, works without JS) + FAQPage structured data.
 import Icon from '../ui/Icon.astro';
 import SectionHead from '../ui/SectionHead.astro';
-interface Props { items: { q: string; a: string }[]; title?: string; openFirst?: boolean; bg?: 'sand' | 'white'; id?: string }
-const { items, title = 'Common <strong>Questions</strong>', openFirst = true, bg = 'sand', id = 'faq' } = Astro.props;
+interface Props { items: { q: string; a: string }[]; title?: string; openFirst?: boolean; openAll?: boolean; bg?: 'sand' | 'white'; id?: string }
+const { items, title = 'Common <strong>Questions</strong>', openFirst = true, openAll = false, bg = 'sand', id = 'faq' } = Astro.props;
 const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a.replace(/<[^>]+>/g, '') } })) };
 ---
 <section class:list={['section', 'faq', bg === 'sand' ? 'section--sand' : 'section--white']} id={id}>
@@ -11,7 +11,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: i
     <SectionHead title={title} />
     <div class="faq__list" data-faq>
       {items.map((item, i) => (
-        <details class="faq__item" open={openFirst && i === 0} name="faq">
+        <details class="faq__item" open={openAll || (openFirst && i === 0)} name={openAll ? undefined : 'faq'}>
           <summary class="faq__q"><span>{item.q}</span><Icon name="chevron-down" size={20} class="faq__chev" /></summary>
           <div class="faq__a" set:html={item.a} />
         </details>

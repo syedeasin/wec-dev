@@ -1,0 +1,56 @@
+---
+// Figma "In a wreck? Different rules apply": full-bleed photo under a multiply navy gradient, copy on the right.
+import { Picture } from 'astro:assets';
+import Buttons from './Buttons.astro';
+import Icon from '../ui/Icon.astro';
+import { img, type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const [lead, ...rest] = s.paras ?? [];
+const last = rest.length > 1 ? rest.at(-1) : undefined;
+const rows = last ? rest.slice(0, -1) : rest;
+const meta = s.images?.[0] ? img(s.images[0].src) : undefined;
+const title = (s.title ?? '').replace(/\s*\n\s*/g, '<br>');
+---
+<section class="drow on-dark">
+  {meta && (
+    <div class="drow__bg" aria-hidden="true">
+      <Picture src={meta} alt="" widths={[768, 1200, 1600, 2400, 2880].filter((w) => w <= meta.width)} sizes="110vw" formats={['webp']} fallbackFormat="webp" quality={85} loading="lazy" />
+    </div>
+  )}
+  <div class="container drow__grid">
+    <div class="drow__copy">
+      <h2 class="drow__title" set:html={title} />
+      {lead && <p class="drow__lead" set:html={lead.t} />}
+      {rows.map((p, i) => <div class="drow__row"><span class="drow__ic"><Icon name={s.icons?.[i] ?? 'check'} size={16} /></span><p set:html={p.t} /></div>)}
+      {last && <p set:html={last.t} />}
+      <Buttons buttons={s.buttons} />
+    </div>
+  </div>
+</section>
+<style is:global>
+  .drow { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); color: var(--sand-100); padding-block: 100px; }
+  .drow__bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+  .drow__bg picture { max-width: none; position: absolute; left: -8.26%; top: -9.94%; width: 108.24%; height: 136.39%; }
+  .drow__bg img { display: block; max-width: none; width: 100%; height: 100%; object-fit: cover; }
+  .drow__bg::after { content: ''; position: absolute; inset: 0; mix-blend-mode: multiply; background: linear-gradient(88.48deg, rgb(15 45 64 / .18) 0%, rgb(19 58 83 / .49) 27.89%, rgb(27 79 114) 50.48%, rgb(15 45 64) 100%); }
+  .drow__grid { display: flex; justify-content: flex-end; }
+  .drow__copy { width: 612px; max-width: 100%; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+  .drow__title { font-size: 40px; line-height: 1.2; font-weight: 600; color: var(--sand-100); }
+  .drow__copy p { font-size: 16px; line-height: 1.8; color: var(--sand-100); }
+  .drow__copy .drow__lead { font-weight: 500; }
+  .drow__row { display: flex; gap: 8px; align-items: flex-start; }
+  .drow__ic { flex: none; padding-block: 6px; color: var(--orange-500); display: flex; }
+  .drow__row strong { font-weight: 600; }
+  @media (min-width: 1024px) { .drow__grid { min-height: 562px; align-items: center; } }
+  @media (max-width: 1023.98px) {
+    .drow { padding-block: 0 64px; }
+    .drow__bg { position: relative; z-index: 0; height: 360px; margin-bottom: -80px; }
+    .drow__bg picture { left: 0; top: 0; width: 100%; height: 100%; }
+    .drow__bg img { object-position: 22% 30%; }
+    .drow__bg::after { mix-blend-mode: normal; background: linear-gradient(180deg, rgb(15 45 64 / 0) 40%, rgb(15 45 64) 100%); }
+    .drow__grid { position: relative; }
+    .drow__title { font-size: 32px; }
+  }
+  @media (max-width: 767.98px) { .drow__title { font-size: 28px; } .drow__copy p { font-size: 14px; } }
+</style>

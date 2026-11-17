@@ -14,7 +14,7 @@ export type Section = {
   faqs?: { q: string; a: string }[]; tags?: { tag: string; text: string }[];
   buttons?: Btn[]; images?: Img[]; logos?: boolean;
   /** 'stack': photos stacked vertically (Figma desktop); mark: false hides the spine mark */
-  layout?: 'stack'; mark?: boolean;
+  layout?: 'stack' | 'narrow' | 'fineprint' | 'darkrow'; mark?: boolean; icons?: string[]; faqOpen?: boolean;
 };
 export type PageData = { sections: Section[] };
 
@@ -143,6 +143,8 @@ export function groupParas(paras: Para[] = []): Block[] {
 export function sectionKind(s: Section, i: number): string {
   const n = s.name;
   if (i === 0) return 'hero';
+  if (s.layout === 'fineprint') return 'fineprint';
+  if (s.layout === 'darkrow') return 'darkrow';
   if (s.faqs?.length) return 'faq';
   if (/CTA Band|^Wrapper/.test(n)) return 'cta';
   if (/Reviews/.test(n) && /patients/i.test(strip(s.title)) ) return 'reviews';

@@ -1,0 +1,40 @@
+---
+// Figma "The fine print, up front": sand section, centred title, white card = ruled list (588) + photo.
+import Title from './Title.astro';
+import Media from './Media.astro';
+import { type Section } from '../../lib/content';
+interface Props { s: Section }
+const { s } = Astro.props;
+const paras = s.paras ?? [];
+const items: { t: string; d: string[] }[] = [];
+for (const p of paras) {
+  if (p.w >= 600) items.push({ t: p.t, d: [] });
+  else items.at(-1)?.d.push(p.t);
+}
+const image = s.images?.[0];
+---
+<section class="section section--sand fine">
+  <div class="container fine__inner">
+    <Title title={s.title} mark={false} center />
+    <div class="fine__card">
+      <ul class="fine__list" role="list">
+        {items.map((it) => <li><p class="fine__t" set:html={it.t} />{it.d.map((d) => <p class="fine__d" set:html={d} />)}</li>)}
+      </ul>
+      {image && <Media image={image} class="fine__img" shadow={false} sizes="(min-width: 1280px) 612px, (min-width: 1024px) 50vw, 100vw" />}
+    </div>
+  </div>
+</section>
+<style is:global>
+  .fine__inner { display: flex; flex-direction: column; gap: 60px; }
+  .fine__card { display: grid; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 32px 32px rgb(15 45 64 / .06); }
+  .fine__list { list-style: none; margin: 0; padding: 0; display: grid; }
+  .fine__list li { display: flex; flex-direction: column; gap: 8px; padding: 40px; border-top: 2px solid var(--sand-100); }
+  .fine__list li:first-child { border-top: 0; }
+  .fine__t { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .fine__d { font-size: 16px; line-height: 1.8; color: var(--navy-900); }
+  .fine__img.media { border-radius: 0; background: var(--navy-900); }
+  .fine__img img { height: 100%; aspect-ratio: auto; object-position: 35% 50%; }
+  @media (min-width: 1024px) { .fine__card { grid-template-columns: 588fr 612fr; } .fine__img { position: relative; } .fine__img picture { position: absolute; inset: 0; } }
+  @media (max-width: 1023.98px) { .fine__img img { aspect-ratio: 4 / 3; object-position: 50% 12%; } }
+  @media (max-width: 767.98px) { .fine__inner { gap: 32px; } .fine__list li { padding: 24px 20px; } .fine__t { font-size: 18px; } .fine__d { font-size: 14px; } }
+</style>
