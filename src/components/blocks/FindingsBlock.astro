@@ -10,7 +10,7 @@ const before = paras.slice(0, gi);
 // After the graph labels come the closing paragraphs (the long 500-weight ones).
 const after = paras.slice(gi).filter((p) => p.w === 500 && p.t.length > 40);
 ---
-<section class="section section--sand findings">
+<section class="section section--white findings">
   <div class="container findings__grid">
     <div class="findings__copy">
       <Title title={s.title} />
@@ -33,6 +33,40 @@ const after = paras.slice(gi).filter((p) => p.w === 500 && p.t.length > 40);
       <div class="graph__label graph__label--plan"><strong class="hl">The plan</strong><span>How you climb back out. Not all the way to the top, but well above where you started.</span></div>
       <div class="graph__label graph__label--then"><strong>Then</strong><span>How you stay there</span></div>
     </figure>
+    <figure class="graph-d" role="img" aria-label="Graph: health declines slowly over years, drops when you get hurt, then climbs back above where you started with a plan, and stays there.">
+      <svg viewBox="0 0 1040 676" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="Montserrat, sans-serif">
+        <rect width="1040" height="676" rx="16" fill="#0F2D40"/>
+        <path d="M968 470H72C67.58 470 64 473.58 64 478V604C64 608.42 67.58 612 72 612H968C972.42 612 976 608.42 976 604V478C976 473.58 972.42 470 968 470Z" fill="#E8512A" fill-opacity="0.16"/>
+        <path d="M64 470H976" stroke="#E8512A" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="6 8"/>
+        <path d="M64 150H976" stroke="white" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 8"/>
+        <path d="M80 160C89.8 158 96.8 164.5 108 163C111.3 163 110.7 174 114 174C127.3 172 136.8 178.5 152 177C155.3 177 154.7 196 158 196C167.1 194 173.6 200.5 184 199C187.3 199 186.7 212 190 212C202.6 210 211.6 216.5 226 215C229.3 215 228.7 236 232 236C242.5 234 250 237.5 262 236C269.3 236 267.9 322 275.2 322C281.5 320 286 326.5 293.2 325C296.5 325 295.9 342 299.2 342C306.9 340 312.4 346.5 321.2 345C324.5 345 323.9 368 327.2 368C332.1 366 335.6 372.5 341.2 371C344.5 371 343.9 384 347.2 384C354.2 382 359.2 388.5 367.2 387C370.5 387 369.9 414 373.2 414C378.8 412 382.8 418.5 389.2 417C392.5 417 391.9 436 395.2 436C403.6 434 409.6 440.5 419.2 439C422.5 439 421.9 464 425.2 464C429.4 462 432.4 468.5 437.2 467C440.5 467 439.9 482 443.2 482C448.1 480 451.6 486.5 457.2 485C460.5 485 459.9 516 463.2 516C466.7 514 469.2 520.5 473.2 519C476.5 519 475.9 540 479.2 540" stroke="white" stroke-opacity="0.75" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M479.2 540C519.2 520 539.2 478 569.2 448C599.2 418 619.2 388 649.2 356C679.2 324 707.2 272 741.2 236C775.2 200 779.2 210 811.2 208" stroke="#E8512A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M811.2 208L962 207" stroke="#8FCB9B" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M950 197L964 207L950 217" stroke="#8FCB9B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="262" cy="236" r="6" fill="#1C2B3F" stroke="white" stroke-width="3"/>
+        <circle cx="479.2" cy="540" r="8" fill="#D0622F" stroke="#1C2B3F" stroke-width="3"/>
+        <g font-size="15">
+          <text x="88" y="559.4" fill="#E8512A" font-weight="700">SYMPTOM ZONE</text>
+          <text x="88" y="585.4" fill="white" fill-opacity="0.6">Pain zone. Headache zone.</text>
+          <text x="64" y="103.4" fill="white" font-weight="700">OPTIMAL HEALTH</text>
+          <text x="64" y="127.4" fill="white" fill-opacity="0.6">Feeling your best, no symptoms. For most people, high school or before.</text>
+          <text x="96" y="289.4" fill="white" fill-opacity="0.75">Years of slowly</text>
+          <text x="96" y="310.4" fill="white" fill-opacity="0.75">beating yourself up</text>
+          <text x="284" y="255.4" fill="white" font-weight="700">The moment you</text>
+          <text x="284" y="276.4" fill="white" font-weight="700">fell off the horse</text>
+          <text x="501.2" y="565.5" fill="white" font-weight="700" font-size="14">When you finally</text>
+          <text x="501.2" y="585.5" fill="white" fill-opacity="0.75" font-size="14">look up a chiropractor</text>
+          <text x="712" y="351.4" fill="#E8512A" font-weight="700">THE PLAN</text>
+          <text x="712" y="375.4" fill="white" fill-opacity="0.75">How you climb back out.</text>
+          <text x="712" y="396.4" fill="white" fill-opacity="0.75">Not all the way to the top,</text>
+          <text x="712" y="417.4" fill="white" fill-opacity="0.75">but well above where</text>
+          <text x="712" y="438.4" fill="white" fill-opacity="0.75">you started.</text>
+          <text x="821.2" y="243.4" fill="#8FCB9B" font-weight="700">THEN</text>
+          <text x="821.2" y="267.4" fill="white" fill-opacity="0.75">How you</text>
+          <text x="821.2" y="288.4" fill="white" fill-opacity="0.75">stay there</text>
+        </g>
+      </svg>
+    </figure>
     <div class="findings__after">{after.map((p) => <p class="fw-500" set:html={p.t} />)}</div>
   </div>
 </section>
@@ -51,10 +85,17 @@ const after = paras.slice(gi).filter((p) => p.w === 500 && p.t.length > 40);
   .graph__label--find { left: 35%; bottom: 5%; max-width: 28%; }
   .graph__label--plan { left: 66%; top: 52%; max-width: 30%; }
   .graph__label--then { right: 5%; top: 18%; max-width: 22%; text-align: right; }
-  @media (min-width: 1024px) {
-    .findings__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px 80px; }
-    .findings__after { grid-column: 1; }
-    .graph { grid-row: span 2; }
+  .findings__copy, .findings__after { font-size: 16px; line-height: 1.8; color: var(--navy-900); }
+  .findings__after p { font-weight: 400; }
+  .graph-d { display: none; margin: 0; width: 100%; max-width: 1040px; }
+  .graph-d svg { display: block; width: 100%; height: auto; }
+  /* Figma desktop: one centred column (792px copy), dark 1040px graph card between the paragraphs */
+  @media (min-width: 768px) {
+    .findings__grid { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .findings__copy, .findings__after { width: 100%; max-width: 792px; gap: 24px; }
+    .findings__copy .btitle { margin-bottom: 16px; }
+    .graph { display: none; }
+    .graph-d { display: block; }
   }
   @media (max-width: 767.98px) { .findings { padding-block: 60px; } .graph { padding: 12px; } }
 </style>

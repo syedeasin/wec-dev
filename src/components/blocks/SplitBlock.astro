@@ -13,14 +13,15 @@ const { s, reverse = false, bg = 'white', id } = Astro.props;
 const imgs = s.images ?? [];
 const [a, b] = imgs;
 // Two photos: the larger one is the main photo, the smaller one overlaps its corner.
-const main = b && b.w * b.h > a.w * a.h ? b : a;
+const stack = s.layout === 'stack';
+const main = !stack && b && b.w * b.h > a.w * a.h ? b : a;
 const second = b ? (main === a ? b : a) : undefined;
 ---
 <section class:list={['section split-b', `section--${bg}`]} id={id}>
   <div class:list={['container split-b__grid', reverse && 'split-b__grid--rev', !imgs.length && 'split-b__grid--solo']}>
     <div class="split-b__copy">
       {s.tag && <Tag>{s.tag}</Tag>}
-      <Title title={s.title} />
+      <Title title={s.title} mark={s.mark !== false} />
       <Rich paras={s.paras} class="split-b__text" />
       {s.steps && (
         <ol class="num-list" role="list">
@@ -36,9 +37,9 @@ const second = b ? (main === a ? b : a) : undefined;
       <Buttons buttons={s.buttons} />
     </div>
     {main && (
-      <div class:list={['split-b__media', second && 'split-b__media--duo']}>
-        <Media image={main} class="split-b__main" shadow={false} sizes={second ? '(min-width: 1280px) 370px, (min-width: 1024px) 30vw, 60vw' : '(min-width: 1280px) 550px, (min-width: 1024px) 45vw, 100vw'} />
-        {second && <Media image={second} class="split-b__second" shadow={false} sizes="(min-width: 1280px) 194px, 30vw" />}
+      <div class:list={['split-b__media', second && !stack && 'split-b__media--duo', stack && 'split-b__media--stack']}>
+        <Media image={main} class="split-b__main" shadow={false} sizes={second && !stack ? '(min-width: 1280px) 370px, (min-width: 1024px) 30vw, 60vw' : '(min-width: 1280px) 550px, (min-width: 1024px) 45vw, 100vw'} />
+        {second && <Media image={second} class="split-b__second" shadow={false} sizes={stack ? '(min-width: 1280px) 510px, (min-width: 1024px) 40vw, 100vw' : '(min-width: 1280px) 194px, 30vw'} />}
       </div>
     )}
   </div>
@@ -57,6 +58,17 @@ const second = b ? (main === a ? b : a) : undefined;
   .split-b__media--duo .split-b__main img { aspect-ratio: 370 / 546; }
   .split-b__media--duo .split-b__second { flex: 194 1 0; min-width: 0; margin-top: 24px; }
   .split-b__second img { aspect-ratio: 194 / 257; }
+  /* Figma stacked pair: 510 x 577 over 510 x 364, 32px apart */
+  .split-b__media--stack { display: flex; flex-direction: column; gap: 32px; }
+  .split-b__media--stack .split-b__main img { aspect-ratio: 510 / 577; }
+  .split-b__media--stack .split-b__second img { aspect-ratio: 510 / 364; }
+  /* Figma numbered rows: 56px sand tile, 20px title, 16px text, divider under each row */
+  .split-b .num-list { gap: 0; }
+  .split-b .num-list li { padding-block: 32px; border-bottom: 1px solid rgb(21 64 91 / 0.16); }
+  .split-b .num-list__n { width: 56px; height: 56px; background: var(--sand-100); font-size: 24px; }
+  .split-b .num-list li > div { display: flex; flex-direction: column; gap: 8px; }
+  .split-b .num-list__t { font-size: 20px; line-height: 26px; }
+  .split-b .num-list__d { font-size: 16px; line-height: 1.8; color: var(--navy-900); }
   .split-b__cards { list-style: none; padding: 0; display: grid; gap: 16px; }
   .split-b__cards li { display: flex; gap: 12px; padding: 16px; border-radius: var(--radius-lg); background: var(--sand-100); }
   .split-b__ci { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-md); background: rgb(232 81 42 / 0.12); color: var(--orange-500); }
@@ -65,6 +77,7 @@ const second = b ? (main === a ? b : a) : undefined;
     .split-b__grid:has(.split-b__media--duo) { grid-template-columns: minmax(0, 498fr) minmax(0, 596fr); gap: 40px; }
     .split-b__grid--rev:has(.split-b__media--duo) { grid-template-columns: minmax(0, 596fr) minmax(0, 498fr); }
     .split-b__grid--rev .split-b__media { order: -1; }
+    .split-b__grid:has(.split-b__media--stack) { grid-template-columns: minmax(0, 588fr) minmax(0, 510fr); gap: 102px; }
     .split-b__grid--solo { grid-template-columns: minmax(0, 820px); justify-content: center; }
     .split-b__copy { padding-block: 24px; }
   }
@@ -75,6 +88,10 @@ const second = b ? (main === a ? b : a) : undefined;
   }
   @media (max-width: 767.98px) {
     .split-b { padding-block: 60px; }
+    .split-b .num-list li { padding-block: 24px; }
+    .split-b .num-list__n { width: 48px; height: 48px; font-size: 20px; }
+    .split-b .num-list__t { font-size: 18px; }
+    .split-b .num-list__d { font-size: 14px; }
     .split-b__media--duo { gap: 16px; }
     .split-b__media--duo .split-b__second { margin-top: 16px; }
   }

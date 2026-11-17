@@ -13,6 +13,8 @@ export type Section = {
   cards?: Card[]; steps?: { title: string; text: string }[];
   faqs?: { q: string; a: string }[]; tags?: { tag: string; text: string }[];
   buttons?: Btn[]; images?: Img[]; logos?: boolean;
+  /** 'stack': photos stacked vertically (Figma desktop); mark: false hides the spine mark */
+  layout?: 'stack'; mark?: boolean;
 };
 export type PageData = { sections: Section[] };
 
