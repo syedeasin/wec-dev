@@ -14,8 +14,13 @@ const trust = s.bullets?.length ? s.bullets.map((b) => ({ icon: icon(b.icon), te
 const image = s.images?.[0];
 const meta = image ? img(image.src) : undefined;
 const pos = image?.pos ?? '70% 50%';
+// Figma CROP fill (desktop): [left, top, width, height] of the visible window as image fractions.
+const crop = image?.crop;
+const ar = meta ? meta.width / meta.height : 1.5;
+const vars = [`--pos:${pos}`, image?.flip && '--flip:-1',
+  crop && `--cx:${crop[0]};--cy:${crop[1]};--cw:${crop[2]};--ch:${crop[3]};--ar:${ar}`].filter(Boolean).join(';');
 ---
-<section class="phero on-dark" style={`--pos:${pos}`}>
+<section class:list={['phero on-dark', crop && 'phero--crop']} style={vars}>
   {meta && <Picture quality={85} src={meta} alt="" widths={[480, 768, 1280, 1920, 2560, 2880].filter((w) => w <= meta.width)} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="phero__bg" loading="eager" fetchpriority="high" />}
   <div class="container phero__inner">
     <div class="phero__copy">
@@ -40,7 +45,13 @@ const pos = image?.pos ?? '70% 50%';
 <style is:global>
   .phero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy-900); }
   .phero > picture { position: absolute; inset: 0; z-index: -2; }
-  .phero__bg { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos); }
+  .phero__bg { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos); transform: scaleX(var(--flip, 1)); }
+  @media (min-width: 1280px) {
+    /* Reproduce the Figma crop window under the top bar; grow if the hero gets taller than the crop */
+    .phero--crop > picture { top: var(--topbar-h); overflow: hidden; container-type: size; }
+    .phero--crop .phero__bg { --iw: max(100cqw / var(--cw), 100cqh * var(--ar) / var(--ch)); position: absolute; max-width: none;
+      width: var(--iw); height: calc(var(--iw) / var(--ar)); left: calc(var(--iw) * var(--cx) * -1); top: calc(var(--iw) / var(--ar) * var(--cy) * -1); }
+  }
   .phero::before { content: ''; position: absolute; inset: 0; z-index: -1;
     /* Same Figma overlay stack as the homepage hero: deep navy behind the header and on the copy side */
     background:
@@ -62,6 +73,7 @@ const pos = image?.pos ?? '70% 50%';
   .phero__bullets { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--sand-100); }
   .phero__bullets .icon { color: var(--blue-300); }
   .phero__media-mobile { display: none; }
+  @media (max-width: 767.98px) { .phero__br { display: none; } }
   @media (max-width: 1279.98px) {
     .phero__inner { min-height: 680px; padding-bottom: 80px; }
     .phero::before { background: linear-gradient(90deg, #0f2d40 0%, rgb(15 45 64 / 0.85) 50%, rgb(15 45 64 / 0.45) 100%); }

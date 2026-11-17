@@ -2,7 +2,7 @@
  "sections": [
   {
    "name": "Hero",
-   "title": "Chiropractor in <span class=\"hl\">Downtown Austin</span>",
+   "title": "Chiropractor in <br class=\"phero__br\"><span class=\"hl\">Downtown Austin</span>",
    "paras": [
     {
      "w": 400,
@@ -38,7 +38,13 @@
      "src": "photos/xray-review-older-patient",
      "w": 390,
      "h": 451,
-     "pos": "99% 50%"
+     "pos": "99% 50%",
+     "crop": [
+      0.08,
+      0.04,
+      0.92,
+      0.8433
+     ]
     }
    ]
   },
@@ -265,7 +271,8 @@
      "q": "Are you open on Fridays?",
      "a": "No. We're open Monday through Thursday, 8am to 1pm and 3pm to 5pm."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Section / CTA Band",

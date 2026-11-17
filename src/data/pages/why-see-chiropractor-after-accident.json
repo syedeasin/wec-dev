@@ -155,7 +155,8 @@
      "q": "What if my accident was months ago?",
      "a": "Still worth getting looked at. It's harder to connect an old injury to the crash for insurance purposes, but if something's still bothering you, that's worth addressing on its own."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Conditions Section",

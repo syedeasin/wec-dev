@@ -3,7 +3,7 @@
 import { site, services, conditionHubs } from '../data/site';
 
 export type Para = { w: number; t: string };
-export type Img = { src: string; w: number; h: number; pos?: string; flip?: boolean };
+export type Img = { src: string; w: number; h: number; pos?: string; flip?: boolean; crop?: [number, number, number, number] };
 export type Btn = { variant: string; label: string };
 export type Card = { icon?: string; title: string; text?: string };
 export type Section = {

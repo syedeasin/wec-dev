@@ -14,7 +14,7 @@ const cols = [0, 1, 2].map((c) => list.filter((_, i) => i % 3 === c));
 ---
 <section class:list={['section', 'reviews', `section--${bg}`]}>
   <div class="container reviews__inner">
-    <SectionHead title={title} />
+    <SectionHead title={title} maxWidth={1200} />
     <div class="reviews__wall" data-reviews>
       {cols.map((col, c) => (
         <div class:list={['reviews__col', `reviews__col--${c}`]}>{col.map((r) => <ReviewCard {...r} />)}</div>

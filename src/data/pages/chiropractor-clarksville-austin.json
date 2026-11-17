@@ -2,7 +2,7 @@
  "sections": [
   {
    "name": "Hero",
-   "title": "Chiropractor in <span class=\"hl\">Clarksville, Austin</span>",
+   "title": "Chiropractor in <br class=\"phero__br\"><span class=\"hl\">Clarksville, Austin</span>",
    "paras": [
     {
      "w": 400,
@@ -38,8 +38,14 @@
      "src": "photos/shoulder-assessment-man",
      "w": 390,
      "h": 451,
-     "pos": "38% 21%",
-     "flip": true
+     "pos": "62% 21%",
+     "flip": true,
+     "crop": [
+      0.08,
+      0.02,
+      0.72,
+      0.66
+     ]
     }
    ]
   },
@@ -238,11 +244,12 @@
      "q": "What are your hours?",
      "a": "Monday through Thursday, 8am to 1pm and 3pm to 5pm."
     }
-   ]
+   ],
+   "faqOpen": true
   },
   {
    "name": "Section / CTA Band",
-   "title": "Your neighborhood chiropractor is around the corner",
+   "title": "Your neighborhood chiropractor\nis around the corner",
    "paras": [
     {
      "w": 400,
