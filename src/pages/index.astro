@@ -429,12 +429,13 @@ const caseySlides = [
   .person :global(.person__img), .person :global(picture) { flex: none; }
   .person :global(img) { width: 132px; height: 132px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-image-soft); }
   .person__body { display: flex; flex-direction: column; gap: 4px; }
-  .person__name { font-size: 20px; line-height: 26px; font-weight: 600; }
-  .person__role { font-size: 14px; line-height: 22px; font-style: italic; color: var(--orange-500); }
+  .person__name { font-size: 20px; line-height: 1.2; font-weight: 600; }
+  .person__role { font-size: 14px; line-height: 1.8; font-style: italic; color: var(--orange-500); }
   .person__bio { font-size: 16px; line-height: 1.6; color: var(--navy-900); }
   /* Figma: 488 media / 652 copy, 60 gap — proportional columns */
   @media (min-width: 1024px) { .casey__split { grid-template-columns: minmax(0, 488fr) minmax(0, 652fr); gap: 60px; } }
-  @media (min-width: 1024px) { .team-row__grid { grid-template-columns: repeat(2, minmax(0, 560px)); justify-content: center; gap: 80px; } }
+  /* Figma: two equal columns spanning the full container, 80px gap */
+  @media (min-width: 1024px) { .team-row__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; } }
   @media (max-width: 767.98px) {
     .casey { padding-top: 80px; }
     .casey__inner { gap: 60px; }
