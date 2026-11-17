@@ -32,9 +32,12 @@ const {
 <style is:global>
   .cta-band { position: relative; overflow: hidden; background: var(--navy-900); isolation: isolate; }
   .cta-band__bg, .cta-band picture { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; }
-  .cta-band__bg { object-fit: cover; object-position: 70% 30%; }
-  .cta-band::before { content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(90deg, #0f2d40 0%, rgb(27 79 114 / 0.95) 38%, rgb(19 58 83 / 0.45) 62%, rgb(15 45 64 / 0.18) 100%), linear-gradient(180deg, rgb(15 45 64 / 0) 27%, rgb(15 45 64 / 0.1) 40%, rgb(15 45 64 / 0.32) 100%); }
+  /* Figma: photo object-fit cover, centred */
+  .cta-band__bg { object-fit: cover; object-position: 50% 50%; }
+  /* Figma overlay: multiply navy gradient, then a normal-blend bottom fade */
+  .cta-band::before, .cta-band::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+  .cta-band::before { background: linear-gradient(88.11deg, #0f2d40 0%, #1b4f72 49.52%, rgb(19 58 83 / 0.49) 72.12%, rgb(15 45 64 / 0.18) 100%); mix-blend-mode: multiply; }
+  .cta-band::after { background: linear-gradient(180deg, rgb(15 45 64 / 0) 26.92%, rgb(15 45 64 / 0.11) 39.9%, rgb(15 45 64 / 0.32) 100%); }
   .cta-band__inner { display: flex; flex-direction: column; gap: 40px; padding-block: 80px; min-height: 615px; justify-content: center; }
   .cta-band__copy { display: flex; flex-direction: column; gap: 24px; max-width: 742px; }
   .cta-band__title { font-weight: 600; }
@@ -43,10 +46,15 @@ const {
   .cta-band__call .icon { color: var(--orange-500); }
   .cta-band__note { font-size: 14px; line-height: 1.8; color: var(--sand-100); opacity: 0.8; }
   @media (max-width: 767.98px) {
-    .cta-band__bg { position: relative; height: 360px; object-position: 62% 20%; }
-    .cta-band picture { position: absolute; height: 380px; inset: 0 0 auto 0; }
-    .cta-band::before { background: linear-gradient(180deg, rgb(15 45 64 / 0.18) 0%, rgb(15 45 64 / 0.4) 140px, rgb(27 79 114 / 0.95) 300px, #0f2d40 100%); }
-    .cta-band__inner { padding-top: 200px; padding-bottom: 60px; min-height: 0; gap: 32px; }
+    /* Figma mobile frame (390 wide): photo 239.25% wide, shifted -119.61% left and -56px up */
+    .cta-band picture { inset: 0; width: 100%; height: 100%; overflow: hidden; }
+    .cta-band__bg { position: absolute; left: -119.61%; top: -14.36vw; width: 239.25%; max-width: none; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .cta-band::before { background: linear-gradient(0.6deg, #0f2d40 30.39%, #1b4f72 56.22%, rgb(19 58 83 / 0.49) 78.7%, rgb(15 45 64 / 0.18) 99.75%); }
+    .cta-band::after { display: none; }
+    /* below the photo Figma's multiply layer sits on nothing (= white), so the gradient shows as-is */
+    .cta-band { background: #fff; }
+    .cta-band__inner { padding-block: 60px; min-height: 808px; justify-content: flex-end; gap: 40px; }
+    .cta-band__title { font-size: 32px; }
     .cta-band__buttons { flex-direction: column; }
   }
 </style>
