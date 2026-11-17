@@ -1,0 +1,31 @@
+---
+// "On this page" card (Figma: sand card, orange 3px bar on the active item). Scroll-spy marks the active link.
+interface Props { items: { id: string; label: string }[] }
+const { items } = Astro.props;
+---
+<nav class="ltoc" aria-label="On this page" data-ltoc>
+  <p class="ltoc__label">ON THIS PAGE</p>
+  <ol role="list">{items.map((n, i) => <li><a href={`#${n.id}`} class:list={[i === 0 && 'is-active']} set:html={n.label} /></li>)}</ol>
+</nav>
+<script>
+  for (const nav of document.querySelectorAll<HTMLElement>('[data-ltoc]')) {
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>('a')];
+    const targets = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1)))).filter(Boolean) as HTMLElement[];
+    const update = () => {
+      let idx = 0;
+      targets.forEach((t, i) => { if (t.getBoundingClientRect().top < window.innerHeight * 0.3) idx = i; });
+      links.forEach((a, i) => a.classList.toggle('is-active', i === idx));
+    };
+    addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
+<style is:global>
+  .ltoc { padding: 24px; border-radius: 16px; background: var(--sand-100); display: flex; flex-direction: column; gap: 4px; }
+  .ltoc__label { font-size: 12px; line-height: 22px; font-weight: 700; color: rgb(44 83 109 / .8); }
+  .ltoc ol { list-style: none; margin: 0; padding: 12px 0 0; display: flex; flex-direction: column; }
+  .ltoc a { display: block; padding: 9px 0 9px 15px; border-left: 1px solid #e4dfd4; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); transition: color .15s; }
+  .ltoc a:hover { color: var(--orange-500); }
+  .ltoc a.is-active { padding-left: 14px; border-left: 3px solid var(--orange-500); color: var(--orange-500); font-weight: 600; }
+  @media (min-width: 1024px) { .ltoc { position: sticky; top: 24px; max-height: calc(100vh - 48px); overflow: auto; } }
+</style>

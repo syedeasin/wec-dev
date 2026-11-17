@@ -9,6 +9,6 @@ const [hero, body] = data.sections;
 const crumb = strip(hero.paras?.[0]?.t ?? '').split('/').pop()!.trim();
 ---
 <SiteLayout title={title} description={description}>
-  <CompactHero title={hero.title ?? ''} crumb={crumb} sub={hero.paras?.[1]?.t} />
+  <CompactHero title={hero.title ?? ''} crumb={crumb} sub={hero.paras?.[1]?.t} image="photos/office-sign-hero" />
   <LegalBody s={body} h2={h2} inserts={inserts} />
 </SiteLayout>
