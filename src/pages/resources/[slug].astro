@@ -2,11 +2,12 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import Media from '../../components/blocks/Media.astro';
 import RelatedBlock from '../../components/blocks/RelatedBlock.astro';
-import ArticleCard from '../../components/blocks/ArticleCard.astro';
 import CTABand from '../../components/sections/CTABand.astro';
 import Button from '../../components/ui/Button.astro';
 import Icon from '../../components/ui/Icon.astro';
-import { articles, fmtDate } from '../../data/articles';
+import { Picture } from 'astro:assets';
+import { articles, fmtDate, articleHref, type ArticleMeta } from '../../data/articles';
+import { img } from '../../lib/content';
 import { site } from '../../data/site';
 import postData from '../../data/pages/resource-post.json';
 import type { PageData } from '../../lib/content';
@@ -23,112 +24,256 @@ const slug = Astro.params.slug;
 const pd = postData as PageData;
 // Related conditions: the cards from the design, filtered to the ones the article lists.
 const relSection = { ...pd.sections[4], cards: pd.sections[4].cards!.filter((c) => (fm.related ?? []).includes(c.title)) };
-const keep = articles.filter((a) => a.slug !== slug && a.topic === fm.topic).slice(0, 4);
+const same = articles.filter((a) => a.slug !== slug && a.topic === fm.topic);
+const keep = (same.length > 4 ? same.filter((a) => a.slug !== 'herniated-vs-bulging-disc-mri') : same).slice(0, 4);
 const url = new URL(Astro.url.pathname, site.url).href;
 const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: fm.title, description: fm.description, datePublished: fm.date, dateModified: fm.date,
   author: { '@type': 'Person', name: 'Casey Morgan', honorificSuffix: 'D.C.' }, publisher: { '@type': 'MedicalBusiness', name: site.name }, mainEntityOfPage: url };
 const cta = pd.sections.at(-1)!;
+const html: string = await mod.compiledContent();
+const parts = html.split(/<div data-insert="(\w+)"><\/div>/);
+const by = (sl: string) => articles.find((a) => a.slug === sl);
+const rel = fm.inlineRelated ? by(fm.inlineRelated) : undefined;
+const mostRead = ['herniated-vs-bulging-disc-mri', 'headaches-that-start-in-your-neck', 'first-72-hours-after-car-wreck', 'is-chiropractic-safe-during-pregnancy', 'sciatica-or-pulled-muscle'].map(by).filter(Boolean) as ArticleMeta[];
+const meta = (a: ArticleMeta) => [fmtDate(a.date), `${a.minutes} min read`].filter(Boolean).join('  ·  ');
+const hero = img(fm.image);
+const avatar = img('resources/avatar');
+const book = img('resources/bookcard');
+const ww = (m: ImageMetadata, max: number) => [240, 400, 600, 800, 1200, 1600, 2400].filter((x) => x <= Math.min(m.width, max));
+const shareText = encodeURIComponent(fm.title);
+const shareUrl = encodeURIComponent(url);
+const shares = [
+  { icon: 'link-2', label: 'Copy link', href: '#', copy: true },
+  { icon: 'facebook', label: 'Share on Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}` },
+  { icon: 'twitter', label: 'Share on X', href: `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}` },
+  { icon: 'linkedin', label: 'Share on LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}` },
+  { icon: 'mail', label: 'Share by email', href: `mailto:?subject=${shareText}&body=${shareUrl}` },
+];
 ---
 <SiteLayout title={`${fm.title} | West End Chiropractic`} description={fm.description} headerVariant="solid">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
   <article>
-    <header class="section section--white phead">
-      <div class="container phead__inner">
-        <nav class="phead__crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources">Resources</a><span>/</span><span aria-current="page">{fm.topic}</span></nav>
-        <p class="eyebrow phead__topic">{fm.topic}</p>
-        <h1 class="h1 phead__title">{fm.title}</h1>
-        <p class="phead__lead">{fm.description}</p>
-        <div class="phead__by">
-          <Media image={{ src: 'photos/casey-morgan-headshot', w: 1, h: 1, pos: '50% 20%' }} class="phead__avatar" shadow={false} sizes="48px" alt="Casey Morgan, D.C." />
-          <div><p class="fw-600">By Casey Morgan, D.C.</p><p class="a2 text-muted">Updated {fmtDate(fm.date)}  ·  {fm.minutes} min read</p></div>
-          <button type="button" class="phead__share" data-share><Icon name="arrow-up-right" size={16} />Share</button>
+    <header class="phead">
+      <div class="container">
+        <div class="phead__inner">
+          <nav class="phead__crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources">Resources</a><span>/</span><span aria-current="page">{fm.topic}</span></nav>
+          <p class="pk pk--orange">{fm.topic}</p>
+          <h1 class="phead__title">{fm.title}</h1>
+          <p class="phead__lead">{fm.description}</p>
+        </div>
+        <div class="phead__bar">
+          <div class="phead__by">
+            <Picture src={avatar} alt="Casey Morgan, D.C." widths={[96, 192]} sizes="48px" formats={['webp']} fallbackFormat="webp" class="phead__av" />
+            <div><p class="phead__name">By Casey Morgan, D.C.</p><p class="phead__meta">Chiropractor at West End Chiropractic  ·  Updated {fmtDate(new Date(fm.date).toISOString().slice(0, 10))}  ·  {fm.minutes} min read</p></div>
+          </div>
+          <div class="pshare"><span class="pshare__l">Share</span><span class="pshare__dot" aria-hidden="true"></span>{shares.map((x) => <a class="pshare__b" href={x.href} aria-label={x.label} data-copy={x.copy} target={x.copy || x.icon === 'mail' ? undefined : '_blank'} rel="noopener"><Icon name={x.icon} size={18} /></a>)}</div>
         </div>
       </div>
     </header>
     <figure class="container pfig">
-      <Media image={{ src: fm.image, w: 1, h: 1, pos: fm.imagePos }} eager sizes="(min-width: 1280px) 1280px, 100vw" alt={fm.caption} />
-      <figcaption class="a2 text-muted">{fm.caption}</figcaption>
+      <Picture src={hero} alt={fm.caption} class="pfig__img" widths={ww(hero, 2400)} sizes="(min-width: 1280px) 1200px, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} loading="eager" style={`--pos:${fm.imagePos ?? '50% 0%'}`} />
+      <figcaption><span>{fm.caption}</span><span class="pfig__credit">Photo: West End Chiropractic</span></figcaption>
     </figure>
     <div class="container pbody">
-      <aside class="pbody__side">
-        <div class="pbox"><p class="eyebrow">In this article</p><ol role="list">{headings.filter((h) => h.depth === 2).map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></div>
-        <div class="pbox pbox--cta">
-          <p class="eyebrow phead__topic">New patients</p>
-          <p class="h4">Not sure what's causing your pain?</p>
-          <p class="a1 text-muted">Your first visit includes an exam and any digital X-rays you need. In-network with most major carriers.</p>
-          <Button href={site.bookHref} block>{site.bookLabel}</Button>
-          <a class="pbox__call" href={site.phoneHref}>Or call {site.phone}</a>
-        </div>
-      </aside>
       <div class="pbody__main">
-        <div class="pkey"><p class="pkey__title">Key takeaways</p><ul role="list">{fm.takeaways.map((t: string) => <li><Icon name="check" size={16} /><span>{t}</span></li>)}</ul></div>
-        <div class="prose post-prose"><Content /></div>
-        <p class="pnote a2">This article is general information, not a diagnosis. If you have sudden leg weakness, numbness in the groin or inner thighs, or trouble controlling your bladder or bowels, get emergency care right away.</p>
-        <div class="ptags"><span class="fw-600">Filed under</span>{fm.tags.map((t: string) => <span class="ptag">{t}</span>)}</div>
+        <div class="pkey"><p class="pkey__title"><Icon name="list-checks" size={24} />Key takeaways</p><ul role="list">{fm.takeaways.map((t: string) => <li><Icon name="check" size={20} /><span>{t}</span></li>)}</ul></div>
+        <div class="prose post-prose">
+          {parts.map((part, i) => i % 2 === 0 ? <Fragment set:html={part} /> :
+            part === 'figure' && fm.figure ? (
+              <figure class="pinfig"><Picture src={img(fm.figure)} alt={fm.figureCaption} widths={ww(img(fm.figure), 1600)} sizes="(min-width: 1280px) 760px, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} /><figcaption>{fm.figureCaption}</figcaption></figure>
+            ) : part === 'related' && rel ? (
+              <div class="prel"><p class="pk pk--muted">Related</p>{(() => { const h = articleHref(rel.slug); const T = h ? 'a' : 'div'; const m = img(rel.image); return <T class="prel__card" href={h}><Picture src={m} alt="" widths={ww(m, 400)} sizes="112px" formats={['webp']} fallbackFormat="webp" class="prel__img" /><div><p class="pk pk--orange">{rel.topic}</p><p class="prel__t">{rel.title}</p><p class="prel__m">{meta(rel)}</p></div></T>; })()}</div>
+            ) : part === 'cta' ? (
+              <div class="pcta"><div><p class="pcta__t">{fm.cta ?? 'Not sure what is causing your pain?'}</p><p class="pcta__d">Your first visit includes an exam and any digital X-rays you need. In-network with most major carriers.</p></div><Button href={site.bookHref}>{site.bookLabel}</Button></div>
+            ) : null
+          )}
+        </div>
+        <p class="pnote">This article is general information, not a diagnosis. If you have sudden leg weakness, numbness in the groin or inner thighs, or trouble controlling your bladder or bowels, get emergency care right away.</p>
+        <div class="ptags"><span class="ptags__l">Filed under</span>{fm.tags.map((t: string) => <a class="ptag" href="/resources">{t}</a>)}</div>
+        <div class="pshare pshare--row"><span class="pshare__l">Share</span><span class="pshare__dot" aria-hidden="true"></span>{shares.map((x) => <a class="pshare__b" href={x.href} aria-label={x.label} data-copy={x.copy} target={x.copy || x.icon === 'mail' ? undefined : '_blank'} rel="noopener"><Icon name={x.icon} size={18} /></a>)}</div>
         <div class="pauthor">
-          <Media image={{ src: 'photos/casey-morgan-headshot', w: 1, h: 1, pos: '50% 20%' }} class="pauthor__img" shadow={false} sizes="64px" alt="Casey Morgan, D.C." />
-          <div><p class="eyebrow text-muted">Written and reviewed by</p><p class="fw-600">Casey Morgan, D.C.</p><p class="a2 text-muted">Chiropractor at West End Chiropractic, downtown Austin</p><p class="a1">Dr. Morgan writes these guides to answer the questions patients ask him most, in plain English.</p><a class="text-link" href="/about-dr-morgan">More from Dr. Morgan →</a></div>
+          <Picture src={avatar} alt="Casey Morgan, D.C." widths={[176, 352]} sizes="88px" formats={['webp']} fallbackFormat="webp" class="pauthor__img" />
+          <div><p class="pk pk--orange">Written and reviewed by</p><p class="pauthor__n">Casey Morgan, D.C.</p><p class="pauthor__r">Chiropractor at West End Chiropractic, downtown Austin</p><p class="pauthor__b">Dr. Morgan writes these guides to answer the questions patients ask him most, in plain English.</p><a class="plink" href="/about-dr-morgan">More from Dr. Morgan<Icon name="arrow-right" size={16} /></a></div>
         </div>
       </div>
+      <aside class="pbody__side">
+        <nav class="ptoc" aria-label="In this article" data-ptoc>
+          <p class="pk pk--muted">In this article</p>
+          <ol role="list">{headings.filter((h) => h.depth === 2).map((h, i) => <li><a href={`#${h.slug}`} class:list={[i === 0 && 'is-active']}>{h.text}</a></li>)}</ol>
+        </nav>
+        <div class="rbook">
+          <Picture src={book} alt="Dr. Casey Morgan talking with a patient" class="rbook__img" widths={ww(book, 800)} sizes="312px" formats={['webp']} fallbackFormat="webp" quality={85} />
+          <div class="rbook__text"><p class="pk pk--orange">New patients</p><p class="rbook__t">Not sure what's causing your pain?</p><p class="rbook__d">Your first visit includes an exam and any digital X-rays you need. In-network with most major carriers.</p></div>
+          <Button href={site.bookHref} block>{site.bookLabel}</Button>
+          <a class="rbook__call" href={site.phoneHref}><Icon name="phone" size={16} />Or call {site.phone}</a>
+        </div>
+        <div class="rside__most">
+          <p class="rside__h"><Icon name="trending-up" size={22} />Most read</p>
+          <ol role="list">{mostRead.map((a, i) => { const h = articleHref(a.slug); return <li><span class="rside__n">{String(i + 1).padStart(2, '0')}</span><div>{h ? <a href={h}>{a.title}</a> : <span>{a.title}</span>}<small>{a.minutes} min read</small></div></li>; })}</ol>
+        </div>
+      </aside>
     </div>
   </article>
   {relSection.cards.length > 0 && <RelatedBlock s={relSection} />}
   {keep.length > 0 && (
-    <section class="section section--white">
-      <div class="container pkeep">
-        <div class="pkeep__head"><div><p class="eyebrow phead__topic">More on {fm.topic}</p><h2 class="h2">Keep reading</h2></div><a class="text-link" href="/resources">See all {fm.topic} articles →</a></div>
-        <ul class="rgrid-4" role="list">{keep.map((a) => <li><ArticleCard a={a} /></li>)}</ul>
+    <section class="pkeep">
+      <div class="container pkeep__inner">
+        <div class="pkeep__head"><div><p class="pk pk--orange">More on {fm.topic}</p><h2 class="pkeep__h">Keep reading</h2></div><a class="plink" href="/resources">See all {fm.topic} articles<Icon name="arrow-right" size={16} /></a></div>
+        <ul class="rcards" role="list">
+          {keep.map((a) => { const h = articleHref(a.slug); const T = h ? 'a' : 'div'; const m = img(a.image); return (
+            <li><T class="rcard" href={h}><Picture src={m} alt="" class="rcard__img" widths={ww(m, 800)} sizes="(min-width: 1280px) 282px, (min-width: 768px) 45vw, 100vw" formats={['webp']} fallbackFormat="webp" quality={85} /><div class="rcard__body"><p class="pk pk--orange">{a.topic}</p><h3 class="rcard__t">{a.title}</h3><p class="prel__m">{meta(a)}</p></div></T></li>
+          ); })}
+        </ul>
       </div>
     </section>
   )}
   <CTABand title={cta.title} text={cta.paras![0].t} />
 </SiteLayout>
 <script>
-  document.querySelector('[data-share]')?.addEventListener('click', async () => {
-    try { if (navigator.share) await navigator.share({ title: document.title, url: location.href }); else { await navigator.clipboard.writeText(location.href); alert('Link copied'); } } catch {}
-  });
+  document.querySelectorAll<HTMLAnchorElement>('[data-copy]').forEach((el) => el.addEventListener('click', async (e) => {
+    e.preventDefault();
+    try { if (navigator.share) await navigator.share({ title: document.title, url: location.href }); else { await navigator.clipboard.writeText(location.href); el.classList.add('is-done'); setTimeout(() => el.classList.remove('is-done'), 1500); } } catch {}
+  }));
+  const toc = document.querySelector('[data-ptoc]');
+  if (toc) {
+    const links = [...toc.querySelectorAll<HTMLAnchorElement>('a')];
+    const targets = links.map((l) => document.getElementById(decodeURIComponent(l.hash.slice(1))));
+    const update = () => { let idx = 0; targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < innerHeight * 0.3) idx = i; }); links.forEach((l, i) => l.classList.toggle('is-active', i === idx)); };
+    addEventListener('scroll', update, { passive: true }); update();
+  }
 </script>
 <style>
-  .phead { padding-bottom: 40px; }
-  .phead__inner { display: flex; flex-direction: column; gap: 16px; max-width: 860px; }
-  .phead__crumb { display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--navy-600); }
+  .pk { font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+  .pk--orange { color: var(--orange-600); }
+  .pk--muted { color: var(--navy-600); }
+  .plink { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 700; color: var(--orange-600); }
+  .plink:hover { color: var(--orange-500); }
+
+  .phead { background: #fff; padding-top: 60px; padding-bottom: 40px; }
+  .phead__inner { max-width: 840px; display: flex; flex-direction: column; gap: 20px; }
+  .phead__crumb { display: flex; gap: 8px; flex-wrap: wrap; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); margin-bottom: 0; }
   .phead__crumb a:hover { color: var(--orange-500); }
-  .phead__topic { color: var(--orange-500); }
-  .phead__lead { font-size: var(--fs-p1); line-height: var(--lh-p1); color: var(--navy-600); }
-  .phead__by { display: flex; align-items: center; gap: 12px; margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--border-light); }
-  .phead :global(.phead__avatar) { width: 48px; height: 48px; border-radius: 50%; flex: none; }
-  .phead__share { margin-left: auto; display: inline-flex; gap: 6px; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--border-light); border-radius: var(--radius-full); font-size: 14px; line-height: 1; font-weight: 600; }
-  .pfig { display: flex; flex-direction: column; gap: 8px; }
-  .pfig :global(img) { aspect-ratio: 16 / 7; }
-  .pbody { display: grid; gap: 40px; padding-block: 60px 100px; align-items: start; }
-  .pbody__side { display: flex; flex-direction: column; gap: 24px; }
-  .pbox { padding: 24px; border-radius: var(--radius-xl); background: var(--sand-100); display: flex; flex-direction: column; gap: 12px; }
-  .pbox ol { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 500; }
-  .pbox a:hover { color: var(--orange-500); }
-  .pbox--cta { background: var(--white); border: 1px solid var(--border-light); }
-  .pbox__call { text-align: center; font-weight: 600; color: var(--orange-500); font-size: 14px; }
-  .pbody__main { display: flex; flex-direction: column; gap: 32px; max-width: 760px; }
-  .pkey { padding: 24px; border-radius: var(--radius-xl); border-left: 3px solid var(--orange-500); background: var(--sand-100); }
-  .pkey__title { font-weight: 700; margin-bottom: 12px; }
-  .pkey ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  .pkey li { display: flex; gap: 10px; }
-  .pkey :global(.icon) { flex: none; margin-top: 5px; color: var(--orange-500); }
-  .post-prose { font-size: 17px; line-height: 1.8; color: var(--navy-900); }
-  .post-prose :global(h2) { font-size: var(--fs-h3); line-height: 1.2; scroll-margin-top: 80px; }
-  .post-prose :global(blockquote) { margin: 32px 0; padding: 24px; border-radius: var(--radius-xl); background: var(--navy-900); color: var(--white); font-size: var(--fs-p1); line-height: 1.5; font-weight: 600; }
-  .post-prose :global(blockquote p + p) { margin-top: 12px; font-size: 14px; color: var(--orange-500); }
-  .post-prose :global(li::marker) { color: var(--orange-500); font-weight: 700; }
-  .pnote { padding: 16px; border-radius: var(--radius-md); background: var(--sand-100); color: var(--navy-600); }
-  .ptags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; }
-  .ptag { padding: 6px 12px; border-radius: var(--radius-full); border: 1px solid var(--border-light); font-weight: 600; font-size: 13px; line-height: 1; }
-  .pauthor { display: flex; gap: 16px; padding: 24px; border-radius: var(--radius-xl); border: 1px solid var(--border-light); }
-  .pauthor > div { display: flex; flex-direction: column; gap: 4px; }
-  .pauthor :global(.pauthor__img) { flex: none; width: 64px; height: 64px; border-radius: 50%; }
-  @media (min-width: 1024px) { .pbody { grid-template-columns: minmax(0, 1fr) 320px; gap: 80px; } .pbody__side { order: 2; position: sticky; top: 24px; } }
-  @media (max-width: 767.98px) { .pfig :global(img) { aspect-ratio: 3 / 2; } .pbody { padding-block: 40px 60px; } .phead__share { display: none; } .pauthor { flex-direction: column; } }
-  .pkeep { display: flex; flex-direction: column; gap: 40px; }
+  .phead__title { font-size: 48px; line-height: 1.2; font-weight: 700; color: var(--navy-900); }
+  .phead__lead { font-size: 18px; line-height: 26px; color: var(--navy-600); }
+  .phead__bar { margin-top: 24px; padding-block: 21px; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .phead__by { display: flex; align-items: center; gap: 14px; }
+  .phead__av, .phead__av img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; flex: none; }
+  .phead__name { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .phead__meta { font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); white-space: pre-wrap; }
+  .pshare { display: flex; align-items: center; gap: 8px; }
+  .pshare__l { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .pshare__dot { width: 4px; height: 4px; border-radius: 50%; background: #d9d9d9; margin-inline: 4px 4px; }
+  .pshare__b { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #e3e3e3; color: var(--navy-900); transition: color .15s, border-color .15s; }
+  .pshare__b:hover, .pshare__b.is-done { color: var(--orange-500); border-color: var(--orange-500); }
+
+  .pfig { display: flex; flex-direction: column; gap: 12px; padding-bottom: 60px; }
+  .pfig__img, .pfig__img img { display: block; width: 100%; height: 600px; border-radius: 12px; object-fit: cover; object-position: var(--pos, 50% 0%); }
+  .pfig figcaption { display: flex; flex-wrap: wrap; gap: 0 8px; font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .pfig__credit { opacity: .7; }
+
+  .pbody { display: grid; gap: 48px; padding-bottom: 100px; align-items: start; }
+  .pbody__main { display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+  .pkey { padding: 32px; border-radius: 16px; background: var(--sand-100); display: flex; flex-direction: column; gap: 16px; }
+  .pkey__title { display: flex; align-items: center; gap: 12px; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .pkey__title :global(svg) { color: var(--orange-500); }
+  .pkey ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .pkey li { display: flex; gap: 12px; font-size: 16px; line-height: 1.8; color: var(--navy-900); }
+  .pkey li :global(svg) { flex: none; margin-top: 5px; color: var(--orange-500); }
+  .post-prose { font-size: 16px; line-height: 1.8; color: var(--navy-600); display: flex; flex-direction: column; gap: 24px; }
+  .post-prose :global(> *) { margin: 0 !important; }
+  .post-prose :global(h2) { padding-top: 16px; font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--navy-900); scroll-margin-top: 100px; }
+  .post-prose :global(ul) { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .post-prose :global(ul li) { position: relative; padding-left: 21px; font-size: 18px; line-height: 32px; color: var(--navy-900); }
+  .post-prose :global(ul li::before) { content: ''; position: absolute; left: 0; top: 11px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange-500); }
+  .post-prose :global(ol) { list-style: none; padding: 0; counter-reset: n; display: flex; flex-direction: column; gap: 14px; }
+  .post-prose :global(ol li) { counter-increment: n; position: relative; padding-left: 42px; font-size: 18px; line-height: 32px; color: var(--navy-900); }
+  .post-prose :global(ol li::before) { content: counter(n); position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 6px; background: var(--orange-500); color: #fff; font-size: 14px; line-height: 28px; font-weight: 700; text-align: center; }
+  .post-prose :global(blockquote) { position: relative; padding: 32px 40px 32px 60px; border-radius: 16px; background: var(--sand-100); border: 0; }
+  .post-prose :global(blockquote::before) { content: ''; position: absolute; left: 32px; top: 32px; bottom: 32px; width: 4px; border-radius: 2px; background: var(--orange-500); }
+  .post-prose :global(blockquote p) { font-size: 24px; line-height: 36px; font-weight: 600; color: var(--navy-900); font-style: normal; }
+  .post-prose :global(blockquote p + p) { margin-top: 16px; font-size: 14px; line-height: 22px; color: var(--orange-500); }
+  .pinfig { display: flex; flex-direction: column; gap: 12px; }
+  .pinfig :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 760 / 428; border-radius: 16px; object-fit: cover; }
+  .pinfig figcaption { font-size: 14px; line-height: 22px; color: rgb(44 83 109 / .8); }
+  .prel { padding-block: 20px; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; display: flex; flex-direction: column; gap: 12px; }
+  .prel__card { display: flex; gap: 16px; align-items: flex-start; color: var(--navy-900); }
+  .prel__img, .prel__img :global(img) { flex: none; width: 112px; height: 84px; border-radius: 8px; object-fit: cover; }
+  .prel__card > div { display: flex; flex-direction: column; gap: 6px; }
+  .prel__t { font-size: 18px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  a.prel__card:hover .prel__t { color: var(--orange-500); }
+  .prel__m { font-size: 12px; line-height: 22px; font-weight: 500; color: var(--navy-600); white-space: pre; }
+  .pcta { display: flex; align-items: center; gap: 32px; padding: 32px; border-radius: 12px; background: var(--sand-100); }
+  .post-prose .pcta :global(a.btn) { color: var(--sand-100); text-decoration: none; flex: none; }
+  .post-prose .prel :global(a) { text-decoration: none; }
+  .pcta > div { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .pcta__t { font-size: 24px; line-height: 1.3; font-weight: 700; color: var(--navy-900); }
+  .pcta__d { font-size: 16px; line-height: 1.8; color: var(--navy-600); }
+  .pnote { font-size: 14px; line-height: 22px; color: rgb(44 83 109 / .85); }
+  .ptags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .ptags__l { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .ptag { padding: 10px 18px; border-radius: 800px; border: 1px solid #d9d9d9; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .ptag:hover { border-color: var(--orange-500); }
+  .pshare--row { padding-top: 25px; border-top: 1px solid #e3e3e3; }
+  .pauthor { display: flex; gap: 24px; padding: 32px; border-radius: 16px; border: 1px solid #e3e3e3; background: #fff; }
+  .pauthor__img, .pauthor__img :global(img) { flex: none; width: 88px; height: 88px; border-radius: 50%; object-fit: cover; }
+  .pauthor > div { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .pauthor__n { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .pauthor__r { font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
+  .pauthor__b { font-size: 16px; line-height: 1.8; color: var(--navy-600); }
+
+  .pbody__side { display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+  .ptoc { display: flex; flex-direction: column; gap: 12px; }
+  .ptoc ol { list-style: none; margin: 0; padding: 0; }
+  .ptoc a { display: block; padding: 10px 0 10px 18px; border-left: 2px solid #e3e3e3; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
+  .ptoc a:hover { color: var(--orange-500); }
+  .ptoc a.is-active { border-left-color: var(--orange-500); color: var(--navy-900); font-weight: 600; }
+  .rbook { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 24px; border-radius: 16px; background: var(--sand-100); }
+  .rbook__img, .rbook__img :global(img) { width: 100%; height: 176px; border-radius: 12px; object-fit: cover; }
+  .rbook__text { align-self: stretch; display: flex; flex-direction: column; gap: 8px; }
+  .rbook__t { font-size: 24px; line-height: 1.3; font-weight: 700; color: var(--navy-900); }
+  .rbook__d { font-size: 14px; line-height: 22px; color: var(--navy-600); }
+  .rbook__call { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--navy-900); }
+  .rside__most { display: flex; flex-direction: column; gap: 8px; }
+  .rside__h { display: flex; align-items: center; gap: 10px; font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .rside__h :global(svg) { color: var(--orange-500); }
+  .rside__most ol { list-style: none; margin: 0; padding: 0; }
+  .rside__most li { display: flex; gap: 16px; padding-block: 16px; border-bottom: 1px solid #e3e3e3; }
+  .rside__n { flex: none; width: 48px; font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--orange-500); }
+  .rside__most li div { display: flex; flex-direction: column; gap: 4px; font-size: 18px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  .rside__most li a:hover { color: var(--orange-500); }
+  .rside__most small { font-size: 12px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
+  @media (min-width: 1024px) { .pbody { grid-template-columns: minmax(0, 760fr) minmax(0, 360fr); gap: 80px; } .pbody__side { position: sticky; top: 24px; } }
+
+  .pkeep { background: var(--sand-100); padding: 100px 0; }
+  .pkeep__inner { display: flex; flex-direction: column; gap: 40px; }
   .pkeep__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
-  .rgrid-4 { list-style: none; padding: 0; display: grid; gap: 32px 24px; }
-  @media (min-width: 768px) { .rgrid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 1280px) { .rgrid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .pkeep__head > div { display: flex; flex-direction: column; gap: 8px; }
+  .pkeep__h { font-size: 32px; line-height: 1.2; font-weight: 700; color: var(--navy-900); }
+  .rcards { list-style: none; margin: 0; padding: 0; display: grid; gap: 32px 24px; }
+  .rcard { display: flex; flex-direction: column; gap: 16px; color: var(--navy-900); }
+  .rcard__img, .rcard__img :global(img) { width: 100%; height: 176px; border-radius: 12px; object-fit: cover; }
+  .rcard__body { display: flex; flex-direction: column; gap: 8px; }
+  .rcard__t { font-size: 20px; line-height: 26px; font-weight: 600; color: var(--navy-900); }
+  a.rcard:hover .rcard__t { color: var(--orange-500); }
+  @media (min-width: 768px) { .rcards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1280px) { .rcards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  @media (max-width: 767.98px) {
+    .phead { padding-top: 32px; }
+    .phead__title { font-size: 30px; }
+    .phead__lead { font-size: 16px; }
+    .phead__bar { margin-top: 8px; }
+    .phead__bar > .pshare { display: none; }
+    .pfig__img, .pfig__img img { height: auto; aspect-ratio: 3 / 2; }
+    .pfig { padding-bottom: 40px; }
+    .pkey { padding: 24px 20px; }
+    .post-prose :global(h2) { font-size: 24px; }
+    .post-prose :global(ul li), .post-prose :global(ol li) { font-size: 16px; line-height: 28px; }
+    .post-prose :global(blockquote) { padding: 24px 20px 24px 40px; }
+    .post-prose :global(blockquote::before) { left: 20px; top: 24px; bottom: 24px; }
+    .post-prose :global(blockquote p) { font-size: 20px; line-height: 30px; }
+    .pcta { flex-direction: column; align-items: stretch; padding: 24px 20px; }
+    .pauthor { flex-direction: column; padding: 24px 20px; }
+    .pkeep { padding: 64px 0; }
+  }
 </style>

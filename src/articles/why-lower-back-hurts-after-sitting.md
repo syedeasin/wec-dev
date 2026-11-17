@@ -5,9 +5,13 @@ topic: Back Pain
 tags: [Back Pain, Posture & Desk Work, Sciatica]
 date: 2026-10-08
 minutes: 5
-image: photos/spine-model-consult-man-alt
-imagePos: 60% 0%
-caption: Dr. Morgan walks a patient through how the lower spine handles load when you sit. Photo, West End Chiropractic
+image: resources/why-lower-back-hurts-after-sitting
+imagePos: 50% 0%
+caption: Dr. Morgan walks a patient through how the lower spine handles load when you sit.
+figure: resources/inline-pelvis-check
+figureCaption: Dr. Morgan checks how the pelvis and lower spine move together during a first visit.
+inlineRelated: sciatica-or-pulled-muscle
+cta: Back pain that keeps coming back?
 takeaways:
   - Sitting puts more load on the discs in your lower back than standing does.
   - Tight hip flexors from long days in a chair pull on your lower spine.
@@ -23,6 +27,10 @@ If your back feels fine in the morning and wrecked by 3 PM, your chair is a big 
 When you sit, your pelvis tips back and the natural curve in your lower back flattens. That shifts load onto the front of your discs and stretches the ligaments behind them. One hour of that is no big deal. A full workday, five days a week, adds up.
 
 Over time the muscles that hold you upright get lazy, and the hip flexors at the front of your hips get short and tight. Tight hip flexors pull on your lower spine every time you stand, which is why the first few steps after a long meeting often hurt the most.
+
+<div data-insert="figure"></div>
+
+<div data-insert="related"></div>
 
 
 ## Signs it is more than a stiff back
@@ -48,3 +56,5 @@ You do not need a standing desk or a new chair to make progress. Start with thes
 ## When to see a chiropractor
 
 If the pain keeps coming back, spreads into your leg, or is starting to change how you work or sleep, it is worth getting checked. A first visit at West End includes an exam, any digital X-rays you need, and a clear plan, so you know what is going on before you decide anything.
+
+<div data-insert="cta"></div>
