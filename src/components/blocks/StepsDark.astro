@@ -10,7 +10,7 @@ const image = s.images?.[0];
 const meta = image ? img(image.src) : undefined;
 ---
 <section class="sdark on-dark" style={`--pos:${image?.pos ?? '20% 50%'}`}>
-  {meta && <Picture src={meta} alt="" widths={[640, 960, 1440, 1920].filter((w) => w <= meta.width)} sizes="(min-width: 1024px) 60vw, 100vw" formats={['webp']} fallbackFormat="webp" class="sdark__bg" loading="lazy" />}
+  {meta && <Picture quality={85} src={meta} alt="" widths={[640, 960, 1440, 1920, 2400, 2880].filter((w) => w <= meta.width)} sizes="(min-width: 1024px) 60vw, 100vw" formats={['webp']} fallbackFormat="webp" class="sdark__bg" loading="lazy" />}
   <div class="container sdark__inner">
     <div class="sdark__copy">
       <h2 class="h2 sdark__title" set:html={(s.title ?? '').replace(/\s*\n\s*/g, ' ')} />

@@ -27,7 +27,7 @@ import Button from '../ui/Button.astro';
       </div>
     </div>
     <a class="location__map" href={site.mapsHref} target="_blank" rel="noopener" aria-label="Open West End Chiropractic in Google Maps">
-      <Picture src={map} alt="Map showing West End Chiropractic at 1611 W. 5th St. near MoPac" widths={[360, 520, 760, 1000]} sizes="(min-width: 1280px) 470px, (min-width: 768px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
+      <Picture quality={85} src={map} alt="Map showing West End Chiropractic at 1611 W. 5th St. near MoPac" widths={[360, 520, 760, 1000]} sizes="(min-width: 1280px) 470px, (min-width: 768px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
     </a>
   </div>
 </section>

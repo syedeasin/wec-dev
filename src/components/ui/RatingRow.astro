@@ -9,7 +9,7 @@ const { tone = 'dark', layout = 'stack', class: cls } = Astro.props;
 ---
 <div class:list={['rating', `rating--${tone}`, `rating--${layout}`, cls]}>
   <span class="rating__avatars" aria-hidden="true">
-    {avatars.map((a) => <Image src={a} alt="" width={32} height={32} densities={[1, 2]} loading="lazy" />)}
+    {avatars.map((a) => <Image quality={85} src={a} alt="" width={32} height={32} densities={[1, 2]} loading="lazy" />)}
   </span>
   <a class="rating__text" href={site.googleReviewsHref} target="_blank" rel="noopener"><Icon name="google" size={14} /><span>{site.reviews.rating} stars, {site.reviews.count} Google reviews</span></a>
 </div>

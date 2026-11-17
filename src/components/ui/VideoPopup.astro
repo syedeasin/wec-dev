@@ -24,7 +24,7 @@ function embed(u: string): string | null {
 const src = embed(url);
 ---
 <div class:list={['video', { 'video--tint': tint }, cls]}>
-  <Picture src={image} alt={alt} widths={[400, 640, 900, 1200]} sizes={sizes} formats={['webp']} fallbackFormat="webp" class="video__img" loading="lazy" />
+  <Picture quality={85} src={image} alt={alt} widths={[400, 640, 900, 1200, 1600]} sizes={sizes} formats={['webp']} fallbackFormat="webp" class="video__img" loading="lazy" />
   <button type="button" class="video__play" data-video-open data-src={src ?? ''} aria-label={title}>
     <svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><circle cx="35" cy="35" r="35" fill="#E8512A"/><path d="M28 23.8c0-1.5 1.7-2.5 3-1.7l16.6 10.2c1.3.8 1.3 2.6 0 3.4L31 45.9c-1.3.8-3-.2-3-1.7V23.8Z" fill="#fff"/></svg>
   </button>
