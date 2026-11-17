@@ -31,7 +31,9 @@ const meta = image ? img(image.src) : undefined;
   .sdark__lead { color: var(--sand-100); }
   .sdark__lead--note { font-weight: 600; color: var(--white); }
   .sdark__lead strong { color: var(--white); }
-  @media (min-width: 1024px) { .sdark__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 632px); justify-content: space-between; gap: 80px; } .sdark__copy { grid-column: 2; } }
+  /* Same overlay as the homepage 'How it works' (Figma: multiply gradient over the photo) */
+  @media (min-width: 1024px) { .sdark::before { background: linear-gradient(88.45deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 27.89%, #1b4f72 45.75%, #0f2d40 75.48%); mix-blend-mode: multiply; } }
+  @media (min-width: 1024px) { .sdark__inner { grid-template-columns: minmax(0, 488fr) minmax(0, 632fr); gap: 80px; } .sdark__copy { grid-column: 2; } }
   @media (max-width: 1023.98px) {
     .sdark > picture { inset: 0 0 auto 0; height: 360px; }
     .sdark::before { background: linear-gradient(180deg, rgb(15 45 64 / 0) 0, rgb(15 45 64 / 0.4) 200px, #0f2d40 360px); }

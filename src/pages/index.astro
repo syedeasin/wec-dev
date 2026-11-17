@@ -189,7 +189,7 @@ const caseySlides = [
   <!-- ============ HOW IT WORKS ============ -->
   <section class="how on-dark">
     <Picture src={howImg} alt="" widths={[640, 960, 1440, 2160, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="how__bg" loading="lazy" />
-    <Deco opacity={0.04} style="right:-360px;top:5px;" class="hide-mobile" />
+    <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="right:-341px;top:5px;" class="hide-mobile" />
     <div class="container how__inner">
       <div class="how__media-mobile">
         <Picture src={caseyXray} alt="Dr. Casey Morgan explaining X-ray results to a patient" widths={[360, 720]} sizes="100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
@@ -208,7 +208,7 @@ const caseySlides = [
   <!-- ============ NEW PATIENT ============ -->
   <section class="section section--sand first-visit">
     <div class="container first-visit__inner">
-      <SectionHead title="<strong>New patient?<br>Here is your first visit.</strong>" maxWidth={572}>Your exam, a consultation, and any necessary digital X-rays.</SectionHead>
+      <SectionHead title="<strong>New patient?<br>Here is your first visit.</strong>" maxWidth={572}>Your exam, a consultation, and any<br class="br-md" /> necessary digital X-rays.</SectionHead>
       <div class="first-visit__card">
         <ul class="first-visit__grid" role="list">
           <li><FeatureCard icon="file-text" title="Full history and exam">We ask what hurts, what you have already tried, and what you want back.</FeatureCard></li>
@@ -452,15 +452,17 @@ const caseySlides = [
 
   /* ---------- How it works ---------- */
   .how { position: relative; overflow: hidden; isolation: isolate; background: var(--navy-900); }
-  .how :global(.how__bg) { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 0% 10%; transform: scale(1.3); transform-origin: 0 0; }
+  /* Figma image frame: 108.24% × 136.39% of the section, offset -8.26% / -9.94% (shows the full photo, not a zoomed crop) */
+  .how :global(.how__bg) { position: absolute; left: -8.26%; top: -9.94%; z-index: -2; width: 108.24%; height: 136.39%; max-width: none; object-fit: cover; object-position: 50% 50%; }
   .how > :global(picture) { position: absolute; inset: 0; z-index: -2; }
   .how::before { content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(90deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 28%, rgb(27 79 114 / 0.95) 46%, #0f2d40 75%); }
+    background: linear-gradient(88.45deg, rgb(15 45 64 / 0.18) 0%, rgb(19 58 83 / 0.49) 27.89%, #1b4f72 45.75%, #0f2d40 75.48%);
+    mix-blend-mode: multiply; }
   .how__inner { display: grid; min-height: 750px; align-items: center; padding-block: 80px; }
   .how__copy { display: flex; flex-direction: column; gap: 24px; }
   .how__title { font-weight: 700; color: var(--white); }
   .how__media-mobile { display: none; }
-  @media (min-width: 1024px) { .how__inner { grid-template-columns: minmax(0, 488px) minmax(0, 632px); justify-content: space-between; gap: 80px; } .how__copy { grid-column: 2; } }
+  @media (min-width: 1024px) { .how__inner { grid-template-columns: minmax(0, 488fr) minmax(0, 632fr); gap: 80px; } .how__copy { grid-column: 2; } }
   @media (max-width: 1023.98px) {
     .how > :global(picture) { display: none; }
     .how::before { background: var(--gradient-navy); }
@@ -472,7 +474,9 @@ const caseySlides = [
 
   /* ---------- First visit ---------- */
   .first-visit__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; }
-  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-panel); align-items: center; }
+  .first-visit__card { width: 100%; display: grid; gap: 40px; padding: 40px; background: var(--white); border-radius: var(--radius-xl); box-shadow: 0 8px 16px 0 rgb(15 45 64 / 0.06); align-items: end; }
+  .first-visit .br-md { display: none; }
+  @media (min-width: 768px) { .first-visit .br-md { display: inline; } }
   .first-visit__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
   .first-visit__grid > li { position: relative; padding-block: 32px; border-top: 1px solid rgb(0 0 0 / 0.12); }
   .first-visit__grid > li:last-child { border-bottom: 1px solid rgb(0 0 0 / 0.12); }
@@ -484,7 +488,7 @@ const caseySlides = [
   .first-visit :global(.btn--plain) { box-shadow: none; }
   .first-visit__note { text-align: center; color: rgb(27 79 114 / 0.8); }
   @media (min-width: 768px) { .first-visit__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .first-visit__grid > li:nth-last-child(-n+2) { border-bottom: 1px solid rgb(0 0 0 / 0.12); } }
-  @media (min-width: 1024px) { .first-visit__card { grid-template-columns: minmax(0, 572px) minmax(0, 488px); justify-content: space-between; gap: 60px; } }
+  @media (min-width: 1024px) { .first-visit__card { grid-template-columns: minmax(0, 572fr) minmax(0, 488fr); gap: 60px; } }
   @media (max-width: 1023.98px) { .first-visit__media { order: -1; } }
   @media (max-width: 767.98px) {
     .first-visit__card { padding: 16px 16px 8px; gap: 24px; }
