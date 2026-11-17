@@ -7,11 +7,11 @@ import { site } from '../../data/site';
 <section class="section assess" id="assessment">
   <div class="container">
     <div class="assess__card">
-      <Deco color="#ffffff" opacity={1} width={261} style="right:-60px;top:117px;" class="assess__deco" />
+      <Deco color="#ffffff" opacity={1} width={261} style="right:-51px;top:117px;" class="assess__deco" />
       <span class="assess__bar" aria-hidden="true"><span></span></span>
       <div class="section-head section-head--center assess__head">
-        <h2 class="h2 section-head__title">Not sure what’s going on?<br /><strong>Take our 60-second assessment</strong></h2>
-        <p class="p2 assess__text"><strong>Answer 6 quick questions.</strong> We’ll point you toward the type of care that fits what you’re dealing with. No email required to start.</p>
+        <h2 class="h2 section-head__title">Not sure what’s going on?<br /><strong>Take our <span class="assess__long">60-second</span><span class="assess__short">60s</span> assessment</strong></h2>
+        <p class="p2 assess__text"><strong>Answer 6 quick questions.</strong> We’ll point you toward the type of care<br class="br-md" /> that fits what you’re dealing with. No email required to start.</p>
       </div>
       <div class="assess__actions">
         <Button href={site.assessmentHref}>Start the Assessment</Button>
@@ -22,17 +22,27 @@ import { site } from '../../data/site';
 </section>
 <style is:global>
   .assess__card { position: relative; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; align-items: center; gap: 60px; padding: 80px; background: var(--sand-100); border-radius: var(--radius-xl); box-shadow: var(--shadow-card-soft); }
-  .assess__head { max-width: 1040px; position: relative; z-index: 1; }
-  .assess__text { color: var(--navy-600); max-width: 560px; }
+  .assess__card { min-height: 640px; justify-content: center; }
+  .assess__head { max-width: 1040px; position: relative; z-index: 1; gap: 24px; }
+  /* Figma: first title line SemiBold, second Bold */
+  .assess__head .section-head__title { font-weight: 600; }
+  .assess__head .section-head__title strong { font-weight: 700; }
+  .assess__short { display: none; }
+  .assess__note { white-space: nowrap; }
+  .assess .br-md { display: none; }
+  @media (min-width: 768px) { .assess .br-md { display: inline; } }
+  .assess__text { color: var(--navy-600); }
   .assess__text strong { font-weight: 600; }
-  .assess__bar { display: block; width: 400px; max-width: 100%; height: 8px; border-radius: 80px; background: rgb(232 81 42 / 1); }
+  .assess__bar { display: block; width: 400px; max-width: 100%; height: 8px; border-radius: 80px; background: var(--orange-500); }
   .assess__bar span { display: block; width: 24px; height: 8px; border-radius: 80px; background: var(--orange-500); }
   .assess__actions { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .assess__note { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-600); }
   .assess__note .icon { color: var(--orange-500); }
   @media (max-width: 767.98px) {
-    .assess__card { padding: 60px 20px; gap: 40px; }
-    .assess__bar { width: 160px; background: rgb(232 81 42 / 0.12); }
+    .assess__card { padding: 60px 16px; gap: 40px; }
+    .assess__long { display: none; }
+    .assess__short { display: inline !important; }
+    .assess__bar { width: 240px; background: rgb(232 81 42 / 0.12); }
     .assess__deco { display: none; }
   }
 </style>
