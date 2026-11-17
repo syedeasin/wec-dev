@@ -44,8 +44,8 @@ export const site = {
     piIntakePdf: '',
   },
   videos: {
-    // TODO: YouTube or Vimeo link for "A minute with the doctor" (not in Figma)
-    meetTheDoctor: '',
+    // "A minute with the doctor" (homepage video section)
+    meetTheDoctor: 'https://youtu.be/SXer3feK3-Y',
   },
 };
 
