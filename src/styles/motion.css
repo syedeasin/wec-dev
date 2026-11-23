@@ -72,3 +72,7 @@
 /* Full-bleed sections pin at viewport height, content centred below the fixed header */
 .is-stepper.is-pinned[data-stepper="section"] { padding-block: 0; min-height: 100vh; display: grid; align-items: center; }
 .is-stepper.is-pinned[data-stepper="section"] > .container { min-height: 0; padding-top: 112px; padding-bottom: 32px; }
+
+/* Photos that swap per step and sit in normal flow: stack them in one grid cell */
+.slides { display: grid; }
+.slides > * { grid-area: 1 / 1; min-width: 0; }

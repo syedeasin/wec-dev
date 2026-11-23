@@ -233,6 +233,12 @@
      "w": 342,
      "h": 360,
      "pos": "81% 50%"
+    },
+    {
+     "src": "steps/plan-review-couple"
+    },
+    {
+     "src": "steps/xray-consult-couple"
     }
    ]
   },

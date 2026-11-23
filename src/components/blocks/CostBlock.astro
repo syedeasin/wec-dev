@@ -53,7 +53,9 @@ const below = rest.filter((p) => p !== cardNote);
         {cardNote && <hr class="cost__rule" />}
         {cardNote && <p class="cost__cardnote" set:html={cardNote.t} />}
       </div>
-      {s.images?.[0] && <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} />}
+      {s.images?.[0] && (hasHead || s.images.length < 2
+        ? <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} />
+        : <div class="slides">{s.images.map((im, i) => <div data-step-slide class:list={[i === 0 && 'is-active']}><Media image={im} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} /></div>)}</div>)}
     </div>
     {hasHead && below.length > 0 && <Rich paras={below} class="cost__notes" />}
     {logos && <InsuranceLogos />}

@@ -190,10 +190,18 @@
    ],
    "images": [
     {
-     "src": "home/how-it-works-adjustment",
+     "src": "steps/exam-shoulder-patient",
      "w": 390,
      "h": 1278,
-     "pos": "20% 50%"
+     "pos": "35% 50%"
+    },
+    {
+     "src": "steps/xray-review-screen",
+     "pos": "40% 50%"
+    },
+    {
+     "src": "steps/spine-chart-explain",
+     "pos": "40% 50%"
     }
    ]
   },

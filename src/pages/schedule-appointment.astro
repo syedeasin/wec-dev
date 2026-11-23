@@ -44,7 +44,9 @@ const [hero, next, , already] = d.sections;
         <Steps steps={next.steps!} />
         <Button href="/new-patients" variant="tertiary">What your first visit looks like</Button>
       </div>
-      <Media image={next.images![0]} class="bnext__img" sizes="(min-width: 1024px) 488px, 100vw" />
+      <div class="slides bnext__slides">
+        {next.images!.map((im, i) => <div data-step-slide class:list={[i === 0 && 'is-active']}><Media image={im} class="bnext__img" sizes="(min-width: 1024px) 488px, 100vw" /></div>)}
+      </div>
     </div>
   </section>
 
