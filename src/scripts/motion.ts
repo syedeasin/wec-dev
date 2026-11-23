@@ -34,7 +34,7 @@ if (root.classList.contains('js-motion')) {
       // Hand the element back to its own styles once revealed (hover transitions etc.)
       setTimeout(() => { el.removeAttribute('data-reveal'); el.classList.remove('is-in'); el.style.transitionDelay = ''; }, 1200 + MAX_DELAY);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
 
   for (const el of targets) {
     // Leave anything already on screen at load alone, so nothing visible blinks out.
@@ -42,4 +42,18 @@ if (root.classList.contains('js-motion')) {
     el.setAttribute('data-reveal', '');
     io.observe(el);
   }
+
+  // A fast flick or a jump link can carry an element past the viewport between two frames, so
+  // the observer never sees it. Show anything that has ended up above the fold without animating.
+  let queued = false;
+  addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      document.querySelectorAll<HTMLElement>('[data-reveal]:not(.is-in)').forEach((el) => {
+        if (el.getBoundingClientRect().bottom < 0) { io.unobserve(el); el.removeAttribute('data-reveal'); }
+      });
+    });
+  }, { passive: true });
 }
