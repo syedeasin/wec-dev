@@ -42,6 +42,7 @@ const business = {
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) document.documentElement.classList.add('js-motion');</script>
     <slot name="head" />
   </head>
   <body>
@@ -49,5 +50,6 @@ const business = {
     <slot name="header" />
     <main id="main"><slot /></main>
     <slot name="footer" />
+    <script>import '../scripts/motion';</script>
   </body>
 </html>

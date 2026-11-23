@@ -20,7 +20,6 @@ const meta = [fmtDate(a.date), `${a.minutes} min read`].filter(Boolean).join('  
 <style is:global>
   .acard { position: relative; display: flex; flex-direction: column; gap: 16px; color: var(--navy-900); }
   .acard__img img { aspect-ratio: 16 / 10; transition: transform var(--dur) var(--ease); }
-  a.acard:hover .acard__img img { transform: scale(1.03); }
   a.acard:hover .acard__title { color: var(--orange-500); }
   .acard__body { display: flex; flex-direction: column; gap: 8px; }
   .acard__topic { color: var(--orange-500); font-size: 11px; }

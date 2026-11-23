@@ -1,0 +1,50 @@
+/* ===== Motion system =====
+   One consistent set of micro animations for the whole site:
+   1. Reveal   – content fades up 24px as it scrolls into view (motion.ts tags it)
+   2. Hero     – hero copy staggers in on load, hero image settles from a slight zoom
+   3. Hover    – buttons and linked cards lift, card images zoom slowly
+   4. FAQ      – answers open/close with a height animation (where supported)
+   Everything is off for prefers-reduced-motion (global.css + the .js-motion gate). */
+
+/* 1. Scroll reveal. Uses the individual `translate` property so it never fights
+   an element's own `transform` (hover lifts, rotated cards, flipped images). */
+.js-motion [data-reveal] {
+  opacity: 0; translate: 0 var(--reveal-y);
+  transition: opacity var(--dur-slow) var(--ease-out), translate var(--dur-slow) var(--ease-out);
+}
+.js-motion [data-reveal].is-in { opacity: 1; translate: none; }
+
+/* 2. Hero entrance (first section of every page, pure CSS so nothing flashes) */
+@keyframes motion-rise { from { opacity: 0; translate: 0 var(--reveal-y); } }
+@keyframes motion-settle { from { opacity: 0; scale: 1.04; } }
+.js-motion main > section:first-of-type :has(> h1) > * { animation: motion-rise var(--dur-slow) var(--ease-out) both; }
+.js-motion main > section:first-of-type :has(> h1) > :nth-child(1) { animation-delay: 80ms; }
+.js-motion main > section:first-of-type :has(> h1) > :nth-child(2) { animation-delay: 160ms; }
+.js-motion main > section:first-of-type :has(> h1) > :nth-child(3) { animation-delay: 240ms; }
+.js-motion main > section:first-of-type :has(> h1) > :nth-child(4) { animation-delay: 320ms; }
+.js-motion main > section:first-of-type :has(> h1) > :nth-child(n+5) { animation-delay: 400ms; }
+.js-motion main > section:first-of-type img { animation: motion-settle 1400ms var(--ease-out) both; }
+
+/* 3. Hover — buttons */
+.btn:is(.btn--primary, .btn--secondary, .btn--outline-light) {
+  transition: background var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease-out), color var(--dur-fast) var(--ease), transform var(--dur) var(--ease-out);
+}
+.btn:is(.btn--primary, .btn--secondary, .btn--outline-light):hover { transform: translateY(-2px); }
+.btn:is(.btn--primary, .btn--secondary, .btn--outline-light):active { transform: none; transition-duration: 80ms; }
+.btn--primary:hover { box-shadow: 0 10px 24px -8px rgb(232 81 42 / 0.55); }
+.btn .icon { transition: transform var(--dur) var(--ease-out); }
+.btn:hover .icon:last-child:not(:first-child) { transform: translateX(3px); }
+
+/* 3. Hover — linked cards lift; their images zoom */
+:is(.acard__img, .rlead__img, .rrow__img, .rcard__img, .prel__img, .rmore__img, .rvcard__media, .location__map, .where__map) { overflow: hidden; }
+:is(.acard__img, .rlead__img, .rrow__img, .rcard__img, .prel__img, .rmore__img, .rvcard__media, .location__map, .where__map) img {
+  transition: transform 600ms var(--ease-out);
+}
+:is(a.acard, a.rlead, a.rrow, a.rcard, a.prel__card, a.rmore__item, a.rvcard, .rvcard:has(a), a.location__map, a.where__map):hover img { transform: scale(var(--zoom)); }
+
+/* 4. FAQ answers open smoothly (Chrome/Edge 131+, others just open instantly) */
+@supports (interpolate-size: allow-keywords) {
+  .faq__item { interpolate-size: allow-keywords; }
+  .faq__item::details-content { height: 0; overflow: clip; transition: height var(--dur) var(--ease-out), content-visibility var(--dur) allow-discrete; }
+  .faq__item[open]::details-content { height: auto; }
+}
