@@ -7,7 +7,7 @@ const { image, alt, sizes = '(min-width: 1280px) 560px, (min-width: 1024px) 45vw
 const meta = img(image.src);
 const style = [image.pos && `--pos:${image.pos}`, ratio && `--ratio:${ratio}`, image.flip && '--flip:-1'].filter(Boolean).join(';');
 const widths = [360, 540, 720, 960, 1200, 1600, 2000, 2400].filter((w) => w <= meta.width);
-if (!widths.length) widths.push(meta.width);
+if (!widths.includes(meta.width)) widths.push(meta.width); // always offer the full-size original
 ---
 <div class:list={['media', shadow && 'media--shadow', cls]} style={style}>
   <Picture quality={85} src={meta} alt={alt ?? altFor(image.src)} widths={widths} sizes={sizes} formats={['webp']} fallbackFormat="webp" loading={eager ? 'eager' : 'lazy'} />

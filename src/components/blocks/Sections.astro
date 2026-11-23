@@ -44,7 +44,7 @@ const rk = (reviewsKey in reviews ? reviewsKey : 'home') as keyof typeof reviews
       const b2 = s.buttons?.[1];
       const image = s.images?.[0] ? img(s.images[0].src) : undefined;
       return <CTABand title={(s.title ?? '').replace(/\s*\n\s*/g, '<br>')} text={text?.t} note={note ? strip(note.t) : ''} image={image}
-        secondary={b2 ? { label: cleanLabel(b2.label), href: btnHref(b2.label), icon: btnIcon(b2.label) } : undefined} />;
+        secondary={b2 ? { label: cleanLabel(b2.label), href: btnHref(b2.label), icon: btnIcon(b2.label), iconAfter: /[→↗]\s*$/.test(b2.label) ? 'arrow-right' : undefined } : undefined} />;
     }
     case 'reviews': return <Reviews page={rk} title={s.title} moreLabel={reviewsKey === 'team' ? 'See More Google reviews' : 'See Google reviews'} />;
     case 'logos': return <LogosBlock s={s} />;

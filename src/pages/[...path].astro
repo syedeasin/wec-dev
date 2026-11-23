@@ -3,7 +3,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Sections from '../components/blocks/Sections.astro';
 import { routes } from '../data/routes';
-import type { PageData } from '../lib/content';
+import { img, altFor, type PageData } from '../lib/content';
 
 export function getStaticPaths() {
   return routes.map((r) => ({ params: { path: r.path }, props: { route: r } }));
@@ -13,6 +13,6 @@ const pages = import.meta.glob<PageData>('../data/pages/*.json', { eager: true, 
 const data = pages[`../data/pages/${route.slug}.json`];
 const ogImage = data.sections[0]?.images?.[0]?.src;
 ---
-<SiteLayout title={route.title} description={route.description}>
+<SiteLayout title={route.title} description={route.description} image={ogImage ? img(ogImage) : undefined} imageAlt={ogImage ? altFor(ogImage) : undefined}>
   <Sections data={data} reviewsKey={route.reviews} />
 </SiteLayout>

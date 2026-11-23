@@ -71,13 +71,6 @@ const alts = ['Dr. Casey Morgan, D.C.', 'Tai Le, chiropractic assistant', 'Gabby
     .thero__faces :global(img) { aspect-ratio: auto; height: 292px; }
   }
   @media (min-width: 1024px) and (max-width: 1279.98px) { .thero__inner { grid-template-columns: 420px minmax(0, 1fr); gap: 60px; } }
-  /* Desktop: keep the photos inside the 1200 content box (same 242/232/232 proportions, scaled to fit) */
-  @media (min-width: 1280px) {
-    .thero__inner { gap: 80px; }
-    .thero__faces { display: grid; grid-template-columns: 242fr 232fr 232fr; width: 100%; }
-    .thero__faces li, .thero__faces li:first-child { width: auto; min-width: 0; }
-    .thero__faces :global(img) { width: 100%; height: auto; aspect-ratio: 232 / 292; object-fit: cover; }
-  }
   @media (max-width: 767.98px) { .thero__inner { padding-top: calc(var(--masthead-h) + 24px); padding-bottom: 60px; } }
 
   /* Figma: white 24px-radius cards on sand, 376px photo inset 8px, copy padded 60px */

@@ -149,7 +149,7 @@ export function sectionKind(s: Section, i: number): string {
   if (/CTA Band|^Wrapper/.test(n)) return 'cta';
   if (/Reviews/.test(n) && /patients/i.test(strip(s.title)) ) return 'reviews';
   if (s.logos) return 'logos';
-  if (s.paras?.some((p) => p.t === 'IN-NETWORK PLANS')) return 'planlist';
+  if (s.paras?.some((p) => p.t === 'IN-NETWORK PLANS' || p.t === 'ALSO IN-NETWORK')) return 'planlist';
   if (s.paras?.some((p) => p.t === 'Employer plans vary')) return 'employers';
   if (/Where We Are/.test(n)) return 'where';
   if (/Finding Us|Location/.test(n)) return 'findus';

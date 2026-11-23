@@ -18,10 +18,10 @@ const intro = s.paras?.[0]?.t;
       {s.tag && <Tag variant="orange">{s.tag}</Tag>}
       <SectionHead title={s.title ?? ''} maxWidth={1200} />
     </div>
-    <div class="ffk__card">
+    <div class="ffk__card" data-stepper="card">
       <ul class="ffk__list" role="list">
         {items.map((it, i) => (
-          <li class="ffk__item">
+          <li class="ffk__item" data-step>
             <div class="ffk__row">
               <span class="ffk__icon"><Icon name={icon(it.icon)} size={24} /></span>
               <div class="ffk__body"><h3 class="ffk__title" set:html={it.title} /><p class="ffk__text" set:html={it.text} /></div>
@@ -30,7 +30,11 @@ const intro = s.paras?.[0]?.t;
           </li>
         ))}
       </ul>
-      {imgs[0] && <Media image={imgs[0]} class="ffk__img-d" sizes="(min-width: 1280px) 900px, 70vw" />}
+      {imgs[0] && (
+        <div class="ffk__img-d">
+          {imgs.map((im, i) => <div class:list={['ffk__slide', i === 0 && 'is-active']} data-step-slide><Media image={im} sizes="(min-width: 1280px) 900px, 70vw" shadow={false} /></div>)}
+        </div>
+      )}
     </div>
     {intro && <p class="ffk__intro" set:html={intro} />}
     <Buttons buttons={s.buttons} center />
@@ -51,8 +55,10 @@ const intro = s.paras?.[0]?.t;
   .ffk__img-m img { aspect-ratio: 342 / 234; }
   .ffk__img-d { display: none; }
   .ffk__img-d { min-height: 420px; }
+  .ffk__slide, .ffk__slide .media { position: absolute; inset: 0; border-radius: 0; }
   .ffk__img-d picture { position: absolute; inset: 0; }
   .ffk__img-d img { position: absolute; inset: 0; height: 100%; width: 100%; }
+  .ffk__item { --bar-l: 24px; --bar-w: calc(100% - 48px); --bar-b: -1px; }
   @media (min-width: 1024px) {
     .ffk { padding-block: 100px; }
     .ffk__inner { gap: 40px; }
@@ -64,6 +70,8 @@ const intro = s.paras?.[0]?.t;
     .ffk__item { position: relative; flex: 1 1 auto; justify-content: center; padding: 40px 32px; border: 0; border-radius: 0; border-top: 2px solid var(--sand, #f3f1ec); border-bottom: 2px solid var(--sand, #f3f1ec); border-right: 4px solid var(--sand, #f3f1ec); }
     .ffk__item:first-child { border-top: 0; }
     .ffk__item:last-child { border-bottom: 0; }
+    .ffk__item { --bar-l: -3px; --bar-w: calc(100% + 7px); --bar-b: -3px; --bar-h: 4px; }
+    .ffk__item:last-child { --bar-b: 0px; }
     .ffk__item:first-child::after { content: ''; position: absolute; left: -3px; bottom: -3px; width: 81px; height: 4px; border-radius: 2px; background: #72a6c8; }
     .ffk__row { display: block; }
     .ffk__icon { display: inline-grid; width: 24px; height: 24px; background: none; border-radius: 0; color: var(--orange-500); vertical-align: top; margin-right: 8px; float: left; }
@@ -73,6 +81,10 @@ const intro = s.paras?.[0]?.t;
     .ffk__img-m { display: none; }
     .ffk__img-d { display: block; position: relative; flex: 1 1 0; min-width: 0; border-radius: 0; }
     .ffk__img-d img { border-radius: 0; object-fit: cover; }
+    .ffk__img-d { overflow: hidden; }
+    .ffk__card.is-compact .ffk__item { padding-block: 24px; }
+    .ffk__card.is-compact .ffk__body { gap: 10px; }
+    .ffk__card.is-compact .ffk__text { line-height: 1.65; }
     .ffk .btn { min-width: 300px; }
   }
   @media (max-width: 767.98px) {

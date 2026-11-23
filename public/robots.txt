@@ -1,5 +1,22 @@
+# Search engines and AI answer engines are welcome on every public page.
 User-agent: *
 Allow: /
 Disallow: /thank-you
+Disallow: /api/
+
+# AI search and assistant crawlers (listed explicitly so they are never blocked by mistake)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+Allow: /
+Disallow: /thank-you
+Disallow: /api/
 
 Sitemap: https://www.austin-chiropractor.com/sitemap-index.xml
+# Plain-text summary for AI assistants: https://www.austin-chiropractor.com/llms.txt

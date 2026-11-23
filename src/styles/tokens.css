@@ -156,6 +156,12 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur-fast: 150ms;
   --dur: 250ms;
+  /* Site-wide micro animation: one easing + timing for every reveal, lift and zoom */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-slow: 700ms;
+  --reveal-y: 24px;
+  --lift: -4px;
+  --zoom: 1.04;
 
   /* ---- Header ---- */
   --topbar-h: 38px;
@@ -190,16 +196,8 @@
   }
 }
 
-/* Desktop ≥ 1680 (1920 reference) */
-@media (min-width: 1680px) {
-  :root {
-    --fs-display: 56px;
-    --fs-h1: 56px;
-    --fs-h2: 44px;
-    --fs-h3: 34px;
-    --fs-p1: 22px; --lh-p1: 30px;
-    --fs-p2: 17px;
-    --fs-a1: 15px; --lh-a1: 24px;
-    --section-y: 120px;
-  }
-}
+/* Desktop ≥ 1680 (1920 reference)
+   The content box is locked to 1200px on every desktop width (see --container),
+   so the 1440 Figma layout is the reference at all sizes ≥ 1280. Keep the type
+   scale and section rhythm identical past 1680 too — bumping them while the
+   columns stay 1200 wide makes headings wrap onto more lines than the design. */

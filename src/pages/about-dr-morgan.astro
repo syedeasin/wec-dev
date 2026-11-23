@@ -17,10 +17,8 @@ const fq = ffk.paras!.find((p) => p.w === 600)!;
 const fRest = ffk.paras!.filter((p) => p !== fq);
 const pairs = [0, 2, 4].map((i) => [three.paras![i].t, three.paras![i + 1].t]);
 const hp = home.paras!;
-const ld = { '@context': 'https://schema.org', '@type': 'Person', name: 'Casey Morgan', honorificSuffix: 'D.C.', jobTitle: 'Chiropractor', worksFor: { '@type': 'MedicalBusiness', name: 'West End Chiropractic' }, alumniOf: 'Parker University' };
 ---
 <SiteLayout title="About Dr. Casey Morgan, D.C. | West End Chiropractic" description="Second-generation Austin chiropractor Casey Morgan, D.C. Practicing downtown since 2016 in a practice his family has run since 1994.">
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
   <section class="ahero on-dark">
     <div class="container ahero__grid">
       <div class="ahero__copy">

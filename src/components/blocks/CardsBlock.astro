@@ -23,7 +23,8 @@ const cols = cards.length === 4 ? 4 : cards.length === 2 ? 2 : 3;
   .cards-b__grid { width: 100%; list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
   .cards-b__card { flex: 1 1 100%; padding: 24px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-card-soft); }
   .section--white .cards-b__card { border: 1px solid var(--border-light); box-shadow: none; }
-  .cards-b__card .icon-tile { --tile-bg: rgb(232 81 42 / 0.1); }
+  /* Figma: feature-card icons are orange on a soft-orange tile (not the default blue) */
+  .cards-b__card .itile { background: rgb(232 81 42 / 0.1); color: var(--orange-500); }
   @media (min-width: 768px) { .cards-b__grid { gap: 24px; } .cards-b__card { flex: 0 1 calc(50% - 12px); } }
   @media (min-width: 1280px) {
     .cards-b__grid--3 .cards-b__card { flex-basis: calc(33.333% - 16px); }

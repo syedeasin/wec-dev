@@ -34,7 +34,7 @@ const below = rest.filter((p) => p !== cardNote);
       {s.tag && <Tag variant="orange">{s.tag}</Tag>}
       <Title title={s.title} center mark={false} />
     </div>
-    <div class:list={['cost__card', hasHead && 'cost__card--split']}>
+    <div class:list={['cost__card', hasHead && 'cost__card--split']} data-stepper={hasHead ? undefined : 'card'}>
       <div class="cost__info">
         {hasHead ? (
           <div class="cost__top">
@@ -48,12 +48,14 @@ const below = rest.filter((p) => p !== cardNote);
         {hasHead && <hr class="cost__rule" />}
         {hasHead && subhead && <h3 class="cost__subhead" set:html={subhead.t} />}
         <ul class:list={['cost__grid', hasHead && 'cost__grid--list']} role="list">
-          {s.cards?.map((c) => <li><FeatureCard icon={icon(c.icon)} title={c.title}>{c.text && <Fragment set:html={c.text} />}</FeatureCard></li>)}
+          {s.cards?.map((c) => <li data-step={hasHead ? undefined : ''}><FeatureCard icon={icon(c.icon)} title={c.title}>{c.text && <Fragment set:html={c.text} />}</FeatureCard></li>)}
         </ul>
         {cardNote && <hr class="cost__rule" />}
         {cardNote && <p class="cost__cardnote" set:html={cardNote.t} />}
       </div>
-      {s.images?.[0] && <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} />}
+      {s.images?.[0] && (hasHead || s.images.length < 2
+        ? <Media image={s.images[0]} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} />
+        : <div class="slides">{s.images.map((im, i) => <div data-step-slide class:list={[i === 0 && 'is-active']}><Media image={im} class="cost__media" sizes="(min-width: 1280px) 720px, (min-width: 1024px) 60vw, 100vw" shadow={false} /></div>)}</div>)}
     </div>
     {hasHead && below.length > 0 && <Rich paras={below} class="cost__notes" />}
     {logos && <InsuranceLogos />}
@@ -73,6 +75,7 @@ const below = rest.filter((p) => p !== cardNote);
   .cost__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
   .cost__grid > li { position: relative; padding-block: 24px; border-bottom: 1px solid rgb(0 0 0 / 0.1); }
   .cost__grid > li:first-child { border-top: 1px solid rgb(0 0 0 / 0.1); }
+  .cost__grid > li { --bar-t: -2px; --bar-b: auto; --bar-h: 3px; --bar-radius: 0; }
   .cost__grid > li:first-child::after { content: ''; position: absolute; left: 0; top: -2px; width: 81px; height: 3px; background: var(--blue-300); }
   .cost__media img { aspect-ratio: 488 / 520; }
   .cost__notes { max-width: 820px; text-align: center; color: var(--navy-600); }

@@ -4,7 +4,7 @@ import { Picture } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import bg from '../../assets/images/shared/cta-adjustment.webp';
 import { site } from '../../data/site';
-interface Props { title?: string; text?: string; note?: string; image?: ImageMetadata; imageAlt?: string; primary?: { label: string; href: string }; secondary?: { label: string; href: string; icon?: string } }
+interface Props { title?: string; text?: string; note?: string; image?: ImageMetadata; imageAlt?: string; primary?: { label: string; href: string }; secondary?: { label: string; href: string; icon?: string; iconAfter?: string } }
 const {
   title = 'Ready to figure out<br>what’s going on?',
   text = 'Book your first visit. A full exam, any necessary digital X-rays, and a real answer about what’s going on.',
@@ -24,7 +24,7 @@ const {
     </div>
     <div class="cta-band__buttons">
       <Button href={primary.href} blockMobile>{primary.label}</Button>
-      <Button href={secondary.href} variant="outline-light" icon={secondary.icon} blockMobile class="cta-band__call">{secondary.label}</Button>
+      <Button href={secondary.href} variant="outline-light" icon={secondary.icon} iconAfter={secondary.iconAfter} blockMobile class="cta-band__call">{secondary.label}</Button>
     </div>
     {note && <p class="cta-band__note">{note}</p>}
   </div>

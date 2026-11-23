@@ -287,6 +287,14 @@
      "src": "home/new-patient-health-history",
      "w": 342,
      "h": 260
+    },
+    {
+     "src": "steps/front-desk-checkin",
+     "pos": "55% 50%"
+    },
+    {
+     "src": "steps/waiting-room-patients",
+     "pos": "45% 50%"
     }
    ]
   },

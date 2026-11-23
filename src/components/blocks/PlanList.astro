@@ -1,15 +1,32 @@
 ---
-// Clarksville-style insurance section: copy left, list of in-network plans right.
+// Insurance "plans" section: copy left, sand panel of in-network plan chips right.
+// Two shapes share this block:
+//   • Clarksville-style — "IN-NETWORK PLANS" + chips.
+//   • West Austin-style — a featured employer card (e.g. UT SELECT) + "ALSO IN-NETWORK" chips.
 import Title from './Title.astro';
 import Buttons from './Buttons.astro';
-import { isUpper, strip, textLink, type Section } from '../../lib/content';
+import { isUpper, strip, textLink, type Section, type Para } from '../../lib/content';
 interface Props { s: Section }
 const { s } = Astro.props;
 const paras = s.paras ?? [];
-const li = paras.findIndex((p) => p.t === 'IN-NETWORK PLANS');
-const eyebrow = paras.slice(0, li).find((p) => isUpper(p.t));
-const text = paras.slice(0, li).filter((p) => p !== eyebrow);
-const plans = paras.slice(li + 1).filter((p) => !textLink(p.t));
+const li = paras.findIndex((p) => p.t === 'IN-NETWORK PLANS' || p.t === 'ALSO IN-NETWORK');
+const marker = li >= 0 ? paras[li] : undefined;
+const head = li >= 0 ? paras.slice(0, li) : paras;
+const eyebrow = head.find((p) => isUpper(p.t));
+// Everything before the first semibold line is intro copy; the semibold run is the featured employer card.
+const rest = head.filter((p) => p !== eyebrow);
+const fi = rest.findIndex((p) => p.w === 600);
+const text = fi >= 0 ? rest.slice(0, fi) : rest;
+const featParas = fi >= 0 ? rest.slice(fi) : [];
+type Feat = { name: string; sub: string[]; chips: string[] };
+let featured: Feat | undefined;
+for (const p of featParas) {
+  const t = strip(p.t);
+  if (p.w === 600 && (t === 'In-network' || t === 'No referral')) { featured?.chips.push(t); continue; }
+  if (p.w === 600 && t.length < 40 && !featured) { featured = { name: p.t, sub: [], chips: [] }; continue; }
+  featured?.sub.push(p.t);
+}
+const plans = (li >= 0 ? paras.slice(li + 1) : []).filter((p) => !textLink(p.t));
 const link = paras.map((p) => textLink(p.t)).find(Boolean);
 ---
 <section class="section section--white plans">
@@ -20,12 +37,21 @@ const link = paras.map((p) => textLink(p.t)).find(Boolean);
       {text.map((p) => <p set:html={p.t} />)}
       <div class="emp__actions">
         <Buttons buttons={s.buttons} />
-        {link && <a class="text-link" href={link.href}>{link.label} →</a>}
+        {link && <a class="text-link" href={link.href}>{link.label.replace(/\s*[→↗]$/, '')} →</a>}
       </div>
     </div>
-    <div class="plans__card">
-      <p class="plans__label">In-network plans</p>
-      <ul class="plans__list" role="list">{plans.map((p) => <li set:html={p.t} />)}</ul>
+    <div class="plans__panel">
+      {featured && (
+        <div class="plans__featured">
+          <p class="plans__fname" set:html={featured.name} />
+          {featured.sub.map((x, i) => <p class:list={[i === 0 ? 'plans__fmeta' : 'plans__fplan']} set:html={x} />)}
+          {featured.chips.length > 0 && <p class="plans__fchips">{featured.chips.map((c) => <span>{c}</span>)}</p>}
+        </div>
+      )}
+      <div class="plans__card">
+        {marker && <p class="plans__label">{strip(marker.t)}</p>}
+        <ul class="plans__list" role="list">{plans.map((p) => <li set:html={p.t} />)}</ul>
+      </div>
     </div>
   </div>
 </section>
@@ -35,10 +61,22 @@ const link = paras.map((p) => textLink(p.t)).find(Boolean);
   .plans__copy { display: flex; flex-direction: column; gap: 24px; }
   .plans__copy > p { color: var(--navy-600); font-weight: 500; }
   .plans__eyebrow { color: var(--orange-500); }
-  .plans__card { display: flex; flex-direction: column; gap: 16px; padding: 32px; background: var(--sand-100); border-radius: 24px; }
+  .plans__panel { display: flex; flex-direction: column; gap: 16px; padding: 32px; background: var(--sand-100); border-radius: 24px; }
+  /* Featured employer card (e.g. UT SELECT): white, orange-bordered */
+  .plans__featured { display: flex; flex-direction: column; gap: 4px; padding: 20px 24px; background: var(--white); border: 1px solid var(--orange-500); border-radius: var(--radius-lg); }
+  .plans__fname { font-weight: 600; color: var(--navy-900); }
+  .plans__fmeta { font-size: 12px; line-height: 18px; color: var(--navy-600); padding-bottom: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 8px; }
+  .plans__fplan { font-size: 14px; line-height: 20px; color: var(--navy-600); }
+  .plans__fplan strong { color: var(--navy-900); font-weight: 700; }
+  .plans__fchips { display: flex; gap: 0; margin-top: 8px; }
+  .plans__fchips span { display: inline-flex; align-items: center; min-height: 24px; padding: 4px 10px; background: var(--sand-100); color: var(--navy-600); font-size: 10px; line-height: 1; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .plans__fchips span:first-child { border-radius: var(--radius-full) 0 0 var(--radius-full); }
+  .plans__fchips span:last-child { border-radius: 0 var(--radius-full) var(--radius-full) 0; border-left: 1px solid var(--border-light); }
+  .plans__fchips span:only-child { border-radius: var(--radius-full); }
+  .plans__card { display: flex; flex-direction: column; gap: 16px; }
   .plans__label { font-size: 12px; line-height: 22px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--navy-600); }
   .plans__list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .plans__list li { padding: 8px 16px; background: var(--white); border: 1px solid #e3e3e3; border-radius: 999px; font-size: 14px; line-height: 22px; font-weight: 500; color: var(--navy-900); }
   @media (min-width: 1024px) { .plans__grid { grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 80px; } }
-  @media (max-width: 767.98px) { .plans { padding-block: 60px; } .plans__card { padding: 24px 16px; } }
+  @media (max-width: 767.98px) { .plans { padding-block: 60px; } .plans__panel { padding: 16px; } }
 </style>

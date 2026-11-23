@@ -1,25 +1,81 @@
 ---
+import { getImage } from 'astro:assets';
 import { site } from '../data/site';
+import { routes } from '../data/routes';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
-  image?: string;
+  /** Social share image: a site asset (cropped to 1200x630) or a path under /public. */
+  image?: ImageMetadata | string;
+  imageAlt?: string;
   noindex?: boolean;
+  /** 'article' for blog posts; medical pages get MedicalWebPage. */
+  ogType?: 'website' | 'article';
+  /** Extra JSON-LD nodes for this page (FAQPage, Article, Person…), merged into one @graph. */
+  schema?: Record<string, unknown>[];
 }
-const { title, description, image = '/og-default.jpg', noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(image, Astro.site);
-const business = {
-  '@context': 'https://schema.org', '@type': 'Chiropractor', name: site.name, url: site.url, telephone: site.phone, email: site.email,
-  image: new URL('/og-default.jpg', Astro.site).href,
+const { title, description, image = '/og-default.jpg', imageAlt, noindex = false, ogType = 'website', schema = [] } = Astro.props;
+const origin = site.url;
+const path = Astro.url.pathname.replace(/\/?$/, '/').replace(/^\/\/$/, '/');
+const canonical = new URL(path, Astro.site).href;
+
+// Share image: crop page photos to the 1200x630 card that Facebook, LinkedIn, X and iMessage expect.
+let ogImage = new URL('/og-default.jpg', Astro.site).href;
+let ogW = 1200, ogH = 630;
+if (typeof image === 'string') ogImage = new URL(image, Astro.site).href;
+else { const r = await getImage({ src: image, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 }); ogImage = new URL(r.src, Astro.site).href; }
+
+// ---------- Structured data (one @graph per page) ----------
+const ids = { clinic: `${origin}/#clinic`, doctor: `${origin}/#casey-morgan`, website: `${origin}/#website` };
+const clinic = {
+  '@type': ['Chiropractor', 'MedicalClinic'], '@id': ids.clinic, name: site.name, url: `${origin}/`,
+  description: 'Chiropractic clinic in downtown Austin, Texas. Exams, on-site digital X-rays, chiropractic adjustments, spinal decompression and car accident care with Dr. Casey Morgan, D.C.',
+  telephone: '+1-512-472-1116', email: site.email,
+  image: new URL('/og-default.jpg', Astro.site).href, logo: new URL('/apple-touch-icon.png', Astro.site).href,
+  priceRange: '$$', currenciesAccepted: 'USD', paymentAccepted: 'Cash, Credit Card, Health Insurance',
   address: { '@type': 'PostalAddress', streetAddress: site.address.street, addressLocality: site.address.city, addressRegion: site.address.region, postalCode: site.address.postal, addressCountry: 'US' },
+  hasMap: site.mapsHref,
+  areaServed: ['Downtown Austin', 'Clarksville', 'West Austin', 'Rosedale', 'Austin, TX'].map((name) => ({ '@type': 'Place', name })),
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '08:00', closes: '13:00' },
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '15:00', closes: '17:00' },
   ],
+  founder: { '@id': ids.doctor }, employee: { '@id': ids.doctor },
+  knowsAbout: ['Chiropractic care', 'Lower back pain', 'Sciatica', 'Neck pain', 'Tech neck', 'Headaches', 'Migraines', 'Shoulder pain', 'Hip pain', 'Herniated and bulging discs', 'Spinal decompression', 'Digital X-rays', 'Car accident injuries', 'Whiplash', 'Pregnancy chiropractic care'],
 };
+const doctor = {
+  '@type': 'Person', '@id': ids.doctor, name: 'Casey Morgan', honorificPrefix: 'Dr.', honorificSuffix: 'D.C.', jobTitle: 'Chiropractor',
+  url: `${origin}/about-dr-morgan/`, worksFor: { '@id': ids.clinic }, alumniOf: { '@type': 'CollegeOrUniversity', name: 'Parker University' },
+  hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Texas Chiropractic License No. 12254', recognizedBy: { '@type': 'Organization', name: 'Texas Board of Chiropractic Examiners' } },
+};
+const website = { '@type': 'WebSite', '@id': ids.website, url: `${origin}/`, name: site.name, publisher: { '@id': ids.clinic }, inLanguage: 'en-US' };
+
+// Breadcrumbs: home, then every parent URL that is a real page, then this page.
+const known = new Set(['', ...routes.map((r) => r.path), 'about-dr-morgan', 'our-team', 'resources', 'schedule-appointment', 'forms', 'personal-injury-forms', 'credentials-compliance', 'privacy-policy', 'terms-and-conditions']);
+const segs = path.split('/').filter(Boolean);
+const named: Record<string, string> = { resources: 'Resources', 'about-dr-morgan': 'About Dr. Casey Morgan', 'our-team': 'Our Team' };
+const crumbName = (p: string) => named[p] ?? (routes.find((r) => r.path === p)?.title ?? title).split(' | ')[0];
+const crumbs = [{ name: 'Home', url: `${origin}/` }];
+segs.forEach((_, i) => { const p = segs.slice(0, i + 1).join('/'); if (known.has(p) && i < segs.length - 1) crumbs.push({ name: crumbName(p), url: `${origin}/${p}/` }); });
+if (segs.length) crumbs.push({ name: title.split(' | ')[0], url: canonical });
+const breadcrumb = segs.length ? { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })) } : undefined;
+
+const medical = /^(conditions|services|services-treatments)\//.test(segs.join('/') + '/') ;
+const therapyNames: Record<string, string> = { 'services-treatments/auto-accident': 'Chiropractic care after a car accident', 'services/personal-injury': 'Personal injury chiropractic care', 'services/digital-x-ray': 'Digital X-ray imaging', 'services/spinal-decompression': 'Non-surgical spinal decompression', 'services/chiropractic-adjustments': 'Chiropractic adjustment' };
+const therapy = therapyNames[segs.join('/')];
+const topic = title.split(' | ')[0].replace(/ (Treatment|Chiropractor)? ?(in|Near) .*$/i, '').replace(/ Treatment$/, '').trim();
+const webpage = {
+  '@type': medical ? 'MedicalWebPage' : path === '/about-dr-morgan/' ? 'ProfilePage' : 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description,
+  isPartOf: { '@id': ids.website }, inLanguage: 'en-US', primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
+  ...(breadcrumb && { breadcrumb: { '@id': breadcrumb['@id'] } }),
+  ...(path === '/' || path.startsWith('/chiropractor-') ? { about: { '@id': ids.clinic } } : {}),
+  ...(path === '/about-dr-morgan/' ? { mainEntity: { '@id': ids.doctor } } : {}),
+  ...(medical && segs[0] === 'conditions' ? { about: { '@type': 'MedicalCondition', name: topic }, reviewedBy: { '@id': ids.doctor } } : {}),
+  ...(medical && segs[0] !== 'conditions' ? { ...(therapy && { about: { '@type': 'MedicalTherapy', name: therapy, provider: { '@id': ids.clinic } } }), reviewedBy: { '@id': ids.doctor } } : {}),
+};
+const graph = { '@context': 'https://schema.org', '@graph': [clinic, doctor, website, webpage, ...(breadcrumb ? [breadcrumb] : []), ...schema] };
 ---
 <!doctype html>
 <html lang="en">
@@ -29,19 +85,29 @@ const business = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f2d40" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(ogW)} />
+    <meta property="og:image:height" content={String(ogH)} />
+    <meta property="og:image:alt" content={imageAlt ?? title.split(' | ')[0]} />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text summary for AI assistants" />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+    <script is:inline>if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) document.documentElement.classList.add('js-motion');</script>
     <slot name="head" />
   </head>
   <body>
@@ -49,5 +115,6 @@ const business = {
     <slot name="header" />
     <main id="main"><slot /></main>
     <slot name="footer" />
+    <script>import '../scripts/motion'; import '../scripts/stepper'; import '../scripts/fit-sizes';</script>
   </body>
 </html>
