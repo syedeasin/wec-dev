@@ -23,7 +23,7 @@ const navH = () => 88;
 
 function layout(s: Stepper) {
   const vh = window.innerHeight;
-  s.root.classList.remove('is-pinned');
+  s.root.classList.remove('is-pinned', 'is-compact');
   s.root.style.top = '';
   s.track.style.height = '';
   s.pinned = false;
@@ -34,8 +34,14 @@ function layout(s: Stepper) {
     if (s.root.offsetHeight > vh + 1) { s.root.classList.remove('is-pinned'); return; }
     s.root.style.top = '0px';
   } else {
-    const h = s.root.offsetHeight;
-    if (h > vh - head) return; // would not fit under the header: fall back to unpinned
+    let h = s.root.offsetHeight;
+    s.root.classList.remove('is-compact');
+    if (h > vh - head) {
+      // Too tall for this window: try the tighter spacing before giving up on pinning.
+      s.root.classList.add('is-compact');
+      h = s.root.offsetHeight;
+      if (h > vh - head) { s.root.classList.remove('is-compact'); return; }
+    }
     s.root.classList.add('is-pinned');
     s.root.style.top = `${Math.round(head + (vh - head - h) / 2)}px`;
   }
@@ -97,7 +103,7 @@ function init() {
   let ticking = false;
   const frame = () => { ticking = false; all.forEach(update); };
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
-  const relayout = () => { all.forEach(layout); frame(); };
+  const relayout = () => { all.forEach(layout); frame(); window.dispatchEvent(new Event('stepper:layout')); };
 
   relayout();
   addEventListener('scroll', onScroll, { passive: true });
