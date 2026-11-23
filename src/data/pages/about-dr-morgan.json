@@ -12,10 +12,9 @@
    ],
    "images": [
     {
-     "src": "photos/casey-morgan-headshot",
-     "w": 390,
-     "h": 451,
-     "pos": "70% 100%"
+     "src": "about/hero-casey-morgan",
+     "w": 488,
+     "h": 556
     }
    ]
   },
@@ -131,10 +130,9 @@
      "pos": "63% 33%"
     },
     {
-     "src": "photos/xray-explain-standing",
-     "w": 342,
-     "h": 413,
-     "pos": "65% 16%"
+     "src": "about/find-it-fix-it",
+     "w": 510,
+     "h": 786
     }
    ]
   },
@@ -220,15 +218,15 @@
    ],
    "images": [
     {
-     "src": "photos/casey-morgan-portrait-dark",
-     "w": 135,
-     "h": 157
+     "src": "about/goal-casey-morgan",
+     "w": 252,
+     "h": 307
     }
    ]
   },
   {
    "name": "Section / CTA Band",
-   "title": "Come see \nwhat he finds",
+   "title": "Come see what he finds",
    "paras": [
     {
      "w": 400,
