@@ -187,7 +187,7 @@ const caseySlides = [
   </section>
 
   <!-- ============ HOW IT WORKS ============ -->
-  <section class="how on-dark">
+  <section class="how on-dark" data-stepper="section">
     <Picture quality={85} src={howImg} alt="" widths={[640, 960, 1440, 2160, 2880]} sizes="100vw" formats={['webp']} fallbackFormat="webp" class="how__bg" loading="lazy" />
     <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="right:-341px;top:5px;" class="hide-mobile" />
     <div class="container how__inner">
@@ -209,12 +209,12 @@ const caseySlides = [
   <section class="section section--sand first-visit">
     <div class="container first-visit__inner">
       <SectionHead title="<strong>New patient?<br>Here is your first visit.</strong>" maxWidth={572}>Your exam, a consultation, and any<br class="br-md" /> necessary digital X-rays.</SectionHead>
-      <div class="first-visit__card">
+      <div class="first-visit__card" data-stepper="card">
         <ul class="first-visit__grid" role="list">
-          <li><FeatureCard icon="file-text" title="Full history and exam">We ask what hurts, what you have already tried, and what you want back.</FeatureCard></li>
-          <li><FeatureCard icon="person-standing" title="Digital X-rays">Any imaging you need happens in-office. No referral, no separate bill.</FeatureCard></li>
-          <li><FeatureCard icon="eye" title="Dr. Morgan reviews your case personally">Not a tech, not an assistant. Dr. Morgan reads your X-rays and makes the call.</FeatureCard></li>
-          <li><FeatureCard icon="thumbs-up" title="Honest recommendation">If decompression fits, you get the plan and pricing. If not, we say so.</FeatureCard></li>
+          <li data-step><FeatureCard icon="file-text" title="Full history and exam">We ask what hurts, what you have already tried, and what you want back.</FeatureCard></li>
+          <li data-step><FeatureCard icon="person-standing" title="Digital X-rays">Any imaging you need happens in-office. No referral, no separate bill.</FeatureCard></li>
+          <li data-step><FeatureCard icon="eye" title="Dr. Morgan reviews your case personally">Not a tech, not an assistant. Dr. Morgan reads your X-rays and makes the call.</FeatureCard></li>
+          <li data-step><FeatureCard icon="thumbs-up" title="Honest recommendation">If decompression fits, you get the plan and pricing. If not, we say so.</FeatureCard></li>
         </ul>
         <div class="first-visit__media">
           <Picture quality={85} src={newPatientImg} alt="New patient filling out a health history form on a clipboard" widths={[360, 488, 720, 976, 1200]} sizes="(min-width: 1280px) 488px, (min-width: 1024px) 40vw, 100vw" formats={['webp']} fallbackFormat="webp" loading="lazy" />
@@ -481,6 +481,7 @@ const caseySlides = [
   .first-visit__grid { list-style: none; padding: 0; display: grid; gap: 0 24px; }
   .first-visit__grid > li { position: relative; padding-block: 32px; border-top: 1px solid rgb(0 0 0 / 0.12); }
   .first-visit__grid > li:last-child { border-bottom: 1px solid rgb(0 0 0 / 0.12); }
+  .first-visit__grid > li { --bar-b: -2px; --bar-h: 3px; --bar-radius: 0; }
   .first-visit__grid > li:first-child::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 81px; height: 3px; background: var(--blue-300); }
   .first-visit__media { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-image); }
   .first-visit__media :global(img) { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 488 / 476; }

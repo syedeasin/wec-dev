@@ -10,7 +10,7 @@ const { s } = Astro.props;
 const image = s.images?.[0];
 const meta = image ? img(image.src) : undefined;
 ---
-<section class="sdark on-dark" style={`--pos:${image?.pos ?? '20% 50%'}`}>
+<section class="sdark on-dark" data-stepper="section" style={`--pos:${image?.pos ?? '20% 50%'}`}>
   {meta && <Picture quality={85} src={meta} alt="" widths={[640, 960, 1440, 1920, 2400, 2880].filter((w) => w <= meta.width)} sizes="(min-width: 1024px) 110vw, 100vw" formats={['webp']} fallbackFormat="webp" class="sdark__bg" loading="lazy" />}
   <Deco fillOpacity={0.04} rotate={42.78} box={[1209, 1257]} style="left:calc(50% - 148px);top:0;z-index:-1;" class="hide-mobile" />
   <div class="container sdark__inner">

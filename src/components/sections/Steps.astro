@@ -5,7 +5,7 @@ const { steps, class: cls } = Astro.props;
 ---
 <ol class:list={['steps', cls]} role="list">
   {steps.map((s, i) => (
-    <li class="steps__item">
+    <li class="steps__item" data-step>
       <span class="steps__num" aria-hidden="true">{i + 1}</span>
       <div class="steps__body">
         <h3 class="steps__title">{s.title}</h3>
@@ -17,6 +17,7 @@ const { steps, class: cls } = Astro.props;
 <style is:global>
   .steps { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
   .steps__item { position: relative; display: flex; gap: 16px; padding-block: 32px; border-bottom: 1px solid rgb(255 255 255 / 0.16); }
+  .steps__item { --bar-b: -3px; --bar-h: 5px; --bar-radius: 4px; }
   .steps__item:first-child::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 81px; height: 5px; background: var(--blue-300); border-radius: 4px; }
   .steps__num { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius-md); background: rgb(255 93 51 / 0.36);
     color: var(--orange-400); font-size: 24px; line-height: 1; font-weight: 700; }
