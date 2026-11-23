@@ -1,298 +1,298 @@
 {
- "sections": [
-  {
-   "name": "Hero",
-   "title": "Chiropractor in <br class=\"phero__br\"><span class=\"hl\">West Austin</span>",
-   "paras": [
+  "sections": [
     {
-     "w": 400,
-     "t": "Just off MoPac at 5th Street, an easy stop from Tarrytown, Old West Austin, Bryker Woods, and the UT area. Casey Morgan D.C. finds what's causing your pain before he treats it."
+      "name": "Hero",
+      "title": "Chiropractor in <br class=\"phero__br\"><span class=\"hl\">West Austin</span>",
+      "paras": [
+        {
+          "w": 400,
+          "t": "Just off MoPac at 5th Street, an easy stop from Tarrytown, Old West Austin, Bryker Woods, and the UT area. Casey Morgan D.C. finds what's causing your pain before he treats it."
+        }
+      ],
+      "bullets": [
+        {
+          "icon": "route",
+          "text": "Just off MoPac"
+        },
+        {
+          "icon": "square-parking",
+          "text": "Free covered parking"
+        },
+        {
+          "icon": "trust-calendar",
+          "text": "Same-day appointments available"
+        }
+      ],
+      "buttons": [
+        {
+          "variant": "Primary",
+          "label": "Book Your Visit"
+        },
+        {
+          "variant": "Secondary",
+          "label": "Call (512) 472-1116"
+        }
+      ],
+      "images": [
+        {
+          "src": "photos/xray-explain-smiling",
+          "w": 390,
+          "h": 451,
+          "pos": "62% 40%",
+          "crop": [
+            0,
+            0.03,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Section / Where We Are",
+      "title": "Right off MoPac",
+      "paras": [
+        {
+          "w": 700,
+          "t": "<span class=\"hl\">WHERE WE ARE</span>"
+        },
+        {
+          "w": 400,
+          "t": "West End Chiropractic is at 1611 W. 5th St., on the ground floor of 5th Street Commons, just off MoPac."
+        }
+      ],
+      "callouts": [
+        {
+          "title": "Free covered garage parking",
+          "text": "From Tarrytown, Old West Austin, or Bryker Woods, it's a short drive with no downtown parking hassle. The covered garage is free."
+        }
+      ],
+      "bullets": [
+        {
+          "icon": "map-pin",
+          "text": "1611 W. 5th St., STE 110, Austin, TX 78703"
+        }
+      ],
+      "cards": [
+        {
+          "icon": "map-pin",
+          "title": "West End Chiropractic",
+          "text": "5th Street Commons, ground floor"
+        }
+      ],
+      "buttons": [
+        {
+          "variant": "Primary",
+          "label": "Get directions"
+        },
+        {
+          "variant": "Secondary",
+          "label": "Call (512) 472-1116"
+        }
+      ],
+      "images": [
+        {
+          "src": "shared/office-map",
+          "w": 342,
+          "h": 300
+        }
+      ]
+    },
+    {
+      "name": "Section / Why It Works",
+      "title": "Easy on the way to anywhere",
+      "cards": [
+        {
+          "icon": "route",
+          "title": "On your commute",
+          "text": "If you take MoPac to work, we're right on the way. Stop in before work or on the way home."
+        },
+        {
+          "icon": "timer",
+          "title": "Quick visits",
+          "text": "Your first visit takes about 30 minutes. After that, most take a few minutes."
+        },
+        {
+          "icon": "calendar-check",
+          "title": "Same-day when you need it",
+          "text": "Same-day appointments are often available."
+        }
+      ]
+    },
+    {
+      "name": "Section / What We See",
+      "title": "What we see most",
+      "cards": [
+        {
+          "icon": "spine",
+          "title": "Lower Back Pain",
+          "text": "From desks, long commutes, and weekend workouts."
+        },
+        {
+          "icon": "laptop",
+          "title": "Neck Pain and Tech Neck",
+          "text": "Screens and laptops."
+        },
+        {
+          "icon": "sciatica",
+          "title": "Sciatica",
+          "text": "Pain running down a leg."
+        },
+        {
+          "icon": "hip-pain",
+          "title": "Hip Pain",
+          "text": "Often starting in the lower back."
+        }
+      ]
+    },
+    {
+      "name": "Section / Insurance",
+      "title": "Work at UT? You're covered here.",
+      "paras": [
+        {
+          "w": 700,
+          "t": "<span class=\"hl\">INSURANCE</span>"
+        },
+        {
+          "w": 400,
+          "t": "UT faculty and staff are on <strong>UT SELECT</strong>, a Blue Cross Blue Shield PPO, and West End is in-network. No referral needed."
+        },
+        {
+          "w": 400,
+          "t": "We're also in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. Send us your insurance info when you book and we'll look into your coverage before your first visit."
+        },
+        {
+          "w": 600,
+          "t": "University of Texas"
+        },
+        {
+          "w": 400,
+          "t": "Faculty and staff"
+        },
+        {
+          "w": 400,
+          "t": "<strong>UT SELECT</strong>  Blue Cross Blue Shield PPO"
+        },
+        {
+          "w": 600,
+          "t": "In-network"
+        },
+        {
+          "w": 600,
+          "t": "No referral"
+        },
+        {
+          "w": 700,
+          "t": "ALSO IN-NETWORK"
+        },
+        {
+          "w": 500,
+          "t": "BCBS"
+        },
+        {
+          "w": 500,
+          "t": "UnitedHealthcare"
+        },
+        {
+          "w": 500,
+          "t": "Aetna"
+        },
+        {
+          "w": 500,
+          "t": "Humana"
+        },
+        {
+          "w": 500,
+          "t": "Ambetter"
+        },
+        {
+          "w": 500,
+          "t": "Medicare"
+        },
+        {
+          "w": 500,
+          "t": "And more"
+        },
+        {
+          "w": 600,
+          "t": "<span class=\"hl\">See every plan we take</span>"
+        }
+      ],
+      "buttons": [
+        {
+          "variant": "Primary",
+          "label": "Verify My Insurance"
+        }
+      ]
+    },
+    {
+      "name": "Section / Reviews (sitewide widget)",
+      "title": "Patients who came in hurting. Now they don't.",
+      "buttons": [
+        {
+          "variant": "Primary",
+          "label": "Book Your Visit"
+        },
+        {
+          "variant": "Secondary",
+          "label": "See More Google reviews"
+        }
+      ]
+    },
+    {
+      "name": "Section / FAQ",
+      "title": "Common Questions",
+      "faqs": [
+        {
+          "q": "How far are you from MoPac?",
+          "a": "Right off it, at 5th Street."
+        },
+        {
+          "q": "Do you take UT SELECT?",
+          "a": "Yes. West End is in-network with UT SELECT, and it's a PPO, so you can book without a referral."
+        },
+        {
+          "q": "Is parking free?",
+          "a": "Yes. Free covered garage parking at 5th Street Commons."
+        },
+        {
+          "q": "How soon can I get in?",
+          "a": "Often the same day. Book online or call (512) 472-1116."
+        }
+      ],
+      "faqOpen": true
+    },
+    {
+      "name": "Section / CTA Band",
+      "title": "Right on your way",
+      "paras": [
+        {
+          "w": 400,
+          "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. Follow-up visits take a few minutes."
+        },
+        {
+          "w": 400,
+          "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
+        }
+      ],
+      "buttons": [
+        {
+          "variant": "Primary",
+          "label": "Book Your Visit"
+        },
+        {
+          "variant": "Secondary",
+          "label": "Call (512) 472-1116"
+        }
+      ],
+      "images": [
+        {
+          "src": "shared/cta-adjustment",
+          "w": 390,
+          "h": 808,
+          "pos": "86% 50%"
+        }
+      ]
     }
-   ],
-   "bullets": [
-    {
-     "icon": "route",
-     "text": "Just off MoPac"
-    },
-    {
-     "icon": "square-parking",
-     "text": "Free covered parking"
-    },
-    {
-     "icon": "trust-calendar",
-     "text": "Same-day appointments available"
-    }
-   ],
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Book Your Visit"
-    },
-    {
-     "variant": "Secondary",
-     "label": "Call (512) 472-1116"
-    }
-   ],
-   "images": [
-    {
-     "src": "photos/xray-explain-smiling",
-     "w": 390,
-     "h": 451,
-     "pos": "89% 50%",
-     "crop": [
-      0,
-      0,
-      1,
-      1
-     ]
-    }
-   ]
-  },
-  {
-   "name": "Section / Where We Are",
-   "title": "Right off MoPac",
-   "paras": [
-    {
-     "w": 700,
-     "t": "<span class=\"hl\">WHERE WE ARE</span>"
-    },
-    {
-     "w": 400,
-     "t": "West End Chiropractic is at 1611 W. 5th St., on the ground floor of 5th Street Commons, just off MoPac."
-    }
-   ],
-   "callouts": [
-    {
-     "title": "Free covered garage parking",
-     "text": "From Tarrytown, Old West Austin, or Bryker Woods, it's a short drive with no downtown parking hassle. The covered garage is free."
-    }
-   ],
-   "bullets": [
-    {
-     "icon": "map-pin",
-     "text": "1611 W. 5th St., STE 110, Austin, TX 78703"
-    }
-   ],
-   "cards": [
-    {
-     "icon": "map-pin",
-     "title": "West End Chiropractic",
-     "text": "5th Street Commons, ground floor"
-    }
-   ],
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Get directions"
-    },
-    {
-     "variant": "Secondary",
-     "label": "Call (512) 472-1116"
-    }
-   ],
-   "images": [
-    {
-     "src": "shared/office-map",
-     "w": 342,
-     "h": 300
-    }
-   ]
-  },
-  {
-   "name": "Section / Why It Works",
-   "title": "Easy on the way to anywhere",
-   "cards": [
-    {
-     "icon": "route",
-     "title": "On your commute",
-     "text": "If you take MoPac to work, we're right on the way. Stop in before work or on the way home."
-    },
-    {
-     "icon": "timer",
-     "title": "Quick visits",
-     "text": "Your first visit takes about 30 minutes. After that, most take a few minutes."
-    },
-    {
-     "icon": "calendar-check",
-     "title": "Same-day when you need it",
-     "text": "Same-day appointments are often available."
-    }
-   ]
-  },
-  {
-   "name": "Section / What We See",
-   "title": "What we see most",
-   "cards": [
-    {
-     "icon": "spine",
-     "title": "Lower Back Pain",
-     "text": "From desks, long commutes, and weekend workouts."
-    },
-    {
-     "icon": "laptop",
-     "title": "Neck Pain and Tech Neck",
-     "text": "Screens and laptops."
-    },
-    {
-     "icon": "sciatica",
-     "title": "Sciatica",
-     "text": "Pain running down a leg."
-    },
-    {
-     "icon": "hip-pain",
-     "title": "Hip Pain",
-     "text": "Often starting in the lower back."
-    }
-   ]
-  },
-  {
-   "name": "Section / Insurance",
-   "title": "Work at UT? You're covered here.",
-   "paras": [
-    {
-     "w": 700,
-     "t": "<span class=\"hl\">INSURANCE</span>"
-    },
-    {
-     "w": 400,
-     "t": "UT faculty and staff are on <strong>UT SELECT</strong>, a Blue Cross Blue Shield PPO, and West End is in-network. No referral needed."
-    },
-    {
-     "w": 400,
-     "t": "We're also in-network with BCBS, UnitedHealthcare, Aetna, Humana, Ambetter, Medicare, and more. Send us your insurance info when you book and we'll look into your coverage before your first visit."
-    },
-    {
-     "w": 600,
-     "t": "University of Texas"
-    },
-    {
-     "w": 400,
-     "t": "Faculty and staff"
-    },
-    {
-     "w": 400,
-     "t": "<strong>UT SELECT</strong>  Blue Cross Blue Shield PPO"
-    },
-    {
-     "w": 600,
-     "t": "In-network"
-    },
-    {
-     "w": 600,
-     "t": "No referral"
-    },
-    {
-     "w": 700,
-     "t": "ALSO IN-NETWORK"
-    },
-    {
-     "w": 500,
-     "t": "BCBS"
-    },
-    {
-     "w": 500,
-     "t": "UnitedHealthcare"
-    },
-    {
-     "w": 500,
-     "t": "Aetna"
-    },
-    {
-     "w": 500,
-     "t": "Humana"
-    },
-    {
-     "w": 500,
-     "t": "Ambetter"
-    },
-    {
-     "w": 500,
-     "t": "Medicare"
-    },
-    {
-     "w": 500,
-     "t": "And more"
-    },
-    {
-     "w": 600,
-     "t": "<span class=\"hl\">See every plan we take</span>"
-    }
-   ],
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Verify My Insurance"
-    }
-   ]
-  },
-  {
-   "name": "Section / Reviews (sitewide widget)",
-   "title": "Patients who came in hurting. Now they don't.",
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Book Your Visit"
-    },
-    {
-     "variant": "Secondary",
-     "label": "See More Google reviews"
-    }
-   ]
-  },
-  {
-   "name": "Section / FAQ",
-   "title": "Common Questions",
-   "faqs": [
-    {
-     "q": "How far are you from MoPac?",
-     "a": "Right off it, at 5th Street."
-    },
-    {
-     "q": "Do you take UT SELECT?",
-     "a": "Yes. West End is in-network with UT SELECT, and it's a PPO, so you can book without a referral."
-    },
-    {
-     "q": "Is parking free?",
-     "a": "Yes. Free covered garage parking at 5th Street Commons."
-    },
-    {
-     "q": "How soon can I get in?",
-     "a": "Often the same day. Book online or call (512) 472-1116."
-    }
-   ],
-   "faqOpen": true
-  },
-  {
-   "name": "Section / CTA Band",
-   "title": "Right on your way",
-   "paras": [
-    {
-     "w": 400,
-     "t": "Your first visit covers your exam, a consultation, and any necessary digital X-rays. Follow-up visits take a few minutes."
-    },
-    {
-     "w": 400,
-     "t": "1611 W. 5th St., just off MoPac. Free covered garage parking. Monday through Thursday."
-    }
-   ],
-   "buttons": [
-    {
-     "variant": "Primary",
-     "label": "Book Your Visit"
-    },
-    {
-     "variant": "Secondary",
-     "label": "Call (512) 472-1116"
-    }
-   ],
-   "images": [
-    {
-     "src": "shared/cta-adjustment",
-     "w": 390,
-     "h": 808,
-     "pos": "86% 50%"
-    }
-   ]
-  }
- ]
+  ]
 }
