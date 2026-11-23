@@ -7,13 +7,7 @@ import TopBar from '../components/layout/TopBar.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 
-interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  noindex?: boolean;
-  headerVariant?: 'overlay' | 'solid';
-}
+type Props = import('astro/types').ComponentProps<typeof BaseLayout> & { headerVariant?: 'overlay' | 'solid' };
 const { headerVariant = 'overlay', ...seo } = Astro.props;
 ---
 <BaseLayout {...seo}>

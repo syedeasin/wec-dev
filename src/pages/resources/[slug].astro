@@ -26,9 +26,9 @@ const pd = postData as PageData;
 const relSection = { ...pd.sections[4], cards: pd.sections[4].cards!.filter((c) => (fm.related ?? []).includes(c.title)) };
 const same = articles.filter((a) => a.slug !== slug && a.topic === fm.topic);
 const keep = (same.length > 4 ? same.filter((a) => a.slug !== 'herniated-vs-bulging-disc-mri') : same).slice(0, 4);
-const url = new URL(Astro.url.pathname, site.url).href;
-const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: fm.title, description: fm.description, datePublished: fm.date, dateModified: fm.date,
-  author: { '@type': 'Person', name: 'Casey Morgan', honorificSuffix: 'D.C.' }, publisher: { '@type': 'MedicalBusiness', name: site.name }, mainEntityOfPage: url };
+const url = new URL(Astro.url.pathname.replace(/\/?$/, '/'), site.url).href;
+const ld = { '@type': 'Article', '@id': `${url}#article`, headline: fm.title, description: fm.description, datePublished: fm.date, dateModified: fm.date, inLanguage: 'en-US',
+  author: { '@id': `${site.url}/#casey-morgan` }, publisher: { '@id': `${site.url}/#clinic` }, mainEntityOfPage: { '@id': `${url}#webpage` }, isPartOf: { '@id': `${site.url}/#website` } };
 const cta = pd.sections.at(-1)!;
 const html: string = await mod.compiledContent();
 const parts = html.split(/<div data-insert="(\w+)"><\/div>/);
@@ -50,8 +50,9 @@ const shares = [
   { icon: 'mail', label: 'Share by email', href: `mailto:?subject=${shareText}&body=${shareUrl}` },
 ];
 ---
-<SiteLayout title={`${fm.title} | West End Chiropractic`} description={fm.description} headerVariant="solid">
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+<SiteLayout title={`${fm.title} | West End Chiropractic`} description={fm.description} headerVariant="solid" image={hero} imageAlt={fm.title} ogType="article" schema={[ld]}>
+  <meta property="article:published_time" slot="head" content={fm.date} />
+  <meta property="article:author" slot="head" content={`${site.url}/about-dr-morgan/`} />
   <article>
     <header class="phead">
       <div class="container">
