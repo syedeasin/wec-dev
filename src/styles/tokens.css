@@ -121,7 +121,7 @@
 
   /* ---- Layout ---- */
   --gutter: 24px;          /* Figma mobile frame: 24px side padding */
-  --container: 1200px;     /* Figma 1440 frame: 1200 content width */
+  --container: 1200px;     /* Content width on every desktop size (1280, 1440, 1600, 1920…). Do not widen per breakpoint. */
   --container-narrow: 800px;
 
   /* ---- Radius ---- */
@@ -186,13 +186,13 @@
     --fs-quote: 24px; --lh-quote: 36px;
     --section-y: 100px;
     --nav-h: 120px;
+    --gutter: 40px;        /* 1280 − 2×40 = 1200, so every desktop width gets the full 1200 content box */
   }
 }
 
 /* Desktop ≥ 1680 (1920 reference) */
 @media (min-width: 1680px) {
   :root {
-    --container: 1600px;
     --fs-display: 56px;
     --fs-h1: 56px;
     --fs-h2: 44px;
